@@ -65,8 +65,10 @@
     <Compile Include="Assets\Source\EnumColor.cs" />
     <Compile Include="Assets\Source\BuildMagicCells.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Source\ClickHandler.cs" />
     <Compile Include="Assets\Source\Player.cs" />
     <Compile Include="Assets\Source\MagicColumn.cs" />
+    <Compile Include="Assets\Source\ObjectHideClicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3D Models\WizardPolyArt\Shader\PolyArtMaskTint.shader" />

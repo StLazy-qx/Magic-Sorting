@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class MagicCell : MonoBehaviour
 {
-
+    public void Disable()
+    {
+        gameObject.SetActive(false);
+    }
 }

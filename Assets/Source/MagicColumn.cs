@@ -33,12 +33,25 @@ public class MagicColumn : MonoBehaviour
             if (cell != null)
             {
                 cell.transform.localPosition = new Vector3(0, currentY, 0);
+                ClickHandler clickHandler = cell.GetComponent<ClickHandler>();
 
-                _cellsStack.Push(_cell);
+                if (clickHandler != null)
+                {
+                    clickHandler.OnClicked += OnCellClicked;
+                }
+
+                _cellsStack.Push(cell);
 
                 currentY += _prefabHeight;
             }
         }
+    }
+
+    private void OnCellClicked()
+    {
+        MagicCell topCell = _cellsStack.Pop();
+
+        topCell.Disable();
     }
 
     private float GetPrefabHeight()
