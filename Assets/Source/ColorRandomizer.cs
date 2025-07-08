@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ColorRandomizer : MonoBehaviour
 {
-    private const float AlphaValue = 0.90f;
+    private const float AlphaValue = 0.93f;
 
     private Renderer _renderer;
 
@@ -33,15 +33,6 @@ public class ColorRandomizer : MonoBehaviour
 
             case EnumColor.Yellow:
                 return new Color(1f, 1f, 0f, AlphaValue);
-
-            case EnumColor.Orange:
-                return new Color(1f, 0.5f, 0f, AlphaValue);
-
-            case EnumColor.Purple:
-                return new Color(0.5f, 0f, 0.5f, AlphaValue);
-
-            case EnumColor.Pink:
-                return new Color(1f, 0.75f, 0.8f, AlphaValue);
 
             default:
                 return new Color(1f, 1f, 1f, AlphaValue);

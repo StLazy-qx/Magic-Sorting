@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,43 +6,45 @@ public class MagicColumn : MonoBehaviour
     [SerializeField] private int _countCells;
     [SerializeField] private MagicCell _cell;
 
-    private List<MagicCell> _cells;
+    private Stack<MagicCell> _cellsStack;
+    private float _prefabHeight;
+    private float _distanceBetweenCells = 0.05f;
+
 
     private void Awake()
     {
-        _cells = new();
+        _cellsStack = new();
+        _prefabHeight = GetPrefabHeight();
     }
 
     void Start()
     {
-        _cells = Spawn(_countCells, transform.position, _cell);
+        Spawn();
     }
 
-    public List<MagicCell> Spawn(int count, Vector3 basePosition, MagicCell prefab)
+    public void Spawn()
     {
-        float currentY = basePosition.y;
-        float prefabHeight = GetPrefabHeight(prefab);
+        float currentY = transform.position.y;
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < _countCells; i++)
         {
-            Vector3 spawnPosition = new Vector3(basePosition.x,
-                currentY, basePosition.z);
-            MagicCell cell = Instantiate(prefab, spawnPosition, Quaternion.identity);
+            MagicCell cell = Instantiate(_cell, transform);
 
             if (cell != null)
             {
-                _cells.Add(cell);
-                currentY += prefabHeight;
+                cell.transform.localPosition = new Vector3(0, currentY, 0);
+
+                _cellsStack.Push(_cell);
+
+                currentY += _prefabHeight;
             }
         }
-
-        return _cells;
     }
 
-    private float GetPrefabHeight(MagicCell prefab)
+    private float GetPrefabHeight()
     {
-        Renderer renderer = prefab.GetComponentInChildren<Renderer>();
+        Renderer renderer = _cell.GetComponentInChildren<Renderer>();
 
-        return renderer.bounds.size.y + 0.05f;
+        return renderer.bounds.size.y + _distanceBetweenCells;
     }
 }
