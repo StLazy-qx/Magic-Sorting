@@ -1,0 +1,327 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.7f1 (b16b3b16c7a0) revision 11627323'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32604 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker9
+-projectPath
+F:/ST/Unity project/For Pyitochnaya/Magic-Sorting
+-logFile
+Logs/AssetImportWorker9.log
+-srvPort
+56579
+Successfully changed project path to: F:/ST/Unity project/For Pyitochnaya/Magic-Sorting
+F:/ST/Unity project/For Pyitochnaya/Magic-Sorting
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [15724] Host "[IP] 192.168.3.16 [Port] 0 [Flags] 2 [Guid] 3977511759 [EditorId] 3977511759 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [15724] Host "[IP] 192.168.3.16 [Port] 0 [Flags] 2 [Guid] 3977511759 [EditorId] 3977511759 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 17.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.7f1 (b16b3b16c7a0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/ST/Unity project/For Pyitochnaya/Magic-Sorting/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
+    Vendor:   NVIDIA
+    VRAM:     5966 MB
+    Driver:   32.0.15.7283
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.020085 seconds.
+- Loaded All Assemblies, in  0.510 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2257 ms
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.693 seconds
+Domain Reload Profiling: 3201ms
+	BeginReloadAssembly (152ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (91ms)
+	LoadAllAssembliesAndSetupDomain (204ms)
+		LoadAssemblies (151ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (200ms)
+			TypeCache.Refresh (198ms)
+				TypeCache.ScanAssembly (179ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2693ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2614ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2409ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (134ms)
+			ProcessInitializeOnLoadMethodAttributes (63ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image F:\ST\Unity project\For Pyitochnaya\Magic-Sorting\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image F:\ST\Unity project\For Pyitochnaya\Magic-Sorting\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.893 seconds
+Refreshing native plugins compatible for Editor in 8.18 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  0.798 seconds
+Domain Reload Profiling: 1688ms
+	BeginReloadAssembly (202ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (564ms)
+		LoadAssemblies (433ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (250ms)
+			TypeCache.Refresh (213ms)
+				TypeCache.ScanAssembly (189ms)
+			ScanForSourceGeneratedMonoScriptInfo (27ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (799ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (581ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (39ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (89ms)
+			ProcessInitializeOnLoadAttributes (411ms)
+			ProcessInitializeOnLoadMethodAttributes (27ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 13.15 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3839 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (67.0 KB). Loaded Objects now: 4293.
+Memory consumption went from 140.2 MB to 140.1 MB.
+Total: 7.219000 ms (FindLiveObjects: 0.514300 ms CreateObjectMapping: 0.277400 ms MarkObjects: 6.222300 ms  DeleteObjects: 0.203300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 60430.005149 seconds.
+  path: Assets/StylizedMagicPotion/Textures/MagicPotion_Albedo_with_Alpha4K.png
+  artifactKey: Guid(b07315b0a4e6d39429dc226f0b3e2e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StylizedMagicPotion/Textures/MagicPotion_Albedo_with_Alpha4K.png using Guid(b07315b0a4e6d39429dc226f0b3e2e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91b8d1adad15efeea809c9cd60fb4b00') in 0.133647 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/StylizedMagicPotion/Textures/MagicPotion_Roughness2K.png
+  artifactKey: Guid(1f052fd19a9280f48ab304b9126e7c3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StylizedMagicPotion/Textures/MagicPotion_Roughness2K.png using Guid(1f052fd19a9280f48ab304b9126e7c3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92bca96d6cd8f47d81ca0db942b6ff71') in 0.030228 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/StylizedMagicPotion/Textures/MagicPotion_Emissive2K.png
+  artifactKey: Guid(ec5ddea5722eb4d4fb4d4ac388414837) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StylizedMagicPotion/Textures/MagicPotion_Emissive2K.png using Guid(ec5ddea5722eb4d4fb4d4ac388414837) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e67f0a5f15f5b3bd4d760d060bd812f4') in 0.023565 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 128.304267 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION B.prefab
+  artifactKey: Guid(e53cd9b7f6ac44f3ebe9af3f0f302b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION B.prefab using Guid(e53cd9b7f6ac44f3ebe9af3f0f302b4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10eb47a71008efd2179e0972a4953366') in 0.681411 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 26
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION E.prefab
+  artifactKey: Guid(d4368066c6a114efe9bcb98e6cb1486d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION E.prefab using Guid(d4368066c6a114efe9bcb98e6cb1486d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6670ea5081c155cf54facb822d9251c') in 0.021926 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 26
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION D.prefab
+  artifactKey: Guid(093a44e6b1a384df88fabf2976ac0055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/3D PREFABS/GPVFX_POTION D.prefab using Guid(093a44e6b1a384df88fabf2976ac0055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '646388cb5f753216cf34db367eb6298c') in 0.021807 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 26
+========================================================================
+Received Import Request.
+  Time since last request: 1.159522 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion B_Fill.mat
+  artifactKey: Guid(ec15a7f470319407ba348eb79f6879fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion B_Fill.mat using Guid(ec15a7f470319407ba348eb79f6879fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7902473bb13e3f2e6a8aa4a6d39b6b54') in 0.036129 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion C_Fill.mat
+  artifactKey: Guid(c29de21f41603497c97dcf1376d27872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion C_Fill.mat using Guid(c29de21f41603497c97dcf1376d27872) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1d701b7b44f65b91708ea279c4034df') in 0.017209 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/Potion Glass.mat
+  artifactKey: Guid(9d2126d0d8d484781bf9fe54b03fe18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/Potion Glass.mat using Guid(9d2126d0d8d484781bf9fe54b03fe18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e40cfe231143c4894e1f1488cf8ef6fe') in 0.016029 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion E_Fill.mat
+  artifactKey: Guid(a8c9b52c691f448b59ae3b6653ad82d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS 3D_Materials/3d Potion E_Fill.mat using Guid(a8c9b52c691f448b59ae3b6653ad82d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '377b54320b060148887fc5166284f7bf') in 0.015593 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 1.233327 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION A.obj
+  artifactKey: Guid(2681d1ae61ffe4b0ab792259fa7cf760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION A.obj using Guid(2681d1ae61ffe4b0ab792259fa7cf760) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '208388a53bcf6e0536d8aebe326bc3bb') in 0.048352 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION C.obj
+  artifactKey: Guid(080a1d3ba1e9f4afb9b918750cfa323f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION C.obj using Guid(080a1d3ba1e9f4afb9b918750cfa323f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92004f9e9a0e3453e8992f8f4ba48bc9') in 0.032634 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION E.obj
+  artifactKey: Guid(ce93ea910d1da401981ca97860369446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS_Default/GPVFX_POTION E.obj using Guid(ce93ea910d1da401981ca97860369446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b90f166269247b69084e08cc4d28add') in 0.034001 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 1.464540 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS_Exploded/GPVFX_Potion B_Exploded.fbx
+  artifactKey: Guid(6e821627f600647b5b96efa822247e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS_Exploded/GPVFX_Potion B_Exploded.fbx using Guid(6e821627f600647b5b96efa822247e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18607017a38c0648b8d0f8bb81bce5d0') in 0.028119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GPVFX_POTIONS PACK/3D/POTIONS_Exploded/GPVFX_Potion D_Exploded.fbx
+  artifactKey: Guid(10476cfe09ae24a3599aabad8e153a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/3D/POTIONS_Exploded/GPVFX_Potion D_Exploded.fbx using Guid(10476cfe09ae24a3599aabad8e153a90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0322ebef23974f5c4968a413c43f099f') in 0.027742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 33.856787 seconds.
+  path: Assets/GPVFX_POTIONS PACK/TEMP/IMG_0440.JPG
+  artifactKey: Guid(bdd5053d444d94aaab2beadfda253dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GPVFX_POTIONS PACK/TEMP/IMG_0440.JPG using Guid(bdd5053d444d94aaab2beadfda253dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cf92892c4c5b4b5cc5580b8cb434cfd') in 0.029102 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: ќпераци€ ввода/вывода была прервана из-за завершени€ потока команд или по запросу приложени€.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

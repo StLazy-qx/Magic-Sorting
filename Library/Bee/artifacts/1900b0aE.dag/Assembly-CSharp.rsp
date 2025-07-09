@@ -381,7 +381,9 @@
 "Assets/Source/MagicCell.cs"
 "Assets/Source/MagicColumn.cs"
 "Assets/Source/ObjectHideClicker.cs"
+"Assets/Source/ObjectMover.cs"
 "Assets/Source/Player.cs"
+"Assets/Source/Rotator.cs"
 "Assets/Source/Vessel.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0

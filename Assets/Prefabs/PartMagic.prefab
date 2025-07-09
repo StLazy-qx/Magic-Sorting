@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6467629710438187908}
   - component: {fileID: 8180629085591809310}
   - component: {fileID: -7435659241170978185}
+  - component: {fileID: 5082832714308168207}
+  - component: {fileID: 5838288208845735209}
   m_Layer: 0
   m_Name: PartMagic
   m_TagString: Untagged
@@ -144,3 +146,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6602340bcb5df64f94645fb6770261b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5082832714308168207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062957087984008737}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3118e1a061f5ca9438abc91cd1f9a9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveDistance: 0
+  _durationMove: 0
+--- !u!114 &5838288208845735209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062957087984008737}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7e1f5d3f4c5f840b2e83c814eabfdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinSpeed: 0
