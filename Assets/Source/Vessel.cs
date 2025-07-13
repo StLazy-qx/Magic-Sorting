@@ -1,18 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Vessel : MonoBehaviour
+[RequireComponent(typeof(VesselAggregator))]
+
+public class Vessel : MonoBehaviour, IColorable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _liquid;
+
+    private Color _mainColor;
+    private VesselAggregator _aggregator;
+
+    public Color Color => _mainColor;
+
+    public event Action Completed;
+
+    private void Awake()
     {
-        
+        _aggregator = GetComponent<VesselAggregator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeMagic(MagicCell cell)
     {
-        
+        //сделать проверку на соответсвие цвета
+
+        if (_aggregator.IsFull)
+            Completed?.Invoke();
+
+        _aggregator.GrowUpVolume();
+    }
+
+    public void Init(Color color)
+    {
+        _mainColor = color;
+
+        Renderer renderer = _liquid.GetComponent<Renderer>();
+        renderer.material.color = _mainColor;
+    }
+
+    public void SetColor(Color color)
+    {
+        throw new NotImplementedException();
     }
 }
