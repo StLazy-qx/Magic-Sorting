@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,11 +6,13 @@ public class MagicColumn : MonoBehaviour
 {
     [SerializeField] private int _countCells;
     [SerializeField] private MagicCell _cell;
+    [SerializeField] private DistributerMagicCell _distributerMagic;
 
     private Stack<MagicCell> _cellsStack;
     private float _prefabHeight;
     private float _distanceBetweenCells = 0.05f;
 
+    public event Action CellDisplacing;
 
     private void Awake()
     {
@@ -49,9 +52,14 @@ public class MagicColumn : MonoBehaviour
 
     private void OnCellClicked()
     {
-        MagicCell topCell = _cellsStack.Pop();
+        if (_distributerMagic.IsCheckCellColor(_cellsStack.Peek()))
+        {
+            MagicCell topCell = _cellsStack.Pop();
 
-        topCell.Disable();
+            CellDisplacing?.Invoke();
+            _distributerMagic.DeliverMagicCell(topCell);
+            topCell.Disable();
+        }
     }
 
     private float GetPrefabHeight()

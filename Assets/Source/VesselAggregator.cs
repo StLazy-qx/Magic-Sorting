@@ -7,31 +7,25 @@ public class VesselAggregator : MonoBehaviour
 {
     [SerializeField] private Transform _internalVolume;
     [SerializeField] private Liquid _liquid;
-    [SerializeField] private int _maxSize;
-
-    private Vessel _vessel;
 
     private int _currentSize;
     private float _deltaSize;
     private Vector3 _initialBottomPoint;
+    private Vessel _vessel;
     //private Liquid _unitInstance;
 
-    public bool IsFull => _currentSize >= _maxSize;
+    public bool IsFull => _currentSize >= _vessel.Count;
 
     private void Awake()
     {
         _vessel = GetComponent<Vessel>();
-
         _currentSize = 0;
-        _deltaSize = _internalVolume.localScale.y / _maxSize;
+
+        _deltaSize = _internalVolume.localScale.y / _vessel.Count;
 
         Vector3 center = _internalVolume.position;
         float halfHeight = _internalVolume.localScale.y / 2f;
         _initialBottomPoint = center - new Vector3(0, halfHeight, 0);
-
-        //_unitInstance = Instantiate(_unitPrefab, transform);
-        //_unitInstance.SetColor(_vessel.Color);
-        //_unitInstance.gameObject.SetActive(false);
 
         Vector3 initialScale = new Vector3(
             _internalVolume.localScale.x,

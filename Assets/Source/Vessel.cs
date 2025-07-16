@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Vessel : MonoBehaviour, IColorable
 {
-    [SerializeField] private GameObject _liquid;
+    [SerializeField] private Liquid _liquid;
+    [SerializeField] private int _maxSize;
 
     private Color _mainColor;
     private VesselAggregator _aggregator;
 
+    public int Count => _maxSize;
     public Color Color => _mainColor;
+    public Liquid Liquid => _liquid;
 
     public event Action Completed;
 
@@ -21,7 +24,8 @@ public class Vessel : MonoBehaviour, IColorable
 
     public void TakeMagic(MagicCell cell)
     {
-        //сделать проверку на соответсвие цвета
+        if (cell == null)
+            return;
 
         if (_aggregator.IsFull)
             Completed?.Invoke();
@@ -29,16 +33,8 @@ public class Vessel : MonoBehaviour, IColorable
         _aggregator.GrowUpVolume();
     }
 
-    public void Init(Color color)
-    {
-        _mainColor = color;
-
-        Renderer renderer = _liquid.GetComponent<Renderer>();
-        renderer.material.color = _mainColor;
-    }
-
     public void SetColor(Color color)
     {
-        throw new NotImplementedException();
+        _mainColor = color;
     }
 }

@@ -2,9 +2,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 
-public class Liquid : MonoBehaviour 
+public class Liquid : MonoBehaviour, IColorable
 {
     private Renderer _renderer;
+
+    public Color Color => _renderer.material.color;
 
     private void Awake()
     {
@@ -16,5 +18,12 @@ public class Liquid : MonoBehaviour
         // проверка
 
         _renderer.material.color = color;
+
+        gameObject.SetActive(false);
+    }
+
+    public void Activated()
+    {
+        gameObject.SetActive(true);
     }
 }

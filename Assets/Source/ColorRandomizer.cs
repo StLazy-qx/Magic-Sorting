@@ -1,19 +1,9 @@
 using System;
 using UnityEngine;
 
-//[RequireComponent(typeof(Renderer))]
-
 public class ColorRandomizer : MonoBehaviour
 {
     private const float AlphaValue = 0.93f;
-
-    //private Renderer _renderer;
-
-    //private void Awake()
-    //{
-    //    _renderer = GetComponent<Renderer>();
-    //    _renderer.material.color = GenerateRandomColor();
-    //}
 
     public Color[] CreateOriginalArrayColor(int number)
     {

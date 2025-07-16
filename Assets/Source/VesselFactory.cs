@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class VesselFactory : MonoBehaviour
 {
-    [SerializeField] private int count = 3;
     [SerializeField] private Vessel _prefab;
+    [SerializeField] private DistributerMagicCell _distributerMagicCell;
     [SerializeField] private Transform[] _points;
 
     private ColorRandomizer _colorRandomizer;
     private List<Vessel> _vessels;
 
+    public IReadOnlyList<Vessel> Vessels => _vessels;
+
     private void Awake()
     {
         _colorRandomizer = GetComponent<ColorRandomizer>();
+        _vessels = new List<Vessel>();
     }
 
     private void Start()
@@ -21,25 +24,35 @@ public class VesselFactory : MonoBehaviour
         Create();
     }
 
-    private void Create()
+    //по другому назвать метод
+    public void Create()
     {
-        _vessels = new List<Vessel>();
-
-        Color[] colors = _colorRandomizer.CreateOriginalArrayColor(count);
-        int spawnCount = Mathf.Min(count, colors.Length, _points.Length);
-
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < _points.Length; i++)
         {
-            Debug.Log(colors[i]);
-
             Vessel vessel = Instantiate(
-                _prefab, 
-                _points[i].position, 
-                Quaternion.identity, 
-                _points[i]);
+                _prefab,
+                _points[i].position,
+                Quaternion.identity);
 
-            vessel.Init(colors[i]);
             _vessels.Add(vessel);
+        }
+
+        _distributerMagicCell.AcceptVesselsList(Vessels);
+        SetColor();
+    }
+
+    private void SetColor()
+    {
+        Color[] colors = _colorRandomizer.CreateOriginalArrayColor(_points.Length);
+
+        int j = 0;
+
+        foreach (var vessel in _vessels)
+        {
+            var marker = vessel.GetComponent<ColorMarker>();
+            marker.Init(colors[j]);
+
+            j++;
         }
     }
 }
