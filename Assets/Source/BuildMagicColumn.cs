@@ -9,6 +9,9 @@ public class BuildMagicColumn : MonoBehaviour
     private List<Color> _colors = new List<Color>();
     private Queue<Color> _mixedColors = new Queue<Color>();
 
+    public bool IsInitialized { get; private set; }
+    public int TotalColors => _colors.Count;
+
     public void AcceptVesselsList(IReadOnlyList<Vessel> vessels)
     {
         if (vessels == null)
@@ -27,6 +30,18 @@ public class BuildMagicColumn : MonoBehaviour
 
         GenerateColorList();
         ShuffleColors();
+
+        IsInitialized = true;
+    }
+
+    public Color? GetRandomColor()
+    {
+        if (_mixedColors.Count > 0)
+        {
+            return _mixedColors.Dequeue();
+        }
+
+        return null;
     }
 
     private void GenerateColorList()
@@ -44,14 +59,13 @@ public class BuildMagicColumn : MonoBehaviour
 
     private void ShuffleColors()
     {
-        int n = _colors.Count;
-
-        for (int i = 0; i < n - 1; i++)
+        for (int i = _colors.Count - 1; i > 0; i--)
         {
-            int r = UnityEngine.Random.Range(i, n);
-            Color temp = _colors[i];
-            _colors[i] = _colors[r];
-            _colors[r] = temp;
+            int randomNumber = UnityEngine.Random.Range(0, i + 1);
+
+            Color tempColor = _colors[i];
+            _colors[i] = _colors[randomNumber];
+            _colors[randomNumber] = tempColor;
         }
 
         _mixedColors.Clear();

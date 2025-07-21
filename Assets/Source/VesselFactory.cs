@@ -6,6 +6,7 @@ public class VesselFactory : MonoBehaviour
 {
     [SerializeField] private Vessel _prefab;
     [SerializeField] private DistributerMagicCell _distributerMagicCell;
+    [SerializeField] private BuildMagicColumn _buildMagicColumn;
     [SerializeField] private Transform[] _points;
 
     private ColorRandomizer _colorRandomizer;
@@ -17,12 +18,14 @@ public class VesselFactory : MonoBehaviour
     {
         _colorRandomizer = GetComponent<ColorRandomizer>();
         _vessels = new List<Vessel>();
-    }
 
-    private void Start()
-    {
         Create();
     }
+
+    //private void Start()
+    //{
+    //    Create();
+    //}
 
     //по другому назвать метод
     public void Create()
@@ -37,8 +40,10 @@ public class VesselFactory : MonoBehaviour
             _vessels.Add(vessel);
         }
 
-        _distributerMagicCell.AcceptVesselsList(Vessels);
         SetColor();
+
+        _distributerMagicCell.AcceptVesselsList(Vessels);
+        _buildMagicColumn.AcceptVesselsList(Vessels);
     }
 
     private void SetColor()
@@ -50,6 +55,7 @@ public class VesselFactory : MonoBehaviour
         foreach (var vessel in _vessels)
         {
             var marker = vessel.GetComponent<ColorMarker>();
+
             marker.Init(colors[j]);
 
             j++;

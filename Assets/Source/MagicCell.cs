@@ -13,8 +13,6 @@ public class MagicCell : MonoBehaviour, IColorable
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-
-        SetColor();
     }
 
     public void Disable()
@@ -22,13 +20,13 @@ public class MagicCell : MonoBehaviour, IColorable
         gameObject.SetActive(false);
     }
 
-    public void SetColor()
-    {
-        _renderer.material.color = _colorRandomizer.GenerateRandomColor();
-    }
+    //public void SetRandomColor()
+    //{
+    //    _renderer.material.color = _colorRandomizer.GenerateRandomColor();
+    //}
 
     public void SetColor(Color color)
     {
-        throw new System.NotImplementedException();
+        _renderer.material.color = color;
     }
 }
