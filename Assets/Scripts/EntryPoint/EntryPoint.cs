@@ -9,16 +9,16 @@ public class EntryPoint : MonoBehaviour
 
     private void Awake()
     {
-        _mobileSetter.Disable();
-        _PCSetter.Disable();
+        //_mobileSetter.Disable();
+        //_PCSetter.Disable();
 
-        if (YG2.envir.isMobile)
-        {
-            _mobileSetter.Enable();
-        }
-        else
-        {
-            _PCSetter.Enable();
-        }
+        //if (YG2.envir.isMobile)
+        //{
+        //    _mobileSetter.Enable();
+        //}
+        //else
+        //{
+        //    _PCSetter.Enable();
+        //}
     }
 }

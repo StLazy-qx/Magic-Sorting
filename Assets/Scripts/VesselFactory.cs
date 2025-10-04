@@ -30,7 +30,8 @@ public class VesselFactory : Factory<Vessel>
 
         if (SpawnPoints == null || SpawnPoints.Length == 0)
         {
-            Debug.LogWarning($"{name}: SpawnPoints пустые — сосуды будут созданы, но не заспавнены.");
+            Debug.LogWarning($"{name}: " +
+                $"SpawnPoints пустые — сосуды будут созданы, но не заспавнены.");
         }
 
         ClearList();
@@ -57,7 +58,8 @@ public class VesselFactory : Factory<Vessel>
 
     private void OnReplaceVessel(Vector3 position)
     {
-        Vessel newVessel = Objects.FirstOrDefault(vessel => vessel.IsFilled == false && vessel.gameObject.activeSelf == false);
+        Vessel newVessel = Objects.FirstOrDefault(
+            vessel => vessel.IsFilled == false && vessel.gameObject.activeSelf == false);
 
         if (newVessel == null)
             return;
@@ -94,7 +96,8 @@ public class VesselFactory : Factory<Vessel>
 
         if (Objects.Count > countColors)
         {
-            Color[] pointColors = _colorRandomizer.CrateArrayColors(Mathf.Min(countColors, SpawnPoints.Length));
+            Color[] pointColors = _colorRandomizer.
+                CrateArrayColors(Mathf.Min(countColors, SpawnPoints.Length));
 
             for (int i = 0; i < Mathf.Min(SpawnPoints.Length, Objects.Count); i++)
             {

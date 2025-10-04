@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildMagicColumn : MonoBehaviour
 {
+    [SerializeField] private ParticlePool _particlePool;
+
     private IReadOnlyList<Vessel> _vessels;
     private List<Color> _colors = new List<Color>();
     private Queue<Color> _mixedColors = new Queue<Color>();
@@ -68,6 +70,9 @@ public class BuildMagicColumn : MonoBehaviour
                 _colors.Add(vessel.Color);
             }
         }
+
+        // пока метод здесь для проверки но изменить место
+        _particlePool.Initialize(TotalColors);
     }
 
     private void ShuffleColors()

@@ -9,11 +9,11 @@ public class ColumnsFactory : Factory<MagicColumn>
     {
         ClearList();
 
-        int currentCountSpawnPoints = CalculateSpawnPointsToUse();
+        int countSpawnPoints = CalculateSpawnPointsToUse();
         int cellsPerColumn = Mathf.Max(1,
-            _buildMagicColumn.TotalColors / currentCountSpawnPoints);
+            _buildMagicColumn.TotalColors / countSpawnPoints);
 
-        for (int i = 0; i < currentCountSpawnPoints; i++)
+        for (int i = 0; i < countSpawnPoints; i++)
         {
             Transform point = SpawnPoints[i];
             MagicColumn columnInstance = Instantiate(Prefab,

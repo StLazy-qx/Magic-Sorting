@@ -1,7 +1,9 @@
 using System;
+using YG;
 
 public class Wallet
 {
+    private int _leadboardScore;
     private int _confirmedScore;
     private int _currentScore;
 
@@ -37,12 +39,15 @@ public class Wallet
 
     public void ConfirmPoints()
     {
+        _leadboardScore += _currentScore;
         _confirmedScore += _currentScore;
         _currentScore = 0;
 
         TotalScoreChanged?.Invoke(_confirmedScore);
         CurrentScoreChanged?.Invoke(_currentScore);
         TableScoreChanged?.Invoke(_currentScore);
+
+        YG2.SetLeaderboard("MainLeaderboard", _leadboardScore);
     }
 
     public void Reset()

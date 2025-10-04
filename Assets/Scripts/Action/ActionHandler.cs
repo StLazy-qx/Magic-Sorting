@@ -5,8 +5,8 @@ public class ActionHandler : MonoBehaviour
 {
     [SerializeField] private MagicianAnimator _animator;
     [SerializeField] private SoundPlayer _soundPlayer;
-    [SerializeField] private ParticleSystem _particlePrefab;
     [SerializeField] private MagicCellRouter _cellRouter;
+    [SerializeField] private ParticlePool _particlePool;
     [SerializeField] private float _moveDuration = 1f;
 
     private void OnEnable()
@@ -29,10 +29,13 @@ public class ActionHandler : MonoBehaviour
 
     private IEnumerator MoveParticle(Vector3 beginPosition, Vector3 targetPosition, Color color)
     {
-        ParticleSystem particle = Instantiate(
-            _particlePrefab, 
-            beginPosition, 
-            Quaternion.identity);
+        ParticleSystem particle = _particlePool.Get();
+
+        if (particle == null)
+            yield break;
+
+        particle.transform.position = beginPosition;
+        particle.transform.rotation = Quaternion.identity;
 
         ParticleSystem.MainModule main = particle.main;
         main.startColor = color;
