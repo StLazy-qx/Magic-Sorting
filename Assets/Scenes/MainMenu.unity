@@ -4021,7 +4021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &420349881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10333,6 +10333,7 @@ GameObject:
   - component: {fileID: 1091123171}
   - component: {fileID: 1091123170}
   - component: {fileID: 1091123169}
+  - component: {fileID: 1091123172}
   m_Layer: 5
   m_Name: LanguageSettingPanel
   m_TagString: Untagged
@@ -10414,6 +10415,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091123167}
   m_CullTransparentMesh: 1
+--- !u!114 &1091123172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091123167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8dd38a585bb8be408475ef99fe11678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _englishButton: {fileID: 508001469}
+  _russianButton: {fileID: 1498497006}
+  _turkishButton: {fileID: 457753204}
+  _selectedColor: {r: 0.2784314, g: 0.42352942, b: 0.94509804, a: 1}
 --- !u!1 &1111196924
 GameObject:
   m_ObjectHideFlags: 0
@@ -13433,7 +13450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1379001712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20134,6 +20151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd38a585bb8be408475ef99fe11678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _englishButton: {fileID: 102397660}
+  _russianButton: {fileID: 851454220}
+  _turkishButton: {fileID: 1727654152}
+  _selectedColor: {r: 0.2784314, g: 0.42352942, b: 0.94509804, a: 0}
 --- !u!1 &1941373993
 GameObject:
   m_ObjectHideFlags: 0

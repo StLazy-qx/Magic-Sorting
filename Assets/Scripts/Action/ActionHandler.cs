@@ -40,6 +40,17 @@ public class ActionHandler : MonoBehaviour
         ParticleSystem.MainModule main = particle.main;
         main.startColor = color;
 
+        ParticleSystem[] childParticles = particle.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem childParticle in childParticles)
+        {
+            if (childParticle != particle)
+            {
+                ParticleSystem.MainModule childMain = childParticle.main;
+                childMain.startColor = color;
+            }
+        }
+
         particle.Play();
 
         float elapsed = 0f;

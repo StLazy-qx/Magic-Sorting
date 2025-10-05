@@ -63,16 +63,16 @@
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenUnityEditorUtil.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\SceneParentAutomaticLoader.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ObjectGraphVisualizer.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\EditorWindow\ZenjectEditorWindow.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\UnityInspectorListEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\ProjectContextEditor.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\EditorStaticInstaller.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneDecoratorContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\ContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\RunnableContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\GameObjectContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\SceneParentLoading\DefaultSceneContractConfig.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\EditorWindow\ZenjectEditorWindow.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\UnityInspectorListEditor.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneContextEditor.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Editor\Editors\SceneDecoratorContextEditor.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Editor\ZenMenuItems.cs" />
   </ItemGroup>
   <ItemGroup>

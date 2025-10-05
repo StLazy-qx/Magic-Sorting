@@ -13,7 +13,7 @@ public class ParticlePool : MonoBehaviour
         if (count <= 0)
             return;
 
-        Debug.Log(count);
+        //как изменить код ниже
 
         _container = new GameObject("ParticlePool").transform;
         _container.SetParent(transform);
