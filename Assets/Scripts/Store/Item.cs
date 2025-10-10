@@ -7,4 +7,15 @@ public class Item : MonoBehaviour
 
     public int Price => _price;
     public Texture Texture => _texture;
+    public bool IsBuyed { get; private set; }
+
+    private void Awake()
+    {
+        IsBuyed = false;
+    }
+
+    public void Buy()
+    {
+        IsBuyed = true;
+    }
 }

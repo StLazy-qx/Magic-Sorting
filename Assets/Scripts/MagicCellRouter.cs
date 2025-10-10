@@ -9,6 +9,7 @@ public class MagicCellRouter : MonoBehaviour
     private IReadOnlyList<Vessel> _vessels;
 
     public event Action<Vector3, Vector3, Color> CellDelivering;
+    //public bool IsReady { get; private set; }
 
     public void DeliverMagicCell(MagicCell cell)
     {
@@ -46,7 +47,7 @@ public class MagicCellRouter : MonoBehaviour
         }
     }
 
-    public void AcceptVesselsList(IReadOnlyList<Vessel> vessels)
+    public void Initialize(IReadOnlyList<Vessel> vessels)
     {
         if (vessels == null)
         {

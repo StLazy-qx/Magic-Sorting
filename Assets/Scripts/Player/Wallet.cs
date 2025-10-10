@@ -47,6 +47,7 @@ public class Wallet
         CurrentScoreChanged?.Invoke(_currentScore);
         TableScoreChanged?.Invoke(_currentScore);
 
+        //проверить название таблицы
         YG2.SetLeaderboard("MainLeaderboard", _leadboardScore);
     }
 

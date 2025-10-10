@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class MagicCellsStackHandler : MonoBehaviour
 {
-    private readonly MagicCellsFactory _factory;
-    private readonly MagicCellRouter _cellRouter;
-    private readonly BuildMagicColumn _colorSource;
-    private readonly Transform _parent;
-    private readonly float _prefabHeight;
+    private MagicCellsFactory _factory;
+    private MagicCellRouter _cellRouter;
+    private ColumnColorDistributor _colorSource;
+    private Transform _parent;
+    private float _prefabHeight;
 
     private readonly Stack<MagicCell> _cellsStack = new();
 
-    //public event Action<Vector3> CellDisplacing;
-
-    public MagicCellsStackHandler(
+    public void Initialize(
         MagicCellsFactory factory,
         MagicCellRouter cellRouter,
-        BuildMagicColumn colorSource,
+        ColumnColorDistributor colorSource,
         Transform parent,
         float prefabHeight)
     {

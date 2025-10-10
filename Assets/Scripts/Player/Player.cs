@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 using YG;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour 
 {
@@ -10,10 +11,10 @@ public class Player : MonoBehaviour
     private Material _materialInstance;
     private Wallet _wallet;
     private string _playerID;
+    private List<Item> _items;
 
     public Wallet PlayerWallet => _wallet;
     public string PlayerID => _playerID;
-    public int TableScore { get; private set; }
 
     private void Awake()
     {
@@ -29,11 +30,31 @@ public class Player : MonoBehaviour
         _wallet = walletl;
     }
 
-    public void SetTexture(Texture texture)
+    public void AddItem(Item item)
     {
-        if (_materialInstance == null || texture == null)
+        if (item == null)
             return;
 
+        //if (_items.Contains(item))
+        //    return;
+
+        _items.Add(item);
+
+        if (IsCloth(item))
+            SetTexture(item);
+    }
+
+    private bool IsCloth(Item item)
+    {
+        return item is Cloth;
+    }
+
+    private void SetTexture(Item item)
+    {
+        if (_materialInstance == null || item.Texture == null)
+            return;
+
+        Texture texture = item.Texture;
         _currentTexture = texture;
         _materialInstance.SetTexture("_MainTex", _currentTexture);
     }

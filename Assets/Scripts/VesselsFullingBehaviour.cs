@@ -5,13 +5,16 @@ using Zenject;
 
 public class VesselsFullingBehaviour : MonoBehaviour
 {
+    private const float TimeEndSession = 1.7f;
+
     [SerializeField] private Panel _gamePanel;
     [SerializeField] private FinalGameSession _finalGame;
-    [SerializeField] private ParticleSystem _particlePrefab;
+    [SerializeField] private ParticlePool _particlePool;
 
     private Wallet _wallet;
     private int _veselsCount;
     private IReadOnlyList<Vessel> _vessels;
+    private WaitForSeconds _waitForEndSession = new(TimeEndSession);
 
     private void OnDestroy()
     {
@@ -25,12 +28,14 @@ public class VesselsFullingBehaviour : MonoBehaviour
         _wallet = wallet;
     }
 
-    public void Init(IReadOnlyList<Vessel> vessels)
+    public void Initialize(IReadOnlyList<Vessel> vessels)
     {
         _vessels = vessels;
 
         foreach (Vessel vessel in _vessels)
             vessel.ScoreUpdated += OnPerfomeEffectCoroutine;
+
+        _particlePool.Initialize(vessels.Count);
     }
 
     private void OnPerfomeEffectCoroutine(Vector3 position, int value, Color color)
@@ -41,17 +46,15 @@ public class VesselsFullingBehaviour : MonoBehaviour
     //волшебные числа и поработать с ответсвенностью
     private IEnumerator OnPerfomeEffect(Vector3 position, int value, Color color)
     {
-        ParticleSystem particle = Instantiate(
-            _particlePrefab,
-            new Vector3(position.x, position.y - 0.3f, position.z),
-            Quaternion.Euler(-90f,0f,0f));
+        ParticleSystem particle = _particlePool.Get();
 
+        particle.transform.position = new Vector3(position.x, position.y - 0.3f, position.z);
         ParticleSystem.MainModule main = particle.main;
         main.startColor = color;
 
         particle.Play();
 
-        yield return new WaitForSeconds(1.7f);
+        yield return _waitForEndSession;
 
         OnAddPoints(value);
     }

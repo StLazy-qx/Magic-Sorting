@@ -6,8 +6,7 @@ using UnityEngine.UI;
 //изменить название
 public class StoreUISelector : MonoBehaviour
 {
-    [SerializeField] private Transform _scrollContent;
-    [SerializeField] private TMP_Text _priceItemText;
+    [SerializeField] private Item[] _scrollContent;
     [SerializeField] private Color _selectItemColor;
     [SerializeField] private Player _player;
     [SerializeField] private Button _buyButton;
@@ -18,19 +17,16 @@ public class StoreUISelector : MonoBehaviour
 
     private void Awake()
     {
-        int price = 0;
         _playerWallet = _player.PlayerWallet;
 
         _storeItems.Clear();
 
-        foreach (Transform item in _scrollContent)
+        foreach (Item item in _scrollContent)
         {
             Button itemButton = item.GetComponent<Button>();
 
             if (itemButton != null)
-                _storeItems.Add(itemButton, price);
-
-            price += 300;
+                _storeItems.Add(itemButton, item.Price);
         }
     }
 
@@ -41,7 +37,7 @@ public class StoreUISelector : MonoBehaviour
             Button button = item.Key;
             int price = item.Value;
 
-            button.onClick.AddListener(() => OnItemsSelect(button, price));
+            button.onClick.AddListener(() => OnItemsSelect(button));
         }
 
         _buyButton.onClick.AddListener(OnBuyItem);
@@ -54,15 +50,16 @@ public class StoreUISelector : MonoBehaviour
             Button button = item.Key;
             int price = item.Value;
 
-            button.onClick.RemoveListener(() => OnItemsSelect(button, price));
+            //изменить вид подписки/отписка от лямбда выражений
+            button.onClick.RemoveAllListeners();
         }
 
         _buyButton.onClick.RemoveListener(OnBuyItem);
     }
 
-    private void OnItemsSelect(Button button, int price)
+    private void OnItemsSelect(Button button)
     {
-        _priceItemText.text = price.ToString();
+        //выделять выделенный предмет
         _selectedButton = button;
     }
 
@@ -72,11 +69,10 @@ public class StoreUISelector : MonoBehaviour
             return;
 
         Item item = _selectedButton.GetComponent<Item>();
-        Texture texture = item.Texture;
 
-        if (texture != null && CanBuyItem(_playerWallet.TotalScore))
+        if (CanBuyItem(_playerWallet.TotalScore))
         {
-            _player.SetTexture(texture);
+            _player.AddItem(item);
             _playerWallet.BuyItem(_storeItems[_selectedButton]);
         }
     }
