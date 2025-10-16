@@ -410,13 +410,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mobileCanvas: {fileID: 0}
-  _canvasPC: {fileID: 0}
+  _desktopCanvas: {fileID: 0}
+  _mainCamera: {fileID: 0}
+  _mobileCameraPosition: {x: 0, y: 0, z: 0}
+  _mobileCameraRotation: {x: 0, y: 0, z: 0}
+  _pcCameraPosition: {x: 0, y: 0, z: 0}
+  _pcCameraRotation: {x: 0, y: 0, z: 0}
   _player: {fileID: 0}
+  _columnsFactory: {fileID: 0}
   _vesselFactory: {fileID: 0}
   _gameHandler: {fileID: 0}
-  _magicCellRouter: {fileID: 0}
-  _magicColumnBuilder: {fileID: 0}
   _vesselsFulling: {fileID: 0}
+  _finalGameSession: {fileID: 0}
 --- !u!1 &74214564
 GameObject:
   m_ObjectHideFlags: 0
@@ -8686,7 +8691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07700001, y: 0.027518522}
   m_AnchorMax: {x: 0.34079164, y: 0.18214816}
-  m_AnchoredPosition: {x: 2, y: -0.2999878}
+  m_AnchoredPosition: {x: 2, y: -0.29992676}
   m_SizeDelta: {x: -6, y: -7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &961059534
@@ -13343,7 +13348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37148052, y: 0.46300003}
   m_AnchorMax: {x: 0.6261629, y: 0.60200006}
-  m_AnchoredPosition: {x: 2, y: 0.20000076}
+  m_AnchoredPosition: {x: 2, y: 0.19999695}
   m_SizeDelta: {x: -7, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344165610

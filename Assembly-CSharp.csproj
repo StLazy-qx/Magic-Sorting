@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
-    <Compile Include="Assets\Scripts\UI\CanvasPCSetter.cs" />
     <Compile Include="Assets\Scripts\UI\FinalMatchPanel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_info.cs" />
     <Compile Include="Assets\Scripts\Action\VesselDisabledEffector.cs" />
@@ -118,6 +117,7 @@
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yndexPlatform.cs" />
+    <Compile Include="Assets\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Scripts\Action\ActionHandler.cs" />
     <Compile Include="Assets\Scripts\ColorMarker.cs" />
@@ -133,6 +133,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\UI\CanvasDesktopSetter.cs" />
     <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\ConsumePurchasesYG.cs" />
     <Compile Include="Assets\Scripts\LevelCreater.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreItemSelector.cs" />
     <Compile Include="Assets\Scripts\UI\ExitButton.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
@@ -188,7 +190,6 @@
     <Compile Include="Assets\Scripts\DifficultySettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\Review_interface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\Scripts\EntryPoint\Store.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />
@@ -267,6 +268,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yandexPlatform.cs" />
     <Compile Include="Assets\IgniteCoders\Simple Water Shader\Resources\WaterReflection.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yg.cs" />
+    <Compile Include="Assets\Scripts\UI\MuteButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yg.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\EntryPointMainMenu.cs" />
@@ -344,7 +346,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_projectSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\Scripts\UI\StoreUISelector.cs" />
+    <Compile Include="Assets\Scripts\Store.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_yg.cs" />
     <Compile Include="Assets\Scripts\Audio\AmbientAudioPlayer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Example\Scripts\ReceivingPurchaseExample.cs" />

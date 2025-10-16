@@ -3,39 +3,43 @@ using UnityEngine;
 
 public class FinalGameSession : MonoBehaviour
 {
-    [SerializeField] private Panel _finalMatchPanel;
+    [SerializeField] private Panel _finalMatchPanelDesctop;
+    [SerializeField] private Panel _finalMatchPanelMobile;
+    [SerializeField] private GameHandler _gameHandler;
+
+    private Panel _currentPanel;
 
     public event Action<int> RoundChanged;
 
-    public int CurrentRound { get; private set; } = 1;
+    public int CurrentRound { get; private set; }
 
-    // помен€ть название метода
+    public void UseDesctopPanel()
+    {
+        _currentPanel = _finalMatchPanelDesctop;
+    }
+
+    public void UseMobilePanel()
+    {
+        _currentPanel = _finalMatchPanelMobile;
+    }
+
     public void ActivateFinalPanelAndPauseGame()
     {
-        if (_finalMatchPanel == null)
-        {
-            Debug.LogError("FinalMatchPanel is not assigned in the inspector!", this);
-
+        if (_gameHandler == null)
             return;
-        }
 
-        _finalMatchPanel.Open();
+        _gameHandler.PauseGame();
+        _currentPanel.Open();
         IncreaseRound();
-
-        Time.timeScale = 0f; // ввести переменные
     }
 
     public void DeactivateFinalPanelAndResumeGame()
     {
-        if (_finalMatchPanel == null)
-        {
-            Debug.LogError("FinalMatchPanel is not assigned in the inspector!", this);
-
+        if (_gameHandler == null)
             return;
-        }
 
-        _finalMatchPanel.Close();
-        Time.timeScale = 1f;
+        _currentPanel.Close();
+        _gameHandler.ContinueGame();
     }
 
     private void IncreaseRound()

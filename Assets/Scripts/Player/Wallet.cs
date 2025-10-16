@@ -57,4 +57,12 @@ public class Wallet
 
         CurrentScoreChanged?.Invoke(_currentScore);
     }
+
+     public bool CanAfford(int value)
+    {
+        if (value <= 0)
+            return false;
+
+        return TotalScore >= value;
+    }
 }

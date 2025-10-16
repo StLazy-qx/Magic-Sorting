@@ -6,38 +6,7 @@ public class ButtonNewRoundBeginner : BaseMenuButton
         {
             CurrentPanel?.Close();
             TargetPanel?.Open();
-            GameHandler.BegintNewRound();
+            GameHandler.BeginNewRound();
         }
     }
-
-    //[SerializeField] private GameHandler _gameHandler;
-    //[SerializeField] private Panel _currentPanel;
-    //[SerializeField] private Panel _targetPanel;
-    //[SerializeField] private Button _button;
-
-    //private void OnEnable()
-    //{
-    //    if (_button != null)
-    //    {
-    //        _button.onClick.AddListener(OnButtonClick);
-    //    }
-    //}
-
-    //private void OnDisable()
-    //{
-    //    if (_button != null)
-    //    {
-    //        _button.onClick.RemoveListener(OnButtonClick);
-    //    }
-    //}
-
-    //private void OnButtonClick()
-    //{
-    //    if (_gameHandler != null)
-    //    {
-    //        _currentPanel.Close();
-    //        _targetPanel.Open();
-    //        _gameHandler.BegintNewRound();
-    //    }
-    //}
 }

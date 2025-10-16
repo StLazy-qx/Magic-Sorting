@@ -347,7 +347,6 @@ GameObject:
   - component: {fileID: 1568123885071470448}
   - component: {fileID: 6022674453398985754}
   - component: {fileID: 983611703838205289}
-  - component: {fileID: 7594362756522480586}
   m_Layer: 0
   m_Name: Vessel
   m_TagString: Untagged
@@ -402,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _liquid: {fileID: 5760919888768954542}
-  _playerVFX: {fileID: 7594362756522480586}
   _maxSize: 5
   _points: 100
 --- !u!114 &983611703838205289
@@ -419,19 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vessel: {fileID: 6022674453398985754}
   _flag: {fileID: 8917719976895528804}
---- !u!114 &7594362756522480586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849995967529546710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac88e4713b55ee1429a4acc19f7a2512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactEffect: {fileID: 2062644683563157159}
 --- !u!1 &4275581809591085073
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,12 +846,6 @@ PrefabInstance:
 --- !u!4 &2062644683544806375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8791802859087233161, guid: ae07f2a45f14a82428409cfe410e6002,
-    type: 3}
-  m_PrefabInstance: {fileID: 7394134847316411246}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2062644683563157159 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8791802859067835849, guid: ae07f2a45f14a82428409cfe410e6002,
     type: 3}
   m_PrefabInstance: {fileID: 7394134847316411246}
   m_PrefabAsset: {fileID: 0}

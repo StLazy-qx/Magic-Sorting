@@ -9,8 +9,6 @@ public class MagicianAnimator : MonoBehaviour
 
     private Animator _animator;
 
-    public event Action InteractAnimating;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();

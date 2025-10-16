@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CanvasPCSetter : MonoBehaviour
+public class CanvasDesktopSetter : MonoBehaviour
 {
     public bool IsActive => gameObject.activeSelf;
 

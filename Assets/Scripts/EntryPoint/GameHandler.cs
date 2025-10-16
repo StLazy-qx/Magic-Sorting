@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,7 @@ public class GameHandler : MonoBehaviour
     private DifficultyState _difficultyState;
 
     public event Action<bool> PauseStateChanged;
+    public event Action GameClosed;
 
     [Inject]
     private void Construct(Wallet wallet, DifficultyState difficultyState)
@@ -37,18 +39,16 @@ public class GameHandler : MonoBehaviour
         PauseStateChanged?.Invoke(true);
     }
 
-    public void BegintNewRound()
+    public void BeginNewRound()
     {
         ContinueGame();
-
-        _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
-        _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
         _wallet.Reset();
+        StartCoroutine(StartNewRoundRoutine());
     }
 
     public void IncreaseDifficultyLevel()
     {
-        Time.timeScale = GameResume;
+        ContinueGame();
 
         DifficultyLevel current = _difficultyState.CurrentDifficulty;
         DifficultyLevel newLevel = GetIncreasedDifficulty(current);
@@ -56,31 +56,36 @@ public class GameHandler : MonoBehaviour
         if (newLevel != current)
             _difficultyState.SetDifficulty(newLevel);
 
-        _vesselFactory.ResetFactory(newLevel);
-        _columnsFactory.ResetFactory(newLevel);
+        ResetFactories();
         _wallet.Reset();
+        StartCoroutine(StartNewRoundRoutine());
     }
 
     public void ResumeGame()
-    {
-        ContinueGame();
-        _sceneLoader.LoadSceneByIndex(GameSessionIndex);
-    }
+        => NavigateScene(GameSessionIndex);
 
     public void OpenMainMenu()
-    {
-        PauseGame();
-        _sceneLoader.LoadSceneByIndex(MainMenuIndex);
-    }
+        => NavigateScene(MainMenuIndex, true);
 
     public void QuitGame()
     {
-        Debug.Log("Выход из игры...");
+        GameClosed?.Invoke();
 
-        Time.timeScale = GamePause;
+        Application.Quit();
+    }
 
-        //здесь выход из игры
-        //Application.Quit();
+    private IEnumerator StartNewRoundRoutine()
+    {
+        _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+        _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+
+        yield return new WaitUntil(() => _vesselFactory.IsReady);
+
+        if (_vesselFactory.Objects != null &&
+            _vesselFactory.Objects.Count > 0)
+        {
+            _columnsFactory.Initialize(_vesselFactory.Objects);
+        }
     }
 
     private DifficultyLevel GetIncreasedDifficulty(DifficultyLevel current)
@@ -95,5 +100,21 @@ public class GameHandler : MonoBehaviour
                 return DifficultyLevel.Hard;
             default: return current;
         }
+    }
+
+    private void ResetFactories()
+    {
+        _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+        _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+    }
+
+    private void NavigateScene(int sceneIndex, bool isPause = false)
+    {
+        if (isPause)
+            PauseGame();
+        else
+            ContinueGame();
+
+        _sceneLoader.LoadSceneByIndex(sceneIndex);
     }
 }

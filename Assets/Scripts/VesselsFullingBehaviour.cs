@@ -7,11 +7,13 @@ public class VesselsFullingBehaviour : MonoBehaviour
 {
     private const float TimeEndSession = 1.7f;
 
-    [SerializeField] private Panel _gamePanel;
+    [SerializeField] private Panel _finalMatchPanelDesctop;
+    [SerializeField] private Panel _finalMatchPanelMobile;
     [SerializeField] private FinalGameSession _finalGame;
     [SerializeField] private ParticlePool _particlePool;
 
     private Wallet _wallet;
+    private Panel _currentPanel;
     private int _veselsCount;
     private IReadOnlyList<Vessel> _vessels;
     private WaitForSeconds _waitForEndSession = new(TimeEndSession);
@@ -36,6 +38,16 @@ public class VesselsFullingBehaviour : MonoBehaviour
             vessel.ScoreUpdated += OnPerfomeEffectCoroutine;
 
         _particlePool.Initialize(vessels.Count);
+    }
+
+    public void UseDesctopPanel()
+    {
+        _currentPanel = _finalMatchPanelDesctop;
+    }
+
+    public void UseMobilePanel()
+    {
+        _currentPanel = _finalMatchPanelMobile;
     }
 
     private void OnPerfomeEffectCoroutine(Vector3 position, int value, Color color)
@@ -68,7 +80,7 @@ public class VesselsFullingBehaviour : MonoBehaviour
         if (_veselsCount == _vessels.Count)
         {
             _wallet.ConfirmPoints();
-            _gamePanel.Close();
+            _currentPanel.Close();
             _finalGame.ActivateFinalPanelAndPauseGame();
 
             _veselsCount = 0;

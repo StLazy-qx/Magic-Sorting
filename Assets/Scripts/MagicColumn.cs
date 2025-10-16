@@ -41,8 +41,6 @@ public class MagicColumn : MonoBehaviour, IInteractable
     {
         _prefabHeight = _factory.GetCellHeight() + _distanceBetweenCells;
 
-        _stackHandler = new MagicCellsStackHandler();
-
         _stackHandler.Initialize(
             _factory,
             _cellRouter,

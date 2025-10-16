@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ColumnColorDistributor : MonoBehaviour
@@ -25,14 +26,14 @@ public class ColumnColorDistributor : MonoBehaviour
         IsInitialized = true;
     }
 
-    public Color? GetRandomColor()
+    public bool TryGetRandomColor(out Color color)
     {
-        if (_mixedColors.Count > 0)
-        {
-            return _mixedColors.Dequeue();
-        }
+        color = Color.white;
 
-        return null;
+        if (IsInitialized == false)
+            return false;
+
+        return _mixedColors.TryDequeue(out color);
     }
 
     public void Reset()
@@ -47,16 +48,13 @@ public class ColumnColorDistributor : MonoBehaviour
     private void ValidateVessels(IReadOnlyList<Vessel> vessels)
     {
         if (vessels == null)
-            throw new ArgumentNullException(nameof(vessels), "Vessels list cannot be null");
+            throw new ArgumentNullException(nameof(vessels), "Список сосудов должен быть инифиализирован");
 
         if (vessels.Count == 0)
-            throw new ArgumentException("Vessels list cannot be empty", nameof(vessels));
+            throw new ArgumentException("Список сосудов не может быть пустым", nameof(vessels));
 
-        foreach (var vessel in vessels)
-        {
-            if (vessel == null)
-                throw new ArgumentException("Vessels list contains null elements", nameof(vessels));
-        }
+        if(vessels.Any(vessel => vessel == null))
+            throw new ArgumentException("Список сосудов содержит нулевой элемент", nameof(vessels));
     }
 
     private void GenerateColorList()

@@ -12,8 +12,8 @@ public class ColumnsFactory : Factory<MagicColumn>
     {
         _vessels = vessels;
 
-        _distributerMagicCell.Initialize(vessels);
         _colorDistributor.Initialize(vessels);
+        _distributerMagicCell.Initialize(vessels);
 
         BuildObjects();
     }

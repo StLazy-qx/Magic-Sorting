@@ -10,7 +10,7 @@ public class MagicCellsStackHandler : MonoBehaviour
     private Transform _parent;
     private float _prefabHeight;
 
-    private readonly Stack<MagicCell> _cellsStack = new();
+    private Stack<MagicCell> _cellsStack = new();
 
     public void Initialize(
         MagicCellsFactory factory,
@@ -19,14 +19,12 @@ public class MagicCellsStackHandler : MonoBehaviour
         Transform parent,
         float prefabHeight)
     {
-        _factory = factory ?? 
-            throw new ArgumentNullException(nameof(factory));
-        _cellRouter = cellRouter ?? 
-            throw new ArgumentNullException(nameof(cellRouter));
-        _colorSource = colorSource ?? 
-            throw new ArgumentNullException(nameof(colorSource));
-        _parent = parent ?? 
-            throw new ArgumentNullException(nameof(parent));
+        ValidateArguments(factory, cellRouter, colorSource, parent);
+
+        _factory = factory;
+        _cellRouter = cellRouter;
+        _colorSource = colorSource;
+        _parent = parent;
         _prefabHeight = prefabHeight;
     }
 
@@ -36,19 +34,13 @@ public class MagicCellsStackHandler : MonoBehaviour
 
         for (int i = 0; i < countCells; i++)
         {
-            Color? pickedColor = _colorSource.GetRandomColor();
-
-            if (!pickedColor.HasValue)
-            {
-                Debug.LogWarning($"[MagicCellsStackHandler] Недостаточно цветов. Создано {i} из {countCells}.");
-
-                break;
-            }
+            if (_colorSource.TryGetRandomColor(out Color pickedColor) == false)
+                return;
 
             MagicCell cell = _factory.CreateCell(
                 parent: _parent,
                 localPosition: new Vector3(0, currentY, 0),
-                color: pickedColor.Value);
+                color: pickedColor);
 
             ClickHandler clickHandler = cell.GetComponent<ClickHandler>();
 
@@ -75,5 +67,24 @@ public class MagicCellsStackHandler : MonoBehaviour
 
         _cellRouter.DeliverMagicCell(newTopCell);
         newTopCell.Disable();
+    }
+
+    private void ValidateArguments(
+    MagicCellsFactory factory,
+    MagicCellRouter cellRouter,
+    ColumnColorDistributor colorSource,
+    Transform parent)
+    {
+        if (factory == null)
+            throw new ArgumentNullException(nameof(factory));
+
+        if (cellRouter == null)
+            throw new ArgumentNullException(nameof(cellRouter));
+
+        if (colorSource == null)
+            throw new ArgumentNullException(nameof(colorSource));
+
+        if (parent == null)
+            throw new ArgumentNullException(nameof(parent));
     }
 }

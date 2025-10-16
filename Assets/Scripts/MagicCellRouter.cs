@@ -9,13 +9,14 @@ public class MagicCellRouter : MonoBehaviour
     private IReadOnlyList<Vessel> _vessels;
 
     public event Action<Vector3, Vector3, Color> CellDelivering;
-    //public bool IsReady { get; private set; }
 
     public void DeliverMagicCell(MagicCell cell)
     {
         if (cell == null)
+        {
             throw new ArgumentNullException(nameof(cell),
                 "[DistributerMagicCell] Волшебная ячейка не может быть нулевой.");
+        }
 
         Color cellColor = cell.Color;
         Vessel targetVessel = FindVesselByColor(cellColor);
@@ -35,8 +36,8 @@ public class MagicCellRouter : MonoBehaviour
             _waitingPoint.HoldOverflowCell(cell);
 
             CellDelivering?.Invoke(
-                cell.transform.position, 
-                targetVessel.transform.position, 
+                cell.transform.position,
+                _waitingPoint.transform.position, 
                 cell.Color
                 );
         }

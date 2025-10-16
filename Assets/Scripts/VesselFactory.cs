@@ -25,7 +25,7 @@ public class VesselFactory : Factory<Vessel>
     {
         if (Prefab == null)
         {
-            Debug.LogError($"{name}: Prefab не назначен в инспекторе!");
+            Debug.LogError($"{name}: Шаблон не назначен в инспекторе!");
 
             return;
         }
@@ -51,10 +51,8 @@ public class VesselFactory : Factory<Vessel>
         }
 
         AssignColorsToVessels(CurrentSettings.colorsCount);
-        //_distributerMagicCell.Initialize(Objects);
-        //_buildMagicColumn.Initialize(Objects);
-        //_gameFullingBehaviour.Init(Objects);
-        SpawnVessels();
+        _gameFullingBehaviour.Initialize(Objects);
+        ReplaceFilledVessel();
 
         IsReady = true;
     }
@@ -72,7 +70,7 @@ public class VesselFactory : Factory<Vessel>
         newVessel.gameObject.SetActive(true);
     }
 
-    private void SpawnVessels()
+    private void ReplaceFilledVessel()
     {
         if (SpawnPoints == null || SpawnPoints.Length == 0)
             return;

@@ -13,15 +13,15 @@ public class SoundSetter : MonoBehaviour
     [SerializeField] private Slider _sliderMasterVolume;
     [SerializeField] private Slider _sliderAmbientVolume;
     [SerializeField] private Slider _sliderEffectVolume;
-    [SerializeField] private Button _buttonToggleVolume;
+    [SerializeField] private MuteButton _muteButton;
 
     private AudioSettingsData _settings;
 
     private void Start()
     {
-        if (_buttonToggleVolume != null)
+        if (_muteButton != null)
         {
-            _buttonToggleVolume.onClick.AddListener(ToggleMusic);
+            _muteButton.OnClick.AddListener(ToggleMusic);
         }
 
         InitializeSlider(_sliderMasterVolume, MasterVolume);
@@ -48,7 +48,7 @@ public class SoundSetter : MonoBehaviour
 
     private void ToggleMusic()
     {
-        _settings.SetMute(!_settings.IsMuted);
+        _settings.SetMute(_settings.IsMuted == false);
 
         if (_settings.IsMuted)
         {
@@ -62,6 +62,8 @@ public class SoundSetter : MonoBehaviour
             OnChangedVolume(_settings.AmbientVolume, AmbientVolume);
             OnChangedVolume(_settings.EffectVolume, EffectVolume);
         }
+
+        _muteButton.UpdateButtonColor(_settings.IsMuted);
     }
 
     private void OnChangedVolume(float volume, string parameter)
