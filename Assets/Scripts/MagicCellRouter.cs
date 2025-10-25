@@ -31,9 +31,9 @@ public class MagicCellRouter : MonoBehaviour
                 cell.Color
                 );
         }
-        else if (_waitingPoint.IsSeat)
+        else if (_waitingPoint.IsFreePlace)
         {
-            _waitingPoint.HoldOverflowCell(cell);
+            _waitingPoint.AcceptCellForStorage(cell);
 
             CellDelivering?.Invoke(
                 cell.transform.position,
@@ -65,7 +65,7 @@ public class MagicCellRouter : MonoBehaviour
         if (FindVesselByColor(color) != null)
             return true;
 
-        return _waitingPoint.IsSeat;
+        return _waitingPoint.IsFreePlace;
     }
 
     private Vessel FindVesselByColor(Color color)

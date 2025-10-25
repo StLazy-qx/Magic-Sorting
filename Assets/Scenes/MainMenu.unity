@@ -753,7 +753,7 @@ MonoBehaviour:
   _sliderMasterVolume: {fileID: 2020054158}
   _sliderAmbientVolume: {fileID: 949433288}
   _sliderEffectVolume: {fileID: 6797532}
-  _buttonToggleVolume: {fileID: 392845517}
+  _muteButton: {fileID: 0}
 --- !u!1 &102397657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,7 +4897,7 @@ MonoBehaviour:
   _sliderMasterVolume: {fileID: 1189306864}
   _sliderAmbientVolume: {fileID: 1850039685}
   _sliderEffectVolume: {fileID: 1070699838}
-  _buttonToggleVolume: {fileID: 2060186341}
+  _muteButton: {fileID: 0}
 --- !u!1 &508001466
 GameObject:
   m_ObjectHideFlags: 0
@@ -12667,7 +12667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1286063323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14547,11 +14547,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollContent:
-  - {fileID: 0}
-  _selectItemColor: {r: 0.7264151, g: 0.54460895, b: 0.11307406, a: 0}
+  _store: {fileID: 0}
   _player: {fileID: 0}
   _buyButton: {fileID: 0}
+  _equipButton: {fileID: 0}
+  _selectItemColor: {r: 0.7264151, g: 0.54460895, b: 0.11307406, a: 0}
+  _buyedItemColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1489338013
 GameObject:
   m_ObjectHideFlags: 0
@@ -14919,7 +14920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1519574389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18592,11 +18593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollContent:
-  - {fileID: 0}
-  _selectItemColor: {r: 0.764151, g: 0.48275664, b: 0.18382876, a: 0}
+  _store: {fileID: 0}
   _player: {fileID: 0}
   _buyButton: {fileID: 1563458136}
+  _equipButton: {fileID: 0}
+  _selectItemColor: {r: 0.764151, g: 0.48275664, b: 0.18382876, a: 0}
+  _buyedItemColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1793443580
 GameObject:
   m_ObjectHideFlags: 0
@@ -23059,7 +23061,7 @@ PrefabInstance:
     - target: {fileID: 8286523358428574933, guid: 007399c2ee0cc124a84a1785de0fdc39,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1421.5295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286523358428574933, guid: 007399c2ee0cc124a84a1785de0fdc39,
         type: 3}
@@ -23104,7 +23106,7 @@ PrefabInstance:
     - target: {fileID: 8286523358428574933, guid: 007399c2ee0cc124a84a1785de0fdc39,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 710.7648
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286523358428574933, guid: 007399c2ee0cc124a84a1785de0fdc39,
         type: 3}

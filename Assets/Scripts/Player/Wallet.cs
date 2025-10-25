@@ -3,27 +3,24 @@ using YG;
 
 public class Wallet
 {
-    private int _leadboardScore;
-    private int _confirmedScore;
     private int _currentScore;
 
-    public int TotalScore => _confirmedScore;
+    public int TotalScore => YG2.saves.Points;
     public int CurrentScore => _currentScore;
 
     public event Action<int> CurrentScoreChanged;
     public event Action<int> TotalScoreChanged;
-    public event Action<int> TableScoreChanged;
 
     private Wallet()
     {
         CurrentScoreChanged?.Invoke(_currentScore);
-        TotalScoreChanged?.Invoke(_confirmedScore);
+        TotalScoreChanged?.Invoke(TotalScore);
     }
 
     public void AddPoints(int value)
     {
         if (value <= 0)
-            throw new ArgumentException("Value cannot be negative");
+            throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
         _currentScore += value;
 
@@ -32,23 +29,24 @@ public class Wallet
 
     public void BuyItem(int value)
     {
-        _confirmedScore -= value;
+        if (value <= 0)
+            throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
-        TotalScoreChanged?.Invoke(_confirmedScore);
+        YG2.saves.SubtractPoints(value);
+
+        TotalScoreChanged?.Invoke(TotalScore);
     }
 
     public void ConfirmPoints()
     {
-        _leadboardScore += _currentScore;
-        _confirmedScore += _currentScore;
+        YG2.saves.AddPoints(_currentScore);
         _currentScore = 0;
 
-        TotalScoreChanged?.Invoke(_confirmedScore);
+        TotalScoreChanged?.Invoke(TotalScore);
         CurrentScoreChanged?.Invoke(_currentScore);
-        TableScoreChanged?.Invoke(_currentScore);
 
         //проверить название таблицы
-        YG2.SetLeaderboard("MainLeaderboard", _leadboardScore);
+        YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
     }
 
     public void Reset()

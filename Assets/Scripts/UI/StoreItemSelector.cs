@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,34 +9,38 @@ public class StoreItemSelector : MonoBehaviour
     [SerializeField] private Store _store;
     [SerializeField] private Player _player;
     [SerializeField] private Button _buyButton;
+    [SerializeField] private Button _equipButton;
     [SerializeField] private Color _selectItemColor;
     [SerializeField] private Color _buyedItemColor;
+    [SerializeField] private Color _defaultColor = Color.white;
 
     private Wallet _playerWallet;
     private Inventory _inventory;
     private Button _selectedButton;
-    private Item[] _storeItems;
+    private IReadOnlyList<Item> _storeItems;
 
     private void Awake()
     {
         _playerWallet = _player.Wallet;
         _inventory = _player.Inventory;
-
-        _storeItems = _store.GetAllItems().ToArray();
-
-        Debug.Log(_storeItems.Length);
+        _storeItems = _store.GetItems();
     }
 
     private void OnEnable()
     {
-        foreach (var item in _storeItems)
+        //if (_inventory.HasItem(_storeItems[0]) == false)
+        //    _inventory.AddItem(_storeItems[0]);
+
+        foreach (Item item in _storeItems)
         {
-            Button button = item.GetComponent<Button>();
+            Button button = item.View.Button;
 
             if (button != null)
             {
-                var capturedButton = button;
-                capturedButton.onClick.AddListener(() => OnItemSelect(capturedButton));
+                Button capturedButton = button;
+
+                capturedButton.onClick.AddListener(()
+                    => OnItemSelect(capturedButton));
                 UpdateItemVisual(item, capturedButton);
             }
         }
@@ -47,9 +52,9 @@ public class StoreItemSelector : MonoBehaviour
     {
         foreach (var item in _storeItems)
         {
-            var button = item.GetComponent<Button>();
+            Button button = item.GetComponent<Button>();
 
-            if (button == null) 
+            if (button == null)
                 continue;
 
             button.onClick.RemoveAllListeners();

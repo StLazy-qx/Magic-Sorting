@@ -4,30 +4,60 @@ using System.Linq;
 
 public class Store : MonoBehaviour
 {
-    [SerializeField] private List<Item> _items;
+    private readonly List<Item> _items = new List<Item>();
+
+    [SerializeField] private List<ItemSO> _itemsData;
 
     public bool IsInitialize { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        Debug.Log("Количество предметов в ММАГАЗИНЕ " + _items.Count);
+        //дальше через EmptryPoint
+        Initialize();
     }
 
     public void Initialize()
     {
+        _items.Clear();
 
-        if (_items != null && _items.All(item => item != null))
-        {
-            IsInitialize = true;
-        }
-        else
+        //if (_itemsData != null && 
+        //    _itemsData.Count > 0 && 
+        //    _itemsData.All(item => item != null))
+        //{
+        //    IsInitialize = true;
+        //}
+        //else
+        //{
+        //    IsInitialize = false;
+        //}
+
+        if (_itemsData == null || _itemsData.Count == 0)
         {
             IsInitialize = false;
 
-            Debug.LogWarning("Store initialization failed: some items are null or list is empty.");
+            return;
         }
+
+        foreach (ItemSO data in _itemsData)
+        {
+            if (data == null || data.Item == null)
+            {
+                Debug.LogError($"Store: отсутствует ссылка на Item в {data?.name}");
+
+                continue;
+            }
+
+            Item newItem = Instantiate(data.Item, transform);
+            newItem.Initialize(data);
+            _items.Add(newItem);
+        }
+
+        IsInitialize = _items.Count > 0;
     }
 
-    public IReadOnlyList<Item> GetAllItems()
-        =>_items.AsReadOnly();
+    public IReadOnlyList<Item> GetItems()
+        => _items.AsReadOnly();
+
+    public IReadOnlyList<ItemSO> GetItemsSO()
+    => _itemsData.AsReadOnly();
 }

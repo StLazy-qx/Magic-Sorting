@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
+    <Compile Include="Assets\Scripts\EntryPoint\MobileObjectsStartPositioner.cs" />
     <Compile Include="Assets\Scripts\UI\FinalMatchPanel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_info.cs" />
     <Compile Include="Assets\Scripts\Action\VesselDisabledEffector.cs" />
@@ -141,12 +142,14 @@
     <Compile Include="Assets\Scripts\Movement\Rotator.cs" />
     <Compile Include="Assets\Scripts\WaitingPoint.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
+    <Compile Include="Assets\Scripts\Store\ItemSO.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_yg.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\DifficultyLevel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\CorrectLang.cs" />
+    <Compile Include="Assets\Scripts\EntryPoint\DesktopObjectsStartPositioner.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Example\Scripts\YandexMetricaExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PrefsList.cs" />
@@ -197,6 +200,7 @@
     <Compile Include="Assets\Scripts\UI\BaseMenuButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\Scripts\UI\ReturnGameSessionButton.cs" />
+    <Compile Include="Assets\Scripts\EntryPoint\SavesYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Example\Scripts\ClipboardExample.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonNewRoundBeginner.cs" />
@@ -273,6 +277,7 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettingsAttributes.cs" />
+    <Compile Include="Assets\Scripts\Store\StoreScrollViewFiller.cs" />
     <Compile Include="Assets\Scripts\IColorable.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\NestedYGAttribute.cs" />
@@ -299,6 +304,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\GameYG.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\ProjectSettings.cs" />
+    <Compile Include="Assets\Scripts\Store\ItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yandexPlatform.cs" />
@@ -375,6 +381,7 @@
     <Compile Include="Assets\Scripts\VesselsFullingBehaviour.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\Clipboard_yg.cs" />
     <Compile Include="Assets\Scripts\UI\WalletGameSessionUI.cs" />
+    <Compile Include="Assets\Scripts\EntryPoint\Authorization.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_interface.cs" />
     <Compile Include="Assets\Scripts\DifficultyProvider.cs" />
     <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
