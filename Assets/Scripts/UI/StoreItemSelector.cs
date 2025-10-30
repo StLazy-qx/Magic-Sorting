@@ -6,70 +6,88 @@ using UnityEngine.UI;
 //изменить название
 public class StoreItemSelector : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Store _store;
     [SerializeField] private Player _player;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _equipButton;
+    [Header("Colors")]
     [SerializeField] private Color _selectItemColor;
     [SerializeField] private Color _buyedItemColor;
     [SerializeField] private Color _defaultColor = Color.white;
+    [Header("UI Links")]
+    [SerializeField] private Transform _contentTransform;
 
     private Wallet _playerWallet;
     private Inventory _inventory;
-    private Button _selectedButton;
-    private IReadOnlyList<Item> _storeItems;
+    private Item _selectedItem;
+    private readonly List<Button> _storeItems = new();
+    //private IReadOnlyList<Item> _storeItems;
 
     private void Awake()
     {
         _playerWallet = _player.Wallet;
         _inventory = _player.Inventory;
-        _storeItems = _store.GetItems();
+        //_storeItems = _store.GetItems();
     }
+
 
     private void OnEnable()
     {
-        //if (_inventory.HasItem(_storeItems[0]) == false)
-        //    _inventory.AddItem(_storeItems[0]);
-
-        foreach (Item item in _storeItems)
+        if (_contentTransform.childCount == 0)
         {
-            Button button = item.View.Button;
+            Debug.LogWarning("Content Transform пустой! Нет элементов для отображения.");
 
-            if (button != null)
+            return;
+        }
+
+        if (_contentTransform.childCount != 0)
+        {
+            _storeItems.Clear();
+
+            // Получаем все кнопки из контента
+            foreach (Transform child in _contentTransform)
             {
-                Button capturedButton = button;
+                Button button = child.GetComponent<Button>();
 
-                capturedButton.onClick.AddListener(()
-                    => OnItemSelect(capturedButton));
-                UpdateItemVisual(item, capturedButton);
+                if (button != null)
+                {
+                    _storeItems.Add(button);
+                    //button.onClick.AddListener(() => OnItemSelect(item));
+                    button.onClick.AddListener(OnGetText);
+                }
             }
+
+            Debug.Log($"StoreItemSelector активирован, найдено предметов: {_storeItems.Count}");
         }
 
         _buyButton.onClick.AddListener(OnBuyItem);
+        _equipButton.onClick.AddListener(OnEquipItem);
     }
 
     private void OnDisable()
     {
-        foreach (var item in _storeItems)
+        foreach (var button in _storeItems)
         {
-            Button button = item.GetComponent<Button>();
-
-            if (button == null)
-                continue;
-
             button.onClick.RemoveAllListeners();
         }
 
         _buyButton.onClick.RemoveListener(OnBuyItem);
+        _equipButton.onClick.RemoveListener(OnEquipItem);
     }
 
-    private void OnItemSelect(Button button)
+    public void OnGetText()
     {
-        if (_selectedButton != null)
-            ResetButtonColor(_selectedButton);
+        Debug.Log("Нажали на кнопку");
+    }
 
-        _selectedButton = button;
-        _selectedButton.image.color = _selectItemColor;
+    private void OnItemSelect(Item item)
+    {
+        Debug.Log("Метод выбора предмета [StoreItemSelector] 1");
+
+        item.ChangeBackgroundColor(_selectItemColor);
+
+        Debug.Log("Метод выбора предмета [StoreItemSelector] 2");
     }
 
     private void OnBuyItem()
@@ -79,32 +97,42 @@ public class StoreItemSelector : MonoBehaviour
 
         //Item item = _selectedButton.GetComponent<Item>();
 
-        //if (CanBuyItem(_playerWallet.TotalScore))
+        //if (item == null)
+        //    return;
+
+        //if (_inventory.HasItem(item))
         //{
-        //    //_player.AddItem(item);
-        //    _playerWallet.BuyItem(_storeItems[_selectedButton]);
+        //    Debug.Log("Этот предмет уже куплен.");
+
+        //    return;
         //}
 
-        if (_selectedButton == null)
+        //if (_playerWallet.CanAfford(item.Price))
+        //{
+        //    _playerWallet.BuyItem(item.Price);
+        //    _inventory.AddItem(item);
+        //    _selectedButton.image.color = _buyedItemColor;
+        //}
+        //else
+        //{
+        //    Debug.Log("Недостаточно средств для покупки.");
+        //}
+
+        if (_selectedItem == null)
             return;
 
-        Item item = _selectedButton.GetComponent<Item>();
-
-        if (item == null)
-            return;
-
-        if (_inventory.HasItem(item))
+        if (_inventory.HasItem(_selectedItem))
         {
             Debug.Log("Этот предмет уже куплен.");
-
             return;
         }
 
-        if (_playerWallet.CanAfford(item.Price))
+        if (_playerWallet.CanAfford(_selectedItem.Price))
         {
-            _playerWallet.BuyItem(item.Price);
-            _inventory.AddItem(item);
-            _selectedButton.image.color = _buyedItemColor;
+            _playerWallet.BuyItem(_selectedItem.Price);
+            _inventory.AddItem(_selectedItem);
+            //_selectedItem.ChangeBackgroundColor(_buyedItemColor);
+            _selectedItem.Buy();
         }
         else
         {
@@ -112,19 +140,64 @@ public class StoreItemSelector : MonoBehaviour
         }
     }
 
-    private void UpdateItemVisual(Item item, Button button)
+    private void UpdateItemVisual(Item item)
     {
-        if (_inventory.HasItem(item))
-            button.image.color = _buyedItemColor;
+        //if (_inventory.HasItem(item))
+        //    item.ChangeBackgroundColor(_buyedItemColor);
+        //else
+        //    item.ChangeBackgroundColor(_defaultColor);
     }
 
-    private void ResetButtonColor(Button button)
+    private void ResetItemColor(Item item)
     {
-        Item item = button.GetComponent<Item>();
-
-        if (item != null && _inventory.HasItem(item))
-            button.image.color = _buyedItemColor;
-        else
-            button.image.color = Color.white;
+        //if (_inventory.HasItem(item))
+        //    item.ChangeBackgroundColor(_buyedItemColor);
+        //else
+        //    item.ChangeBackgroundColor(_defaultColor);
     }
+
+    private void OnEquipItem()
+    {
+        if (_selectedItem == null)
+        {
+            Debug.Log("Не выбран предмет для экипировки.");
+            return;
+        }
+
+        if (!_inventory.HasItem(_selectedItem))
+        {
+            Debug.Log("Сначала нужно купить этот предмет.");
+            return;
+        }
+
+        // Логика экипировки предмета
+        _inventory.EquipItem(_selectedItem);
+        Debug.Log($"Предмет {_selectedItem.name} экипирован.");
+    }
+
+    //private void UpdateItemVisual(Item item, Button button)
+    //{
+    //    if (_inventory.HasItem(item))
+    //        button.image.color = _buyedItemColor;
+    //}
+
+    //private void ResetButtonColor(Button button)
+    //{
+    //    //Item item = button.GetComponent<Item>();
+
+    //    //if (item != null && _inventory.HasItem(item))
+    //    //    button.image.color = _buyedItemColor;
+    //    //else
+    //    //    button.image.color = Color.white;
+
+    //    Item item = button.GetComponent<Item>();
+
+    //    if (item != null)
+    //    {
+    //        if (_inventory.HasItem(item))
+    //            item.ChangeBackgroundColor(_buyedItemColor);
+    //        else
+    //            item.ChangeBackgroundColor(_defaultColor);
+    //    }
+    //}
 }

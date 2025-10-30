@@ -1,29 +1,27 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using YG;
 
 public class EntryPointGameSession : MonoBehaviour
 {
-    [Header("UI Canvas")]
     [SerializeField] private CanvasMobileSetter _mobileCanvas;
     [SerializeField] private CanvasDesktopSetter _desktopCanvas;
-    [SerializeField] private DesktopObjectsStartPositioner _desktopObjectsPosition;
-    [SerializeField] private MobileObjectsStartPositioner _mobileObjectsPosition;
-    [Header("Game Systems")]
+    [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
+    [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
     [SerializeField] private Player _player;
-    [SerializeField] private Inventory _playerInventory;
     [SerializeField] private ColumnsFactory _columnsFactory;
     [SerializeField] private VesselFactory _vesselFactory;
     [SerializeField] private GameHandler _gameHandler;
-    [SerializeField] private VesselsFullingBehaviour _vesselsFulling;
+    [SerializeField] private VesselStateTracker  _vesselsFulling;
     [SerializeField] private FinalGameSession _finalGameSession;
 
     //[SerializeField] private LanguageSetter _languageSetter; // настроить определение языка на сцене
     //[SerializeField] protected SoundSetter;
 
-    [SerializeField] private IObjectInitilizable[] _objectsInitilizable;
+    [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
-    private bool IsInitialization = false;
+    private List<IObjectInitilizable> _objectsInitilizable = new();
 
     public string OperatingSystem => YG2.envir.deviceType;
 
@@ -46,17 +44,29 @@ public class EntryPointGameSession : MonoBehaviour
             _vesselsFulling.UseDesctopPanel();
             _finalGameSession.UseDesctopPanel();
         }
+
+        foreach (var mono in _objectsToInitializeMono)
+        {
+            if (mono is IObjectInitilizable initObj)
+                _objectsInitilizable.Add(initObj);
+        }
     }
 
     private void Start()
     {
-        StartCoroutine(FactoryInitialize());
+        StartCoroutine(SessionInitialize());
+    }
+
+    private IEnumerator SessionInitialize()
+    {
+        yield return StartCoroutine(FactoryInitialize());
+        yield return StartCoroutine(EntityInitialize());
+
+        Debug.Log("<color=green>Все объекты успешно инициализированы!</color>");
     }
 
     private IEnumerator FactoryInitialize()
     {
-        _playerInventory.Initilize();
-
         yield return new WaitUntil(() => _vesselFactory.IsReady);
 
         if (_vesselFactory.Objects != null && _vesselFactory.Objects.Count > 0)
@@ -65,14 +75,14 @@ public class EntryPointGameSession : MonoBehaviour
         }
     }
 
-    //private IEnumerator EntityInitilize()
-    //{
-    //    while (IsInitialization != true)
-    //    {
-    //        foreach (IObjectInitilizable @object in _objectsInitilizable)
-    //        {
-    //            @object.Initilize()
-    //        }
-    //    }
-    //}
+    private IEnumerator EntityInitialize()
+    {
+        foreach (var currentObject in _objectsInitilizable)
+        {
+            currentObject.Initilize();
+        }
+
+        yield return new WaitUntil(() 
+            => _objectsInitilizable.TrueForAll(currentObject => currentObject.IsInitialized));
+    }
 }

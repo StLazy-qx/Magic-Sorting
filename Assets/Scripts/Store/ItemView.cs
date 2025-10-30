@@ -6,11 +6,7 @@ public class ItemView : MonoBehaviour
 {
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private Image _imageScin;
-    [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _priceText;
-
-    public Image BackgroundImage => _backgroundImage;
-    public Button Button => _button;
 
     public void Initialize(ItemSO itemData)
     {
@@ -24,5 +20,7 @@ public class ItemView : MonoBehaviour
     public void ChangeBackgroundColor(Color color)
     {
         _backgroundImage.color = color;
+
+        Debug.Log("Вызвался метод изменения цвета фона у предмета [ItemView]");
     }
 }

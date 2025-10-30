@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    private ItemView _itemView;
+    [SerializeField] private ItemView _itemView;
+
     private Texture _texture;
     private int _price;
-
 
     public int Price => _price;
     public Texture Texture => _texture;
@@ -19,10 +20,9 @@ public class Item : MonoBehaviour
 
     public void Initialize(ItemSO itemData)
     {
-        if (itemData == null)
+        if (itemData == null && _itemView == null)
             return;
 
-        _itemView = Instantiate(itemData.ItemView, transform);
         _itemView.Initialize(itemData);
 
         _price = itemData.Price;

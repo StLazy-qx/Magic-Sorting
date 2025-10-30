@@ -33,7 +33,7 @@ public class MagicCellRouter : MonoBehaviour
         }
         else if (_waitingPoint.IsFreePlace)
         {
-            _waitingPoint.AcceptCellForStorage(cell);
+            _waitingPoint.AcceptStorageCell(cell);
 
             CellDelivering?.Invoke(
                 cell.transform.position,

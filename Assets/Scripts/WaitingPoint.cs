@@ -19,7 +19,7 @@ public class WaitingPoint : MonoBehaviour
         Reset();
     }
 
-    public void AcceptCellForStorage(MagicCell cell)
+    public void AcceptStorageCell(MagicCell cell)
     {
         if (_waitingCell != null && IsFreePlace == true)
             return;
@@ -37,6 +37,20 @@ public class WaitingPoint : MonoBehaviour
         _clickHandler.OnClicked += OnCellClicked;
     }
 
+    public void Reset()
+    {
+        IsFreePlace = true;
+
+        if (_waitingCell != null)
+        {
+            Destroy(_waitingCell.gameObject);
+
+            _waitingCell = null;
+        }
+
+        _clickHandler = null;
+    }
+
     private void OnCellClicked()
     {
         MagicCell waitCell = _waitingCell;
@@ -49,11 +63,5 @@ public class WaitingPoint : MonoBehaviour
         Reset();
 
         _clickHandler.OnClicked -= OnCellClicked;
-    }
-
-    private void Reset()
-    {
-        IsFreePlace = true;
-        _waitingCell = null;
     }
 }

@@ -13,6 +13,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private SceneLoader _sceneLoader;
     [SerializeField] private ColumnsFactory _columnsFactory;
     [SerializeField] private VesselFactory _vesselFactory;
+    [SerializeField] private WaitingPoint _waitingPoint;
 
     private Wallet _wallet;
     private DifficultyState _difficultyState;
@@ -43,6 +44,7 @@ public class GameHandler : MonoBehaviour
     {
         ContinueGame();
         _wallet.Reset();
+        _waitingPoint.Reset();
         StartCoroutine(StartNewRoundRoutine());
     }
 

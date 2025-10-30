@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class VesselsFullingBehaviour : MonoBehaviour
+public class VesselStateTracker : MonoBehaviour
 {
     private const float TimeEndSession = 1.7f;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class VesselFactory : Factory<Vessel>
 {
-    [SerializeField] private VesselsFullingBehaviour _gameFullingBehaviour;
+    [SerializeField] private VesselStateTracker  _gameFullingBehaviour;
     [SerializeField] private MagicCellRouter _distributerMagicCell;
     [SerializeField] private ColumnColorDistributor _buildMagicColumn;
     [SerializeField] private ColorRandomizer _colorRandomizer;

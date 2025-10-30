@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8a2a0561166c4e42bdfebceb5e72b8f, type: 3}
-  m_Name: ItemScin 4
+  m_Name: ItemScin
   m_EditorClassIdentifier: 
-  _prefabView: {fileID: 6217579310528937148, guid: 5e62f464b596d2744bb8bcdb34a94ef9,
+  _prefabView: {fileID: 7273396328987246237, guid: 21393050d5cf17441a7fc20158e8fae5,
     type: 3}
-  _item: {fileID: -2739437218387590408, guid: 5e62f464b596d2744bb8bcdb34a94ef9, type: 3}
-  _price: 5000
-  _icon: {fileID: 21300000, guid: dcb67c07a0020ff4e96f4dd50817af03, type: 3}
-  _texture: {fileID: 2800000, guid: dbd3e9d128d3df441a6e97b77a75236c, type: 3}
+  _item: {fileID: 3068035011096992569, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
+  _price: 0
+  _icon: {fileID: 21300000, guid: 8095354bdb81b2c43a17f3476b1fef82, type: 3}
+  _texture: {fileID: 2800000, guid: 6f8ec4370333f2b438ff71a0ecb69498, type: 3}

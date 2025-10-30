@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public interface IObjectInitilizable
 {
     public bool IsInitialized { get; }
