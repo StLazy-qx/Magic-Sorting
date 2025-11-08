@@ -20,7 +20,5 @@ public class ItemView : MonoBehaviour
     public void ChangeBackgroundColor(Color color)
     {
         _backgroundImage.color = color;
-
-        Debug.Log("Вызвался метод изменения цвета фона у предмета [ItemView]");
     }
 }

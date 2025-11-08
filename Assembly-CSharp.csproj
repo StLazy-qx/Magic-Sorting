@@ -160,12 +160,12 @@
     <Compile Include="Assets\Scripts\EntryPoint\PanelSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PaymentsCatalogYG.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\AudioSetter.cs" />
+    <Compile Include="Assets\Scripts\Store\SelectItemPresenter.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\ConsumePurchasesYG.cs" />
     <Compile Include="Assets\Scripts\LevelCreater.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
-    <Compile Include="Assets\Scripts\UI\StoreItemSelector.cs" />
     <Compile Include="Assets\Scripts\UI\ExitButton.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
@@ -234,7 +234,9 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yg.cs" />
+    <Compile Include="Assets\Scripts\Store\StoreItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_interface.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreItemFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\UnityPackagesManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInfoView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />

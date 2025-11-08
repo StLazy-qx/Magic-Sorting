@@ -1,63 +1,67 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
-public class Store : MonoBehaviour
+public class Store : MonoBehaviour, IObjectInitilizable
 {
-    private readonly List<Item> _items = new List<Item>();
-
     [SerializeField] private List<ItemSO> _itemsData;
+    [SerializeField] private StoreItemView _itemView;
+    [SerializeField] private Player _player;
 
-    public bool IsInitialize { get; private set; }
+    private Wallet _playerWallet;
+
+    public bool IsInitialized { get; private set; }
 
     private void Awake()
     {
-        //дальше через EmptryPoint
-        Initialize();
+        _playerWallet = _player.Wallet;
     }
 
-    public void Initialize()
+    public void Initilize()
     {
-        _items.Clear();
-
-        //if (_itemsData != null && 
-        //    _itemsData.Count > 0 && 
-        //    _itemsData.All(item => item != null))
-        //{
-        //    IsInitialize = true;
-        //}
-        //else
-        //{
-        //    IsInitialize = false;
-        //}
-
-        if (_itemsData == null || _itemsData.Count == 0)
+        if (_itemsData == null 
+            || _itemsData.Count == 0
+            || _itemsData.Any(item => item == null)
+            )
         {
-            IsInitialize = false;
+            IsInitialized = false;
 
             return;
         }
 
-        foreach (ItemSO data in _itemsData)
-        {
-            if (data == null || data.Item == null)
-            {
-                Debug.LogError($"Store: отсутствует ссылка на Item в {data?.name}");
-
-                continue;
-            }
-
-            Item newItem = Instantiate(data.Item, transform);
-            newItem.Initialize(data);
-            _items.Add(newItem);
-        }
-
-        IsInitialize = _items.Count > 0;
+        IsInitialized = true;
     }
 
-    public IReadOnlyList<Item> GetItems()
-        => _items.AsReadOnly();
-
     public IReadOnlyList<ItemSO> GetItemsSO()
-    => _itemsData.AsReadOnly();
+        => _itemsData.AsReadOnly();
+
+    public void TryBuyItem(Item selectedItem, Inventory inventory)
+    {
+        if (selectedItem == null)
+            return;
+
+        if (inventory.HasItem(selectedItem))
+            return;
+
+        if (_playerWallet.CanAfford(selectedItem.Price))
+        {
+            _playerWallet.BuyItem(selectedItem.Price);
+            inventory.AddItem(selectedItem);
+            selectedItem.Buy();
+        }
+    }
+
+    public void TryEquipItem(Item selectedItem, Inventory inventory)
+    {
+        if (selectedItem == null)
+            return;
+
+        if (inventory == null)
+            return;
+
+        if (inventory.HasItem(selectedItem) == false)
+            return;
+
+        inventory.EquipItem(selectedItem);
+    }
 }

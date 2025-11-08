@@ -6,16 +6,10 @@ public class ColumnsFactory : Factory<MagicColumn>
     [SerializeField] private MagicCellRouter _distributerMagicCell;
     [SerializeField] private ColumnColorDistributor _colorDistributor;
 
-    //private IReadOnlyList<Vessel> _vessels;
-
     public void Initialize(IReadOnlyList<Vessel> vessels)
     {
-        //_vessels = vessels;
-
         _colorDistributor.Initialize(vessels);
         _distributerMagicCell.Initialize(vessels);
-
-        BuildObjects();
     }
 
     protected override void BuildObjects()

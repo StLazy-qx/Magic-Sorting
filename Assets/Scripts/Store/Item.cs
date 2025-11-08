@@ -1,16 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemView _itemView;
 
+    private string _id;
     private Texture _texture;
     private int _price;
 
+    public string ID => _id;
     public int Price => _price;
     public Texture Texture => _texture;
-    public ItemView View => _itemView;
     public bool IsBuyed { get; private set; }
 
     private void Awake()
@@ -27,11 +27,6 @@ public class Item : MonoBehaviour
 
         _price = itemData.Price;
         _texture = itemData.Scin;
-    }
-
-    public void ChangeBackgroundColor(Color color)
-    {
-        _itemView.ChangeBackgroundColor(color);
     }
 
     public void Buy()

@@ -14,23 +14,12 @@ namespace YG
 		public int Points => _points;
         public int SoundVolume => _soundVolume;
 
-        public void AddPoints(int value)
+        public void SavePoints(int value)
         {
 			if (value <= 0)
 				throw new ArgumentException("«начение не может быть равным или меньше нул€");
 
-			_points += value;
-		}
-
-		public void SubtractPoints(int value)
-		{
-			if (value <= 0)
-				throw new ArgumentException("«начение не может быть равным или меньше нул€");
-
-			if (_points < value)
-				throw new InvalidOperationException("Ќедостаточно очков");
-
-			_points -= value;
+			_points = value;
 		}
 
         public void AddItem(Item item)

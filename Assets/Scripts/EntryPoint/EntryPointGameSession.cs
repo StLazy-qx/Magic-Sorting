@@ -5,13 +5,17 @@ using YG;
 
 public class EntryPointGameSession : MonoBehaviour
 {
+    [Header("Canvas Setters")]
     [SerializeField] private CanvasMobileSetter _mobileCanvas;
     [SerializeField] private CanvasDesktopSetter _desktopCanvas;
+    [Header("Position Setters")]
     [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
     [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
+    [Header("References")]
     [SerializeField] private Player _player;
     [SerializeField] private ColumnsFactory _columnsFactory;
     [SerializeField] private VesselFactory _vesselFactory;
+    [SerializeField] private StoreItemFactory _storeItemFactory;
     [SerializeField] private GameHandler _gameHandler;
     [SerializeField] private VesselStateTracker  _vesselsFulling;
     [SerializeField] private FinalGameSession _finalGameSession;
@@ -59,25 +63,27 @@ public class EntryPointGameSession : MonoBehaviour
 
     private IEnumerator SessionInitialize()
     {
-        yield return StartCoroutine(FactoryInitialize());
         yield return StartCoroutine(EntityInitialize());
-
-        Debug.Log("<color=green>Все объекты успешно инициализированы!</color>");
+        yield return StartCoroutine(FactoryInitialize());
     }
 
     private IEnumerator FactoryInitialize()
     {
+        _vesselFactory.Spawn();
+        _storeItemFactory.Spawn();
+
         yield return new WaitUntil(() => _vesselFactory.IsReady);
 
         if (_vesselFactory.Objects != null && _vesselFactory.Objects.Count > 0)
         {
             _columnsFactory.Initialize(_vesselFactory.Objects);
+            _columnsFactory.Spawn();
         }
     }
 
     private IEnumerator EntityInitialize()
     {
-        foreach (var currentObject in _objectsInitilizable)
+        foreach (IObjectInitilizable currentObject in _objectsInitilizable)
         {
             currentObject.Initilize();
         }

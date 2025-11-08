@@ -5,7 +5,6 @@ using YG;
 public class Player : MonoBehaviour 
 {
     [SerializeField] private SkinnedMeshRenderer _meshRenderer;
-    //[SerializeField] private Texture _currentTexture;
     [SerializeField] private Inventory _inventory;
 
     private Material _materialInstance;
@@ -15,7 +14,7 @@ public class Player : MonoBehaviour
 
     public string PlayerID => _playerID;
     public Wallet Wallet => _wallet;
-    public Inventory Inventory { get; private set; }
+    public Inventory Inventory => _inventory;
     public Item CurrentItem => _currentItem;
 
     private void Awake()
@@ -24,7 +23,19 @@ public class Player : MonoBehaviour
             _playerID = YG2.player.id;
 
         _materialInstance = _meshRenderer.material;
-        Inventory = GetComponent<Inventory>();
+        _inventory.ItemEquipped += OnEquipItem;
+    }
+
+    private void Start()
+    {
+        if (_inventory.EquippedItem != null)
+            OnEquipItem(_inventory.EquippedItem);
+    }
+
+    private void OnDestroy()
+    {
+        if (_inventory != null)
+            _inventory.ItemEquipped -= OnEquipItem;
     }
 
     [Inject]
@@ -33,7 +44,7 @@ public class Player : MonoBehaviour
         _wallet = walletl;
     }
 
-    public void EquipItem(Item item)
+    public void OnEquipItem(Item item)
     {
         //if (_materialInstance == null || item.Texture == null)
         //    return;
@@ -43,24 +54,13 @@ public class Player : MonoBehaviour
 
         //_materialInstance.SetTexture("_MainTex", _currentTexture);
         if (item == null)
-        {
-            Debug.LogWarning("Нельзя надеть пустой предмет!");
             return;
-        }
 
-        if (_inventory == null)
-        {
-            Debug.LogError("Инвентарь не присвоен игроку!");
+        if (_inventory.HasItem(item) == false)
             return;
-        }
-
-        if (!_inventory.HasItem(item))
-        {
-            Debug.Log($"Игрок не имеет предмет {item.name} в инвентаре.");
-            return;
-        }
 
         _currentItem = item;
+
         ApplyItemTexture(item);
     }
 

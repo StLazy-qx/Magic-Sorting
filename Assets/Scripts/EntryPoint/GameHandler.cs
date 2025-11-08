@@ -80,6 +80,7 @@ public class GameHandler : MonoBehaviour
     {
         _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
         _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+        _vesselFactory.Spawn();
 
         yield return new WaitUntil(() => _vesselFactory.IsReady);
 
@@ -87,6 +88,7 @@ public class GameHandler : MonoBehaviour
             _vesselFactory.Objects.Count > 0)
         {
             _columnsFactory.Initialize(_vesselFactory.Objects);
+            _columnsFactory.Spawn();
         }
     }
 

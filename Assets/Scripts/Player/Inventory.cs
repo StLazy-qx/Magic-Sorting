@@ -1,7 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using YG;
+using System.Linq;
 
 public class Inventory : MonoBehaviour, IObjectInitilizable
 {
@@ -25,17 +26,11 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
     private void LoadInventory()
     {
         _items = YG2.saves.GetAllItems() ?? new List<Item>();
-        Debug.Log($"Загружено предметов в инвентарь: {_items.Count}");
 
         Item savedEquippedItem = YG2.saves.GetEquippedItem();
 
         if (savedEquippedItem != null)
-        {
             EquipItem(savedEquippedItem);
-            Debug.Log($"Загружен и экипирован предмет: {savedEquippedItem.name}");
-        }
-
-        Debug.Log($"Загружено предметов в инвентарь: {_items.Count}");
     }
 
     public bool HasItem(Item item)
@@ -43,7 +38,7 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
         if (item == null)
             return false;
 
-        return _items.Contains(item);
+        return _items.Any(i => i.ID == item.ID);
     }
 
     public void AddItem(Item item)
@@ -56,29 +51,13 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
 
         _items.Add(item);
         YG2.saves.AddItem(item);
-
-        Debug.Log($"Предмет {item.name} добавлен в инвентарь.");
-        Debug.Log("Количество предметов в инветоре " + _items.Count);
-
         ItemAdded?.Invoke(item);
     }
 
     public void EquipItem(Item item)
     {
-        if (item == null)
-        {
-            Debug.LogWarning("Нельзя экипировать null-предмет.");
-
+        if (item == null || HasItem(item) == false)
             return;
-        }
-
-        if (!HasItem(item))
-        {
-            Debug.LogWarning($"Предмет {item.name} не найден " +
-                $"в инвентаре, экипировка невозможна.");
-
-            return;
-        }
 
         _equippedItem = item;
 

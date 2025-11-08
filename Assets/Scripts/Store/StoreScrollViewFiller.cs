@@ -10,7 +10,7 @@ public class StoreScrollViewFiller : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return new WaitUntil(() => _store.IsInitialize);
+        yield return new WaitUntil(() => _store.IsInitialized );
         yield return new WaitForEndOfFrame();
 
         IReadOnlyList<ItemSO> items = _store.GetItemsSO();

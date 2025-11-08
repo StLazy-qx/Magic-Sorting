@@ -24,17 +24,7 @@ public class VesselFactory : Factory<Vessel>
     protected override void BuildObjects()
     {
         if (Prefab == null)
-        {
-            Debug.LogError($"{name}: Шаблон не назначен в инспекторе!");
-
             return;
-        }
-
-        if (SpawnPoints == null || SpawnPoints.Length == 0)
-        {
-            Debug.LogWarning($"{name}: " +
-                $"SpawnPoints пустые — сосуды будут созданы, но не заспавнены.");
-        }
 
         ClearList();
 
@@ -45,8 +35,8 @@ public class VesselFactory : Factory<Vessel>
         {
             Vessel vessel = Instantiate(Prefab);
             vessel.Filled += OnReplaceVessel;
-            vessel.gameObject.SetActive(false);
 
+            vessel.gameObject.SetActive(false);
             Add(vessel);
         }
 

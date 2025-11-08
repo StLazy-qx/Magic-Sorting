@@ -17,7 +17,7 @@ public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour // поме
 
     public IReadOnlyList<T> Objects => _objects;
 
-    private void Start()
+    public void Spawn()
     {
         BuildObjects();
     }
@@ -40,8 +40,6 @@ public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour // поме
         }
 
         DifficultyState.DifficultyChanged += OnDifficultyChanged;
-
-        //BuildObjects();
     }
 
     public virtual void ResetFactory(DifficultyLevel level)
@@ -54,7 +52,7 @@ public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour // поме
         if (DifficultyDatabase != null)
             CurrentSettings = DifficultyDatabase.GetSettings(level);
 
-        BuildObjects();
+        //BuildObjects();
     }
 
     public virtual IReadOnlyList<T> GetListObjects()
