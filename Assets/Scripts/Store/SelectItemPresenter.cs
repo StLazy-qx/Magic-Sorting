@@ -40,7 +40,7 @@ public class SelectItemPresenter : MonoBehaviour
         if (_selectedItem == null)
             return;
 
-        _store.TryBuyItem(_selectedItem, _inventory);
+        _store.PerformBuyItem(_selectedItem, _inventory);
     }
 
     private void OnEquipButtonClicked()
@@ -48,6 +48,6 @@ public class SelectItemPresenter : MonoBehaviour
         if (_selectedItem == null)
             return;
 
-        _store.TryEquipItem(_selectedItem, _inventory);
+        _store.PerformEquipItem(_selectedItem, _inventory);
     }
 }

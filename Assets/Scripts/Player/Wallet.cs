@@ -43,7 +43,7 @@ public class Wallet
 
     public void BuyItem(int price)
     {
-        if (price <= 0)
+        if (price < 0)
             throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
         if (CanAfford(price) == false)
@@ -63,7 +63,7 @@ public class Wallet
 
     public bool CanAfford(int value)
     {
-        if (value <= 0)
+        if (value < 0)
             return false;
 
         return _totalScore >= value;

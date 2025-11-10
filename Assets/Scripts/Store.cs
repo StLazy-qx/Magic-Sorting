@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Store : MonoBehaviour, IObjectInitilizable
+public class Store : MonoBehaviour
 {
     [SerializeField] private List<ItemSO> _itemsData;
     [SerializeField] private StoreItemView _itemView;
     [SerializeField] private Player _player;
+    [SerializeField] private Inventory _inventory;
 
     private Wallet _playerWallet;
 
@@ -15,11 +16,8 @@ public class Store : MonoBehaviour, IObjectInitilizable
     private void Awake()
     {
         _playerWallet = _player.Wallet;
-    }
 
-    public void Initilize()
-    {
-        if (_itemsData == null 
+        if (_itemsData == null
             || _itemsData.Count == 0
             || _itemsData.Any(item => item == null)
             )
@@ -29,13 +27,13 @@ public class Store : MonoBehaviour, IObjectInitilizable
             return;
         }
 
-        IsInitialized = true;
+        ConfirmFirstItem();
     }
 
     public IReadOnlyList<ItemSO> GetItemsSO()
         => _itemsData.AsReadOnly();
 
-    public void TryBuyItem(Item selectedItem, Inventory inventory)
+    public void PerformBuyItem(Item selectedItem, Inventory inventory)
     {
         if (selectedItem == null)
             return;
@@ -51,7 +49,7 @@ public class Store : MonoBehaviour, IObjectInitilizable
         }
     }
 
-    public void TryEquipItem(Item selectedItem, Inventory inventory)
+    public void PerformEquipItem(Item selectedItem, Inventory inventory)
     {
         if (selectedItem == null)
             return;
@@ -63,5 +61,19 @@ public class Store : MonoBehaviour, IObjectInitilizable
             return;
 
         inventory.EquipItem(selectedItem);
+    }
+
+    private void ConfirmFirstItem()
+    {
+        ItemSO firstItemData = _itemsData[0];
+
+        if (firstItemData != null)
+        {
+            Item firstItem = Instantiate(firstItemData.Item);
+
+            firstItem.Initialize(firstItemData);
+            _inventory.AddItem(firstItem);
+            _inventory.EquipItem(firstItem);
+        }
     }
 }

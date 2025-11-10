@@ -11,12 +11,9 @@ public class Item : MonoBehaviour
     public string ID => _id;
     public int Price => _price;
     public Texture Texture => _texture;
+    public ItemView View => _itemView;
     public bool IsBuyed { get; private set; }
 
-    private void Awake()
-    {
-        IsBuyed = false;
-    }
 
     public void Initialize(ItemSO itemData)
     {
@@ -25,6 +22,7 @@ public class Item : MonoBehaviour
 
         _itemView.Initialize(itemData);
 
+        _id = itemData.ID;
         _price = itemData.Price;
         _texture = itemData.Scin;
     }
@@ -32,5 +30,12 @@ public class Item : MonoBehaviour
     public void Buy()
     {
         IsBuyed = true;
+
+        _itemView.ActivateBoughtText();
+    }
+
+    public void ActivateBought()
+    {
+        _itemView.ActivateBoughtText();
     }
 }

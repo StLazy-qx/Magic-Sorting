@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreItemFactory : Factory<Button>
 {
-    [Header("References")]
     [SerializeField] private Store _store;
     [SerializeField] private Player _player;
     [SerializeField] private Transform _contentTransform;
@@ -15,23 +15,23 @@ public class StoreItemFactory : Factory<Button>
     {
         ClearList();
 
-        var items = _store.GetItemsSO();
+        IReadOnlyList<ItemSO> items = _store.GetItemsSO();
 
         if (items == null || items.Count == 0)
             return;
 
         foreach (ItemSO itemData in items)
         {
-            Button newButton = Instantiate(Prefab, _contentTransform);
+            Button button = Instantiate(Prefab, _contentTransform);
 
-            Add(newButton);
-            Created?.Invoke(newButton);
+            Add(button);
+            Created?.Invoke(button);
 
-            Item itemComponent = newButton.GetComponent<Item>();
+            Item itemComponent = button.GetComponent<Item>();
 
             if (itemComponent == null)
             {
-                itemComponent = newButton.gameObject.AddComponent<Item>();
+                itemComponent = button.gameObject.AddComponent<Item>();
             }
 
             itemComponent.Initialize(itemData);

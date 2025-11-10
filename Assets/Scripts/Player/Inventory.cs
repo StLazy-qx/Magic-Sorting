@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 using YG;
 using System.Linq;
 
@@ -10,11 +10,9 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
     private List<Item> _items = new List<Item>();
 
     public Item EquippedItem => _equippedItem;
+    public bool IsInitialized { get; private set; }
 
     public event Action<Item> ItemEquipped;
-    public event Action<Item> ItemAdded;
-
-    public bool IsInitialized { get; private set; }
 
     public void Initilize()
     {
@@ -38,7 +36,7 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
         if (item == null)
             return false;
 
-        return _items.Any(i => i.ID == item.ID);
+        return _items.Any(currentItem => currentItem.ID == item.ID);
     }
 
     public void AddItem(Item item)
@@ -51,7 +49,6 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
 
         _items.Add(item);
         YG2.saves.AddItem(item);
-        ItemAdded?.Invoke(item);
     }
 
     public void EquipItem(Item item)
@@ -61,8 +58,8 @@ public class Inventory : MonoBehaviour, IObjectInitilizable
 
         _equippedItem = item;
 
-        YG2.saves.SetEquippedItem(item);
         ItemEquipped?.Invoke(item);
+        YG2.saves.SetEquippedItem(item);
     }
 
     public IReadOnlyList<Item> GetAllItems()

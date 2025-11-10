@@ -16,7 +16,7 @@ namespace YG
 
         public void SavePoints(int value)
         {
-			if (value <= 0)
+			if (value < 0)
 				throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
 			_points = value;

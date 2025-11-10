@@ -63,8 +63,8 @@ public class EntryPointGameSession : MonoBehaviour
 
     private IEnumerator SessionInitialize()
     {
-        yield return StartCoroutine(EntityInitialize());
         yield return StartCoroutine(FactoryInitialize());
+        yield return StartCoroutine(EntityInitialize());
     }
 
     private IEnumerator FactoryInitialize()
