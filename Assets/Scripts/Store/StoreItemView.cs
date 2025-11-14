@@ -9,7 +9,6 @@ public class StoreItemView : MonoBehaviour
 
     [SerializeField] private StoreItemFactory _itemFactory;
     [SerializeField] private Color _selectItemColor;
-    [SerializeField] private Color _buyedItemColor;
 
     private Color _defaultColor;
     private Button _selectedButton;
@@ -43,16 +42,11 @@ public class StoreItemView : MonoBehaviour
     private void OnItemSelect(Button button)
     {
         if (_selectedButton != null)
-            ResetButtonColor(_selectedButton);
+            button.image.color = _defaultColor;
 
         button.image.color = _selectItemColor;
         _selectedButton = button;
 
         ItemSelected?.Invoke(button);
-    }
-
-    private void ResetButtonColor(Button button)
-    {
-        button.image.color = _defaultColor;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour // поменять на интефейс 
+public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour
 {
     [SerializeField] protected T Prefab;
     [SerializeField] protected Transform[] SpawnPoints;
@@ -51,8 +51,6 @@ public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour // поме
 
         if (DifficultyDatabase != null)
             CurrentSettings = DifficultyDatabase.GetSettings(level);
-
-        //BuildObjects();
     }
 
     public virtual IReadOnlyList<T> GetListObjects()

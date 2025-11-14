@@ -60,8 +60,9 @@ public class WaitingPoint : MonoBehaviour
 
         _cellRouter.DeliverMagicCell(waitCell);
         _waitingCell.Disable();
-        Reset();
 
         _clickHandler.OnClicked -= OnCellClicked;
+
+        Reset();
     }
 }

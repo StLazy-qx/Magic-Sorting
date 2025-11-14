@@ -397,6 +397,7 @@ MonoBehaviour:
   _sceneLoader: {fileID: 2062874096}
   _columnsFactory: {fileID: 0}
   _vesselFactory: {fileID: 0}
+  _waitingPoint: {fileID: 0}
 --- !u!114 &32273054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,17 +410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35eae68bc62f8c34ca1ae776ad569534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobileCanvas: {fileID: 0}
-  _desktopCanvas: {fileID: 0}
-  _desktopObjectsPosition: {fileID: 0}
-  _mobileObjectsPosition: {fileID: 0}
-  _player: {fileID: 0}
-  _playerInventory: {fileID: 0}
+  _platformDependentSetter: {fileID: 0}
   _columnsFactory: {fileID: 0}
   _vesselFactory: {fileID: 0}
-  _gameHandler: {fileID: 0}
-  _vesselsFulling: {fileID: 0}
-  _finalGameSession: {fileID: 0}
+  _storeItemFactory: {fileID: 0}
+  _objectsToInitializeMono: []
 --- !u!1 &74214564
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,14 +739,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 98486427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa662ff92aa14e4280b859ddfb82fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: d912505dfde61954b9fceeda9e70cfbe, type: 2}
   _sliderMasterVolume: {fileID: 2020054158}
   _sliderAmbientVolume: {fileID: 949433288}
   _sliderEffectVolume: {fileID: 6797532}
-  _muteButton: {fileID: 0}
+  _muteButton: {fileID: 392845520}
 --- !u!1 &102397657
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &111024503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,6 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &185413783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,6 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &194609447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,6 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &232001442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,6 +3912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &272688502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,6 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &380788088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4991,8 +4992,9 @@ GameObject:
   - component: {fileID: 392845519}
   - component: {fileID: 392845518}
   - component: {fileID: 392845517}
+  - component: {fileID: 392845520}
   m_Layer: 5
-  m_Name: AllMuteButton
+  m_Name: MuteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,7 +5007,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392845515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5099,6 +5101,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392845515}
   m_CullTransparentMesh: 1
+--- !u!114 &392845520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392845515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e4bf1447d02c44ab435b6f2e9d63cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 392845517}
+  _includeColor: {r: 0.32941177, g: 0.2392157, b: 0.67058825, a: 1}
 --- !u!1 &397135601
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,6 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &397135604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5377,7 +5394,7 @@ GameObject:
   - component: {fileID: 412661344}
   - component: {fileID: 412661343}
   m_Layer: 5
-  m_Name: SetLevelDifficultyTitle (3)
+  m_Name: SliderEffectVolumes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6458,14 +6475,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 502316064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa662ff92aa14e4280b859ddfb82fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: d912505dfde61954b9fceeda9e70cfbe, type: 2}
   _sliderMasterVolume: {fileID: 1189306864}
   _sliderAmbientVolume: {fileID: 1850039685}
   _sliderEffectVolume: {fileID: 1070699838}
-  _muteButton: {fileID: 0}
+  _muteButton: {fileID: 2060186344}
 --- !u!1 &508001466
 GameObject:
   m_ObjectHideFlags: 0
@@ -7084,7 +7101,7 @@ GameObject:
   - component: {fileID: 567424879}
   - component: {fileID: 567424878}
   m_Layer: 5
-  m_Name: SetLevelDifficultyTitle (2)
+  m_Name: SliderAmbientVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8010,6 +8027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &673614877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8778,6 +8796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &746202758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9062,6 +9081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &750182892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9853,6 +9873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &812171191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10968,6 +10989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &895962066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13152,7 +13174,7 @@ GameObject:
   - component: {fileID: 1064251597}
   - component: {fileID: 1064251596}
   m_Layer: 5
-  m_Name: AllAudioSettingTitle
+  m_Name: SliderMasterVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13269,6 +13291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1064607159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13890,6 +13913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1111196927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14320,6 +14344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!1 &1117085372
 GameObject:
   m_ObjectHideFlags: 0
@@ -14892,6 +14917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1158934266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15026,6 +15052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1159585985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15797,13 +15824,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  SpawnPoints: []
+  DifficultyDatabase: {fileID: 0}
   _store: {fileID: 0}
   _player: {fileID: 0}
-  _buyButton: {fileID: 777700050}
-  _equipButton: {fileID: 2033722124}
-  _selectItemColor: {r: 0.46858314, g: 0.7569811, b: 0.8490566, a: 1}
-  _buyedItemColor: {r: 1, g: 0.78916585, b: 0.38300002, a: 1}
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _contentTransform: {fileID: 0}
 --- !u!114 &1225867340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16277,6 +16303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1257682205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17341,6 +17368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1341008953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17732,6 +17760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1354534334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18016,6 +18045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1376031237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18981,7 +19011,7 @@ GameObject:
   - component: {fileID: 1465568842}
   - component: {fileID: 1465568841}
   m_Layer: 5
-  m_Name: SetLevelDifficultyTitle (3)
+  m_Name: SliderEffectVolumes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19323,13 +19353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  SpawnPoints: []
+  DifficultyDatabase: {fileID: 0}
   _store: {fileID: 0}
   _player: {fileID: 0}
-  _buyButton: {fileID: 0}
-  _equipButton: {fileID: 0}
-  _selectItemColor: {r: 0.7264151, g: 0.54460895, b: 0.11307406, a: 0}
-  _buyedItemColor: {r: 0, g: 0, b: 0, a: 0}
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _contentTransform: {fileID: 0}
 --- !u!1 &1487705167
 GameObject:
   m_ObjectHideFlags: 0
@@ -21361,6 +21390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1606844935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23534,6 +23564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1732527666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23963,7 +23994,7 @@ GameObject:
   - component: {fileID: 1754723337}
   - component: {fileID: 1754723336}
   m_Layer: 5
-  m_Name: SetLevelDifficultyTitle (2)
+  m_Name: SliderAmbientVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24040,7 +24071,7 @@ GameObject:
   - component: {fileID: 1760481265}
   - component: {fileID: 1760481264}
   m_Layer: 5
-  m_Name: AllAudioSettingTitle
+  m_Name: SliderMasterVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24157,6 +24188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1767127893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24420,13 +24452,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  SpawnPoints: []
+  DifficultyDatabase: {fileID: 0}
   _store: {fileID: 0}
   _player: {fileID: 0}
-  _buyButton: {fileID: 1563458136}
-  _equipButton: {fileID: 0}
-  _selectItemColor: {r: 0.764151, g: 0.48275664, b: 0.18382876, a: 0}
-  _buyedItemColor: {r: 0, g: 0, b: 0, a: 0}
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _contentTransform: {fileID: 0}
 --- !u!1 &1793443580
 GameObject:
   m_ObjectHideFlags: 0
@@ -24479,6 +24510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1793443583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24839,6 +24871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1804267066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25711,13 +25744,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990de3da4c2abd54ea44ff2053e2fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  SpawnPoints: []
+  DifficultyDatabase: {fileID: 0}
   _store: {fileID: 0}
   _player: {fileID: 0}
-  _buyButton: {fileID: 263328244}
-  _equipButton: {fileID: 0}
-  _selectItemColor: {r: 0.7264151, g: 0.54460895, b: 0.11307406, a: 0}
-  _buyedItemColor: {r: 0, g: 0, b: 0, a: 0}
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _contentTransform: {fileID: 0}
 --- !u!114 &1848008365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26849,6 +26881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1887355840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27642,6 +27675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &1945255338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28236,6 +28270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &2014665111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29202,6 +29237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &2049306602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29431,8 +29467,9 @@ GameObject:
   - component: {fileID: 2060186343}
   - component: {fileID: 2060186342}
   - component: {fileID: 2060186341}
+  - component: {fileID: 2060186344}
   m_Layer: 5
-  m_Name: AllMuteButton
+  m_Name: MuteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29539,6 +29576,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060186339}
   m_CullTransparentMesh: 1
+--- !u!114 &2060186344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060186339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e4bf1447d02c44ab435b6f2e9d63cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 2060186341}
+  _includeColor: {r: 0.32941177, g: 0.2392157, b: 0.67058825, a: 1}
 --- !u!1 &2062874095
 GameObject:
   m_ObjectHideFlags: 0
@@ -30182,6 +30233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemView: {fileID: 0}
 --- !u!114 &2120209682
 MonoBehaviour:
   m_ObjectHideFlags: 0

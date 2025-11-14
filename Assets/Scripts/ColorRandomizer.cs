@@ -4,6 +4,7 @@ using UnityEngine;
 public class ColorRandomizer : MonoBehaviour
 {
     private const float AlphaValue = 0.93f;
+
     private EnumColor[] _allColors = (EnumColor[])Enum.GetValues(typeof(EnumColor));
     private Color[] _currentColors;
 
@@ -11,9 +12,8 @@ public class ColorRandomizer : MonoBehaviour
     {
         if (_currentColors == null || _currentColors.Length == 0)
         {
-            Debug.LogWarning("Массив _currentColors пуст или не инициализирован. Возврат ко всем цветам.");
-
-            return TransformEnumToColor(_allColors[UnityEngine.Random.Range(0, _allColors.Length)]);
+            return TransformEnumToColor(_allColors
+                [UnityEngine.Random.Range(0, _allColors.Length)]);
         }
 
         return _currentColors[UnityEngine.Random.Range(0, _currentColors.Length)];
@@ -22,12 +22,7 @@ public class ColorRandomizer : MonoBehaviour
     public Color[] CrateArrayColors(int colorsNumber)
     {
         if (colorsNumber > _allColors.Length)
-        {
-            Debug.LogWarning($"Запрошено {colorsNumber} цветов, " +
-                             $"но доступно только {_allColors.Length}. Установим максимум.");
-
             colorsNumber = _allColors.Length;
-        }
 
         int[] shuffledIndices = ShuffleIndices(_allColors.Length);
 

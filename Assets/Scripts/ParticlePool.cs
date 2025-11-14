@@ -13,6 +13,7 @@ public class ParticlePool : MonoBehaviour
         if (count <= 0)
             return;
 
+        _particles.Clear();
         _container.SetParent(transform);
 
         for (int i = 0; i < count; i++)
@@ -24,7 +25,7 @@ public class ParticlePool : MonoBehaviour
         }
     }
 
-    public ParticleSystem Get()
+    public ParticleSystem HandOver()
     {
         if (_particles.TryDequeue(out ParticleSystem particle))
         {

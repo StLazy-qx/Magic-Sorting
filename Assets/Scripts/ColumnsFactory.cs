@@ -4,7 +4,7 @@ using UnityEngine;
 public class ColumnsFactory : Factory<MagicColumn>
 {
     [SerializeField] private MagicCellRouter _distributerMagicCell;
-    [SerializeField] private ColumnColorDistributor _colorDistributor;
+    [SerializeField] private ShuffledColorDistributor _colorDistributor;
 
     public void Initialize(IReadOnlyList<Vessel> vessels)
     {

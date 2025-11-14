@@ -29,7 +29,7 @@ public class ActionHandler : MonoBehaviour
 
     private IEnumerator MoveParticle(Vector3 beginPosition, Vector3 targetPosition, Color color)
     {
-        ParticleSystem particle = _particlePool.Get();
+        ParticleSystem particle = _particlePool.HandOver();
 
         if (particle == null)
             yield break;

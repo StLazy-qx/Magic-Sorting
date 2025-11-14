@@ -5,7 +5,6 @@ public class VesselFactory : Factory<Vessel>
 {
     [SerializeField] private VesselStateTracker  _gameFullingBehaviour;
     [SerializeField] private MagicCellRouter _distributerMagicCell;
-    [SerializeField] private ColumnColorDistributor _buildMagicColumn;
     [SerializeField] private ColorRandomizer _colorRandomizer;
 
     public bool IsReady { get; private set; }
@@ -15,7 +14,7 @@ public class VesselFactory : Factory<Vessel>
         foreach (var vesell in Objects)
         {
             if (vesell != null)
-                vesell.Filled -= OnReplaceVessel;
+                vesell.Filled -= OnPutRemainingVessel;
         }
 
         base.OnDestroy();
@@ -34,85 +33,72 @@ public class VesselFactory : Factory<Vessel>
         for (int i = 0; i < difficultyState.vesselsCount; i++)
         {
             Vessel vessel = Instantiate(Prefab);
-            vessel.Filled += OnReplaceVessel;
+            vessel.Filled += OnPutRemainingVessel;
 
             vessel.gameObject.SetActive(false);
             Add(vessel);
         }
 
         AssignColorsToVessels(CurrentSettings.colorsCount);
-        _gameFullingBehaviour.Initialize(Objects);
-        ReplaceFilledVessel();
+        _gameFullingBehaviour.SetVesselsList(Objects);
+        ActivateVessels();
 
         IsReady = true;
     }
 
-    private void OnReplaceVessel(Vector3 position)
+    private void OnPutRemainingVessel(Vector3 position)
     {
-        Vessel newVessel = Objects.FirstOrDefault(
+        Vessel remainingVessel = Objects.FirstOrDefault(
             vessel => vessel.IsFilled == false && vessel.gameObject.activeSelf == false);
 
-        if (newVessel == null)
+        if (remainingVessel == null)
             return;
 
-        newVessel.transform.position = position;
+        remainingVessel.transform.position = position;
 
-        newVessel.gameObject.SetActive(true);
+        remainingVessel.gameObject.SetActive(true);
     }
 
-    private void ReplaceFilledVessel()
+    private void ActivateVessels()
     {
         if (SpawnPoints == null || SpawnPoints.Length == 0)
             return;
 
         int index = 0;
+
         foreach (var vessel in Objects)
         {
             if (index >= SpawnPoints.Length)
                 break;
 
-            if (!vessel.IsFilled && !vessel.gameObject.activeSelf)
+            if (vessel.IsFilled == false && vessel.gameObject.activeSelf == false)
             {
                 vessel.transform.position = SpawnPoints[index].position;
-                vessel.gameObject.SetActive(true);
                 index++;
+
+                vessel.gameObject.SetActive(true);
             }
         }
     }
 
-    private void AssignColorsToVessels(int countColors)
+    private void AssignColorsToVessels(int colorsCount)
     {
         if (Objects.Count == 0)
             return;
 
-        if (Objects.Count > countColors)
+        int realColorCount = Mathf.Min(colorsCount, Objects.Count);
+        Color[] palette = _colorRandomizer.CrateArrayColors(realColorCount);
+
+        for (int i = 0; i < Objects.Count; i++)
         {
-            Color[] pointColors = _colorRandomizer.
-                CrateArrayColors(Mathf.Min(countColors, SpawnPoints.Length));
+            Color color = palette[i % palette.Length];
 
-            for (int i = 0; i < Mathf.Min(SpawnPoints.Length, Objects.Count); i++)
-            {
-                Color colorToAssign = i < pointColors.Length
-                    ? pointColors[i]
-                    : _colorRandomizer.GenerateRandomColor();
-                Objects[i].GetComponent<ColorMarker>().Init(colorToAssign);
-            }
-
-            for (int i = SpawnPoints.Length; i < Objects.Count; i++)
-            {
-                Objects[i].GetComponent<ColorMarker>()
-                    .Init(_colorRandomizer.GenerateRandomColor());
-            }
+            AssignColor(Objects[i], color);
         }
-        else
-        {
-            Color[] colors = _colorRandomizer.CrateArrayColors(countColors);
+    }
 
-            for (int i = 0; i < Objects.Count; i++)
-            {
-                Objects[i].GetComponent<ColorMarker>()
-                    .Init(colors[i % colors.Length]);
-            }
-        }
+    private void AssignColor(Vessel vessel, Color color)
+    {
+        vessel.GetComponent<ColorMarker>().Init(color);
     }
 }

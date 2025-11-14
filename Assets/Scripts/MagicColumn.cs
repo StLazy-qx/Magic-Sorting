@@ -8,7 +8,7 @@ public class MagicColumn : MonoBehaviour, IInteractable
     private int _countCells;
     private float _prefabHeight;
     private float _distanceBetweenCells = 0.05f;
-    private ColumnColorDistributor _colorSource;
+    private ShuffledColorDistributor _colorSource;
     private MagicCellRouter _cellRouter;
     private MagicCellsFactory _factory;
 
@@ -20,7 +20,7 @@ public class MagicColumn : MonoBehaviour, IInteractable
     }
 
     public void Initialize(MagicCellRouter distributerMagicCell,
-        ColumnColorDistributor colorSource,int countCells)
+        ShuffledColorDistributor colorSource,int countCells)
     {
         if (countCells <= 0 || colorSource == null)
             return;
@@ -46,7 +46,8 @@ public class MagicColumn : MonoBehaviour, IInteractable
             _cellRouter,
             _colorSource,
             transform,
-            _prefabHeight);
-        _stackHandler.CreateCells(_countCells);
+            _countCells,
+            _prefabHeight
+            );
     }
 }

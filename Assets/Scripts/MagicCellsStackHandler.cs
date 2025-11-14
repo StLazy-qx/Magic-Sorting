@@ -6,7 +6,7 @@ public class MagicCellsStackHandler : MonoBehaviour
 {
     private MagicCellsFactory _factory;
     private MagicCellRouter _cellRouter;
-    private ColumnColorDistributor _colorSource;
+    private ShuffledColorDistributor _colorSource;
     private Transform _parent;
     private float _prefabHeight;
 
@@ -15,8 +15,9 @@ public class MagicCellsStackHandler : MonoBehaviour
     public void Initialize(
         MagicCellsFactory factory,
         MagicCellRouter cellRouter,
-        ColumnColorDistributor colorSource,
+        ShuffledColorDistributor colorSource,
         Transform parent,
+        int countCells,
         float prefabHeight)
     {
         ValidateArguments(factory, cellRouter, colorSource, parent);
@@ -26,9 +27,11 @@ public class MagicCellsStackHandler : MonoBehaviour
         _colorSource = colorSource;
         _parent = parent;
         _prefabHeight = prefabHeight;
+
+        CreateCells(countCells);
     }
 
-    public void CreateCells(int countCells)
+    private void CreateCells(int countCells)
     {
         float currentY = 0f;
 
@@ -58,21 +61,24 @@ public class MagicCellsStackHandler : MonoBehaviour
         if (_cellsStack.Count == 0)
             return;
 
-        MagicCell topCell = _cellsStack.Peek();
-
-        if (_cellRouter.IsCheckCellColor(topCell.Color) == false)
+        if (_cellsStack.TryPop(out MagicCell cell) == false)
             return;
 
-        MagicCell newTopCell = _cellsStack.Pop();
+        if (_cellRouter.IsCheckCellColor(cell.Color) == false)
+        {
+            _cellsStack.Push(cell);
 
-        _cellRouter.DeliverMagicCell(newTopCell);
-        newTopCell.Disable();
+            return;
+        }
+
+        _cellRouter.DeliverMagicCell(cell);
+        cell.Disable();
     }
 
     private void ValidateArguments(
     MagicCellsFactory factory,
     MagicCellRouter cellRouter,
-    ColumnColorDistributor colorSource,
+    ShuffledColorDistributor colorSource,
     Transform parent)
     {
         if (factory == null)

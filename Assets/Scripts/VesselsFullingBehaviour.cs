@@ -1,27 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class VesselStateTracker : MonoBehaviour
+public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
 {
     private const float TimeEndSession = 1.7f;
 
     [SerializeField] private Panel _finalMatchPanelDesctop;
     [SerializeField] private Panel _finalMatchPanelMobile;
     [SerializeField] private FinalGameSession _finalGame;
-    [SerializeField] private ParticlePool _particlePool;
+    [SerializeField] private VesselCompletionEffecter _effecter;
 
     private Wallet _wallet;
     private Panel _currentPanel;
     private int _veselsCount;
     private IReadOnlyList<Vessel> _vessels;
-    private WaitForSeconds _waitForEndSession = new(TimeEndSession);
+
+    public bool IsInitialized { get; private set; }
 
     private void OnDestroy()
     {
         foreach (Vessel vessel in _vessels)
-            vessel.ScoreUpdated -= OnPerfomeEffectCoroutine;
+            vessel.PointsEarned -= OnPerformEffectCoroutine;
     }
 
     [Inject]
@@ -30,48 +32,55 @@ public class VesselStateTracker : MonoBehaviour
         _wallet = wallet;
     }
 
-    public void Initialize(IReadOnlyList<Vessel> vessels)
+    public void Initilize()
+    {
+        if (IsInitialized)
+            return;
+
+        if (_vessels == null || _vessels.Count == 0)
+            return;
+
+        if (_effecter == null)
+            return;
+
+        if (_currentPanel == null)
+            return;
+
+        if (_wallet == null)
+            return;
+
+        IsInitialized = true;
+    }
+
+    public void SetVesselsList(IReadOnlyList<Vessel> vessels)
     {
         _vessels = vessels;
 
         foreach (Vessel vessel in _vessels)
-            vessel.ScoreUpdated += OnPerfomeEffectCoroutine;
+            vessel.PointsEarned += OnPerformEffectCoroutine;
 
-        _particlePool.Initialize(vessels.Count);
+        _effecter.Initialize(vessels.Count);
     }
 
-    public void UseDesctopPanel()
+    public void ApplyPanel(Panel panel)
     {
-        _currentPanel = _finalMatchPanelDesctop;
+        _currentPanel = panel ?? throw new ArgumentNullException(nameof(panel),
+            "[VesselStateTracker] Панель не может быть нуль");
     }
 
-    public void UseMobilePanel()
+    private void OnPerformEffectCoroutine(Vector3 position, int value, Color color)
     {
-        _currentPanel = _finalMatchPanelMobile;
+        StartCoroutine(PerformEffect(position, value, color));
     }
 
-    private void OnPerfomeEffectCoroutine(Vector3 position, int value, Color color)
+    private IEnumerator PerformEffect(Vector3 position, int value, Color color)
     {
-        StartCoroutine(OnPerfomeEffect(position, value, color));
+        yield return _effecter.PlayEffect(position, color, TimeEndSession);
+
+        OnFixateVessel(value);
     }
 
-    //волшебные числа и поработать с ответсвенностью
-    private IEnumerator OnPerfomeEffect(Vector3 position, int value, Color color)
-    {
-        ParticleSystem particle = _particlePool.Get();
-
-        particle.transform.position = new Vector3(position.x, position.y - 0.3f, position.z);
-        ParticleSystem.MainModule main = particle.main;
-        main.startColor = color;
-
-        particle.Play();
-
-        yield return _waitForEndSession;
-
-        OnAddPoints(value);
-    }
-
-    private void OnAddPoints(int value)
+    private void OnFixateVessel(int value)
     {
         _wallet.AddPoints(value);
 

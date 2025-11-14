@@ -10,6 +10,18 @@ public class MagicCellRouter : MonoBehaviour
 
     public event Action<Vector3, Vector3, Color> CellDelivering;
 
+    public void Initialize(IReadOnlyList<Vessel> vessels)
+    {
+        if (vessels == null)
+        {
+            throw new ArgumentNullException(
+                nameof(vessels),"[DistributerMagicCell] " +
+                "Список судов не может быть пустым.");
+        }
+
+        _vessels = vessels;
+    }
+
     public void DeliverMagicCell(MagicCell cell)
     {
         if (cell == null)
@@ -41,23 +53,6 @@ public class MagicCellRouter : MonoBehaviour
                 cell.Color
                 );
         }
-        else
-        {
-            Debug.LogWarning("Невозможно доставить ячейку - " +
-                "нет подходящего сосуда и точка ожидания занята");
-        }
-    }
-
-    public void Initialize(IReadOnlyList<Vessel> vessels)
-    {
-        if (vessels == null)
-        {
-            throw new ArgumentNullException(
-                nameof(vessels),"[DistributerMagicCell] " +
-                "Список судов не может быть пустым.");
-        }
-
-        _vessels = vessels;
     }
 
     public bool IsCheckCellColor(Color color)

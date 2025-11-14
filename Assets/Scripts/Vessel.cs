@@ -19,8 +19,7 @@ public class Vessel : MonoBehaviour, IColorable
     public bool IsFilled { get; private set; }
 
     public event Action<Vector3> Filled;
-    //По другому назвать событие
-    public event Action<Vector3, int, Color> ScoreUpdated;
+    public event Action<Vector3, int, Color> PointsEarned;
 
     private void Awake()
     {
@@ -40,7 +39,7 @@ public class Vessel : MonoBehaviour, IColorable
         {
             IsFilled = true;
 
-            ScoreUpdated?.Invoke(transform.position, _points, _mainColor);
+            PointsEarned?.Invoke(transform.position, _points, _mainColor);
             Filled?.Invoke(transform.position);
             gameObject.SetActive(false);
         }

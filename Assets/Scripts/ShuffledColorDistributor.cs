@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ColumnColorDistributor : MonoBehaviour
+public class ShuffledColorDistributor : MonoBehaviour
 {
     [SerializeField] private ParticlePool _particlePool;
 
@@ -11,7 +11,6 @@ public class ColumnColorDistributor : MonoBehaviour
     private List<Color> _colors = new List<Color>();
     private Queue<Color> _mixedColors = new Queue<Color>();
 
-    public bool IsInitialized { get; private set; }
     public int TotalColors => _colors.Count;
 
     public void Initialize(IReadOnlyList<Vessel> vessels)
@@ -22,39 +21,11 @@ public class ColumnColorDistributor : MonoBehaviour
 
         GenerateColorList();
         ShuffleColors();
-
-        IsInitialized = true;
     }
 
     public bool TryGetRandomColor(out Color color)
     {
-        color = Color.white;
-
-        if (IsInitialized == false)
-            return false;
-
         return _mixedColors.TryDequeue(out color);
-    }
-
-    public void Reset()
-    {
-        ValidateVessels(_vessels);
-        GenerateColorList();
-        ShuffleColors();
-
-        IsInitialized = true;
-    }
-
-    private void ValidateVessels(IReadOnlyList<Vessel> vessels)
-    {
-        if (vessels == null)
-            throw new ArgumentNullException(nameof(vessels), "Список сосудов должен быть инифиализирован");
-
-        if (vessels.Count == 0)
-            throw new ArgumentException("Список сосудов не может быть пустым", nameof(vessels));
-
-        if(vessels.Any(vessel => vessel == null))
-            throw new ArgumentException("Список сосудов содержит нулевой элемент", nameof(vessels));
     }
 
     private void GenerateColorList()
@@ -68,13 +39,12 @@ public class ColumnColorDistributor : MonoBehaviour
                 _colors.Add(vessel.Color);
             }
         }
-
-        // пока метод здесь для проверки но изменить место
-        _particlePool.Initialize(TotalColors);
     }
 
     private void ShuffleColors()
     {
+        _particlePool.Initialize(TotalColors);
+
         for (int i = _colors.Count - 1; i > 0; i--)
         {
             int randomNumber = UnityEngine.Random.Range(0, i + 1);
@@ -88,5 +58,17 @@ public class ColumnColorDistributor : MonoBehaviour
 
         foreach (Color color in _colors)
             _mixedColors.Enqueue(color);
+    }
+
+    private void ValidateVessels(IReadOnlyList<Vessel> vessels)
+    {
+        if (vessels == null)
+            throw new ArgumentNullException(nameof(vessels), "Список сосудов должен быть инифиализирован");
+
+        if (vessels.Count == 0)
+            throw new ArgumentException("Список сосудов не может быть пустым", nameof(vessels));
+
+        if (vessels.Any(vessel => vessel == null))
+            throw new ArgumentException("Список сосудов содержит нулевой элемент", nameof(vessels));
     }
 }

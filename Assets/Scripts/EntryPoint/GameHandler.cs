@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class GameHandler : MonoBehaviour
+public class GameHandler : MonoBehaviour, IObjectInitilizable
 {
     private readonly int MainMenuIndex = 0;
     private readonly int GameSessionIndex = 1;
@@ -18,14 +18,23 @@ public class GameHandler : MonoBehaviour
     private Wallet _wallet;
     private DifficultyState _difficultyState;
 
+    public bool IsInitialized { get; private set; }
+
     public event Action<bool> PauseStateChanged;
     public event Action GameClosed;
 
-    [Inject]
-    private void Construct(Wallet wallet, DifficultyState difficultyState)
+    public void Initilize()
     {
-        _wallet = wallet;
-        _difficultyState = difficultyState;
+        if (IsInitialized)
+            return;
+
+        Time.timeScale = GameSessionIndex;
+
+        _difficultyState.SetDifficulty(DifficultyLevel.Easy);
+        _wallet.Reset();
+        _waitingPoint.Reset();
+
+        IsInitialized = true;
     }
 
     public void ContinueGame()
@@ -76,10 +85,16 @@ public class GameHandler : MonoBehaviour
         Application.Quit();
     }
 
+    [Inject]
+    private void Construct(Wallet wallet, DifficultyState difficultyState)
+    {
+        _wallet = wallet;
+        _difficultyState = difficultyState;
+    }
+
     private IEnumerator StartNewRoundRoutine()
     {
-        _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
-        _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+        ResetFactories();
         _vesselFactory.Spawn();
 
         yield return new WaitUntil(() => _vesselFactory.IsReady);
