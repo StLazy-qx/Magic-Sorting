@@ -42,7 +42,7 @@ public class StoreItemView : MonoBehaviour
     private void OnItemSelect(Button button)
     {
         if (_selectedButton != null)
-            button.image.color = _defaultColor;
+            _selectedButton.image.color = _defaultColor;
 
         button.image.color = _selectItemColor;
         _selectedButton = button;
