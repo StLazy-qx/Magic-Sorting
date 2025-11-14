@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -16,6 +15,10 @@ public class MagicianAnimator : MonoBehaviour
 
     public void PlayInteract()
     {
+        if (_animator == null)
+            return;
+
         _animator.SetTrigger(_animationInteract);
     }
+
 }

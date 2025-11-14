@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-public class CellMover : MonoBehaviour
+public class MagicCellMover : MonoBehaviour
 {
     private const int InfinityAnimation = -1;
     private const float BeginTimeToShake = 0.8f;
