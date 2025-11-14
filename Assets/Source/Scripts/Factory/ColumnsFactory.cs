@@ -1,50 +1,57 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Colorize;
+using InteractiveObjects;
+using MagicCells;
+using Vessels;
 
-public class ColumnsFactory : Factory<MagicColumn>
+namespace FactoryCore
 {
-    [SerializeField] private MagicCellRouter _distributerMagicCell;
-    [SerializeField] private ShuffledColorDistributor _colorDistributor;
-
-    public void Initialize(IReadOnlyList<Vessel> vessels)
+    public class ColumnsFactory : Factory<MagicColumn>
     {
-        _colorDistributor.Initialize(vessels);
-        _distributerMagicCell.Initialize(vessels);
-    }
+        [SerializeField] private MagicCellRouter _distributerMagicCell;
+        [SerializeField] private ShuffledColorDistributor _colorDistributor;
 
-    protected override void BuildObjects()
-    {
-        ClearList();
-
-        int countSpawnPoints = CalculateSpawnPointsToUse();
-        int cellsPerColumn = Mathf.Max(1,
-            _colorDistributor.TotalColors / countSpawnPoints);
-
-        for (int i = 0; i < countSpawnPoints; i++)
+        public void Initialize(IReadOnlyList<Vessel> vessels)
         {
-            Transform point = SpawnPoints[i];
-            MagicColumn columnInstance = Instantiate(Prefab,
-                point.position,point.rotation);
-
-            columnInstance.Initialize(
-                _distributerMagicCell,
-                _colorDistributor,
-                cellsPerColumn);
-
-            Add(columnInstance);
+            _colorDistributor.Initialize(vessels);
+            _distributerMagicCell.Initialize(vessels);
         }
 
-        NotifyObjectsChanged();
-    }
-
-    //или название метода через get?
-    private int CalculateSpawnPointsToUse()
-    {
-        if (CurrentSettings == null && DifficultyDatabase != null)
+        protected override void BuildObjects()
         {
-            CurrentSettings = DifficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
+            ClearList();
+
+            int countSpawnPoints = CalculateSpawnPointsToUse();
+            int cellsPerColumn = Mathf.Max(1,
+                _colorDistributor.TotalColors / countSpawnPoints);
+
+            for (int i = 0; i < countSpawnPoints; i++)
+            {
+                Transform point = SpawnPoints[i];
+                MagicColumn columnInstance = Instantiate(Prefab,
+                    point.position, point.rotation);
+
+                columnInstance.Initialize(
+                    _distributerMagicCell,
+                    _colorDistributor,
+                    cellsPerColumn);
+
+                Add(columnInstance);
+            }
+
+            NotifyObjectsChanged();
         }
 
-        return Mathf.Min(CurrentSettings.maxSpawnPoints, SpawnPoints.Length);
+        //или название метода через get?
+        private int CalculateSpawnPointsToUse()
+        {
+            if (CurrentSettings == null && DifficultyDatabase != null)
+            {
+                CurrentSettings = DifficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
+            }
+
+            return Mathf.Min(CurrentSettings.maxSpawnPoints, SpawnPoints.Length);
+        }
     }
 }

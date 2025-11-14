@@ -2,48 +2,52 @@ using System.Collections;
 using UnityEngine;
 using System.Linq;
 
-public class AmbientAudioPlayer : MonoBehaviour
+namespace Sound
 {
-    [SerializeField] private AudioSource _source;
-    [SerializeField] private AudioClip[] _clips;
-
-    private AudioClip[] _shuffledClips;
-    private int _currentIndex;
-
-    private void Start()
+    public class AmbientAudioPlayer : MonoBehaviour
     {
-        if (_clips == null
-            || _clips.Length == 0
-            || _source == null)
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip[] _clips;
+
+        private AudioClip[] _shuffledClips;
+        private int _currentIndex;
+
+        private void Start()
         {
-            return;
+            if (_clips == null
+                || _clips.Length == 0
+                || _source == null
+                )
+            {
+                return;
+            }
+
+            ShuffleClips();
+            StartCoroutine(PlayClipsInSequence());
         }
 
-        ShuffleClips();
-        StartCoroutine(PlayClipsInSequence());
-    }
-
-    private void ShuffleClips()
-    {
-        _shuffledClips = _clips.OrderBy(clip => Random.value).ToArray();
-        _currentIndex = 0;
-    }
-
-    private IEnumerator PlayClipsInSequence()
-    {
-        while (isActiveAndEnabled)
+        private void ShuffleClips()
         {
-            if (_currentIndex >= _shuffledClips.Length)
-                ShuffleClips();
+            _shuffledClips = _clips.OrderBy(clip => Random.value).ToArray();
+            _currentIndex = 0;
+        }
 
-            AudioClip currentClip = _shuffledClips[_currentIndex];
-            _source.clip = currentClip;
+        private IEnumerator PlayClipsInSequence()
+        {
+            while (isActiveAndEnabled)
+            {
+                if (_currentIndex >= _shuffledClips.Length)
+                    ShuffleClips();
 
-            _source.Play();
+                AudioClip currentClip = _shuffledClips[_currentIndex];
+                _source.clip = currentClip;
 
-            yield return new WaitForSeconds(currentClip.length);
+                _source.Play();
 
-            _currentIndex++;
+                yield return new WaitForSeconds(currentClip.length);
+
+                _currentIndex++;
+            }
         }
     }
 }

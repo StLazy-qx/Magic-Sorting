@@ -1,49 +1,54 @@
 using UnityEngine;
 using YG;
+using GameBehaviour;
+using Vessels;
 
-public class PlatformDependentSetter : MonoBehaviour
+namespace EntryPoint
 {
-    [Header("Canvas Setters")]
-    [SerializeField] private CanvasMobileSetter _mobileCanvas;
-    [SerializeField] private CanvasDesktopSetter _desktopCanvas;
-    [Header("Position Setters")]
-    [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
-    [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
-    [Header("Panels")]
-    [SerializeField] private Panel _finalMatchPanelDesctop;
-    [SerializeField] private Panel _finalMatchPanelMobile;
-    [Header("Links")]
-    [SerializeField] private VesselStateTracker _vesselsFulling;
-    [SerializeField] private FinalGameSession _finalGameSession;
-
-    public void Initilize()
+    public class PlatformDependentSetter : MonoBehaviour
     {
-        _mobileCanvas.Disable();
-        _desktopCanvas.Disable();
+        [Header("Canvas Setters")]
+        [SerializeField] private CanvasMobileSetter _mobileCanvas;
+        [SerializeField] private CanvasDesktopSetter _desktopCanvas;
+        [Header("Position Setters")]
+        [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
+        [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
+        [Header("Panels")]
+        [SerializeField] private Panel _finalMatchPanelDesctop;
+        [SerializeField] private Panel _finalMatchPanelMobile;
+        [Header("Links")]
+        [SerializeField] private VesselStateTracker _vesselsFulling;
+        [SerializeField] private FinalGameSession _finalGameSession;
 
-        if (YG2.envir.isMobile)
+        public void Initilize()
         {
-            UseMobileMode();
+            _mobileCanvas.Disable();
+            _desktopCanvas.Disable();
+
+            if (YG2.envir.isMobile)
+            {
+                UseMobileMode();
+            }
+            else
+            {
+                UseDesktopMode();
+            }
         }
-        else
+
+        public void UseMobileMode()
         {
-            UseDesktopMode();
+            _mobileCanvas.Enable();
+            _mobileObjectsPosition.Initialize();
+            _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
+            _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
         }
-    }
 
-    public void UseMobileMode()
-    {
-        _mobileCanvas.Enable();
-        _mobileObjectsPosition.Initialize();
-        _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
-        _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
-    }
-
-    public void UseDesktopMode()
-    {
-        _desktopCanvas.Enable();
-        _desktopObjectsPosition.Initialize();
-        _vesselsFulling.ApplyPanel(_finalMatchPanelDesctop);
-        _finalGameSession.ApplyPanel(_finalMatchPanelDesctop);
+        public void UseDesktopMode()
+        {
+            _desktopCanvas.Enable();
+            _desktopObjectsPosition.Initialize();
+            _vesselsFulling.ApplyPanel(_finalMatchPanelDesctop);
+            _finalGameSession.ApplyPanel(_finalMatchPanelDesctop);
+        }
     }
 }

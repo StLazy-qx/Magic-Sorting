@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using GameBehaviour;
 
 public class ExitButton : MonoBehaviour 
 {
@@ -11,11 +12,8 @@ public class ExitButton : MonoBehaviour
     {
         _button = GetComponent<Button>();
 
-        // Если не назначен в инспекторе — пробуем найти автоматически
         if (_gameHandler == null)
-        {
-            _gameHandler = FindObjectOfType<GameHandler>();
-        }
+            return;
     }
 
     private void OnEnable()

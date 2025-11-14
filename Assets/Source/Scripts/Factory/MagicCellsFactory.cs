@@ -1,28 +1,32 @@
 using UnityEngine;
+using MagicCells;
 
-public class MagicCellsFactory : Factory<MagicCell>
+namespace FactoryCore
 {
-    public MagicCell CreateCell(Transform parent, Vector3 localPosition, Color color)
+    public class MagicCellsFactory : Factory<MagicCell>
     {
-        MagicCell cell = Instantiate(Prefab, parent);
-        cell.transform.localPosition = localPosition;
-        cell.SetColor(color);
+        public MagicCell CreateCell(Transform parent, Vector3 localPosition, Color color)
+        {
+            MagicCell cell = Instantiate(Prefab, parent);
+            cell.transform.localPosition = localPosition;
+            cell.SetColor(color);
 
-        Add(cell);
-        NotifyObjectsChanged();
+            Add(cell);
+            NotifyObjectsChanged();
 
-        return cell;
+            return cell;
+        }
+
+        public float GetCellHeight()
+        {
+            if (Prefab == null)
+                return 0f;
+
+            Renderer renderer = Prefab.GetComponentInChildren<Renderer>();
+
+            return renderer != null ? renderer.bounds.size.y : 0f;
+        }
+
+        protected override void BuildObjects() { }
     }
-
-    public float GetCellHeight()
-    {
-        if (Prefab == null)
-            return 0f;
-
-        Renderer renderer = Prefab.GetComponentInChildren<Renderer>();
-
-        return renderer != null ? renderer.bounds.size.y : 0f;
-    }
-
-    protected override void BuildObjects() {}
 }

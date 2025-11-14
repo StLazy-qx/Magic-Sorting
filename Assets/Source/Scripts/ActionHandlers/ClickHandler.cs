@@ -1,34 +1,38 @@
 ﻿using System;
 using UnityEngine;
+using GameBehaviour;
 
-public class ClickHandler : MonoBehaviour
+namespace ActionHandler
 {
-    [SerializeField] private GameHandler _gameHandler;
-
-    public event Action OnClicked;
-
-    private bool _canClick = true;
-
-    private void OnEnable()
+    public class ClickHandler : MonoBehaviour
     {
-        _gameHandler.PauseStateChanged += OnPauseStateChanged;
-    }
+        [SerializeField] private GameHandler _gameHandler;
 
-    private void OnDisable()
-    {
-        _gameHandler.PauseStateChanged -= OnPauseStateChanged;
-    }
+        public event Action OnClicked;
 
-    private void OnMouseDown()
-    {
-        if (_canClick && Input.GetMouseButtonDown(0))
+        private bool _canClick = true;
+
+        private void OnEnable()
         {
-            OnClicked?.Invoke();
+            _gameHandler.PauseStateChanged += OnPauseStateChanged;
         }
-    }
 
-    private void OnPauseStateChanged(bool isPaused)
-    {
-        _canClick = !isPaused;
+        private void OnDisable()
+        {
+            _gameHandler.PauseStateChanged -= OnPauseStateChanged;
+        }
+
+        private void OnMouseDown()
+        {
+            if (_canClick && Input.GetMouseButtonDown(0))
+            {
+                OnClicked?.Invoke();
+            }
+        }
+
+        private void OnPauseStateChanged(bool isPaused)
+        {
+            _canClick = !isPaused;
+        }
     }
 }

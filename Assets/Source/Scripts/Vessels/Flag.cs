@@ -1,20 +1,24 @@
 using UnityEngine;
+using Colorize;
 
-[RequireComponent(typeof(Renderer))]
-
-public class Flag : MonoBehaviour, IColorable
+namespace Vessels
 {
-    private Renderer _renderer;
+    [RequireComponent(typeof(Renderer))]
 
-    public Color Color => _renderer.material.color;
-
-    private void Awake()
+    public class Flag : MonoBehaviour, IColorable
     {
-        _renderer = GetComponent<Renderer>();
-    }
+        private Renderer _renderer;
 
-    public void SetColor(Color color)
-    {
-        _renderer.material.color = color;
+        public Color Color => _renderer.material.color;
+
+        private void Awake()
+        {
+            _renderer = GetComponent<Renderer>();
+        }
+
+        public void SetColor(Color color)
+        {
+            _renderer.material.color = color;
+        }
     }
 }

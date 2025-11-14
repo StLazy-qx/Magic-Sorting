@@ -1,68 +1,73 @@
 using System;
 using UnityEngine;
+using ActionHandler;
+using MagicCells;
 
-public class WaitingPoint : MonoBehaviour
+namespace InteractiveObjects
 {
-    private readonly float RotationX = 90f;
-
-    [SerializeField] private int _seatsNumber;
-    [SerializeField] private Transform _storagePoint;
-    [SerializeField] private MagicCellRouter _cellRouter;
-
-    private MagicCell _waitingCell;
-    private ClickHandler _clickHandler;
-
-    public bool IsFreePlace { get; private set; }
-
-    private void Awake()
+    public class WaitingPoint : MonoBehaviour
     {
-        Reset();
-    }
+        private readonly float RotationX = 90f;
 
-    public void AcceptStorageCell(MagicCell cell)
-    {
-        if (_waitingCell != null && IsFreePlace == true)
-            return;
+        [SerializeField] private int _seatsNumber;
+        [SerializeField] private Transform _storagePoint;
+        [SerializeField] private MagicCellRouter _cellRouter;
 
-        if (cell == null)
+        private MagicCell _waitingCell;
+        private ClickHandler _clickHandler;
+
+        public bool IsFreePlace { get; private set; }
+
+        private void Awake()
         {
-            throw new ArgumentNullException(nameof(cell),
-                "[WaitingPoint] Волшебная ячейка не может быть нулевой.");
+            Reset();
         }
 
-        IsFreePlace = false;
-        Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
-        _waitingCell = Instantiate(cell, _storagePoint.position, cellRotation);
-        _clickHandler = _waitingCell.GetComponent<ClickHandler>();
-        _clickHandler.OnClicked += OnCellClicked;
-    }
-
-    public void Reset()
-    {
-        IsFreePlace = true;
-
-        if (_waitingCell != null)
+        public void AcceptStorageCell(MagicCell cell)
         {
-            Destroy(_waitingCell.gameObject);
+            if (_waitingCell != null && IsFreePlace == true)
+                return;
 
-            _waitingCell = null;
+            if (cell == null)
+            {
+                throw new ArgumentNullException(nameof(cell),
+                    "[WaitingPoint] Волшебная ячейка не может быть нулевой.");
+            }
+
+            IsFreePlace = false;
+            Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
+            _waitingCell = Instantiate(cell, _storagePoint.position, cellRotation);
+            _clickHandler = _waitingCell.GetComponent<ClickHandler>();
+            _clickHandler.OnClicked += OnCellClicked;
         }
 
-        _clickHandler = null;
-    }
+        public void Reset()
+        {
+            IsFreePlace = true;
 
-    private void OnCellClicked()
-    {
-        MagicCell waitCell = _waitingCell;
+            if (_waitingCell != null)
+            {
+                Destroy(_waitingCell.gameObject);
 
-        if (_cellRouter.IsCheckCellColor(waitCell.Color) == false)
-            return;
+                _waitingCell = null;
+            }
 
-        _cellRouter.DeliverMagicCell(waitCell);
-        _waitingCell.Disable();
+            _clickHandler = null;
+        }
 
-        _clickHandler.OnClicked -= OnCellClicked;
+        private void OnCellClicked()
+        {
+            MagicCell waitCell = _waitingCell;
 
-        Reset();
+            if (_cellRouter.IsCheckCellColor(waitCell.Color) == false)
+                return;
+
+            _cellRouter.DeliverMagicCell(waitCell);
+            _waitingCell.Disable();
+
+            _clickHandler.OnClicked -= OnCellClicked;
+
+            Reset();
+        }
     }
 }

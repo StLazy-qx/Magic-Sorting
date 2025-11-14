@@ -1,30 +1,34 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Pool;
 
-public class VesselCompletionEffecter : MonoBehaviour
+namespace Vessels
 {
-    private readonly float _offsetY = 0.3f;
-
-    [SerializeField] private ParticlePool _particlePool;
-
-    public void Initialize(int value)
+    public class VesselCompletionEffecter : MonoBehaviour
     {
-        _particlePool.Initialize(value);
-    }
+        private readonly float _offsetY = 0.3f;
 
-    public IEnumerator PlayEffect( 
-        Vector3 position, 
-        Color color, 
-        float duration)
-    {
-        ParticleSystem particle = _particlePool.HandOver();
-        particle.transform.position = new Vector3
-            (position.x, position.y - _offsetY, position.z);
-        var main = particle.main;
-        main.startColor = color;
+        [SerializeField] private ParticlePool _particlePool;
 
-        particle.Play();
+        public void Initialize(int value)
+        {
+            _particlePool.Initialize(value);
+        }
 
-        yield return new WaitForSeconds(duration);
+        public IEnumerator PlayEffect(
+            Vector3 position,
+            Color color,
+            float duration)
+        {
+            ParticleSystem particle = _particlePool.HandOver();
+            particle.transform.position = new Vector3
+                (position.x, position.y - _offsetY, position.z);
+            var main = particle.main;
+            main.startColor = color;
+
+            particle.Play();
+
+            yield return new WaitForSeconds(duration);
+        }
     }
 }

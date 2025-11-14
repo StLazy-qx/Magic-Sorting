@@ -3,67 +3,72 @@ using System;
 using UnityEngine;
 using YG;
 using System.Linq;
+using EntryPoint;
+using Items;
 
-public class Inventory : MonoBehaviour, IObjectInitilizable
+namespace PlayerCore
 {
-    private Item _equippedItem;
-    private List<Item> _items = new List<Item>();
-
-    public Item EquippedItem => _equippedItem;
-    public bool IsInitialized { get; private set; }
-
-    public event Action<Item> ItemEquipped;
-
-    public void Initilize()
+    public class Inventory : MonoBehaviour, IObjectInitilizable
     {
-        LoadInventory();
+        private Item _equippedItem;
+        private List<Item> _items = new List<Item>();
 
-        IsInitialized = true;
-    }
+        public Item EquippedItem => _equippedItem;
+        public bool IsInitialized { get; private set; }
 
-    private void LoadInventory()
-    {
-        _items = YG2.saves.GetAllItems() ?? new List<Item>();
+        public event Action<Item> ItemEquipped;
 
-        Item savedEquippedItem = YG2.saves.GetEquippedItem();
+        public void Initilize()
+        {
+            LoadInventory();
 
-        if (savedEquippedItem != null)
-            EquipItem(savedEquippedItem);
-    }
+            IsInitialized = true;
+        }
 
-    public bool HasItem(Item item)
-    {
-        if (item == null)
-            return false;
+        private void LoadInventory()
+        {
+            _items = YG2.saves.GetAllItems() ?? new List<Item>();
 
-        return _items.Any(currentItem => currentItem.ID == item.ID);
-    }
+            Item savedEquippedItem = YG2.saves.GetEquippedItem();
 
-    public void AddItem(Item item)
-    {
-        if (item == null) 
-            return;
+            if (savedEquippedItem != null)
+                EquipItem(savedEquippedItem);
+        }
 
-        if (HasItem(item))
-            return;
+        public bool HasItem(Item item)
+        {
+            if (item == null)
+                return false;
 
-        _items.Add(item);
-        YG2.saves.AddItem(item);
-    }
+            return _items.Any(currentItem => currentItem.ID == item.ID);
+        }
 
-    public void EquipItem(Item item)
-    {
-        if (item == null || HasItem(item) == false)
-            return;
+        public void AddItem(Item item)
+        {
+            if (item == null)
+                return;
 
-        _equippedItem = item;
+            if (HasItem(item))
+                return;
 
-        ItemEquipped?.Invoke(item);
-        YG2.saves.SetEquippedItem(item);
-    }
+            _items.Add(item);
+            YG2.saves.AddItem(item);
+        }
 
-    public IReadOnlyList<Item> GetAllItems()
-    {
-        return _items.AsReadOnly();
+        public void EquipItem(Item item)
+        {
+            if (item == null || HasItem(item) == false)
+                return;
+
+            _equippedItem = item;
+
+            ItemEquipped?.Invoke(item);
+            YG2.saves.SetEquippedItem(item);
+        }
+
+        public IReadOnlyList<Item> GetAllItems()
+        {
+            return _items.AsReadOnly();
+        }
     }
 }

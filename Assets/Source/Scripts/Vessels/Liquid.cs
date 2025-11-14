@@ -1,29 +1,33 @@
 using UnityEngine;
+using Colorize;
 
-[RequireComponent(typeof(Renderer))]
-
-public class Liquid : MonoBehaviour, IColorable
+namespace Vessels
 {
-    private Renderer _renderer;
+    [RequireComponent(typeof(Renderer))]
 
-    public Color Color => _renderer.material.color;
-
-    private void Awake()
+    public class Liquid : MonoBehaviour, IColorable
     {
-        _renderer = GetComponent<Renderer>();
-    }
+        private Renderer _renderer;
 
-    public void SetColor(Color color)
-    {
-        // проверка
+        public Color Color => _renderer.material.color;
 
-        _renderer.material.color = color;
+        private void Awake()
+        {
+            _renderer = GetComponent<Renderer>();
+        }
 
-        gameObject.SetActive(false);
-    }
+        public void SetColor(Color color)
+        {
+            // проверка
 
-    public void Activated()
-    {
-        gameObject.SetActive(true);
+            _renderer.material.color = color;
+
+            gameObject.SetActive(false);
+        }
+
+        public void Activated()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

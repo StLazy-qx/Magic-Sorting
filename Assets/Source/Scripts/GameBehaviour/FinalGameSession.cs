@@ -1,70 +1,74 @@
 using System;
 using UnityEngine;
+using EntryPoint;
 
-public class FinalGameSession : MonoBehaviour, IObjectInitilizable
+namespace GameBehaviour
 {
-    [SerializeField] private Panel _finalMatchPanelDesctop;
-    [SerializeField] private Panel _finalMatchPanelMobile;
-    [SerializeField] private GameHandler _gameHandler;
-
-    private Panel _currentPanel;
-
-    public event Action<int> RoundChanged;
-
-    public int CurrentRound { get; private set; }
-    public bool IsInitialized { get; private set; }
-
-    public void Initilize()
+    public class FinalGameSession : MonoBehaviour, IObjectInitilizable
     {
-        if (IsInitialized)
-            return;
+        [SerializeField] private Panel _finalMatchPanelDesctop;
+        [SerializeField] private Panel _finalMatchPanelMobile;
+        [SerializeField] private GameHandler _gameHandler;
 
-        if (_gameHandler == null)
-            return;
+        private Panel _currentPanel;
 
-        if (_currentPanel == null)
-            return;
+        public event Action<int> RoundChanged;
 
-        _currentPanel.Close();
+        public int CurrentRound { get; private set; }
+        public bool IsInitialized { get; private set; }
 
-        CurrentRound = 0;
-
-        IsInitialized = true;
-    }
-
-    public void ApplyPanel(Panel panel)
-    {
-        if (panel == null)
+        public void Initilize()
         {
-            throw new ArgumentNullException(nameof(panel),
-                "[VesselStateTracker] Панель не может быть нуль");
+            if (IsInitialized)
+                return;
+
+            if (_gameHandler == null)
+                return;
+
+            if (_currentPanel == null)
+                return;
+
+            _currentPanel.Close();
+
+            CurrentRound = 0;
+
+            IsInitialized = true;
         }
 
-        _currentPanel = panel;
-    }
+        public void ApplyPanel(Panel panel)
+        {
+            if (panel == null)
+            {
+                throw new ArgumentNullException(nameof(panel),
+                    "[VesselStateTracker] Панель не может быть нуль");
+            }
 
-    public void ActivateFinalPanelAndPauseGame()
-    {
-        if (_gameHandler == null)
-            return;
+            _currentPanel = panel;
+        }
 
-        _gameHandler.PauseGame();
-        _currentPanel.Open();
-        IncreaseRound();
-    }
+        public void ActivateFinalPanelAndPauseGame()
+        {
+            if (_gameHandler == null)
+                return;
 
-    public void DeactivateFinalPanelAndResumeGame()
-    {
-        if (_gameHandler == null)
-            return;
+            _gameHandler.PauseGame();
+            _currentPanel.Open();
+            IncreaseRound();
+        }
 
-        _currentPanel.Close();
-        _gameHandler.ContinueGame();
-    }
+        public void DeactivateFinalPanelAndResumeGame()
+        {
+            if (_gameHandler == null)
+                return;
 
-    private void IncreaseRound()
-    {
-        CurrentRound++;
-        RoundChanged?.Invoke(CurrentRound);
+            _currentPanel.Close();
+            _gameHandler.ContinueGame();
+        }
+
+        private void IncreaseRound()
+        {
+            CurrentRound++;
+            RoundChanged?.Invoke(CurrentRound);
+        }
     }
 }

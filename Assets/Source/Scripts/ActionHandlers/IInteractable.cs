@@ -1,8 +1,11 @@
 using System;
 
-public interface IInteractable
+namespace ActionHandler
 {
-    event Action Interacted;
+    public interface IInteractable
+    {
+        event Action Interacted;
 
-    void OnClick();
+        void OnClick();
+    }
 }

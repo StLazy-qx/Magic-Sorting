@@ -1,9 +1,12 @@
-public enum EnumColor
+namespace Colorize
 {
-    Red,
-    Green,
-    Blue,
-    Yellow,
-    Orange,
-    Purple
+    public enum EnumColor
+    {
+        Red,
+        Green,
+        Blue,
+        Yellow,
+        Orange,
+        Purple
+    }
 }

@@ -1,4 +1,5 @@
 using Zenject;
+using GameDifficulty;
 
 public class SceneInstaller : MonoInstaller
 {

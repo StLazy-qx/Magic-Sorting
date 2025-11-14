@@ -3,96 +3,102 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using EntryPoint;
+using GameBehaviour;
+using PlayerCore;
 
-public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
+namespace Vessels
 {
-    private const float TimeEndSession = 1.7f;
-
-    [SerializeField] private Panel _finalMatchPanelDesctop;
-    [SerializeField] private Panel _finalMatchPanelMobile;
-    [SerializeField] private FinalGameSession _finalGame;
-    [SerializeField] private VesselCompletionEffecter _effecter;
-
-    private Wallet _wallet;
-    private Panel _currentPanel;
-    private int _veselsCount;
-    private IReadOnlyList<Vessel> _vessels;
-
-    public bool IsInitialized { get; private set; }
-
-    private void OnDestroy()
+    public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
     {
-        foreach (Vessel vessel in _vessels)
-            vessel.PointsEarned -= OnPerformEffectCoroutine;
-    }
+        private const float TimeEndSession = 1.7f;
 
-    [Inject]
-    public void Construct(Wallet wallet)
-    {
-        _wallet = wallet;
-    }
+        [SerializeField] private Panel _finalMatchPanelDesctop;
+        [SerializeField] private Panel _finalMatchPanelMobile;
+        [SerializeField] private FinalGameSession _finalGame;
+        [SerializeField] private VesselCompletionEffecter _effecter;
 
-    public void Initilize()
-    {
-        if (IsInitialized)
-            return;
+        private Wallet _wallet;
+        private Panel _currentPanel;
+        private int _veselsCount;
+        private IReadOnlyList<Vessel> _vessels;
 
-        if (_vessels == null || _vessels.Count == 0)
-            return;
+        public bool IsInitialized { get; private set; }
 
-        if (_effecter == null)
-            return;
-
-        if (_currentPanel == null)
-            return;
-
-        if (_wallet == null)
-            return;
-
-        IsInitialized = true;
-    }
-
-    public void SetVesselsList(IReadOnlyList<Vessel> vessels)
-    {
-        _vessels = vessels;
-
-        foreach (Vessel vessel in _vessels)
-            vessel.PointsEarned += OnPerformEffectCoroutine;
-
-        _effecter.Initialize(vessels.Count);
-    }
-
-    public void ApplyPanel(Panel panel)
-    {
-        _currentPanel = panel ?? throw new ArgumentNullException(nameof(panel),
-            "[VesselStateTracker] Панель не может быть нуль");
-    }
-
-    private void OnPerformEffectCoroutine(Vector3 position, int value, Color color)
-    {
-        StartCoroutine(PerformEffect(position, value, color));
-    }
-
-    private IEnumerator PerformEffect(Vector3 position, int value, Color color)
-    {
-        yield return _effecter.PlayEffect(position, color, TimeEndSession);
-
-        OnFixateVessel(value);
-    }
-
-    private void OnFixateVessel(int value)
-    {
-        _wallet.AddPoints(value);
-
-        _veselsCount++;
-
-        if (_veselsCount == _vessels.Count)
+        private void OnDestroy()
         {
-            _wallet.ConfirmPoints();
-            _currentPanel.Close();
-            _finalGame.ActivateFinalPanelAndPauseGame();
+            foreach (Vessel vessel in _vessels)
+                vessel.PointsEarned -= OnPerformEffectCoroutine;
+        }
 
-            _veselsCount = 0;
+        [Inject]
+        public void Construct(Wallet wallet)
+        {
+            _wallet = wallet;
+        }
+
+        public void Initilize()
+        {
+            if (IsInitialized)
+                return;
+
+            if (_vessels == null || _vessels.Count == 0)
+                return;
+
+            if (_effecter == null)
+                return;
+
+            if (_currentPanel == null)
+                return;
+
+            if (_wallet == null)
+                return;
+
+            IsInitialized = true;
+        }
+
+        public void SetVesselsList(IReadOnlyList<Vessel> vessels)
+        {
+            _vessels = vessels;
+
+            foreach (Vessel vessel in _vessels)
+                vessel.PointsEarned += OnPerformEffectCoroutine;
+
+            _effecter.Initialize(vessels.Count);
+        }
+
+        public void ApplyPanel(Panel panel)
+        {
+            _currentPanel = panel ?? throw new ArgumentNullException(nameof(panel),
+                "[VesselStateTracker] Панель не может быть нуль");
+        }
+
+        private void OnPerformEffectCoroutine(Vector3 position, int value, Color color)
+        {
+            StartCoroutine(PerformEffect(position, value, color));
+        }
+
+        private IEnumerator PerformEffect(Vector3 position, int value, Color color)
+        {
+            yield return _effecter.PlayEffect(position, color, TimeEndSession);
+
+            OnFixateVessel(value);
+        }
+
+        private void OnFixateVessel(int value)
+        {
+            _wallet.AddPoints(value);
+
+            _veselsCount++;
+
+            if (_veselsCount == _vessels.Count)
+            {
+                _wallet.ConfirmPoints();
+                _currentPanel.Close();
+                _finalGame.ActivateFinalPanelAndPauseGame();
+
+                _veselsCount = 0;
+            }
         }
     }
 }

@@ -2,78 +2,81 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-[RequireComponent(typeof(Vessel))]
-
-public class VolumeAggregator : MonoBehaviour
+namespace Vessels
 {
-    [SerializeField] private Transform _internalVolume;
+    [RequireComponent(typeof(Vessel))]
 
-    private int _vesselVolume;
-    private int _currentSize = 0;
-    private float _deltaSize;
-    private Vector3 _initialBottomPoint;
-    private Liquid _liquid;
-
-    public bool IsFull => _currentSize >= _vesselVolume;
-
-    public event Action<int> SizeChanged;
-
-    //добавить в сосуд
-    public void InitParameters(int vesselVolume, Liquid liquid)
+    public class VolumeAggregator : MonoBehaviour
     {
-        _vesselVolume = vesselVolume > 0 ? vesselVolume :
-            throw new ArgumentException("Объем сосуда должен быть больше 0", nameof(vesselVolume));
+        [SerializeField] private Transform _internalVolume;
 
-        _liquid = liquid ?? 
-            throw new ArgumentNullException(nameof(liquid), "Жидкость не может быть null");
+        private int _vesselVolume;
+        private int _currentSize = 0;
+        private float _deltaSize;
+        private Vector3 _initialBottomPoint;
+        private Liquid _liquid;
 
-        if (_internalVolume == null)
-            throw new InvalidOperationException("Internal Volume не назначен в инспекторе");
+        public bool IsFull => _currentSize >= _vesselVolume;
 
-        _deltaSize = _internalVolume.localScale.y / _vesselVolume;
+        public event Action<int> SizeChanged;
 
-        SetupInitialLiquidPosition();
-    }
+        //добавить в сосуд
+        public void InitParameters(int vesselVolume, Liquid liquid)
+        {
+            _vesselVolume = vesselVolume > 0 ? vesselVolume :
+                throw new ArgumentException("Объем сосуда должен быть больше 0", nameof(vesselVolume));
 
-    public void GrowUpVolume()
-    {
-        _currentSize++;
-        SizeChanged?.Invoke(_currentSize);
+            _liquid = liquid ??
+                throw new ArgumentNullException(nameof(liquid), "Жидкость не может быть null");
 
-        if (_liquid.gameObject.activeSelf == false)
-            _liquid.gameObject.SetActive(true);
+            if (_internalVolume == null)
+                throw new InvalidOperationException("Internal Volume не назначен в инспекторе");
 
-        UpdateLiquidVisual();
-    }
+            _deltaSize = _internalVolume.localScale.y / _vesselVolume;
 
-    private void UpdateLiquidVisual()
-    {
-        float newHeight = _deltaSize * _currentSize;
+            SetupInitialLiquidPosition();
+        }
 
-        _liquid.transform
-            .DOScaleY(newHeight, 0.3f)
-            .SetEase(Ease.OutQuad);
+        public void GrowUpVolume()
+        {
+            _currentSize++;
+            SizeChanged?.Invoke(_currentSize);
 
-        float yOffset = newHeight / 2f;
-        Vector3 newPosition = _initialBottomPoint + new Vector3(0, yOffset, 0);
+            if (_liquid.gameObject.activeSelf == false)
+                _liquid.gameObject.SetActive(true);
 
-        _liquid.transform
-            .DOMoveY(newPosition.y, 0.3f)
-            .SetEase(Ease.OutQuad);
-    }
+            UpdateLiquidVisual();
+        }
 
-    private void SetupInitialLiquidPosition()
-    {
-        float halfHeight = _internalVolume.localScale.y / 2f;
-        _initialBottomPoint = _internalVolume.position - new Vector3(0, halfHeight, 0);
+        private void UpdateLiquidVisual()
+        {
+            float newHeight = _deltaSize * _currentSize;
 
-        _liquid.transform.localScale = new Vector3(
-            _internalVolume.localScale.x,
-            0f,
-            _internalVolume.localScale.z
-        );
+            _liquid.transform
+                .DOScaleY(newHeight, 0.3f)
+                .SetEase(Ease.OutQuad);
 
-        float yOffset = _deltaSize / 2f;
-        _liquid.transform.position = _initialBottomPoint + new Vector3(0, yOffset, 0);
+            float yOffset = newHeight / 2f;
+            Vector3 newPosition = _initialBottomPoint + new Vector3(0, yOffset, 0);
+
+            _liquid.transform
+                .DOMoveY(newPosition.y, 0.3f)
+                .SetEase(Ease.OutQuad);
+        }
+
+        private void SetupInitialLiquidPosition()
+        {
+            float halfHeight = _internalVolume.localScale.y / 2f;
+            _initialBottomPoint = _internalVolume.position - new Vector3(0, halfHeight, 0);
+
+            _liquid.transform.localScale = new Vector3(
+                _internalVolume.localScale.x,
+                0f,
+                _internalVolume.localScale.z
+            );
+
+            float yOffset = _deltaSize / 2f;
+            _liquid.transform.position = _initialBottomPoint + new Vector3(0, yOffset, 0);
+        }
     }
 }

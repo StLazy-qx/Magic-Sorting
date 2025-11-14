@@ -1,24 +1,27 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-
-public class MagicianAnimator : MonoBehaviour
+namespace PlayerCore
 {
-    private readonly int _animationInteract = Animator.StringToHash("Interact");
+    [RequireComponent(typeof(Animator))]
 
-    private Animator _animator;
-
-    private void Awake()
+    public class MagicianAnimator : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
+        private readonly int _animationInteract = Animator.StringToHash("Interact");
+
+        private Animator _animator;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        public void PlayInteract()
+        {
+            if (_animator == null)
+                return;
+
+            _animator.SetTrigger(_animationInteract);
+        }
+
     }
-
-    public void PlayInteract()
-    {
-        if (_animator == null)
-            return;
-
-        _animator.SetTrigger(_animationInteract);
-    }
-
 }

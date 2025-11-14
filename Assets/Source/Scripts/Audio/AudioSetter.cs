@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioSetter : MonoBehaviour
+namespace Sound
 {
-    [SerializeField] private AudioClip _clip;
-    [SerializeField] private AudioSource _audioSource;
-
-    private void Awake()
+    public class AudioSetter : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.clip = _clip;
-    }
+        [SerializeField] private AudioClip _clip;
+        [SerializeField] private AudioSource _audioSource;
 
-    private void Start()
-    {
-        PlayMusic();
-    }
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            _audioSource.clip = _clip;
+        }
 
-    public void PlayMusic()
-    {
-        _audioSource.Play();
-    }
+        private void Start()
+        {
+            PlayMusic();
+        }
 
-    public void StopMusic()
-    {
-        _audioSource.Stop();
+        public void PlayMusic()
+        {
+            _audioSource.Play();
+        }
+
+        public void StopMusic()
+        {
+            _audioSource.Stop();
+        }
     }
 }

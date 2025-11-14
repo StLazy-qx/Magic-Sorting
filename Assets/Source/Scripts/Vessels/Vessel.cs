@@ -1,50 +1,55 @@
 using System;
 using UnityEngine;
+using Colorize;
+using MagicCells;
 
-[RequireComponent(typeof(VolumeAggregator))]
-
-public class Vessel : MonoBehaviour, IColorable
+namespace Vessels
 {
-    [SerializeField] private Liquid _liquid;
-    [SerializeField] private int _maxSize;
-    [SerializeField] private int _points;
+    [RequireComponent(typeof(VolumeAggregator))]
 
-    private Color _mainColor;
-    private VolumeAggregator _aggregator;
-
-    public int Count => _maxSize;
-    public bool IsActive => gameObject.activeSelf;
-    public Color Color => _mainColor;
-    public Liquid Liquid => _liquid;
-    public bool IsFilled { get; private set; }
-
-    public event Action<Vector3> Filled;
-    public event Action<Vector3, int, Color> PointsEarned;
-
-    private void Awake()
+    public class Vessel : MonoBehaviour, IColorable
     {
-        _aggregator = GetComponent<VolumeAggregator>();
-        _aggregator.InitParameters(_maxSize, _liquid);
-        IsFilled = false;
-    }
+        [SerializeField] private Liquid _liquid;
+        [SerializeField] private int _maxSize;
+        [SerializeField] private int _points;
 
-    public void TakeMagic(MagicCell cell)
-    {
-        if (cell == null)
-            return;
+        private Color _mainColor;
+        private VolumeAggregator _aggregator;
 
-        _aggregator.GrowUpVolume();
+        public int Count => _maxSize;
+        public bool IsActive => gameObject.activeSelf;
+        public Color Color => _mainColor;
+        public Liquid Liquid => _liquid;
+        public bool IsFilled { get; private set; }
 
-        if (_aggregator.IsFull)
+        public event Action<Vector3> Filled;
+        public event Action<Vector3, int, Color> PointsEarned;
+
+        private void Awake()
         {
-            IsFilled = true;
-
-            PointsEarned?.Invoke(transform.position, _points, _mainColor);
-            Filled?.Invoke(transform.position);
-            gameObject.SetActive(false);
+            _aggregator = GetComponent<VolumeAggregator>();
+            _aggregator.InitParameters(_maxSize, _liquid);
+            IsFilled = false;
         }
-    }
 
-    public void SetColor(Color color)
-        => _mainColor = color;
+        public void TakeMagic(MagicCell cell)
+        {
+            if (cell == null)
+                return;
+
+            _aggregator.GrowUpVolume();
+
+            if (_aggregator.IsFull)
+            {
+                IsFilled = true;
+
+                PointsEarned?.Invoke(transform.position, _points, _mainColor);
+                Filled?.Invoke(transform.position);
+                gameObject.SetActive(false);
+            }
+        }
+
+        public void SetColor(Color color)
+            => _mainColor = color;
+    }
 }

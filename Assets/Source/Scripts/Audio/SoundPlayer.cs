@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class SoundPlayer : MonoBehaviour
+namespace Sound
 {
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip[] _interactClips;
-
-    public void PlayInteractSound()
+    public class SoundPlayer : MonoBehaviour
     {
-        int beginIndex = 0;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip[] _interactClips;
 
-        if (_interactClips == null || _interactClips.Length == 0)
-            return;
+        public void PlayInteractSound()
+        {
+            int beginIndex = 0;
 
-        int randomIndex = Random.Range(beginIndex, _interactClips.Length);
-        AudioClip clipToPlay = _interactClips[randomIndex];
+            if (_interactClips == null || _interactClips.Length == 0)
+                return;
 
-        _audioSource.PlayOneShot(clipToPlay);
+            int randomIndex = Random.Range(beginIndex, _interactClips.Length);
+            AudioClip clipToPlay = _interactClips[randomIndex];
+
+            _audioSource.PlayOneShot(clipToPlay);
+        }
     }
 }

@@ -1,71 +1,74 @@
 using System;
 using YG;
 
-public class Wallet
+namespace PlayerCore
 {
-    private int _currentScore;
-    private int _totalScore;
-
-    public int TotalScore => _totalScore;
-
-    public event Action<int> CurrentScoreChanged;
-    public event Action<int> TotalScoreChanged;
-
-    private Wallet()
+    public class Wallet
     {
-        _totalScore = YG2.saves.Points;
-        CurrentScoreChanged?.Invoke(_currentScore);
-        TotalScoreChanged?.Invoke(TotalScore);
-    }
+        private int _currentScore;
+        private int _totalScore;
 
-    public void AddPoints(int value)
-    {
-        if (value <= 0)
-            throw new ArgumentException("Значение не может быть равным или меньше нуля");
+        public int TotalScore => _totalScore;
 
-        _currentScore += value;
+        public event Action<int> CurrentScoreChanged;
+        public event Action<int> TotalScoreChanged;
 
-        CurrentScoreChanged?.Invoke(_currentScore);
-    }
+        private Wallet()
+        {
+            _totalScore = YG2.saves.Points;
+            CurrentScoreChanged?.Invoke(_currentScore);
+            TotalScoreChanged?.Invoke(TotalScore);
+        }
 
-    public void ConfirmPoints()
-    {
-        _totalScore += _currentScore;
-        _currentScore = 0;
-        YG2.saves.SavePoints(_totalScore);
+        public void AddPoints(int value)
+        {
+            if (value <= 0)
+                throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
-        TotalScoreChanged?.Invoke(TotalScore);
-        CurrentScoreChanged?.Invoke(_currentScore);
+            _currentScore += value;
 
-        //проверить название таблицы
-        YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
-    }
+            CurrentScoreChanged?.Invoke(_currentScore);
+        }
 
-    public void BuyItem(int price)
-    {
-        if (price < 0)
-            throw new ArgumentException("Значение не может быть равным или меньше нуля");
+        public void ConfirmPoints()
+        {
+            _totalScore += _currentScore;
+            _currentScore = 0;
+            YG2.saves.SavePoints(_totalScore);
 
-        if (CanAfford(price) == false)
-            return;
+            TotalScoreChanged?.Invoke(TotalScore);
+            CurrentScoreChanged?.Invoke(_currentScore);
 
-        _totalScore -= price;
-        YG2.saves.SavePoints(_totalScore);
-        TotalScoreChanged?.Invoke(TotalScore);
-    }
+            //проверить название таблицы
+            YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
+        }
 
-    public void Reset()
-    {
-        _currentScore = 0;
+        public void BuyItem(int price)
+        {
+            if (price < 0)
+                throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
-        CurrentScoreChanged?.Invoke(_currentScore);
-    }
+            if (CanAfford(price) == false)
+                return;
 
-    public bool CanAfford(int value)
-    {
-        if (value < 0)
-            return false;
+            _totalScore -= price;
+            YG2.saves.SavePoints(_totalScore);
+            TotalScoreChanged?.Invoke(TotalScore);
+        }
 
-        return _totalScore >= value;
+        public void Reset()
+        {
+            _currentScore = 0;
+
+            CurrentScoreChanged?.Invoke(_currentScore);
+        }
+
+        public bool CanAfford(int value)
+        {
+            if (value < 0)
+                return false;
+
+            return _totalScore >= value;
+        }
     }
 }

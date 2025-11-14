@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Zenject;
+using PlayerCore;
 
 public class TotalWalletUI : MonoBehaviour
 {

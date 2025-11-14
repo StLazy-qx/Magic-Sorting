@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-//using Zenject;
+using GameBehaviour;
 
 [RequireComponent(typeof(Button))]
 
@@ -11,15 +11,6 @@ public abstract class BaseMenuButton : MonoBehaviour
 
     protected Panel CurrentPanel;
     protected Button Button;
-    //protected GameHandler GameHandler;
-
-    //[Inject]
-    //public void InjectDependencies(GameHandler gameHandler)
-    //{
-    //    GameHandler = gameHandler;
-
-    //    Debug.Log(GameHandler);
-    //}
 
     private void Awake()
     {
@@ -37,6 +28,5 @@ public abstract class BaseMenuButton : MonoBehaviour
         Button.onClick.RemoveListener(OnButtonClick);
     }
 
-    //нужно ли оставлять методы и переменные протектед?
     protected abstract void OnButtonClick();
 }

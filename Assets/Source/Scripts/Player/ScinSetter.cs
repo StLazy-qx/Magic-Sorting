@@ -1,55 +1,59 @@
 using UnityEngine;
+using Items;
 
-public class ScinSetter : MonoBehaviour
+namespace PlayerCore
 {
-    [SerializeField] private SkinnedMeshRenderer _meshRenderer;
-    [SerializeField] private Inventory _inventory;
-
-    private Material _materialInstance;
-
-    private void Start()
+    public class ScinSetter : MonoBehaviour
     {
-        if (_inventory.IsInitialized && _inventory.EquippedItem != null)
-            OnEquipItem(_inventory.EquippedItem);
-    }
+        [SerializeField] private SkinnedMeshRenderer _meshRenderer;
+        [SerializeField] private Inventory _inventory;
 
-    private void OnEnable()
-    {
-        _inventory.ItemEquipped += OnEquipItem;
-    }
+        private Material _materialInstance;
 
-    private void OnDisable()
-    {
-        _inventory.ItemEquipped -= OnEquipItem;
-    }
-
-    private void OnEquipItem(Item item)
-    {
-        if (item == null)
-            return;
-
-        if (_inventory.HasItem(item) == false)
-            return;
-
-        if (_materialInstance == null && _meshRenderer != null)
+        private void Start()
         {
-            _materialInstance = _meshRenderer.material;
+            if (_inventory.IsInitialized && _inventory.EquippedItem != null)
+                OnEquipItem(_inventory.EquippedItem);
         }
 
-        ApplyItemTexture(item);
-    }
+        private void OnEnable()
+        {
+            _inventory.ItemEquipped += OnEquipItem;
+        }
 
-    private void ApplyItemTexture(Item item)
-    {
-        if (_materialInstance == null || item.Texture == null)
-            return;
+        private void OnDisable()
+        {
+            _inventory.ItemEquipped -= OnEquipItem;
+        }
 
-        _materialInstance.SetTexture("_MainTex", item.Texture);
-    }
+        private void OnEquipItem(Item item)
+        {
+            if (item == null)
+                return;
 
-    private void InitializeMaterial()
-    {
-        if (_meshRenderer != null)
-            _materialInstance = _meshRenderer.material;
+            if (_inventory.HasItem(item) == false)
+                return;
+
+            if (_materialInstance == null && _meshRenderer != null)
+            {
+                _materialInstance = _meshRenderer.material;
+            }
+
+            ApplyItemTexture(item);
+        }
+
+        private void ApplyItemTexture(Item item)
+        {
+            if (_materialInstance == null || item.Texture == null)
+                return;
+
+            _materialInstance.SetTexture("_MainTex", item.Texture);
+        }
+
+        private void InitializeMaterial()
+        {
+            if (_meshRenderer != null)
+                _materialInstance = _meshRenderer.material;
+        }
     }
 }

@@ -1,6 +1,9 @@
-public interface IObjectInitilizable
+namespace EntryPoint
 {
-    public bool IsInitialized { get; }
+    public interface IObjectInitilizable
+    {
+        public bool IsInitialized { get; }
 
-    public void Initilize();
+        public void Initilize();
+    }
 }

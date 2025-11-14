@@ -2,88 +2,92 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using GameDifficulty;
 
-public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour
+namespace FactoryCore
 {
-    [SerializeField] protected T Prefab;
-    [SerializeField] protected Transform[] SpawnPoints;
-    [SerializeField] protected DifficultyDatabase DifficultyDatabase;
-
-    protected DifficultyState DifficultyState;
-    protected DifficultySettings CurrentSettings;
-    private List<T> _objects = new List<T>();
-
-    public event Action<IReadOnlyList<T>> ListObjectsChanged;
-
-    public IReadOnlyList<T> Objects => _objects;
-
-    public void Spawn()
+    public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour
     {
-        BuildObjects();
-    }
+        [SerializeField] protected T Prefab;
+        [SerializeField] protected Transform[] SpawnPoints;
+        [SerializeField] protected DifficultyDatabase DifficultyDatabase;
 
-    protected virtual void OnDestroy()
-    {
-        if(DifficultyState != null)
-            DifficultyState.DifficultyChanged -= OnDifficultyChanged;
-    }
+        protected DifficultyState DifficultyState;
+        protected DifficultySettings CurrentSettings;
+        private List<T> _objects = new List<T>();
 
-    [Inject]
-    public void Construct(DifficultyState difficultyState)
-    {
-        DifficultyState = difficultyState;
+        public event Action<IReadOnlyList<T>> ListObjectsChanged;
 
-        if (DifficultyDatabase != null)
+        public IReadOnlyList<T> Objects => _objects;
+
+        public void Spawn()
         {
-            CurrentSettings = DifficultyDatabase.
-                GetSettings(DifficultyState.CurrentDifficulty);
+            BuildObjects();
         }
 
-        DifficultyState.DifficultyChanged += OnDifficultyChanged;
-    }
+        protected virtual void OnDestroy()
+        {
+            if (DifficultyState != null)
+                DifficultyState.DifficultyChanged -= OnDifficultyChanged;
+        }
 
-    public virtual void ResetFactory(DifficultyLevel level)
-    {
-        ClearList();
+        [Inject]
+        public void Construct(DifficultyState difficultyState)
+        {
+            DifficultyState = difficultyState;
 
-        if (DifficultyState != null)
-            DifficultyState.SetDifficulty(level);
+            if (DifficultyDatabase != null)
+            {
+                CurrentSettings = DifficultyDatabase.
+                    GetSettings(DifficultyState.CurrentDifficulty);
+            }
 
-        if (DifficultyDatabase != null)
-            CurrentSettings = DifficultyDatabase.GetSettings(level);
-    }
+            DifficultyState.DifficultyChanged += OnDifficultyChanged;
+        }
 
-    public virtual IReadOnlyList<T> GetListObjects()
-    {
-        return Objects;
-    }
+        public virtual void ResetFactory(DifficultyLevel level)
+        {
+            ClearList();
 
-    public void NotifyObjectsChanged()
-    {
-        ListObjectsChanged?.Invoke(Objects);
-    }
+            if (DifficultyState != null)
+                DifficultyState.SetDifficulty(level);
 
-    protected abstract void BuildObjects();
+            if (DifficultyDatabase != null)
+                CurrentSettings = DifficultyDatabase.GetSettings(level);
+        }
 
-    protected virtual void OnDifficultyChanged(DifficultyLevel level)
-    {
-        ResetFactory(level);
-    }
+        public virtual IReadOnlyList<T> GetListObjects()
+        {
+            return Objects;
+        }
 
-    protected void Add(T @object)
-    {
-        if (@object != null)
-            _objects.Add(@object);
-    }
+        public void NotifyObjectsChanged()
+        {
+            ListObjectsChanged?.Invoke(Objects);
+        }
 
-    protected virtual void ClearList()
-    {
-        foreach (var @object in Objects)
+        protected abstract void BuildObjects();
+
+        protected virtual void OnDifficultyChanged(DifficultyLevel level)
+        {
+            ResetFactory(level);
+        }
+
+        protected void Add(T @object)
         {
             if (@object != null)
-                Destroy(@object.gameObject);
+                _objects.Add(@object);
         }
 
-        _objects.Clear();
+        protected virtual void ClearList()
+        {
+            foreach (var @object in Objects)
+            {
+                if (@object != null)
+                    Destroy(@object.gameObject);
+            }
+
+            _objects.Clear();
+        }
     }
 }

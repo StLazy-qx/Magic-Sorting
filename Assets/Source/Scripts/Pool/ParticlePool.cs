@@ -1,39 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticlePool : MonoBehaviour
+namespace Pool
 {
-    [SerializeField] private ParticleSystem _particlePrefab;
-    [SerializeField] private Transform _container;
-
-    private Queue<ParticleSystem> _particles = new();
-
-    public void Initialize(int count)
+    public class ParticlePool : MonoBehaviour
     {
-        if (count <= 0)
-            return;
+        [SerializeField] private ParticleSystem _particlePrefab;
+        [SerializeField] private Transform _container;
 
-        _particles.Clear();
-        _container.SetParent(transform);
+        private Queue<ParticleSystem> _particles = new();
 
-        for (int i = 0; i < count; i++)
+        public void Initialize(int count)
         {
-            ParticleSystem particle = Instantiate(_particlePrefab, _container);
+            if (count <= 0)
+                return;
 
-            particle.gameObject.SetActive(false);
-            _particles.Enqueue(particle);
-        }
-    }
+            _particles.Clear();
+            _container.SetParent(transform);
 
-    public ParticleSystem HandOver()
-    {
-        if (_particles.TryDequeue(out ParticleSystem particle))
-        {
-            particle.gameObject.SetActive(true);
+            for (int i = 0; i < count; i++)
+            {
+                ParticleSystem particle = Instantiate(_particlePrefab, _container);
 
-            return particle;
+                particle.gameObject.SetActive(false);
+                _particles.Enqueue(particle);
+            }
         }
 
-        return null;
+        public ParticleSystem HandOver()
+        {
+            if (_particles.TryDequeue(out ParticleSystem particle))
+            {
+                particle.gameObject.SetActive(true);
+
+                return particle;
+            }
+
+            return null;
+        }
     }
 }

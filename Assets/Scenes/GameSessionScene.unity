@@ -1970,11 +1970,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 203805685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba324ae6099ffd14fbc8252042914abf, type: 3}
+  m_Script: {fileID: 11500000, guid: 02c37c9c1fb7c5646a012dfd9c3784a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _itemFactory: {fileID: 203805686}
-  _selectItemColor: {r: 0.4788283, g: 0.8113208, b: 0.3329477, a: 1}
+  _selectItemColor: {r: 0.31073725, g: 0.6415094, b: 0.26326096, a: 1}
 --- !u!1 &210416150
 GameObject:
   m_ObjectHideFlags: 0
@@ -7970,7 +7970,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6c28d4871a69d0741a5836a0847739d7, type: 2}
   - {fileID: 11400000, guid: 7a10c945763247140ba88a111517678e, type: 2}
   - {fileID: 11400000, guid: a475a94d17740fb41bed0e998a45d6fd, type: 2}
-  _itemView: {fileID: 203805688}
+  _itemView: {fileID: 0}
   _player: {fileID: 2066365334}
   _inventory: {fileID: 460316045}
 --- !u!4 &784363502

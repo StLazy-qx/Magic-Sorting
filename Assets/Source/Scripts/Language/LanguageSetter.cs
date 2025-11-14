@@ -1,25 +1,28 @@
 using System;
 using YG;
 
-public class LanguageSetter
+namespace Language
 {
-    public string CurrentLanguage { get; private set; }
-
-    public event Action<string> OnLanguageChanged;
-
-    public LanguageSetter(string initialLanguage)
+    public class LanguageSetter
     {
-        CurrentLanguage = initialLanguage;
-    }
+        public string CurrentLanguage { get; private set; }
 
-    public void SetLanguage(string language)
-    {
-        if (CurrentLanguage == language)
-            return;
+        public event Action<string> OnLanguageChanged;
 
-        CurrentLanguage = language;
+        public LanguageSetter(string initialLanguage)
+        {
+            CurrentLanguage = initialLanguage;
+        }
 
-        YG2.SwitchLanguage(language);
-        OnLanguageChanged?.Invoke(language);
+        public void SetLanguage(string language)
+        {
+            if (CurrentLanguage == language)
+                return;
+
+            CurrentLanguage = language;
+
+            YG2.SwitchLanguage(language);
+            OnLanguageChanged?.Invoke(language);
+        }
     }
 }

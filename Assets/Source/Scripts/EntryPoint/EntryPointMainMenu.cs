@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntryPointMainMenu : MonoBehaviour
+namespace EntryPoint
 {
+    public class EntryPointMainMenu : MonoBehaviour
+    {
 
+    }
 }
