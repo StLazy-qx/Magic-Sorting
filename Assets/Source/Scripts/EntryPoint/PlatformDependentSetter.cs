@@ -2,6 +2,7 @@ using UnityEngine;
 using YG;
 using GameBehaviour;
 using Vessels;
+using FactoryCore;
 
 namespace EntryPoint
 {
@@ -19,6 +20,10 @@ namespace EntryPoint
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
+        [Header("Store installation")]
+        [SerializeField] private StoreItemFactory _itemFactory;
+        [SerializeField] private Transform _desktopContent;
+        [SerializeField] private Transform _mobileContent;
 
         public void Initilize()
         {
@@ -28,10 +33,12 @@ namespace EntryPoint
             if (YG2.envir.isMobile)
             {
                 UseMobileMode();
+                _itemFactory.SetContentTransform(_mobileContent);
             }
             else
             {
                 UseDesktopMode();
+                _itemFactory.SetContentTransform(_desktopContent);
             }
         }
 

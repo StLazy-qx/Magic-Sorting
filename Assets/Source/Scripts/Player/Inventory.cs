@@ -27,7 +27,8 @@ namespace PlayerCore
 
         private void LoadInventory()
         {
-            _items = YG2.saves.GetAllItems() ?? new List<Item>();
+            IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
+            _items = savedItems?.ToList() ?? new List<Item>();
 
             Item savedEquippedItem = YG2.saves.GetEquippedItem();
 
@@ -46,7 +47,7 @@ namespace PlayerCore
         public void AddItem(Item item)
         {
             if (item == null)
-                return;
+                throw new ArgumentNullException(nameof(item), "Item cannot be null");
 
             if (HasItem(item))
                 return;
@@ -57,18 +58,16 @@ namespace PlayerCore
 
         public void EquipItem(Item item)
         {
-            if (item == null || HasItem(item) == false)
+            if (item == null)
+                throw new ArgumentNullException(nameof(item), "Item cannot be null");
+
+            if (HasItem(item) == false)
                 return;
 
             _equippedItem = item;
 
             ItemEquipped?.Invoke(item);
             YG2.saves.SetEquippedItem(item);
-        }
-
-        public IReadOnlyList<Item> GetAllItems()
-        {
-            return _items.AsReadOnly();
         }
     }
 }

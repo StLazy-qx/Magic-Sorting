@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   maxSpawnPoints: 5
-  minCellsPerColumn: 4
-  vesselsCount: 4
+  minCellsPerColumn: 5
+  vesselsCount: 5
   colorsCount: 4
