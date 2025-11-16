@@ -8,5 +8,4 @@ namespace Colorize
 
         public void SetColor(Color color);
     }
-
 }

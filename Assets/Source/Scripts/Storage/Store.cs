@@ -9,7 +9,6 @@ namespace Storage
     public class Store : MonoBehaviour
     {
         [SerializeField] private List<ItemSO> _itemsData;
-        [SerializeField] private StoreItemView _itemView;
         [SerializeField] private Player _player;
         [SerializeField] private Inventory _inventory;
 
@@ -53,7 +52,7 @@ namespace Storage
             }
         }
 
-        public void PerformEquipItem(Item selectedItem, Inventory inventory)
+        public void EquipItem(Item selectedItem, Inventory inventory)
         {
             if (selectedItem == null)
                 return;

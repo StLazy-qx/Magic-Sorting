@@ -16,6 +16,11 @@ namespace FactoryCore
 
         public event Action<Button> Created;
 
+        public void SetContentTransform(Transform contentTransform)
+        {
+            _contentTransform = contentTransform;
+        }
+
         protected override void BuildObjects()
         {
             ClearList();
@@ -35,9 +40,7 @@ namespace FactoryCore
                 Item itemComponent = button.GetComponent<Item>();
 
                 if (itemComponent == null)
-                {
                     itemComponent = button.gameObject.AddComponent<Item>();
-                }
 
                 itemComponent.Initialize(itemData);
             }

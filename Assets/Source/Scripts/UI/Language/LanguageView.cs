@@ -2,73 +2,70 @@ using UnityEngine;
 using UnityEngine.UI;
 using Language;
 
-namespace Sound
+public class LanguageView : MonoBehaviour
 {
-    public class LanguageView : MonoBehaviour
+    private const string RussianLanguage = "ru";
+    private const string EnglishLanguage = "en";
+    private const string TurkishLanguage = "tr";
+
+    [SerializeField] private Button _englishButton;
+    [SerializeField] private Button _russianButton;
+    [SerializeField] private Button _turkishButton;
+    [SerializeField] private Color _selectedColor;
+
+    private Color _defaultColorButton;
+    private LanguageSetter _languageSetter;
+
+    public void Initialize(LanguageSetter setter)
     {
-        private const string RussianLanguage = "ru";
-        private const string EnglishLanguage = "en";
-        private const string TurkishLanguage = "tr";
+        _languageSetter = setter;
+        _defaultColorButton = _englishButton.image.color;
+        _languageSetter.OnLanguageChanged += UpdateUI;
 
-        [SerializeField] private Button _englishButton;
-        [SerializeField] private Button _russianButton;
-        [SerializeField] private Button _turkishButton;
-        [SerializeField] private Color _selectedColor;
+        UpdateUI(_languageSetter.CurrentLanguage);
+    }
 
-        private Color _defaultColorButton;
-        private LanguageSetter _languageSetter;
+    private void OnEnable()
+    {
+        _russianButton.onClick.AddListener(() => _languageSetter.SetLanguage(RussianLanguage));
+        _englishButton.onClick.AddListener(() => _languageSetter.SetLanguage(EnglishLanguage));
+        _turkishButton.onClick.AddListener(() => _languageSetter.SetLanguage(TurkishLanguage));
+    }
 
-        public void Initialize(LanguageSetter setter)
+    private void OnDisable()
+    {
+        _russianButton.onClick.RemoveAllListeners();
+        _englishButton.onClick.RemoveAllListeners();
+        _turkishButton.onClick.RemoveAllListeners();
+    }
+
+    private void UpdateUI(string langCode)
+    {
+        ResetButtonColors();
+
+        switch (langCode)
         {
-            _languageSetter = setter;
-            _defaultColorButton = _englishButton.image.color;
-            _languageSetter.OnLanguageChanged += UpdateUI;
-
-            UpdateUI(_languageSetter.CurrentLanguage);
+            case RussianLanguage:
+                Highlight(_russianButton);
+                break;
+            case EnglishLanguage:
+                Highlight(_englishButton);
+                break;
+            case TurkishLanguage:
+                Highlight(_turkishButton);
+                break;
         }
+    }
 
-        private void OnEnable()
-        {
-            _russianButton.onClick.AddListener(() => _languageSetter.SetLanguage(RussianLanguage));
-            _englishButton.onClick.AddListener(() => _languageSetter.SetLanguage(EnglishLanguage));
-            _turkishButton.onClick.AddListener(() => _languageSetter.SetLanguage(TurkishLanguage));
-        }
+    private void Highlight(Button button)
+    {
+        button.image.color = _selectedColor;
+    }
 
-        private void OnDisable()
-        {
-            _russianButton.onClick.RemoveAllListeners();
-            _englishButton.onClick.RemoveAllListeners();
-            _turkishButton.onClick.RemoveAllListeners();
-        }
-
-        private void UpdateUI(string langCode)
-        {
-            ResetButtonColors();
-
-            switch (langCode)
-            {
-                case RussianLanguage:
-                    Highlight(_russianButton);
-                    break;
-                case EnglishLanguage:
-                    Highlight(_englishButton);
-                    break;
-                case TurkishLanguage:
-                    Highlight(_turkishButton);
-                    break;
-            }
-        }
-
-        private void Highlight(Button button)
-        {
-            button.image.color = _selectedColor;
-        }
-
-        private void ResetButtonColors()
-        {
-            _russianButton.image.color = _defaultColorButton;
-            _englishButton.image.color = _defaultColorButton;
-            _turkishButton.image.color = _defaultColorButton;
-        }
+    private void ResetButtonColors()
+    {
+        _russianButton.image.color = _defaultColorButton;
+        _englishButton.image.color = _defaultColorButton;
+        _turkishButton.image.color = _defaultColorButton;
     }
 }

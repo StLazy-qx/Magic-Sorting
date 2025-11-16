@@ -1,36 +1,10 @@
-using UnityEngine;
-using UnityEngine.UI;
-using GameBehaviour;
-
-public class ExitButton : MonoBehaviour 
+public class ExitButton : BaseMenuButton
 {
-    [SerializeField] private GameHandler _gameHandler;
-
-    private Button _button;
-
-    private void Awake()
+    protected override void OnButtonClick()
     {
-        _button = GetComponent<Button>();
-
-        if (_gameHandler == null)
+        if (GameHandler == null)
             return;
-    }
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnButtonClick);
-    }
-
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnButtonClick);
-    }
-
-    private void OnButtonClick()
-    {
-        if (_gameHandler != null)
-        {
-            _gameHandler.QuitGame();
-        }
+        GameHandler.QuitGame();
     }
 }

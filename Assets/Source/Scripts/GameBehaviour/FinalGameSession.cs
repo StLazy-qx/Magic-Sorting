@@ -8,7 +8,7 @@ namespace GameBehaviour
     {
         [SerializeField] private Panel _finalMatchPanelDesctop;
         [SerializeField] private Panel _finalMatchPanelMobile;
-        [SerializeField] private GameHandler _gameHandler;
+        [SerializeField] private GameSessionHandler _gameHandler;
 
         private Panel _currentPanel;
 

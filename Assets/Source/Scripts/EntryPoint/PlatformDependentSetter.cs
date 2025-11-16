@@ -7,10 +7,10 @@ namespace EntryPoint
 {
     public class PlatformDependentSetter : MonoBehaviour
     {
-        [Header("Canvas Setters")]
+        [Header("Canvases")]
         [SerializeField] private CanvasMobileSetter _mobileCanvas;
         [SerializeField] private CanvasDesktopSetter _desktopCanvas;
-        [Header("Position Setters")]
+        [Header("Brgin Objects Position")]
         [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
         [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
         [Header("Panels")]

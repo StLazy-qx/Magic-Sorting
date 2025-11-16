@@ -52,7 +52,7 @@ namespace Storage
             if (_selectedItem == null)
                 return;
 
-            _store.PerformEquipItem(_selectedItem, _inventory);
+            _store.EquipItem(_selectedItem, _inventory);
         }
     }
 }

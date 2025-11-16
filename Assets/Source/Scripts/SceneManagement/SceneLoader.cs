@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadSceneByIndex(int index)
     {
         //добавить исключение
-        if (index < 0 && index > _scenes.Length)
+        if (index < 0 || index >= _scenes.Length)
             return;
 
         SceneManager.LoadScene(_scenes[index]);

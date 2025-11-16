@@ -10,7 +10,7 @@ public class ProjectInstaller : MonoInstaller
     {
         Container.Bind<DifficultyState>().AsSingle().NonLazy();
         Container.Bind<Wallet>().AsSingle();
-        Container.BindInterfacesAndSelfTo<GameHandler>().AsSingle();
+        Container.BindInterfacesAndSelfTo<GameSessionHandler>().AsSingle();
         Container.Bind<AudioSettingsData>().AsSingle();
     }
 }

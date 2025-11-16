@@ -6,7 +6,7 @@ using GameBehaviour;
 
 public abstract class BaseMenuButton : MonoBehaviour
 {
-    [SerializeField] protected GameHandler GameHandler;
+    [SerializeField] protected BaseGameHandler GameHandler;
     [SerializeField] protected Panel TargetPanel;
 
     protected Panel CurrentPanel;

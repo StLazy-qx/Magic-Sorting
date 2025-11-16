@@ -6,7 +6,7 @@ namespace ActionHandler
 {
     public class ClickHandler : MonoBehaviour
     {
-        [SerializeField] private GameHandler _gameHandler;
+        [SerializeField] private GameSessionHandler _gameHandler;
 
         public event Action OnClicked;
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7323030509901021369}
   - component: {fileID: 7736640607784198198}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BoughtText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 4404273289894340}
   - component: {fileID: 6875658552586542123}
   - component: {fileID: 3068035011096992569}
-  - component: {fileID: 7273396328987246237}
+  - component: {fileID: 5726828821464473346}
   m_Layer: 5
   m_Name: ItemPrefab
   m_TagString: Untagged
@@ -559,8 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d51fc116e38a40aee8590211c0c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemView: {fileID: 7273396328987246237}
---- !u!114 &7273396328987246237
+  _itemView: {fileID: 5726828821464473346}
+--- !u!114 &5726828821464473346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9082434501953754073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de2d43695147194bb91a13df83d226a, type: 3}
+  m_Script: {fileID: 11500000, guid: 014f531a818203e4ab399c3d8f0a003d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _backgroundImage: {fileID: 4404273289894340}

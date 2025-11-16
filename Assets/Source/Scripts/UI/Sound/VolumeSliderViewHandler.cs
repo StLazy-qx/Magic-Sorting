@@ -6,7 +6,7 @@ using EntryPoint;
 
 namespace Sound
 {
-    public class VolumeSliderHandler : MonoBehaviour, IObjectInitilizable
+    public class VolumeSliderViewHandler : MonoBehaviour, IObjectInitilizable
     {
         private const string MasterVolume = "Master";
         private const string AmbientVolume = "Ambient";
