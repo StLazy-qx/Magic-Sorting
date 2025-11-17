@@ -72,6 +72,7 @@
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStackHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\LBExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\GraphicSettingsYG.cs" />
@@ -343,6 +344,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_projectSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformDependentBase.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\Source\Scripts\Items\ItemSO.cs" />

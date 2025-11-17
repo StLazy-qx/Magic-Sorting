@@ -14,7 +14,7 @@ namespace Colorize
 
         public Color AssignedColor => _assignedColor;
 
-        public void Init(Color color)
+        public void Initialize(Color color)
         {
             if (_vessel != null)
                 _liquid = _vessel.Liquid;

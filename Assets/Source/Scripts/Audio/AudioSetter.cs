@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Sound
@@ -9,6 +10,18 @@ namespace Sound
 
         private void Awake()
         {
+            if (_clip == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_clip), "AudioClips cannot be null");
+            }
+
+            if (_audioSource == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_audioSource), "AudioClips cannot be null");
+            }
+
             _audioSource = GetComponent<AudioSource>();
             _audioSource.clip = _clip;
         }
@@ -19,13 +32,6 @@ namespace Sound
         }
 
         public void PlayMusic()
-        {
-            _audioSource.Play();
-        }
-
-        public void StopMusic()
-        {
-            _audioSource.Stop();
-        }
+            => _audioSource.Play();
     }
 }

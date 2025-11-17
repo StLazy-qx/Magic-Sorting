@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Sound
@@ -12,15 +13,32 @@ namespace Sound
         public bool IsMuted { get; private set; }
 
         public void SetMasterVolume(float value)
-            => MasterVolume = Mathf.Clamp01(value);
+        {
+            MasterVolume = ValidateVolumeValue(value);
+        }
 
         public void SetAmbientVolume(float value)
-        => AmbientVolume = Mathf.Clamp01(value);
+        {
+            AmbientVolume = ValidateVolumeValue(value);
+        }
 
         public void SetEffectVolume(float value)
-        => EffectVolume = Mathf.Clamp01(value);
+        {
+            EffectVolume = ValidateVolumeValue(value);
+        }
 
         public void SetMute(bool value)
             => IsMuted = value;
+
+        private float ValidateVolumeValue(float value)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(value), "Volume value cannot be negative");
+            }
+
+            return Mathf.Clamp01(value);
+        }
     }
 }

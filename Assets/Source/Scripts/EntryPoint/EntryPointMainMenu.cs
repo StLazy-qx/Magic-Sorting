@@ -20,7 +20,7 @@ namespace EntryPoint
         {
             _languageSetter = new LanguageSetter(YG2.lang);
 
-            _platformDependentMenuSetter.Initilize(_languageSetter);
+            _platformDependentMenuSetter.Initialize(_languageSetter);
 
             foreach (var mono in _servicesMono)
             {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -17,40 +18,47 @@ namespace Sound
         private readonly AudioMixer _mixer;
         private readonly AudioSettingsData _settings;
 
-        public bool IsMuted => _settings.IsMuted;
-
         public SoundSetter(AudioMixer mixer, AudioSettingsData settings)
         {
-            _mixer = mixer;
-            _settings = settings;
+            _mixer = mixer ?? 
+                throw new ArgumentNullException(nameof(mixer),
+                "AudioMixer cannot be null");
+
+            _settings = settings ??
+                throw new ArgumentNullException(nameof(settings), 
+                "AudioSettingsData cannot be null");
         }
 
         public void SetVolume(string parameter, float volume)
         {
+            ValidateParameter(parameter);
+
+            if (volume < 0)
+            {
+                throw new ArgumentOutOfRangeException
+                    (nameof(volume), "Volume cannot be negative");
+            }
+
             if (_settings.IsMuted)
                 return;
 
-            float dbValue = Mathf.Log10(Mathf.Clamp(volume, MinVolume, MaxVolume)) * VolumeMultiplier;
-            _mixer.SetFloat(parameter, dbValue);
+            float dbValue = Mathf.Log10(Mathf.Clamp
+                (volume, MinVolume, MaxVolume)) * VolumeMultiplier;
 
-            switch (parameter)
-            {
-                case MasterVolume:
-                    _settings.SetMasterVolume(volume);
-                    break;
-                case AmbientVolume:
-                    _settings.SetAmbientVolume(volume);
-                    break;
-                case EffectVolume:
-                    _settings.SetEffectVolume(volume);
-                    break;
-            }
+            _mixer.SetFloat(parameter, dbValue);
+            UpdateSettingsVolume(parameter, volume);
         }
 
         public float GetCurrentVolume(string parameter)
         {
+            ValidateParameter(parameter);
+
             if (_mixer.GetFloat(parameter, out float dbValue))
-                return Mathf.Pow(LogarithmMultiplier, dbValue / VolumeMultiplier);
+            {
+                float result = Mathf.Pow(LogarithmMultiplier, dbValue / VolumeMultiplier);
+
+                return result;
+            }
 
             return MaxVolume;
         }
@@ -58,16 +66,13 @@ namespace Sound
         public void ToggleMute()
         {
             bool newMuteState = !_settings.IsMuted;
+
             _settings.SetMute(newMuteState);
 
             if (newMuteState)
-            {
                 MuteAll();
-            }
             else
-            {
                 RestoreVolumes();
-            }
         }
 
         private void MuteAll()
@@ -82,6 +87,31 @@ namespace Sound
             SetVolume(MasterVolume, _settings.MasterVolume);
             SetVolume(AmbientVolume, _settings.AmbientVolume);
             SetVolume(EffectVolume, _settings.EffectVolume);
+        }
+
+        private void UpdateSettingsVolume(string parameter, float volume)
+        {
+            switch (parameter)
+            {
+                case MasterVolume:
+                    _settings.SetMasterVolume(volume);
+                    break;
+                case AmbientVolume:
+                    _settings.SetAmbientVolume(volume);
+                    break;
+                case EffectVolume:
+                    _settings.SetEffectVolume(volume);
+                    break;
+            }
+        }
+
+        private void ValidateParameter(string parameter)
+        {
+            if (string.IsNullOrWhiteSpace(parameter))
+            {
+                throw new ArgumentException
+                    ("Parameter cannot be null or white space", nameof(parameter));
+            }
         }
     }
 }

@@ -1,53 +1,35 @@
-using FactoryCore;
 using Language;
+using System;
 using UnityEngine;
-using YG;
 
 namespace EntryPoint
 {
-    public class PlatformDependentMenuSetter : MonoBehaviour
+    public class PlatformDependentMenuSetter : PlatformDependentBase
     {
-        [Header("Canvases")]
-        [SerializeField] private CanvasMobileSetter _mobileCanvas;
-        [SerializeField] private CanvasDesktopSetter _desktopCanvas;
         [Header("Panels")]
         [SerializeField] private LanguageView _languageViewDesktop;
         [SerializeField] private LanguageView _languageViewMobile;
-        [Header("Store installation")]
-        [SerializeField] private StoreItemFactory _itemFactory;
-        [SerializeField] private Transform _desktopContent;
-        [SerializeField] private Transform _mobileContent;
 
-        public void Initilize(LanguageSetter languageSetter)
+        private LanguageSetter _languageSetter;
+
+        public void Initialize(LanguageSetter languageSetter)
         {
             if (languageSetter == null)
-                return;
+                throw new ArgumentException("Значение не может быть равным или меньше нуля");
 
-            _mobileCanvas.Disable();
-            _desktopCanvas.Disable();
+            _languageSetter = languageSetter;
 
-            if (YG2.envir.isMobile)
-            {
-                UseMobileMode();
-                _languageViewMobile.Initialize(languageSetter);
-                _itemFactory.SetContentTransform(_mobileContent);
-            }
-            else
-            {
-                UseDesktopMode();
-                _languageViewDesktop.Initialize(languageSetter);
-                _itemFactory.SetContentTransform(_desktopContent);
-            }
+            InitializeBase();
         }
 
-        public void UseMobileMode()
+        protected override void OnMobileSelected()
         {
-            _mobileCanvas.Enable();
+            _languageViewMobile.Initialize(_languageSetter);
         }
 
-        public void UseDesktopMode()
+        protected override void OnDesktopSelected()
         {
-            _desktopCanvas.Enable();
+            _languageViewDesktop.Initialize(_languageSetter);
         }
     }
 }

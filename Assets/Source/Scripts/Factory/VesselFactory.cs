@@ -105,7 +105,7 @@ namespace FactoryCore
 
         private void AssignColor(Vessel vessel, Color color)
         {
-            vessel.GetComponent<ColorMarker>().Init(color);
+            vessel.GetComponent<ColorMarker>().Initialize(color);
         }
     }
 }

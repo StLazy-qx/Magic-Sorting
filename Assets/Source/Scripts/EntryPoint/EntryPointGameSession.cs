@@ -17,7 +17,7 @@ namespace EntryPoint
 
         private void Awake()
         {
-            _platformDependentSetter.Initilize();
+            _platformDependentSetter.Initialize();
 
             foreach (var mono in _objectsToInitializeMono)
             {

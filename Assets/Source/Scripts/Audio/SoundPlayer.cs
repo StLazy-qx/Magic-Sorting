@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Sound
@@ -9,12 +10,17 @@ namespace Sound
 
         public void PlayInteractSound()
         {
-            int beginIndex = 0;
+            if (_audioSource == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_audioSource), "AudioSource cannot be null");
+            }
 
-            if (_interactClips == null || _interactClips.Length == 0)
+            if (_interactClips.Length == 0)
                 return;
 
-            int randomIndex = Random.Range(beginIndex, _interactClips.Length);
+            int beginIndex = 0;
+            int randomIndex = UnityEngine.Random.Range(beginIndex, _interactClips.Length);
             AudioClip clipToPlay = _interactClips[randomIndex];
 
             _audioSource.PlayOneShot(clipToPlay);

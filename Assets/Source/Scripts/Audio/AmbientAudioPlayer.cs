@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using System.Linq;
@@ -9,18 +10,25 @@ namespace Sound
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip[] _clips;
 
-        private AudioClip[] _shuffledClips;
         private int _currentIndex;
+        private AudioClip[] _shuffledClips;
 
         private void Start()
         {
-            if (_clips == null
-                || _clips.Length == 0
-                || _source == null
-                )
+            if (_source == null)
             {
-                return;
+                throw new ArgumentNullException
+                    (nameof(_source), "AudioSource cannot be null");
             }
+
+            if (_clips == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_clips), "AudioClips array cannot be null");
+            }
+
+            if (_clips.Length == 0)
+                return;
 
             ShuffleClips();
             StartCoroutine(PlayClipsInSequence());
@@ -28,7 +36,7 @@ namespace Sound
 
         private void ShuffleClips()
         {
-            _shuffledClips = _clips.OrderBy(clip => Random.value).ToArray();
+            _shuffledClips = _clips.OrderBy(clip => UnityEngine.Random.value).ToArray();
             _currentIndex = 0;
         }
 
