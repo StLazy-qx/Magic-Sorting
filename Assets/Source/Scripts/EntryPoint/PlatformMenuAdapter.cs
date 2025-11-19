@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EntryPoint
 {
-    public class PlatformDependentMenuSetter : PlatformDependentBase
+    public class PlatformMenuAdapter : PlatformAdapter
     {
         [Header("Panels")]
         [SerializeField] private LanguageView _languageViewDesktop;
@@ -15,7 +15,13 @@ namespace EntryPoint
         public void Initialize(LanguageSetter languageSetter)
         {
             if (languageSetter == null)
-                throw new ArgumentException("Значение не может быть равным или меньше нуля");
+                throw new ArgumentNullException(nameof(languageSetter));
+
+            if (_languageViewDesktop == null)
+                throw new ArgumentNullException(nameof(_languageViewDesktop));
+
+            if (_languageViewMobile == null)
+                throw new ArgumentNullException(nameof(_languageViewMobile));
 
             _languageSetter = languageSetter;
 

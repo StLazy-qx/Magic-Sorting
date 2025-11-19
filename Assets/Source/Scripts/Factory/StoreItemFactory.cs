@@ -23,12 +23,10 @@ namespace FactoryCore
 
         protected override void BuildObjects()
         {
+            ValidateBuildRequirements();
             ClearList();
 
             IReadOnlyList<ItemSO> items = _store.GetItemsSO();
-
-            if (items == null || items.Count == 0)
-                return;
 
             foreach (ItemSO itemData in items)
             {
@@ -46,6 +44,15 @@ namespace FactoryCore
             }
 
             NotifyObjectsChanged();
+        }
+
+        private void ValidateBuildRequirements()
+        {
+            if (_store == null)
+                throw new ArgumentNullException(nameof(_store));
+
+            if (_contentTransform == null)
+                throw new ArgumentNullException(nameof(_contentTransform));
         }
     }
 }

@@ -19,18 +19,17 @@ namespace GameBehaviour
         protected Wallet _wallet;
         protected DifficultyState _difficultyState;
 
-        public bool IsInitialized { get; protected set; }
-
         public event Action<bool> PauseStateChanged;
         public event Action GameClosed;
 
+        public bool IsInitialized { get; protected set; }
+
         public virtual void Initilize()
         {
-            if (IsInitialized)
-                return;
+            if (_sceneLoader == null)
+                throw new ArgumentNullException(nameof(_sceneLoader));
 
-            Time.timeScale = GameResume;
-
+            ContinueGame();
             _difficultyState.SetDifficulty(DifficultyLevel.Easy);
             _wallet.Reset();
             ExtendInitialize();
@@ -72,10 +71,13 @@ namespace GameBehaviour
             {
                 case DifficultyLevel.Easy:
                     return DifficultyLevel.Medium;
+
                 case DifficultyLevel.Medium:
                     return DifficultyLevel.Hard;
+
                 case DifficultyLevel.Hard:
                     return DifficultyLevel.Hard;
+
                 default: return current;
             }
         }

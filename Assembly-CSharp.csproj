@@ -72,6 +72,7 @@
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStackHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\LBExample.cs" />
@@ -159,7 +160,6 @@
     <Compile Include="Assets\Source\Scripts\InteractiveObjects\WaitingPoint.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\GameReadyAPI.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Button\BaseMenuButton.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\RoundCounterUI.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCellRouter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings_langs.cs" />
@@ -176,6 +176,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SaverTest.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\InitAttributes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformGameAdapter.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\OptionalPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\DifficultyLevel.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Assets\Source\Scripts\Factory\VesselFactory.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultySettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformMenuAdapter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\Review_interface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -275,7 +277,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\SceneInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yg.cs" />
-    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformDependentSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettingsAttributes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_lang.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\VesselsFullingBehaviour.cs" />
@@ -344,7 +345,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_projectSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformDependentBase.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\Source\Scripts\Items\ItemSO.cs" />
@@ -355,7 +355,6 @@
     <Compile Include="Assets\Source\Scripts\GameDifficulty\LevelDifficultySetterUI.cs" />
     <Compile Include="Assets\Source\Scripts\PlayerAuthorization\Authorization.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformDependentMenuSetter.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\EnumColor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_interface.cs" />
     <Compile Include="Assets\Effects\Epic Toon FX\Scripts\ETFXLightFade.cs" />

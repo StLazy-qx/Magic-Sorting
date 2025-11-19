@@ -1,5 +1,6 @@
 using FactoryCore;
 using Language;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace EntryPoint
 {
     public class EntryPointMainMenu : MonoBehaviour
     {
-        [SerializeField] private PlatformDependentMenuSetter _platformDependentMenuSetter;
+        [SerializeField] private PlatformMenuAdapter _platformDependentMenuSetter;
         [SerializeField] private StoreItemFactory _storeItemFactory;
         [SerializeField] private MonoBehaviour[] _servicesMono;
 
@@ -18,6 +19,8 @@ namespace EntryPoint
 
         private void Awake()
         {
+            ValidateDependencies();
+
             _languageSetter = new LanguageSetter(YG2.lang);
 
             _platformDependentMenuSetter.Initialize(_languageSetter);
@@ -42,6 +45,18 @@ namespace EntryPoint
                 => _servicesInitializable.TrueForAll(currentObject => currentObject.IsInitialized));
 
             _storeItemFactory.Spawn();
+        }
+
+        private void ValidateDependencies()
+        {
+            if (_platformDependentMenuSetter == null)
+                throw new ArgumentNullException(nameof(_platformDependentMenuSetter));
+
+            if (_storeItemFactory == null)
+                throw new ArgumentNullException(nameof(_storeItemFactory));
+
+            if (_servicesMono == null)
+                throw new ArgumentNullException(nameof(_servicesMono));
         }
     }
 }

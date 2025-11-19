@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Vessels;
 
@@ -16,6 +17,8 @@ namespace Colorize
 
         public void Initialize(Color color)
         {
+            ValidateObjects();
+
             if (_vessel != null)
                 _liquid = _vessel.Liquid;
 
@@ -29,6 +32,21 @@ namespace Colorize
 
             if (_flag != null)
                 _flag.SetColor(color);
+        }
+
+        private void ValidateObjects()
+        {
+            if (_vessel == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_vessel), "Vessel cannot be null");
+            }
+
+            if (_flag == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_flag), "Flag cannot be null");
+            }
         }
     }
 }

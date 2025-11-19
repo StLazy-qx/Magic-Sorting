@@ -38,6 +38,12 @@ namespace Colorize
 
             foreach (Vessel vessel in _vessels)
             {
+                if (vessel.Count <= 0)
+                {
+                    throw new InvalidOperationException
+                        ($"Vessel count must be positive, but was {vessel.Count}");
+                }
+
                 for (int i = 0; i < vessel.Count; i++)
                 {
                     _colors.Add(vessel.Color);
@@ -47,11 +53,14 @@ namespace Colorize
 
         private void ShuffleColors()
         {
+            int startRandomRange = 0;
+            int stepIndex = 1;
+
             _particlePool.Initialize(TotalColors);
 
             for (int i = _colors.Count - 1; i > 0; i--)
             {
-                int randomNumber = UnityEngine.Random.Range(0, i + 1);
+                int randomNumber = UnityEngine.Random.Range(startRandomRange, i + stepIndex);
 
                 Color tempColor = _colors[i];
                 _colors[i] = _colors[randomNumber];
@@ -67,13 +76,13 @@ namespace Colorize
         private void ValidateVessels(IReadOnlyList<Vessel> vessels)
         {
             if (vessels == null)
-                throw new ArgumentNullException(nameof(vessels), "Список сосудов должен быть инифиализирован");
+                throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");
 
             if (vessels.Count == 0)
-                throw new ArgumentException("Список сосудов не может быть пустым", nameof(vessels));
+                throw new ArgumentException("The list of vessels cannot be empty", nameof(vessels));
 
             if (vessels.Any(vessel => vessel == null))
-                throw new ArgumentException("Список сосудов содержит нулевой элемент", nameof(vessels));
+                throw new ArgumentException("The vessel list contains a zero element", nameof(vessels));
         }
     }
 }

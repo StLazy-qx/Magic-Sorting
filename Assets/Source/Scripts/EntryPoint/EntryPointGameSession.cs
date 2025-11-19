@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FactoryCore;
+using System;
 
 namespace EntryPoint
 {
     public class EntryPointGameSession : MonoBehaviour
     {
-        [SerializeField] private PlatformDependentSetter _platformDependentSetter;
+        [SerializeField] private PlatformGameAdapter _platformDependentSetter;
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
@@ -17,15 +18,28 @@ namespace EntryPoint
 
         private void Awake()
         {
+            ValidateDependencies();
             _platformDependentSetter.Initialize();
+            CollectInitializableObjects();
+            StartCoroutine(SessionInitialize());
+        }
+
+        private void CollectInitializableObjects()
+        {
+            if (_objectsToInitializeMono.Length == 0)
+                return;
 
             foreach (var mono in _objectsToInitializeMono)
             {
+                if (mono is null)
+                {
+                    throw new ArgumentNullException(nameof(mono),
+                        "Element inside _objectsToInitializeMono is null.");
+                }
+
                 if (mono is IObjectInitilizable initObj)
                     _objectsInitilizable.Add(initObj);
             }
-
-            StartCoroutine(SessionInitialize());
         }
 
         private IEnumerator SessionInitialize()
@@ -41,7 +55,10 @@ namespace EntryPoint
 
             yield return new WaitUntil(() => _vesselFactory.IsReady);
 
-            if (_vesselFactory.Objects != null && _vesselFactory.Objects.Count > 0)
+            if (_vesselFactory.Objects == null)
+                throw new InvalidOperationException("VesselFactory.Objects is null.");
+
+            if (_vesselFactory.Objects.Count > 0)
             {
                 _columnsFactory.Initialize(_vesselFactory.Objects);
                 _columnsFactory.Spawn();
@@ -50,6 +67,9 @@ namespace EntryPoint
 
         private IEnumerator EntityInitialize()
         {
+            if (_objectsInitilizable.Count == 0)
+                yield break;
+
             foreach (IObjectInitilizable currentObject in _objectsInitilizable)
             {
                 currentObject.Initilize();
@@ -57,6 +77,24 @@ namespace EntryPoint
 
             yield return new WaitUntil(()
                 => _objectsInitilizable.TrueForAll(currentObject => currentObject.IsInitialized));
+        }
+
+        private void ValidateDependencies()
+        {
+            if (_platformDependentSetter == null)
+                throw new ArgumentNullException(nameof(_platformDependentSetter));
+
+            if (_columnsFactory == null)
+                throw new ArgumentNullException(nameof(_columnsFactory));
+
+            if (_vesselFactory == null)
+                throw new ArgumentNullException(nameof(_vesselFactory));
+
+            if (_storeItemFactory == null)
+                throw new ArgumentNullException(nameof(_storeItemFactory));
+
+            if (_objectsToInitializeMono == null)
+                throw new ArgumentNullException(nameof(_objectsToInitializeMono));
         }
     }
 }

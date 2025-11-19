@@ -1610,7 +1610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049000002, y: 0.81472075}
   m_AnchorMax: {x: 0.9620001, y: 0.97400004}
-  m_AnchoredPosition: {x: -4.999939, y: -225.99976}
+  m_AnchoredPosition: {x: -5, y: -225.99976}
   m_SizeDelta: {x: -894, y: -339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &196919582
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 6875658552586542123, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
   SpawnPoints: []
-  DifficultyDatabase: {fileID: 0}
+  DifficultyDatabase: {fileID: 11400000, guid: a0c325b75a00c9641a7203ac82d7b2f8, type: 2}
   _store: {fileID: 615017041}
   _player: {fileID: 252190736}
   _contentTransform: {fileID: 1744984481}
@@ -4816,7 +4816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049000002, y: 0.81472075}
   m_AnchorMax: {x: 0.9620001, y: 0.97400004}
-  m_AnchoredPosition: {x: -4.999939, y: -225.99976}
+  m_AnchoredPosition: {x: -5, y: -225.99976}
   m_SizeDelta: {x: -894, y: -339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &491836202
@@ -5655,16 +5655,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 568366429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87b78b18b9490047b231177710f3bef, type: 3}
+  m_Script: {fileID: 11500000, guid: 49d07ee1369d2e1489b0f1e5afd309f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mobileCanvas: {fileID: 420349881}
   _desktopCanvas: {fileID: 1379001716}
-  _languageViewDesktop: {fileID: 1091123172}
-  _languageViewMobile: {fileID: 1915387118}
   _itemFactory: {fileID: 239844989}
   _desktopContent: {fileID: 1744984481}
   _mobileContent: {fileID: 47640562}
+  _languageViewDesktop: {fileID: 1091123172}
+  _languageViewMobile: {fileID: 1915387118}
 --- !u!1 &578478678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7977232030527933548, guid: 007399c2ee0cc124a84a1785de0fdc39,
@@ -8711,7 +8711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48058978, y: 0.091000006}
   m_AnchorMax: {x: 0.8678921, y: 0.19747208}
-  m_AnchoredPosition: {x: -1.5, y: 1.9000244}
+  m_AnchoredPosition: {x: -1.5, y: 1.8999023}
   m_SizeDelta: {x: 1, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971143248
@@ -10735,7 +10735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049000002, y: 0.81472075}
   m_AnchorMax: {x: 0.9620001, y: 0.97400004}
-  m_AnchoredPosition: {x: -4.999939, y: -225.99976}
+  m_AnchoredPosition: {x: -5, y: -225.99976}
   m_SizeDelta: {x: -894, y: -339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1180008297
@@ -11663,7 +11663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049000002, y: 0.81472075}
   m_AnchorMax: {x: 0.9620001, y: 0.97400004}
-  m_AnchoredPosition: {x: -4.999939, y: -225.99976}
+  m_AnchoredPosition: {x: -5, y: -225.99976}
   m_SizeDelta: {x: -894, y: -339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1269657820
@@ -13426,7 +13426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10982082, y: 0.06742055}
   m_AnchorMax: {x: 0.437, y: 0.83024865}
-  m_AnchoredPosition: {x: -1.0000305, y: -3}
+  m_AnchoredPosition: {x: -1, y: -3}
   m_SizeDelta: {x: -8.999989, y: -3.369999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430832462
@@ -17001,7 +17001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.015000001, y: 0.1321368}
   m_AnchorMax: {x: 0.47752506, y: 0.22341621}
-  m_AnchoredPosition: {x: -0.50006104, y: -0.5}
+  m_AnchoredPosition: {x: -0.5, y: -0.5}
   m_SizeDelta: {x: 97.536194, y: 42.542175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773899101
@@ -19171,7 +19171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53800005, y: 0.1321368}
   m_AnchorMax: {x: 0.9007194, y: 0.21775147}
-  m_AnchoredPosition: {x: -3, y: 1.2000122}
+  m_AnchoredPosition: {x: -3, y: 1.1999512}
   m_SizeDelta: {x: -5, y: -1}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2006827948

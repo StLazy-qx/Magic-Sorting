@@ -12,25 +12,12 @@ namespace GameBehaviour
 
         private Panel _currentPanel;
 
-        public event Action<int> RoundChanged;
-
-        public int CurrentRound { get; private set; }
         public bool IsInitialized { get; private set; }
 
         public void Initilize()
         {
-            if (IsInitialized)
-                return;
-
-            if (_gameHandler == null)
-                return;
-
-            if (_currentPanel == null)
-                return;
-
+            ValidateObjects();
             _currentPanel.Close();
-
-            CurrentRound = 0;
 
             IsInitialized = true;
         }
@@ -38,22 +25,15 @@ namespace GameBehaviour
         public void ApplyPanel(Panel panel)
         {
             if (panel == null)
-            {
-                throw new ArgumentNullException(nameof(panel),
-                    "[VesselStateTracker] Панель не может быть нуль");
-            }
+                throw new ArgumentNullException(nameof(panel));
 
             _currentPanel = panel;
         }
 
         public void ActivateFinalPanelAndPauseGame()
         {
-            if (_gameHandler == null)
-                return;
-
             _gameHandler.PauseGame();
             _currentPanel.Open();
-            IncreaseRound();
         }
 
         public void DeactivateFinalPanelAndResumeGame()
@@ -65,10 +45,16 @@ namespace GameBehaviour
             _gameHandler.ContinueGame();
         }
 
-        private void IncreaseRound()
+        private void ValidateObjects()
         {
-            CurrentRound++;
-            RoundChanged?.Invoke(CurrentRound);
+            if (_gameHandler == null)
+                throw new ArgumentNullException(nameof(_gameHandler));
+
+            if (_finalMatchPanelDesctop == null)
+                throw new ArgumentNullException(nameof(_finalMatchPanelDesctop));
+
+            if (_finalMatchPanelMobile == null)
+                throw new ArgumentNullException(nameof(_finalMatchPanelMobile));
         }
     }
 }

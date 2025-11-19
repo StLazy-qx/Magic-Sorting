@@ -20,28 +20,24 @@ namespace FactoryCore
 
         public IReadOnlyList<T> Objects => _objects;
 
-        public void Spawn()
-        {
-            BuildObjects();
-        }
-
         protected virtual void OnDestroy()
         {
             if (DifficultyState != null)
                 DifficultyState.DifficultyChanged -= OnDifficultyChanged;
         }
 
+        public void Spawn()
+        {
+            ValidateRequiredDependencies();
+            BuildObjects();
+        }
+
         [Inject]
         public void Construct(DifficultyState difficultyState)
         {
             DifficultyState = difficultyState;
-
-            if (DifficultyDatabase != null)
-            {
-                CurrentSettings = DifficultyDatabase.
-                    GetSettings(DifficultyState.CurrentDifficulty);
-            }
-
+            CurrentSettings = DifficultyDatabase.
+                GetSettings(DifficultyState.CurrentDifficulty);
             DifficultyState.DifficultyChanged += OnDifficultyChanged;
         }
 
@@ -56,22 +52,13 @@ namespace FactoryCore
                 CurrentSettings = DifficultyDatabase.GetSettings(level);
         }
 
-        public virtual IReadOnlyList<T> GetListObjects()
-        {
-            return Objects;
-        }
-
         public void NotifyObjectsChanged()
-        {
-            ListObjectsChanged?.Invoke(Objects);
-        }
+            => ListObjectsChanged?.Invoke(Objects);
 
         protected abstract void BuildObjects();
 
         protected virtual void OnDifficultyChanged(DifficultyLevel level)
-        {
-            ResetFactory(level);
-        }
+            => ResetFactory(level);
 
         protected void Add(T @object)
         {
@@ -88,6 +75,15 @@ namespace FactoryCore
             }
 
             _objects.Clear();
+        }
+
+        private void ValidateRequiredDependencies()
+        {
+            if (Prefab == null)
+                throw new ArgumentNullException(nameof(Prefab));
+
+            if (DifficultyDatabase == null)
+                throw new ArgumentNullException(nameof(DifficultyDatabase));
         }
     }
 }

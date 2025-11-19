@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 6875658552586542123, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
   SpawnPoints: []
-  DifficultyDatabase: {fileID: 0}
+  DifficultyDatabase: {fileID: 11400000, guid: a0c325b75a00c9641a7203ac82d7b2f8, type: 2}
   _store: {fileID: 784363501}
   _player: {fileID: 2066365334}
   _contentTransform: {fileID: 686746962}
@@ -9199,8 +9199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7347b87a04aee96419b7a8983c4365a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finalGameSession: {fileID: 0}
-  _textRoundScore: {fileID: 891861890}
 --- !u!4 &895122001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 922671887464563809, guid: a1834b6441f5f964186d094e8fd881e5,
@@ -10195,7 +10193,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009920587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb94b84121340d448178a9ccdc69f8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 80198e0fe40a41f43a88bea8e4bd48ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mobileCanvas: {fileID: 602692575}
@@ -15242,8 +15240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7347b87a04aee96419b7a8983c4365a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finalGameSession: {fileID: 0}
-  _textRoundScore: {fileID: 1580068397}
 --- !u!114 &1580068397
 MonoBehaviour:
   m_ObjectHideFlags: 0

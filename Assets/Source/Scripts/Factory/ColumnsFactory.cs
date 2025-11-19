@@ -4,6 +4,8 @@ using Colorize;
 using InteractiveObjects;
 using MagicCells;
 using Vessels;
+using System;
+using System.Linq;
 
 namespace FactoryCore
 {
@@ -14,6 +16,13 @@ namespace FactoryCore
 
         public void Initialize(IReadOnlyList<Vessel> vessels)
         {
+            if (_distributerMagicCell == null)
+                throw new ArgumentNullException(nameof(_distributerMagicCell));
+
+            if (_colorDistributor == null)
+                throw new ArgumentNullException(nameof(_colorDistributor));
+
+            ValidateVessels(vessels);
             _colorDistributor.Initialize(vessels);
             _distributerMagicCell.Initialize(vessels);
         }
@@ -22,7 +31,7 @@ namespace FactoryCore
         {
             ClearList();
 
-            int countSpawnPoints = CalculateSpawnPointsToUse();
+            int countSpawnPoints = CalculateSpawnPoints();
             int cellsPerColumn = Mathf.Max(1,
                 _colorDistributor.TotalColors / countSpawnPoints);
 
@@ -43,15 +52,27 @@ namespace FactoryCore
             NotifyObjectsChanged();
         }
 
-        //или название метода через get?
-        private int CalculateSpawnPointsToUse()
+        private int CalculateSpawnPoints()
         {
             if (CurrentSettings == null && DifficultyDatabase != null)
             {
-                CurrentSettings = DifficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
+                CurrentSettings = DifficultyDatabase.
+                    GetSettings(DifficultyState.CurrentDifficulty);
             }
 
             return Mathf.Min(CurrentSettings.maxSpawnPoints, SpawnPoints.Length);
+        }
+
+        private void ValidateVessels(IReadOnlyList<Vessel> vessels)
+        {
+            if (vessels == null)
+                throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");
+
+            if (vessels.Count == 0)
+                throw new ArgumentException("The list of vessels cannot be empty", nameof(vessels));
+
+            if (vessels.Any(vessel => vessel == null))
+                throw new ArgumentException("The vessel list contains a zero element", nameof(vessels));
         }
     }
 }

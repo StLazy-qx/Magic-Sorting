@@ -4,6 +4,7 @@ using Colorize;
 using GameDifficulty;
 using MagicCells;
 using Vessels;
+using System;
 
 namespace FactoryCore
 {
@@ -28,15 +29,16 @@ namespace FactoryCore
 
         protected override void BuildObjects()
         {
-            if (Prefab == null)
-                return;
-
+            ValidateBuildRequirements();
             ClearList();
 
-            DifficultySettings difficultyState = DifficultyDatabase.
+            DifficultySettings settings = DifficultyDatabase.
                 GetSettings(DifficultyState.CurrentDifficulty);
 
-            for (int i = 0; i < difficultyState.vesselsCount; i++)
+            if (settings.vesselsCount <= 0)
+                throw new InvalidOperationException("Vessels count must be > 0");
+
+            for (int i = 0; i < settings.vesselsCount; i++)
             {
                 Vessel vessel = Instantiate(Prefab);
                 vessel.Filled += OnPutRemainingVessel;
@@ -45,7 +47,7 @@ namespace FactoryCore
                 Add(vessel);
             }
 
-            AssignColorsToVessels(CurrentSettings.colorsCount);
+            AssignColorsCount(CurrentSettings.colorsCount);
             _gameFullingBehaviour.SetVesselsList(Objects);
             ActivateVessels();
 
@@ -67,9 +69,6 @@ namespace FactoryCore
 
         private void ActivateVessels()
         {
-            if (SpawnPoints == null || SpawnPoints.Length == 0)
-                return;
-
             int index = 0;
 
             foreach (var vessel in Objects)
@@ -80,17 +79,17 @@ namespace FactoryCore
                 if (vessel.IsFilled == false && vessel.gameObject.activeSelf == false)
                 {
                     vessel.transform.position = SpawnPoints[index].position;
-                    index++;
-
                     vessel.gameObject.SetActive(true);
+
+                    index++;
                 }
             }
         }
 
-        private void AssignColorsToVessels(int colorsCount)
+        private void AssignColorsCount(int colorsCount)
         {
-            if (Objects.Count == 0)
-                return;
+            if (colorsCount <= 0)
+                throw new InvalidOperationException("colorsCount must be > 0");
 
             int realColorCount = Mathf.Min(colorsCount, Objects.Count);
             Color[] palette = _colorRandomizer.CrateArrayColors(realColorCount);
@@ -105,7 +104,30 @@ namespace FactoryCore
 
         private void AssignColor(Vessel vessel, Color color)
         {
-            vessel.GetComponent<ColorMarker>().Initialize(color);
+            if (vessel == null)
+                throw new ArgumentNullException(nameof(vessel));
+
+            if (vessel.TryGetComponent(out ColorMarker colorMarker))
+            {
+                colorMarker.Initialize(color);
+            }
+            else
+            {
+                throw new InvalidOperationException(
+                    $"Vessel does not have required {nameof(ColorMarker)} component");
+            }
+        }
+
+        private void ValidateBuildRequirements()
+        {
+            if (_gameFullingBehaviour == null)
+                throw new ArgumentNullException(nameof(_gameFullingBehaviour));
+
+            if (_distributerMagicCell == null)
+                throw new ArgumentNullException(nameof(_distributerMagicCell));
+
+            if (_colorRandomizer == null)
+                throw new ArgumentNullException(nameof(_colorRandomizer));
         }
     }
 }

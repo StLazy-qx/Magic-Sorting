@@ -20,13 +20,10 @@ namespace Sound
 
         public SoundSetter(AudioMixer mixer, AudioSettingsData settings)
         {
+            _settings = settings;
             _mixer = mixer ?? 
                 throw new ArgumentNullException(nameof(mixer),
                 "AudioMixer cannot be null");
-
-            _settings = settings ??
-                throw new ArgumentNullException(nameof(settings), 
-                "AudioSettingsData cannot be null");
         }
 
         public void SetVolume(string parameter, float volume)
@@ -96,9 +93,11 @@ namespace Sound
                 case MasterVolume:
                     _settings.SetMasterVolume(volume);
                     break;
+
                 case AmbientVolume:
                     _settings.SetAmbientVolume(volume);
                     break;
+
                 case EffectVolume:
                     _settings.SetEffectVolume(volume);
                     break;

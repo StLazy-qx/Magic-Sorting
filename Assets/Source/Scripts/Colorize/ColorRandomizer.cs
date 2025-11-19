@@ -12,6 +12,9 @@ namespace Colorize
 
         public Color GenerateRandomColor()
         {
+            if (_allColors.Length == 0)
+                throw new InvalidOperationException("No colors available");
+
             if (_currentColors == null || _currentColors.Length == 0)
             {
                 return TransformEnumToColor(_allColors
@@ -23,11 +26,16 @@ namespace Colorize
 
         public Color[] CrateArrayColors(int colorsNumber)
         {
+            if (colorsNumber <= 0)
+            {
+                throw new ArgumentException
+                    ("Colors number must be positive", nameof(colorsNumber));
+            }
+
             if (colorsNumber > _allColors.Length)
                 colorsNumber = _allColors.Length;
 
             int[] shuffledIndices = ShuffleIndices(_allColors.Length);
-
             _currentColors = new Color[colorsNumber];
 
             for (int i = 0; i < colorsNumber; i++)
@@ -40,6 +48,12 @@ namespace Colorize
 
         private int[] ShuffleIndices(int length)
         {
+            if (length <= 0)
+            {
+                throw new ArgumentException
+                    ("Length must be positive", nameof(length));
+            }
+
             int[] indices = new int[length];
 
             for (int i = 0; i < length; i++)

@@ -1,10 +1,11 @@
 using UnityEngine;
 using FactoryCore;
 using YG;
+using System;
 
 namespace EntryPoint
 {
-    public abstract class PlatformDependentBase : MonoBehaviour
+    public abstract class PlatformAdapter : MonoBehaviour
     {
         [Header("Canvases")]
         [SerializeField] protected CanvasMobileSetter _mobileCanvas;
@@ -16,6 +17,7 @@ namespace EntryPoint
 
         protected void InitializeBase()
         {
+            ValidateRequiredObjects();
             _mobileCanvas.Disable();
             _desktopCanvas.Disable();
 
@@ -46,5 +48,23 @@ namespace EntryPoint
         protected abstract void OnMobileSelected();
 
         protected abstract void OnDesktopSelected();
+
+        private void ValidateRequiredObjects()
+        {
+            if (_mobileCanvas == null)
+                throw new ArgumentNullException(nameof(_mobileCanvas));
+
+            if (_desktopCanvas == null)
+                throw new ArgumentNullException(nameof(_desktopCanvas));
+
+            if (_itemFactory == null)
+                throw new ArgumentNullException(nameof(_itemFactory));
+
+            if (_mobileContent == null)
+                throw new ArgumentNullException(nameof(_mobileContent));
+
+            if (_desktopContent == null)
+                throw new ArgumentNullException(nameof(_desktopContent));
+        }
     }
 }

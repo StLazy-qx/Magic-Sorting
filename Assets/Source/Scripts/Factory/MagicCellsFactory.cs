@@ -9,8 +9,8 @@ namespace FactoryCore
         {
             MagicCell cell = Instantiate(Prefab, parent);
             cell.transform.localPosition = localPosition;
-            cell.SetColor(color);
 
+            cell.SetColor(color);
             Add(cell);
             NotifyObjectsChanged();
 
@@ -19,12 +19,11 @@ namespace FactoryCore
 
         public float GetCellHeight()
         {
-            if (Prefab == null)
-                return 0f;
+            float cellHeight = 0f;
 
             Renderer renderer = Prefab.GetComponentInChildren<Renderer>();
 
-            return renderer != null ? renderer.bounds.size.y : 0f;
+            return renderer != null ? renderer.bounds.size.y : cellHeight;
         }
 
         protected override void BuildObjects() { }
