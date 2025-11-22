@@ -1,72 +1,89 @@
+using EntryPoint;
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using Zenject;
 
 namespace Sound
 {
-    public class SoundSetter
+    public class SoundSetter : MonoBehaviour, IObjectInitilizable
     {
-        private const string MasterVolume = "Master";
-        private const string AmbientVolume = "Ambient";
-        private const string EffectVolume = "Effect";
+        private const string Master = "Master";
+        private const string Ambient = "Ambient";
+        private const string Effect = "Effect";
         private const float MinVolume = 0.0001f;
         private const float MaxVolume = 1f;
         private const float VolumeMultiplier = 20f;
-        private const float LogarithmMultiplier = 10f;
-        private const float MuteDBValue = -80f;
+        private const float MuteDB = -80f;
 
-        private readonly AudioMixer _mixer;
-        private readonly AudioSettingsData _settings;
+        [SerializeField] private AudioMixer _mixer;
 
-        public SoundSetter(AudioMixer mixer, AudioSettingsData settings)
+        private AudioSettingsData _settings;
+        private VolumeSliderViewHandler _volumeSliderView;
+
+        public bool IsInitialized { get; private set; }
+
+        [Inject]
+        public void Construct(AudioSettingsData settings)
         {
-            _settings = settings;
-            _mixer = mixer ?? 
-                throw new ArgumentNullException(nameof(mixer),
-                "AudioMixer cannot be null");
+            _settings = settings ??
+                throw new ArgumentNullException(nameof(settings),
+                "[SoundSetter] AudioSettingsData не может быть null");
         }
 
-        public void SetVolume(string parameter, float volume)
+        public void Initilize()
         {
-            ValidateParameter(parameter);
+            ValidateDependencies();
 
-            if (volume < 0)
-            {
-                throw new ArgumentOutOfRangeException
-                    (nameof(volume), "Volume cannot be negative");
-            }
+            _volumeSliderView.OnMasterChanged += 
+                volume => SetVolume(Master, volume);
+            _volumeSliderView.OnAmbientChanged += 
+                volume => SetVolume(Ambient, volume);
+            _volumeSliderView.OnEffectChanged += 
+                volume => SetVolume(Effect, volume);
+            _volumeSliderView.OnMuteClicked += OnToggleMute;
 
+            ValidateSettingsValues();
+            _volumeSliderView.SetInitialValues(
+                _settings.Master,
+                _settings.Ambient,
+                _settings.Effect,
+                _settings.IsMuted
+            );
+            RestoreVolumes();
+
+            IsInitialized = true;
+        }
+
+        public void ApplyAudioHandler(VolumeSliderViewHandler volumeSliderView)
+        {
+            _volumeSliderView = volumeSliderView ??
+                throw new ArgumentNullException(nameof(volumeSliderView),
+                "[SoundSetter] Панель не может быть null");
+        }
+
+        private void SetVolume(string parameter, float value)
+        {
             if (_settings.IsMuted)
                 return;
 
-            float dbValue = Mathf.Log10(Mathf.Clamp
-                (volume, MinVolume, MaxVolume)) * VolumeMultiplier;
+            float db = Mathf.Log10(Mathf.Clamp(value, MinVolume, MaxVolume)) * VolumeMultiplier;
 
-            _mixer.SetFloat(parameter, dbValue);
-            UpdateSettingsVolume(parameter, volume);
-        }
+            _mixer.SetFloat(parameter, db);
 
-        public float GetCurrentVolume(string parameter)
-        {
-            ValidateParameter(parameter);
-
-            if (_mixer.GetFloat(parameter, out float dbValue))
+            switch (parameter)
             {
-                float result = Mathf.Pow(LogarithmMultiplier, dbValue / VolumeMultiplier);
-
-                return result;
+                case Master: _settings.SetMasterVolume(value); break;
+                case Ambient: _settings.SetAmbientVolume(value); break;
+                case Effect: _settings.SetEffectVolume(value); break;
             }
-
-            return MaxVolume;
         }
 
-        public void ToggleMute()
+        private void OnToggleMute()
         {
-            bool newMuteState = !_settings.IsMuted;
+            _settings.ChangeMuteState();
 
-            _settings.SetMute(newMuteState);
-
-            if (newMuteState)
+            if (_settings.IsMuted)
                 MuteAll();
             else
                 RestoreVolumes();
@@ -74,42 +91,44 @@ namespace Sound
 
         private void MuteAll()
         {
-            _mixer.SetFloat(MasterVolume, MuteDBValue);
-            _mixer.SetFloat(AmbientVolume, MuteDBValue);
-            _mixer.SetFloat(EffectVolume, MuteDBValue);
+            _mixer.SetFloat(Master, MuteDB);
+            _mixer.SetFloat(Ambient, MuteDB);
+            _mixer.SetFloat(Effect, MuteDB);
         }
 
         private void RestoreVolumes()
         {
-            SetVolume(MasterVolume, _settings.MasterVolume);
-            SetVolume(AmbientVolume, _settings.AmbientVolume);
-            SetVolume(EffectVolume, _settings.EffectVolume);
+            SetVolume(Master, _settings.Master);
+            SetVolume(Ambient, _settings.Ambient);
+            SetVolume(Effect, _settings.Effect);
         }
 
-        private void UpdateSettingsVolume(string parameter, float volume)
+        private void ValidateSettingsValues()
         {
-            switch (parameter)
-            {
-                case MasterVolume:
-                    _settings.SetMasterVolume(volume);
-                    break;
-
-                case AmbientVolume:
-                    _settings.SetAmbientVolume(volume);
-                    break;
-
-                case EffectVolume:
-                    _settings.SetEffectVolume(volume);
-                    break;
-            }
+            ValidateVolumeValue(_settings.Master, Master);
+            ValidateVolumeValue(_settings.Ambient, Ambient);
+            ValidateVolumeValue(_settings.Effect, Effect);
         }
 
-        private void ValidateParameter(string parameter)
+        private void ValidateDependencies()
         {
-            if (string.IsNullOrWhiteSpace(parameter))
+            if (_mixer == null)
+                throw new InvalidOperationException("[SoundSetter] AudioMixer не установлен в инспекторе");
+
+            if (_settings == null)
+                throw new InvalidOperationException("[SoundSetter] AudioSettingsData не был передан в Construct()");
+
+            if (_volumeSliderView == null)
+                throw new InvalidOperationException("[SoundSetter] VolumeSliderViewHandler не был передан в ApplyAudioHandler()");
+        }
+
+        private void ValidateVolumeValue(float volume, string name)
+        {
+            if (volume < 0f || volume > MaxVolume)
             {
-                throw new ArgumentException
-                    ("Parameter cannot be null or white space", nameof(parameter));
+                throw new ArgumentOutOfRangeException(
+                    nameof(volume), $"[SoundSetter] Значение громкости '{name}' " +
+                    $"должно быть в диапазоне 0..1, получено: {volume}");
             }
         }
     }

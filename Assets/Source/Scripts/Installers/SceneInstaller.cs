@@ -5,7 +5,7 @@ public class SceneInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.Bind<LevelDifficultySetterUI>()
+        Container.Bind<LevelDifficultyViewer>()
             .FromComponentInHierarchy()
             .AsSingle();
     }

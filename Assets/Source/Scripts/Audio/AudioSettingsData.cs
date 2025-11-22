@@ -7,28 +7,36 @@ namespace Sound
     {
         private const float MaxVolume = 1f;
 
-        public float MasterVolume { get; private set; } = MaxVolume;
-        public float AmbientVolume { get; private set; } = MaxVolume;
-        public float EffectVolume { get; private set; } = MaxVolume;
+        public float Master { get; private set; }
+        public float Ambient { get; private set; }
+        public float Effect { get; private set; }
         public bool IsMuted { get; private set; }
+
+        public AudioSettingsData()
+        {
+            IsMuted = false;
+            Master = MaxVolume;
+            Ambient = MaxVolume;
+            Effect = MaxVolume;
+        }
 
         public void SetMasterVolume(float value)
         {
-            MasterVolume = ValidateVolumeValue(value);
+            Master = ValidateVolumeValue(value);
         }
 
         public void SetAmbientVolume(float value)
         {
-            AmbientVolume = ValidateVolumeValue(value);
+            Ambient = ValidateVolumeValue(value);
         }
 
         public void SetEffectVolume(float value)
         {
-            EffectVolume = ValidateVolumeValue(value);
+            Effect = ValidateVolumeValue(value);
         }
 
-        public void SetMute(bool value)
-            => IsMuted = value;
+        public void ChangeMuteState()
+            => IsMuted = !IsMuted;
 
         private float ValidateVolumeValue(float value)
         {

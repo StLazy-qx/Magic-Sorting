@@ -2,6 +2,7 @@ using UnityEngine;
 using FactoryCore;
 using YG;
 using System;
+using Sound;
 
 namespace EntryPoint
 {
@@ -14,6 +15,10 @@ namespace EntryPoint
         [SerializeField] protected StoreItemFactory _itemFactory;
         [SerializeField] protected Transform _desktopContent;
         [SerializeField] protected Transform _mobileContent;
+        [Header("Audio panel installation")]
+        [SerializeField] private SoundSetter _soundSetter;
+        [SerializeField] private VolumeSliderViewHandler _mobileAudioViewHandler;
+        [SerializeField] private VolumeSliderViewHandler _desktopAudioViewHandler;
 
         protected void InitializeBase()
         {
@@ -25,12 +30,14 @@ namespace EntryPoint
             {
                 UseMobileMode();
                 _itemFactory.SetContentTransform(_mobileContent);
+                _soundSetter.ApplyAudioHandler(_mobileAudioViewHandler);
                 OnMobileSelected();
             }
             else
             {
                 UseDesktopMode();
                 _itemFactory.SetContentTransform(_desktopContent);
+                _soundSetter.ApplyAudioHandler(_desktopAudioViewHandler);
                 OnDesktopSelected();
             }
         }

@@ -4,7 +4,7 @@ using Zenject;
 
 namespace GameDifficulty
 {
-    public class LevelDifficultySetterUI : MonoBehaviour
+    public class LevelDifficultyViewer : MonoBehaviour
     {
         [SerializeField] private Button _easyLevelButton;
         [SerializeField] private Button _middleLevelButton;
@@ -12,7 +12,6 @@ namespace GameDifficulty
         [SerializeField] private Color _selectedColor;
 
         private DifficultyState _difficultyState;
-        private Button _selectedButton;
         private Color _defaultColorButton;
 
         private void Awake()
@@ -103,7 +102,6 @@ namespace GameDifficulty
             ResetButtonColors();
 
             button.image.color = _selectedColor;
-            _selectedButton = button;
         }
 
         private void ResetButtonColors()

@@ -1,61 +1,42 @@
-using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine;
-using Zenject;
-using EntryPoint;
+using System;
 
 namespace Sound
 {
-    public class VolumeSliderViewHandler : MonoBehaviour, IObjectInitilizable
+    public class VolumeSliderViewHandler : MonoBehaviour
     {
-        private const string MasterVolume = "Master";
-        private const string AmbientVolume = "Ambient";
-        private const string EffectVolume = "Effect";
-
-        [SerializeField] private AudioMixer _mixer;
         [SerializeField] private Slider _sliderMasterVolume;
         [SerializeField] private Slider _sliderAmbientVolume;
         [SerializeField] private Slider _sliderEffectVolume;
         [SerializeField] private MuteButton _muteButton;
 
-        private SoundSetter _soundSetter;
-        private AudioSettingsData _settings;
+        public event Action<float> OnMasterChanged;
+        public event Action<float> OnAmbientChanged;
+        public event Action<float> OnEffectChanged;
+        public event Action OnMuteClicked;
 
-        public bool IsInitialized { get; private set; }
-
-        [Inject]
-        public void Construct(AudioSettingsData settings)
+        private void Awake()
         {
-            _settings = settings;
+            _sliderMasterVolume.onValueChanged.AddListener(
+                value => OnMasterChanged?.Invoke(value));
+            _sliderAmbientVolume.onValueChanged.AddListener(
+                value => OnAmbientChanged?.Invoke(value));
+            _sliderEffectVolume.onValueChanged.AddListener(
+                value => OnEffectChanged?.Invoke(value));
+            _muteButton.OnClick.AddListener(() => 
+            {
+                OnMuteClicked?.Invoke();
+                _muteButton.ToggleMuteState();
+            });
         }
 
-        public void Initilize()
+        public void SetInitialValues(float master, float ambient, float effect, bool isMute)
         {
-            _soundSetter = new SoundSetter(_mixer, _settings);
-
-            InitializeSlider(_sliderMasterVolume, MasterVolume);
-            InitializeSlider(_sliderAmbientVolume, AmbientVolume);
-            InitializeSlider(_sliderEffectVolume, EffectVolume);
-
-            if (_muteButton != null)
-                _muteButton.OnClick.AddListener(OnMuteButtonClicked);
-
-            IsInitialized = true;
-        }
-
-        private void InitializeSlider(Slider slider, string parameter)
-        {
-            float currentValue = _soundSetter.GetCurrentVolume(parameter);
-            slider.SetValueWithoutNotify(currentValue);
-
-            slider.onValueChanged.AddListener(value =>
-                _soundSetter.SetVolume(parameter, value));
-        }
-
-        private void OnMuteButtonClicked()
-        {
-            _soundSetter.ToggleMute();
-            _muteButton.UpdateButtonColor(_settings.IsMuted);
+            _sliderMasterVolume.SetValueWithoutNotify(master);
+            _sliderAmbientVolume.SetValueWithoutNotify(ambient);
+            _sliderEffectVolume.SetValueWithoutNotify(effect);
+            _muteButton.SetMuteState(isMute);
         }
     }
 }

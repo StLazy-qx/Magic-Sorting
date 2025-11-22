@@ -29,6 +29,18 @@ namespace GameBehaviour
             if (_sceneLoader == null)
                 throw new ArgumentNullException(nameof(_sceneLoader));
 
+            if (_wallet == null)
+            {
+                throw new InvalidOperationException(
+                    "Wallet not injected via Construct().");
+            }
+
+            if (_difficultyState == null)
+            {
+                throw new InvalidOperationException(
+                    "DifficultyState not injected via Construct().");
+            }
+
             ContinueGame();
             _difficultyState.SetDifficulty(DifficultyLevel.Easy);
             _wallet.Reset();
@@ -52,10 +64,14 @@ namespace GameBehaviour
         }
 
         public virtual void ResumeGame()
-            => NavigateScene(GameSessionIndex);
+        {
+            NavigateScene(GameSessionIndex);
+        }
 
         public virtual void OpenMainMenu()
-            => NavigateScene(MainMenuIndex, true);
+        {
+            NavigateScene(MainMenuIndex, true);
+        }
 
         public virtual void QuitGame()
         {
@@ -91,6 +107,12 @@ namespace GameBehaviour
 
         private void NavigateScene(int sceneIndex, bool isPause = false)
         {
+            if (sceneIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(sceneIndex),
+                    "sceneIndex cannot be negative.");
+            }
+
             if (isPause)
                 PauseGame();
             else

@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using Zenject;
 using GameDifficulty;
 using FactoryCore;
 using InteractiveObjects;
-using PlayerCore;
+using System;
 
 namespace GameBehaviour
 {
@@ -14,12 +13,17 @@ namespace GameBehaviour
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
 
+        private void Start()
+        {
+            ValidateObjects();
+        }
+
         public void BeginNewRound()
         {
             ContinueGame();
             _wallet.Reset();
             _waitingPoint.Reset();
-            StartCoroutine(StartNewRoundRoutine());
+            StartCoroutine(BeginRoundRoutine());
         }
 
         public void IncreaseDifficultyLevel()
@@ -34,7 +38,7 @@ namespace GameBehaviour
 
             ResetFactories();
             _wallet.Reset();
-            StartCoroutine(StartNewRoundRoutine());
+            StartCoroutine(BeginRoundRoutine());
         }
 
         protected override void ExtendInitialize()
@@ -42,14 +46,7 @@ namespace GameBehaviour
             _waitingPoint.Reset();
         }
 
-        [Inject]
-        private void Construct(Wallet wallet, DifficultyState difficultyState)
-        {
-            _wallet = wallet;
-            _difficultyState = difficultyState;
-        }
-
-        private IEnumerator StartNewRoundRoutine()
+        private IEnumerator BeginRoundRoutine()
         {
             ResetFactories();
             _vesselFactory.Spawn();
@@ -68,6 +65,18 @@ namespace GameBehaviour
         {
             _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
             _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+        }
+
+        private void ValidateObjects()
+        {
+            if (_columnsFactory == null)
+                throw new ArgumentNullException(nameof(_columnsFactory));
+
+            if (_vesselFactory == null)
+                throw new ArgumentNullException(nameof(_vesselFactory));
+
+            if (_waitingPoint == null)
+                throw new ArgumentNullException(nameof(_waitingPoint));
         }
     }
 }

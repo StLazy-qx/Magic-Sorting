@@ -13,7 +13,7 @@ namespace GameDifficulty
 
             if (_difficultyDatabase != null)
             {
-                Container.BindInstance(_difficultyDatabase).WhenInjectedInto<LevelDifficultySetterUI>();
+                Container.BindInstance(_difficultyDatabase).WhenInjectedInto<LevelDifficultyViewer>();
             }
         }
     }

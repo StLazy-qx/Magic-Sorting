@@ -7,11 +7,11 @@ public class ButtonNewRoundBeginner : BaseMenuButton
         if (GameHandler == null)
             return;
 
-        if (GameHandler is not GameSessionHandler sessionHandler)
-            return;
-
-        CurrentPanel?.Close();
-        TargetPanel?.Open();
-        sessionHandler.BeginNewRound();
+        if (GameHandler is GameSessionHandler sessionHandler)
+        {
+            CurrentPanel?.Close();
+            TargetPanel?.Open();
+            sessionHandler.BeginNewRound();
+        }
     }
 }

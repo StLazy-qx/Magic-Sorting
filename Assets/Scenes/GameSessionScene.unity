@@ -1844,6 +1844,7 @@ GameObject:
   - component: {fileID: 197352326}
   - component: {fileID: 197352325}
   - component: {fileID: 197352324}
+  - component: {fileID: 197352327}
   m_Layer: 5
   m_Name: AudioSettingPanel
   m_TagString: Untagged
@@ -1863,7 +1864,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1002493997}
   - {fileID: 76591603}
   - {fileID: 732703200}
   - {fileID: 94285547}
@@ -1926,6 +1926,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197352321}
   m_CullTransparentMesh: 1
+--- !u!114 &197352327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197352321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sliderMasterVolume: {fileID: 253775769}
+  _sliderAmbientVolume: {fileID: 322964247}
+  _sliderEffectVolume: {fileID: 955069079}
+  _muteButton: {fileID: 1477763194}
 --- !u!1 &203805685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,59 +3850,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2066365345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &468497615
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 468497616}
-  - component: {fileID: 468497617}
-  m_Layer: 5
-  m_Name: AudioSetter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &468497616
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468497615}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 739493102}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &468497617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468497615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: d912505dfde61954b9fceeda9e70cfbe, type: 2}
-  _sliderMasterVolume: {fileID: 2056544491}
-  _sliderAmbientVolume: {fileID: 1303756587}
-  _sliderEffectVolume: {fileID: 522217388}
-  _muteButton: {fileID: 792672594}
 --- !u!1 &473561151
 GameObject:
   m_ObjectHideFlags: 0
@@ -7259,6 +7222,7 @@ GameObject:
   - component: {fileID: 739493106}
   - component: {fileID: 739493105}
   - component: {fileID: 739493104}
+  - component: {fileID: 739493107}
   m_Layer: 5
   m_Name: AudioSettingPanel
   m_TagString: Untagged
@@ -7278,7 +7242,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 468497616}
   - {fileID: 542123194}
   - {fileID: 1359067575}
   - {fileID: 1414504972}
@@ -7341,6 +7304,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739493101}
   m_CullTransparentMesh: 1
+--- !u!114 &739493107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739493101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sliderMasterVolume: {fileID: 2056544491}
+  _sliderAmbientVolume: {fileID: 1303756587}
+  _sliderEffectVolume: {fileID: 522217388}
+  _muteButton: {fileID: 792672594}
 --- !u!1 &743707493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8104,6 +8083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 792672591}
+  _beginColor: {r: 1, g: 1, b: 1, a: 1}
   _includeColor: {r: 0.32941177, g: 0.23921569, b: 0.67058825, a: 1}
 --- !u!1 &796101942
 GameObject:
@@ -9205,6 +9185,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 30003811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &908648323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908648325}
+  - component: {fileID: 908648324}
+  m_Layer: 0
+  m_Name: AudioSetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &908648324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908648323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa662ff92aa14e4280b859ddfb82fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: d912505dfde61954b9fceeda9e70cfbe, type: 2}
+--- !u!4 &908648325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908648323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.6624284, y: 3.5648496, z: 8.304937}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909613394
 GameObject:
   m_ObjectHideFlags: 0
@@ -10028,59 +10053,6 @@ Transform:
   - {fileID: 848970917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1002493996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1002493997}
-  - component: {fileID: 1002493998}
-  m_Layer: 5
-  m_Name: AudioSetter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1002493997
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002493996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 197352322}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1002493998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002493996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f6e2e0662613e4696f9be185ea7cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: d912505dfde61954b9fceeda9e70cfbe, type: 2}
-  _sliderMasterVolume: {fileID: 253775769}
-  _sliderAmbientVolume: {fileID: 322964247}
-  _sliderEffectVolume: {fileID: 955069079}
-  _muteButton: {fileID: 1477763194}
 --- !u!1 &1009920587
 GameObject:
   m_ObjectHideFlags: 0
@@ -10136,10 +10108,9 @@ MonoBehaviour:
   - {fileID: 392530557}
   - {fileID: 569123143}
   - {fileID: 1845276654}
+  - {fileID: 908648324}
   - {fileID: 460316045}
   - {fileID: 2066365334}
-  - {fileID: 468497617}
-  - {fileID: 1002493998}
 --- !u!114 &1009920591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10201,6 +10172,9 @@ MonoBehaviour:
   _itemFactory: {fileID: 203805686}
   _desktopContent: {fileID: 686746962}
   _mobileContent: {fileID: 2052164915}
+  _soundSetter: {fileID: 908648324}
+  _mobileAudioViewHandler: {fileID: 739493107}
+  _desktopAudioViewHandler: {fileID: 197352327}
   _desktopObjectsPosition: {fileID: 1009920591}
   _mobileObjectsPosition: {fileID: 1009920592}
   _finalMatchPanelDesktop: {fileID: 1917943191}
@@ -14248,6 +14222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1477763191}
+  _beginColor: {r: 1, g: 1, b: 1, a: 1}
   _includeColor: {r: 0.32941177, g: 0.2392157, b: 0.67058825, a: 1}
 --- !u!1 &1478137652
 GameObject:
@@ -58921,3 +58896,4 @@ SceneRoots:
   - {fileID: 1271734734}
   - {fileID: 919005560}
   - {fileID: 1406069145}
+  - {fileID: 908648325}

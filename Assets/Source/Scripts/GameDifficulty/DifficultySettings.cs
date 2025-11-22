@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace GameDifficulty
@@ -16,5 +17,22 @@ namespace GameDifficulty
         [Header("Vessels settings")]
         public int vesselsCount;
         public int colorsCount;
+
+        private void OnValidate()
+        {
+            ValidatePositive(maxSpawnPoints, nameof(maxSpawnPoints));
+            ValidatePositive(minCellsPerColumn, nameof(minCellsPerColumn));
+            ValidatePositive(vesselsCount, nameof(vesselsCount));
+            ValidatePositive(colorsCount, nameof(colorsCount));
+        }
+
+        private void ValidatePositive(int value, string paramName)
+        {
+            if (value <= 0)
+            {
+                throw new ArgumentOutOfRangeException(paramName,
+                    $"{paramName} должен быть > 0");
+            }
+        }
     }
 }

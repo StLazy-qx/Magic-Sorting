@@ -1,8 +1,7 @@
 using Zenject;
-using Sound;
 using GameDifficulty;
-using GameBehaviour;
 using PlayerCore;
+using Sound;
 
 public class ProjectInstaller : MonoInstaller
 {
@@ -10,7 +9,6 @@ public class ProjectInstaller : MonoInstaller
     {
         Container.Bind<DifficultyState>().AsSingle().NonLazy();
         Container.Bind<Wallet>().AsSingle();
-        Container.BindInterfacesAndSelfTo<GameSessionHandler>().AsSingle();
         Container.Bind<AudioSettingsData>().AsSingle();
     }
 }

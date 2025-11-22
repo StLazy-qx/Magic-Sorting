@@ -88,6 +88,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\Review_yandexPlatform.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\RedefinePlayerPrefs_interface.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Sound\MuteButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_info.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\TemplateSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yg.cs" />
@@ -228,10 +229,10 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\GameDifficulty\LevelDifficultyViewer.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Storage\StoreItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\ObjectsBeginPositionSetter.cs" />
-    <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyProvider.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_interface.cs" />
@@ -352,7 +353,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
-    <Compile Include="Assets\Source\Scripts\GameDifficulty\LevelDifficultySetterUI.cs" />
     <Compile Include="Assets\Source\Scripts\PlayerAuthorization\Authorization.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\EnumColor.cs" />
@@ -376,7 +376,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DebugViewing.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCellMover.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\MuteButton.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Language\LanguageView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformOptions.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ShuffledColorDistributor.cs" />
