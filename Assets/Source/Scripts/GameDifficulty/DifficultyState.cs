@@ -1,7 +1,7 @@
 using System;
 using Zenject;
 
-namespace GameDifficulty
+namespace Assets.Source.Scripts.GameDifficulty
 {
     public class DifficultyState : IInitializable
     {

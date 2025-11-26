@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sound
+namespace Assets.Source.Scripts.Audio
 {
     public class AudioSetter : MonoBehaviour
     {
@@ -9,6 +9,29 @@ namespace Sound
         [SerializeField] private AudioSource _audioSource;
 
         private void Awake()
+        {
+            ValidateInitializeArguments();
+
+            _audioSource = GetComponent<AudioSource>();
+
+            if (_audioSource == null)
+            {
+                throw new ArgumentNullException
+                    (nameof(_audioSource), "AudioSource cannot be null");
+            }
+
+            _audioSource.clip = _clip;
+        }
+
+        private void Start()
+        {
+            PlayMusic();
+        }
+
+        public void PlayMusic()
+            => _audioSource.Play();
+
+        private void ValidateInitializeArguments()
         {
             if (_clip == null)
             {
@@ -21,17 +44,6 @@ namespace Sound
                 throw new ArgumentNullException
                     (nameof(_audioSource), "AudioClips cannot be null");
             }
-
-            _audioSource = GetComponent<AudioSource>();
-            _audioSource.clip = _clip;
         }
-
-        private void Start()
-        {
-            PlayMusic();
-        }
-
-        public void PlayMusic()
-            => _audioSource.Play();
     }
 }

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FactoryCore;
+using Assets.Source.Scripts.Factory;
 using System;
 
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public class EntryPointGameSession : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace EntryPoint
 
         private void Awake()
         {
-            ValidateDependencies();
+            //ValidateDependencies();
             _platformDependentSetter.Initialize();
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());

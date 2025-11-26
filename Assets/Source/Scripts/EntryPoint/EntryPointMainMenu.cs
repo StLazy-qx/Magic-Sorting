@@ -1,12 +1,12 @@
-using FactoryCore;
-using Language;
+using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.Language;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using YG;
 
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public class EntryPointMainMenu : MonoBehaviour
     {

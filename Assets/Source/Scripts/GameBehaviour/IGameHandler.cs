@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameBehaviour
+namespace Assets.Source.Scripts.GameBehaviour
 {
     public interface IGameHandler
     {

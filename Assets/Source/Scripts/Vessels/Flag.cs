@@ -1,7 +1,8 @@
 using UnityEngine;
-using Colorize;
+using Assets.Source.Scripts.Colorize;
+using System;
 
-namespace Vessels
+namespace Assets.Source.Scripts.Vessels
 {
     [RequireComponent(typeof(Renderer))]
 
@@ -14,10 +15,22 @@ namespace Vessels
         private void Awake()
         {
             _renderer = GetComponent<Renderer>();
+
+            if (_renderer == null)
+            {
+                throw new InvalidOperationException(
+                    "Renderer component is missing");
+            }
         }
 
         public void SetColor(Color color)
         {
+            if (_renderer.material == null)
+            {
+                throw new InvalidOperationException(
+                    "Renderer material is not assigned");
+            }
+
             _renderer.material.color = color;
         }
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
-using MagicCells;
+using Assets.Source.Scripts.MagicCells;
 
-namespace FactoryCore
+namespace Assets.Source.Scripts.Factory
 {
     public class MagicCellsFactory : Factory<MagicCell>
     {

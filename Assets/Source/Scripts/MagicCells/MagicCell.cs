@@ -1,7 +1,8 @@
 using UnityEngine;
-using Colorize;
+using Assets.Source.Scripts.Colorize;
+using System;
 
-namespace MagicCells
+namespace Assets.Source.Scripts.MagicCells
 {
     [RequireComponent(typeof(Renderer))]
 
@@ -15,7 +16,13 @@ namespace MagicCells
 
         private void Awake()
         {
+            if (_colorRandomizer == null)
+                throw new ArgumentNullException(nameof(_colorRandomizer));
+
             _renderer = GetComponent<Renderer>();
+
+            if (_renderer == null)
+                throw new ArgumentNullException(nameof(_renderer));
         }
 
         public void Disable()

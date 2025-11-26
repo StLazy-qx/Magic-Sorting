@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Sound
+namespace Assets.Source.Scripts.Audio
 {
     public class SoundPlayer : MonoBehaviour
     {

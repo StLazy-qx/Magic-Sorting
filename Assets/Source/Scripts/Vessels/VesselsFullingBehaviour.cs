@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using EntryPoint;
-using GameBehaviour;
-using PlayerCore;
+using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.GameBehaviour;
+using Assets.Source.Scripts.Player;
+using System.Linq;
+using Assets.Source.Scripts.UI.GamePanel;
 
-namespace Vessels
+namespace Assets.Source.Scripts.Vessels
 {
     public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
     {
@@ -27,14 +29,18 @@ namespace Vessels
 
         private void OnDestroy()
         {
+            if (_vessels == null)
+                return;
+
             foreach (Vessel vessel in _vessels)
-                vessel.PointsEarned -= OnPerformEffectCoroutine;
+                vessel.RewardIssued -= OnPerformEffectCoroutine;
         }
 
         [Inject]
         public void Construct(Wallet wallet)
         {
-            _wallet = wallet;
+            _wallet = wallet ?? throw new ArgumentNullException(nameof(wallet),
+                "[VesselStateTracker] Wallet cannot be null");
         }
 
         public void Initilize()
@@ -42,27 +48,19 @@ namespace Vessels
             if (IsInitialized)
                 return;
 
-            if (_vessels == null || _vessels.Count == 0)
-                return;
-
-            if (_effecter == null)
-                return;
-
-            if (_currentPanel == null)
-                return;
-
-            if (_wallet == null)
-                return;
+            ValidateInitializeArguments();
 
             IsInitialized = true;
         }
 
         public void SetVesselsList(IReadOnlyList<Vessel> vessels)
         {
+            ValidateVesselsList(vessels);
+
             _vessels = vessels;
 
             foreach (Vessel vessel in _vessels)
-                vessel.PointsEarned += OnPerformEffectCoroutine;
+                vessel.RewardIssued += OnPerformEffectCoroutine;
 
             _effecter.Initialize(vessels.Count);
         }
@@ -98,6 +96,89 @@ namespace Vessels
                 _finalGame.ActivateFinalPanelAndPauseGame();
 
                 _veselsCount = 0;
+            }
+        }
+
+        private void ValidateInitializeArguments()
+        {
+            if (_wallet == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] Wallet reference is missing. " +
+                    "Did you forget Inject()?");
+            }
+
+            if (_effecter == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] Effecter reference is missing in inspector.");
+            }
+
+
+            if (_finalGame == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] FinalGameSession reference is missing.");
+            }
+
+            if (_finalMatchPanelDesctop == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] FinalMatchPanelDesktop is missing.");
+            }
+
+            if (_finalMatchPanelMobile == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] FinalMatchPanelMobile is missing.");
+            }
+
+            if (_vessels == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] Vessel list is not assigned. " +
+                    "Call SetVesselsList() first.");
+            }
+
+            if (_vessels.Count == 0)
+            {
+                throw new ArgumentException(
+                    "[VesselStateTracker] Vessel list is empty.");
+            }
+
+            if (_vessels.Any(v => v == null))
+            {
+                throw new ArgumentException(
+                    "[VesselStateTracker] Vessel list contains null entries.");
+            }
+
+            if (_currentPanel == null)
+            {
+                throw new NullReferenceException(
+                    "[VesselStateTracker] Panel is not assigned. Call ApplyPanel() first.");
+            }
+        }
+
+        private void ValidateVesselsList(IReadOnlyList<Vessel> vessels)
+        {
+            if (vessels == null)
+            {
+                throw new ArgumentNullException(nameof(vessels),
+                    "[VesselStateTracker] Vessel list cannot be null");
+            }
+
+            if (vessels.Count == 0)
+            {
+                throw new ArgumentException(
+                    "[VesselStateTracker] Vessel list cannot be empty",
+                    nameof(vessels));
+            }
+
+            if (vessels.Any(v => v == null))
+            {
+                throw new ArgumentException(
+                    "[VesselStateTracker] Vessel list contains null entries",
+                    nameof(vessels));
             }
         }
     }

@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using InteractiveObjects;
-using Vessels;
+using Assets.Source.Scripts.InteractiveObjects;
+using Assets.Source.Scripts.Vessels;
 
-namespace MagicCells
+namespace Assets.Source.Scripts.MagicCells
 {
     public class MagicCellRouter : MonoBehaviour
     {
@@ -21,6 +21,13 @@ namespace MagicCells
                 throw new ArgumentNullException(
                     nameof(vessels), "[DistributerMagicCell] " +
                     "Список судов не может быть пустым.");
+            }
+
+            if (vessels.Count == 0)
+            {
+                throw new ArgumentException(
+                    "[MagicCellRouter] Список судов не может быть пустым.",
+                    nameof(vessels));
             }
 
             _vessels = vessels;

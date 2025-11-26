@@ -1,6 +1,8 @@
+using Assets.Source.Scripts.UI.StoreView;
+using System;
 using UnityEngine;
 
-namespace Items
+namespace Assets.Source.Scripts.Items
 {
     public class Item : MonoBehaviour
     {
@@ -13,15 +15,12 @@ namespace Items
         public string ID => _id;
         public int Price => _price;
         public Texture Texture => _texture;
-        public ItemView View => _itemView;
         public bool IsBuyed { get; private set; }
 
 
         public void Initialize(ItemSO itemData)
         {
-            if (itemData == null && _itemView == null)
-                return;
-
+            ValidateObjects(itemData);
             _itemView.Initialize(itemData);
 
             _id = itemData.ID;
@@ -31,6 +30,9 @@ namespace Items
 
         public void Buy()
         {
+            if (IsBuyed || _itemView == null)
+                return;
+
             IsBuyed = true;
 
             _itemView.ActivateBoughtText();
@@ -38,7 +40,28 @@ namespace Items
 
         public void ActivateBought()
         {
+            if (_itemView == null)
+                return;
+
             _itemView.ActivateBoughtText();
+        }
+
+        private void ValidateObjects(ItemSO itemData)
+        {
+            if (_itemView == null)
+                throw new ArgumentNullException(nameof(_itemView));
+
+            if (itemData.Price < 0)
+            {
+                throw new ArgumentException(
+                    "Price must be positive", nameof(itemData));
+            }
+
+            if (string.IsNullOrEmpty(itemData.ID))
+            {
+                throw new ArgumentException(
+                    "ID cannot be null or empty", nameof(itemData));
+            }
         }
     }
 }

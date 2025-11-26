@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using GameDifficulty;
+using Assets.Source.Scripts.GameDifficulty;
 
-namespace FactoryCore
+namespace Assets.Source.Scripts.Factory
 {
     public abstract class Factory<T> : MonoBehaviour where T : MonoBehaviour
     {

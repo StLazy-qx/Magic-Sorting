@@ -1,16 +1,11 @@
 using System;
 using UnityEngine;
 
-namespace Sound
+namespace Assets.Source.Scripts.Audio
 {
     public class AudioSettingsData
     {
         private const float MaxVolume = 1f;
-
-        public float Master { get; private set; }
-        public float Ambient { get; private set; }
-        public float Effect { get; private set; }
-        public bool IsMuted { get; private set; }
 
         public AudioSettingsData()
         {
@@ -19,6 +14,11 @@ namespace Sound
             Ambient = MaxVolume;
             Effect = MaxVolume;
         }
+
+        public float Master { get; private set; }
+        public float Ambient { get; private set; }
+        public float Effect { get; private set; }
+        public bool IsMuted { get; private set; }
 
         public void SetMasterVolume(float value)
         {

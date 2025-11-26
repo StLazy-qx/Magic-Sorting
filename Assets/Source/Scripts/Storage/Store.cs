@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Items;
-using PlayerCore;
+using Assets.Source.Scripts.Items;
+using Assets.Source.Scripts.Player;
+using System;
 
-namespace Storage
+namespace Assets.Source.Scripts.Storage
 {
     public class Store : MonoBehaviour
     {
         [SerializeField] private List<ItemSO> _itemsData;
-        [SerializeField] private Player _player;
+        [SerializeField] private PlayerEntity _player;
         [SerializeField] private Inventory _inventory;
 
         private Wallet _playerWallet;
@@ -18,17 +19,9 @@ namespace Storage
 
         private void Awake()
         {
-            _playerWallet = _player.Wallet;
+            ValidateInitializeArguments();
 
-            if (_itemsData == null
-                || _itemsData.Count == 0
-                || _itemsData.Any(item => item == null)
-                )
-            {
-                IsInitialized = false;
-
-                return;
-            }
+            IsInitialized = true;
 
             ConfirmFirstItem();
         }
@@ -36,10 +29,9 @@ namespace Storage
         public IReadOnlyList<ItemSO> GetItemsSO()
             => _itemsData.AsReadOnly();
 
-        public void PerformBuyItem(Item selectedItem, Inventory inventory)
+        public void BuyItem(Item selectedItem, Inventory inventory)
         {
-            if (selectedItem == null)
-                return;
+            ValidateInventory(selectedItem, inventory);
 
             if (inventory.HasItem(selectedItem))
                 return;
@@ -54,11 +46,7 @@ namespace Storage
 
         public void EquipItem(Item selectedItem, Inventory inventory)
         {
-            if (selectedItem == null)
-                return;
-
-            if (inventory == null)
-                return;
+            ValidateInventory(selectedItem, inventory);
 
             if (inventory.HasItem(selectedItem) == false)
                 return;
@@ -68,15 +56,94 @@ namespace Storage
 
         private void ConfirmFirstItem()
         {
-            ItemSO firstItemData = _itemsData[0];
+            int indexFirstScin = 0;
+            ItemSO firstItemData = _itemsData[indexFirstScin];
 
-            if (firstItemData != null)
+            if (firstItemData == null)
             {
-                Item firstItem = Instantiate(firstItemData.Item);
+                throw new NullReferenceException(
+                    "First ItemSO in list is null.");
+            }
 
-                firstItem.Initialize(firstItemData);
-                _inventory.AddItem(firstItem);
-                _inventory.EquipItem(firstItem);
+            if (firstItemData.Item == null)
+            {
+                throw new NullReferenceException(
+                    "Item prefab in ItemSO is missing.");
+
+            }
+
+            Item firstItem = Instantiate(firstItemData.Item);
+
+            firstItem.Initialize(firstItemData);
+            _inventory.AddItem(firstItem);
+            _inventory.EquipItem(firstItem);
+        }
+
+        private void ValidateInitializeArguments()
+        {
+            if (_player == null)
+            {
+                throw new NullReferenceException(
+                    "Player reference is missing in Store.");
+            }
+
+            if (_inventory == null)
+            {
+                throw new NullReferenceException(
+                    "Inventory reference is missing in Store.");
+            }
+
+            _playerWallet = _player.Wallet;
+
+            if (_playerWallet == null)
+            {
+                throw new NullReferenceException(
+                    "Player wallet is missing.");
+            }
+
+            if (_itemsData == null)
+            {
+                throw new ArgumentNullException(
+                    nameof(_itemsData), "Items list cannot be null.");
+            }
+
+            if (_itemsData == null)
+            {
+                throw new ArgumentNullException(
+                    nameof(_itemsData), "Items list cannot be null.");
+            }
+
+            if (_itemsData.Count == 0)
+            {
+                throw new ArgumentException(
+                    "Items list cannot be empty.", nameof(_itemsData));
+            }
+
+            if (_itemsData.Any(item => item == null))
+            {
+                throw new ArgumentException(
+                    "Items list contains null ItemSO entries.", nameof(_itemsData));
+            }
+        }
+
+        private void ValidateInventory(Item selectedItem, Inventory inventory)
+        {
+            if (selectedItem == null)
+            {
+                throw new ArgumentNullException(nameof(selectedItem),
+                    "Item reference cannot be null.");
+            }
+
+            if (inventory == null)
+            {
+                throw new ArgumentNullException(nameof(inventory),
+                    "Inventory cannot be null.");
+            }
+
+            if (selectedItem.Price < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(selectedItem.Price),
+                    "Item price cannot be negative.");
             }
         }
     }

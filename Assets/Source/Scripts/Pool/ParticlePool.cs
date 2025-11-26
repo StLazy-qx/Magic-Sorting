@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pool
+namespace Assets.Source.Scripts.Pool
 {
     public class ParticlePool : MonoBehaviour
     {
@@ -12,9 +12,7 @@ namespace Pool
 
         public void Initialize(int count)
         {
-            if (count <= 0)
-                return;
-
+            ValidateArguments(count);
             _particles.Clear();
             _container.SetParent(transform);
 
@@ -37,6 +35,25 @@ namespace Pool
             }
 
             return null;
+        }
+
+        private void ValidateArguments(int count)
+        {
+            if (_particlePrefab == null)
+            {
+                throw new System.ArgumentNullException(nameof(_particlePrefab));
+            }
+
+            if (_container == null)
+            {
+                throw new System.ArgumentNullException(nameof(_container));
+            }
+
+            if (count <= 0)
+            {
+                throw new System.ArgumentException(
+                    "Count must be greater than zero", nameof(count));
+            }
         }
     }
 }

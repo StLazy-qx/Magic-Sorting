@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
-using GameDifficulty;
-using FactoryCore;
-using InteractiveObjects;
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.InteractiveObjects;
 using System;
 
-namespace GameBehaviour
+namespace Assets.Source.Scripts.GameBehaviour
 {
     public class GameSessionHandler : BaseGameHandler
     {

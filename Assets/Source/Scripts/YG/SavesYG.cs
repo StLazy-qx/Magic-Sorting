@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Items;
+using Assets.Source.Scripts.Items;
 
 namespace YG
 {

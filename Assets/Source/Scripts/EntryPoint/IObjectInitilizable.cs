@@ -1,4 +1,4 @@
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public interface IObjectInitilizable
     {

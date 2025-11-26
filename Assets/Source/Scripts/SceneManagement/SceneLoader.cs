@@ -1,38 +1,43 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+namespace Assets.Source.Scripts.SceneManagement
 {
-    private string[] _scenes;
-
-    private void Awake()
+    public class SceneLoader : MonoBehaviour
     {
-        int sceneCount = SceneManager.sceneCountInBuildSettings;
-        _scenes = new string[sceneCount];
+        private string[] _scenes;
 
-        for (int i = 0; i < sceneCount; i++)
+        private void Awake()
         {
-            string path = SceneUtility.GetScenePathByBuildIndex(i);
-            string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
-            _scenes[i] = sceneName;
+            int sceneCount = SceneManager.sceneCountInBuildSettings;
+            _scenes = new string[sceneCount];
+
+            for (int i = 0; i < sceneCount; i++)
+            {
+                string path = SceneUtility.GetScenePathByBuildIndex(i);
+                string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+                _scenes[i] = sceneName;
+            }
+        }
+
+        public void LoadSceneByIndex(int index)
+        {
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index),
+                    "Scene index cannot be negative");
+            }
+
+            if (index >= _scenes.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index),
+                    $"Scene index {index} is out of range." +
+                    $" Available scenes: 0-{_scenes.Length - 1}");
+            }
+
+            SceneManager.LoadScene(_scenes[index]);
         }
     }
-
-    public void LoadSceneByIndex(int index)
-    {
-        //добавить исключение
-        if (index < 0 || index >= _scenes.Length)
-            return;
-
-        SceneManager.LoadScene(_scenes[index]);
-    }
-
-    public void LoadSceneByName(string name)
-    {
-        //добавить исключение по строке
-        if (System.Array.Exists(_scenes, scene => scene == name) == false)
-            return;
-
-        SceneManager.LoadScene(name);
-    }
 }
+

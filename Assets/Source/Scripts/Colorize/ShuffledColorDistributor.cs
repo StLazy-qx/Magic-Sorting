@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Pool;
-using Vessels;
+using Assets.Source.Scripts.Pool;
+using Assets.Source.Scripts.Vessels;
 
-namespace Colorize
+namespace Assets.Source.Scripts.Colorize
 {
     public class ShuffledColorDistributor : MonoBehaviour
     {

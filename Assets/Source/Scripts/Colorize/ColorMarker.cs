@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using Vessels;
+using Assets.Source.Scripts.Vessels;
 
-namespace Colorize
+namespace Assets.Source.Scripts.Colorize
 {
     public class ColorMarker : MonoBehaviour
     {
@@ -11,9 +11,9 @@ namespace Colorize
 
         private Liquid _liquid;
 
-        private Color _assignedColor;
+        private Color _assignedColor; // проверь
 
-        public Color AssignedColor => _assignedColor;
+        public Color AssignedColor => _assignedColor; // проверь
 
         public void Initialize(Color color)
         {
@@ -22,7 +22,7 @@ namespace Colorize
             if (_vessel != null)
                 _liquid = _vessel.Liquid;
 
-            _assignedColor = color;
+            _assignedColor = color; // проверь
 
             if (_vessel != null)
                 _vessel.SetColor(color);

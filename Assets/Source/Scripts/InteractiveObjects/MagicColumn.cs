@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
-using ActionHandler;
-using Colorize;
-using FactoryCore;
-using MagicCells;
-using Pool;
+using Assets.Source.Scripts.ActionHandlers;
+using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Pool;
 
-namespace InteractiveObjects
+namespace Assets.Source.Scripts.InteractiveObjects
 {
     public class MagicColumn : MonoBehaviour, IInteractable
     {
-        [SerializeField] private MagicCellsStackHandler _stackHandler;
+        [SerializeField] private StackMagicCellsHandler _stackHandler;
 
         private int _countCells;
         private float _prefabHeight;
@@ -24,14 +24,21 @@ namespace InteractiveObjects
         private void Awake()
         {
             _factory = GetComponent<MagicCellsFactory>();
+
+            ValidateObjects();
         }
 
         public void Initialize(MagicCellRouter distributerMagicCell,
             ShuffledColorDistributor colorSource, int countCells)
         {
-            if (countCells <= 0 || colorSource == null)
-                return;
+            if (countCells <= 0)
+            {
+                throw new ArgumentException(
+                    "Count cells must be positive", nameof(countCells));
+            }
 
+            _cellRouter = distributerMagicCell ??
+                throw new ArgumentNullException(nameof(distributerMagicCell));
             _cellRouter = distributerMagicCell;
             _colorSource = colorSource;
             _countCells = countCells;
@@ -40,13 +47,17 @@ namespace InteractiveObjects
         }
 
         public void OnClick()
-        {
-            Interacted?.Invoke();
-        }
+            => Interacted?.Invoke();
 
         private void CreateStackHandler()
         {
             _prefabHeight = _factory.GetCellHeight() + _distanceBetweenCells;
+
+            if (_prefabHeight <= 0)
+            {
+                throw new InvalidOperationException(
+                    "Calculated prefab height must be positive");
+            }
 
             _stackHandler.Initialize(
                 _factory,
@@ -56,6 +67,21 @@ namespace InteractiveObjects
                 _countCells,
                 _prefabHeight
                 );
+        }
+
+        private void ValidateObjects()
+        {
+            if (_stackHandler == null)
+            {
+                throw new InvalidOperationException(
+                    $"{nameof(_stackHandler)} must be assigned in inspector");
+            }
+
+            if (_factory == null)
+            {
+                throw new InvalidOperationException(
+                    $"Failed to get {nameof(_factory)} from component");
+            }
         }
     }
 }

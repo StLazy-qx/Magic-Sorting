@@ -122,8 +122,8 @@
     <Compile Include="Assets\Plugins\Zenject\Source\Validation\ValidationMarker.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Binding\Binders\WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Binding\Binders\InstantiateCallbackConditionCopyNonLazyBinder.cs" />
-    <Compile Include="Assets\Plugins\Zenject\Source\Binding\Finalizers\ProviderBindingFinalizer.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Factories\PlaceholderFactoryBase.cs" />
+    <Compile Include="Assets\Plugins\Zenject\Source\Binding\Finalizers\ProviderBindingFinalizer.cs" />
     <Compile Include="Assets\Plugins\Zenject\OptionalExtras\Signals\Internal\Binders\SignalTickPriorityCopyBinder.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Binding\Binders\Factory\FactoryFromBinder\FactoryFromBinder10.cs" />
     <Compile Include="Assets\Plugins\Zenject\Source\Factories\Pooling\Util\StaticMemoryPoolRegistry.cs" />

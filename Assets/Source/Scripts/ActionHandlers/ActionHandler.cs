@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
-using Sound;
-using MagicCells;
-using PlayerCore;
-using Pool;
+using Assets.Source.Scripts.Audio;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Player;
+using Assets.Source.Scripts.Pool;
 using System;
 
-namespace ActionHandler
+namespace Assets.Source.Scripts.ActionHandlers
 {
     public class ActionHandler : MonoBehaviour
     {
@@ -136,8 +136,11 @@ namespace ActionHandler
                     ("Move duration must be positive.");
             }
 
-            if (beginPosition.IsValid() == false || targetPosition.IsValid() == false)
+            if (beginPosition.IsValid() == false ||
+                targetPosition.IsValid() == false)
+            {
                 throw new ArgumentException("Position contains NaN or Infinity");
+            }
         }
     }
 }

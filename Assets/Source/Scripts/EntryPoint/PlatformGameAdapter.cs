@@ -1,9 +1,10 @@
 using UnityEngine;
-using GameBehaviour;
-using Vessels;
+using Assets.Source.Scripts.GameBehaviour;
+using Assets.Source.Scripts.Vessels;
 using System;
+using Assets.Source.Scripts.UI.GamePanel;
 
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public class PlatformGameAdapter : PlatformAdapter
     {

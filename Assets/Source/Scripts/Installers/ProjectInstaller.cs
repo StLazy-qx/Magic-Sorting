@@ -1,14 +1,17 @@
 using Zenject;
-using GameDifficulty;
-using PlayerCore;
-using Sound;
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.Player;
+using Assets.Source.Scripts.Audio;
 
-public class ProjectInstaller : MonoInstaller
+namespace Assets.Source.Scripts.Installers
 {
-    public override void InstallBindings()
+    public class ProjectInstaller : MonoInstaller
     {
-        Container.Bind<DifficultyState>().AsSingle().NonLazy();
-        Container.Bind<Wallet>().AsSingle();
-        Container.Bind<AudioSettingsData>().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<DifficultyState>().AsSingle().NonLazy();
+            Container.Bind<Wallet>().AsSingle();
+            Container.Bind<AudioSettingsData>().AsSingle();
+        }
     }
 }

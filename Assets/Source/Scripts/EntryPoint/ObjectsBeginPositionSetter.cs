@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public class ObjectsBeginPositionSetter : MonoBehaviour
     {

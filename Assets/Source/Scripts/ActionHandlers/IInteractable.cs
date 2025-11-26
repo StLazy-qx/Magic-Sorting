@@ -1,6 +1,6 @@
 using System;
 
-namespace ActionHandler
+namespace Assets.Source.Scripts.ActionHandlers
 {
     public interface IInteractable
     {

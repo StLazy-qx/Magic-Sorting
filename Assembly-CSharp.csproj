@@ -74,8 +74,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
-    <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStackHandler.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\GamePanel\Panel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\LBExample.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\CanvasOption\CanvasMobileSetter.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXLightFade.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\GraphicSettingsYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\RedefinePlayerPrefs.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PluginPrefs.cs" />
@@ -88,7 +90,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\Review_yandexPlatform.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\RedefinePlayerPrefs_interface.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Sound\MuteButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_info.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\TemplateSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yg.cs" />
@@ -100,15 +101,14 @@
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCell.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Example\Scripts\PlayerStatsExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\StoreView\StoreScrollViewFiller.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ExitButton.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Canvas\CanvasDesktopSetter.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\WalletView\TotalWalletUI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\LabelYGAttribute.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
-    <Compile Include="Assets\Source\Scripts\Player\Player.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_yg.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\AdNotification\AdNotificationYG.cs" />
@@ -117,8 +117,8 @@
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yndexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\SceneManagement\SceneLoader.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\MainMenuButton.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Panel\Panel.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\SoundView\VolumeSliderViewHandler.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\StoreView\ItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_info.cs" />
@@ -127,50 +127,48 @@
     <Compile Include="Assets\Source\Scripts\Vessels\VolumeAggregator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\CustomLBExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_info.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\ButtonNewRoundBeginner.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Vessel.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\PanelSwitchButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\StoreView\SelectItemPresenter.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\ColumnsFactory.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />
     <Compile Include="Assets\Source\Scripts\ActionHandlers\IInteractable.cs" />
     <Compile Include="Assets\Source\Scripts\Player\MagicianAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Canvas\CanvasMobileSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_yg.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\LevelDifficultyButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Source\Scripts\ActionHandlers\ClickHandler.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\SoundSetter.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\ParticlePool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\CorrectLang.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\IColorable.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Storage\StoreScrollViewFiller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Example\Scripts\YandexMetricaExample.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Wallet\WalletGameSessionUI.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\VesselsView\VesselFillLevelView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\PrefsList.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYGReferences.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\CanvasScaleForMobile.cs" />
     <Compile Include="Assets\Source\Scripts\InteractiveObjects\WaitingPoint.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\GameReadyAPI.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\BaseMenuButton.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCellRouter.cs" />
+    <Compile Include="Assets\Source\Scripts\Player\PlayerEntity.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings_langs.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PaymentsCatalogYG.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\PanelSwitchButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\ConsumePurchasesYG.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Storage\ItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Liquid.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Wallet\TotalWalletUI.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\JsonUtils.cs" />
@@ -183,13 +181,14 @@
     <Compile Include="Assets\Source\Scripts\Enums\DifficultyLevel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\SoundView\MuteButton.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\BaseMenuButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_info.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\ProjectInstaller.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\GameResumerButton.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\HeaderYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\VesselFactory.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultySettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformMenuAdapter.cs" />
@@ -198,16 +197,15 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Scripts\ETFXRotation.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\StoreView\StoreItemView.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Example\Scripts\ClipboardExample.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\GameSessionHandler.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\LevelDifficultyButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_info.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\LocalStorage_yg.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoSceneLoadButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\Factory.cs" />
@@ -215,7 +213,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\TextStyles.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\GameplayAPI.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_info.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Vessels\VesselFillLevelView.cs" />
     <Compile Include="Assets\Source\Scripts\Items\Item.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Translates\VersionControl_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\YandexGamePlatform.cs" />
@@ -230,7 +227,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\LevelDifficultyViewer.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Storage\StoreItemView.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\ObjectsBeginPositionSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\MonoPInvokeCallbackAttribute.cs" />
@@ -239,7 +236,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\UnityPackagesManager.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointGameSession.cs" />
     <Compile Include="Assets\Source\Scripts\Player\ScinSetter.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\ExitButton.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonAdvertisingActivater.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_yandexPlatform.cs" />
@@ -254,32 +251,33 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SavesDataExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\WalletView\Class1.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_interface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\ButtonAdvertisingActivater.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YGInsides.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\FileYG.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Storage\SelectItemPresenter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_info.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\MenuHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YGSendMessage.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\WalletView\WalletGameSessionUI.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_callingSimulation.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\LanguageYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdvLockTimer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_projectSettings.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\StoreItemFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Example\Scripts\DebugInterstitialAdv.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yandexPlatform.cs" />
-    <Compile Include="Assets\IgniteCoders\Simple Water Shader\Resources\WaterReflection.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonNewRoundBeginner.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\SceneInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yg.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettingsAttributes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_lang.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\GameResumerButton.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\VesselsFullingBehaviour.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\NestedYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\BaseGameHandler.cs" />
@@ -287,17 +285,16 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\ImageLoadYG.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\AdvCallingSimulation.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\UtilsLang.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LeaderboardYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_optionalPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Sound\VolumeSliderViewHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\GameYG.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ReturnGameSessionButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Flag.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\ProjectSettings.cs" />
@@ -308,40 +305,43 @@
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yandexPlatform.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_info.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Source\Scripts\Storage\Store.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_interface.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\ReturnGameSessionButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PurchaseYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yg.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\AudioSettingsData.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ColorRandomizer.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\LanguageView\LanguageView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\Clipboard_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\YG\SavesYG.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\GamePauseButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Example\Scripts\FlagsExample.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYG_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Button\GamePauseButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\StackMagicCellsHandler.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LBPlayerDataYG.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\CanvasOption\CanvasDesktopSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\EventsYG2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\AllGamesYG.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\MainMenuButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_callingSimulation.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_projectSettings.cs" />
@@ -352,17 +352,19 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Example\Scripts\ReceivingPurchaseExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Source\Scripts\PlayerAuthorization\Authorization.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\EnumColor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_interface.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Scripts\ETFXLightFade.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Example\Scripts\LanguageExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\TimerBeforeAds\TimerBeforeAdsYG.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\ReviewYG.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\CommonOptions.cs" />
+    <Compile Include="Assets\Source\Effects\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\GameLabel\Scripts\GameLabelYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\SavesYG2.cs" />
@@ -372,11 +374,9 @@
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\Clipboard_yg.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyDatabase.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_interface.cs" />
-    <Compile Include="Assets\Effects\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DebugViewing.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCellMover.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Language\LanguageView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformOptions.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ShuffledColorDistributor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Example\Scripts\IsFullscreenDebug.cs" />
@@ -388,19 +388,19 @@
   <ItemGroup>
     <None Include="Assets\PluginYourGames\Modules\Authorization\Version.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Effects\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
+    <None Include="Assets\Source\Effects\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\PluginYourGames\Platforms\YandexGames\Version.txt" />
-    <None Include="Assets\Effects\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
-    <None Include="Assets\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
+    <None Include="Assets\Source\Effects\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
+    <None Include="Assets\Source\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\PluginYourGames\Modules\Review\Version.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\PluginYourGames\Modules\Clipboard\Version.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
-    <None Include="Assets\3D Models\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
+    <None Include="Assets\Source\Models\WizardPolyArt\Shader\PolyArtMaskTint.shader" />
     <None Include="Assets\PluginYourGames\Modules\Fullscreen\Version.txt" />
-    <None Include="Assets\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
+    <None Include="Assets\Source\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\PluginYourGames\Modules\Payments\Version.txt" />
     <None Include="Assets\PluginYourGames\Modules\Localization\Version.txt" />
@@ -410,7 +410,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\PluginYourGames\Modules\ServerTime\Version.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Effects\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
+    <None Include="Assets\Source\Effects\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\PluginYourGames\Modules\RewardedAdv\Version.txt" />
@@ -423,8 +423,8 @@
     <None Include="Assets\PluginYourGames\Example\Content\Font\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\PluginYourGames\Modules\StickyAdv\Version.txt" />
-    <None Include="Assets\Effects\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
-    <None Include="Assets\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
+    <None Include="Assets\Source\Effects\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
+    <None Include="Assets\Source\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
     <None Include="Assets\PluginYourGames\Modules\BannerAdv\Version.txt" />
     <None Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Version.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
@@ -439,7 +439,7 @@
     <None Include="Assets\PluginYourGames\Modules\Metrica\Version.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
+    <None Include="Assets\Source\Effects\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
     <None Include="Assets\UnityTechnologies\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
@@ -1563,14 +1563,6 @@
       <Project>{79A6DB82-BD4C-6B3C-DC76-F4B62537A363}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
-    <ProjectReference Include="CFXREditor.csproj">
-      <Project>{31219BF4-E286-9951-854B-395685A84A0E}</Project>
-      <Name>CFXREditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="CFXRRuntime.csproj">
-      <Project>{09F7521A-D983-306D-6B96-6E773D5B26F2}</Project>
-      <Name>CFXRRuntime</Name>
-    </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
       <Project>{5B90AD1B-7EC0-36F3-A746-7E03FECAF5A0}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
@@ -1579,9 +1571,17 @@
       <Project>{B2BE6A3B-502A-8368-2AEA-BED42D75B98D}</Project>
       <Name>Zenject-Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="CFXREditor.csproj">
+      <Project>{31219BF4-E286-9951-854B-395685A84A0E}</Project>
+      <Name>CFXREditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{3FC736EF-FB51-4F19-7C77-A5F1D699A50C}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRRuntime.csproj">
+      <Project>{09F7521A-D983-306D-6B96-6E773D5B26F2}</Project>
+      <Name>CFXRRuntime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

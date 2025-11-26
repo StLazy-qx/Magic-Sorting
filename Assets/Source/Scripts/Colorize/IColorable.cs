@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Colorize
+namespace Assets.Source.Scripts.Colorize
 {
     public interface IColorable
     {

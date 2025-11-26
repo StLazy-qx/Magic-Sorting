@@ -1,0 +1,298 @@
+Using pre-set license
+Built from '2022.3/respin/2022.3.62f2-4af31df585-v2' branch; Version is '2022.3.62f2 (7670c08855a9) revision 7762112'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32668 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+F:/ST/Unity project/Pyitochnaya/Magic-Sorting
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+56689
+Successfully changed project path to: F:/ST/Unity project/Pyitochnaya/Magic-Sorting
+F:/ST/Unity project/Pyitochnaya/Magic-Sorting
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [22936]  Target information:
+
+Player connection [22936]  * "[IP] 26.0.158.205 [Port] 0 [Flags] 2 [Guid] 3318230485 [EditorId] 3318230485 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [22936]  * "[IP] 192.168.3.26 [Port] 0 [Flags] 2 [Guid] 3318230485 [EditorId] 3318230485 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [22936]  * "[IP] 10.8.0.3 [Port] 0 [Flags] 2 [Guid] 3318230485 [EditorId] 3318230485 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [22936] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [22936] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+Refreshing native plugins compatible for Editor in 28.29 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.62f2 (7670c08855a9)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/ST/Unity project/Pyitochnaya/Magic-Sorting/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
+    Vendor:   NVIDIA
+    VRAM:     5966 MB
+    Driver:   32.0.15.7283
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56148
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.019470 seconds.
+- Loaded All Assemblies, in  0.524 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 303 ms
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.734 seconds
+Domain Reload Profiling: 1255ms
+	BeginReloadAssembly (147ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (216ms)
+		LoadAssemblies (146ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (213ms)
+			TypeCache.Refresh (211ms)
+				TypeCache.ScanAssembly (191ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (734ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (665ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (419ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (172ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.333 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=ba5fa614aa4592f43a3b2b4b3c7bd5f5): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.248 seconds
+Domain Reload Profiling: 2577ms
+	BeginReloadAssembly (212ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (983ms)
+		LoadAssemblies (596ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (511ms)
+			TypeCache.Refresh (433ms)
+				TypeCache.ScanAssembly (402ms)
+			ScanForSourceGeneratedMonoScriptInfo (53ms)
+			ResolveRequiredComponents (24ms)
+	FinalizeReload (1249ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (959ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (135ms)
+			ProcessInitializeOnLoadAttributes (675ms)
+			ProcessInitializeOnLoadMethodAttributes (101ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 23.29 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7104 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 63 unused Assets / (3.3 MB). Loaded Objects now: 7550.
+Memory consumption went from 262.3 MB to 259.0 MB.
+Total: 9.427800 ms (FindLiveObjects: 0.984700 ms CreateObjectMapping: 0.527000 ms MarkObjects: 6.458100 ms  DeleteObjects: 1.456700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/GamePauseButton.cs: bd77cded43dac881f63e6af45f6bacd0 -> 2209139e405a64ff0842db7061626674
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/ItemView.cs: 28215ad7fbd7626a330dd35e30ce4a0f -> 4f6d555718027cb5fd165ccad40d00ec
+  custom:scripting/monoscript/fileName/ExitButton.cs: 17283a78ff573783e0a4a5f94a10dc3e -> e849ee057c0eb560593b57edf54311b7
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/CFXR_ParticleTextFontAsset.cs: 2c0f5b39375fdb3ffea33678dba0f2b1 -> 997a733798b2c803fc88cc92695e7ca4
+  custom:scripting/monoscript/fileName/CFXR_MaterialInspector.cs: 0c5bfea224b575e2646313fc42f2e08d -> 85a99159289e64398275fbc6500bb9a8
+  custom:scripting/monoscript/fileName/ETFXMouseOrbit.cs: 2c256cdcc1004b2d89ad6216ce6f48ce -> 654fedd2040686dffcba3ab26348e73a
+  custom:scripting/monoscript/fileName/CanvasMobileSetter.cs: 8da6e293e25bedc362c43ba7fc4154b8 -> 6e9cf9a13d06f967a02476199586b68e
+  custom:scripting/monoscript/fileName/ReturnGameSessionButton.cs: 276cd6d157006a6628d45479a9da27df -> f58c68305f89dc2625a14da81320f1b4
+  custom:scripting/monoscript/fileName/CFXR_Effect.CameraShake.cs: a53f96815da50de15010b1c479bc70cf -> 0cdf409b5aa8d4c25876d72b5c6a3b60
+  custom:scripting/monoscript/fileName/ColorPresenter.cs: 1bb70d7742a824cbbbc998121b428d96 -> 
+  custom:scripting/monoscript/fileName/BaseMenuButton.cs: e47779d5c370750bc3671a5b8651d735 -> df2cd9b19ab564f193b7a71a42af1ec6
+  custom:scripting/monoscript/fileName/LevelDifficultyButton.cs: 2105a9d1d9f76de4185480a4c58eb7ca -> dd5b1ffda6c51ae9e6c900d80ca7810e
+  custom:scripting/monoscript/fileName/CFXR_EmissionBySurface.cs: ace1fbedccc09febe364c5088d60b3b3 -> 6294a85dd8a1718740abd2427d3ed0fe
+  custom:scripting/monoscript/fileName/Panel.cs: e3ecafe4b0bf2418c3c27b4a96ad6e7a -> 4444633281f4faf930eb2d3b342b4c8e
+  custom:scripting/monoscript/fileName/ETFXSceneManager.cs: fd89b14cfaa86424da64a78d3cc928bd -> 9146f3552534435a5b54b9657a6eaacd
+  custom:scripting/monoscript/fileName/CFXR_ExpressionParser.cs: f9b5276a4e540080f15d5067545c3777 -> 215820334dc899aa183f0061c3ffd288
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/Class1.cs: 52976656e57dfb21d33bf9e3243ba9a1 -> f01d8806d5388ad87f283a8093224233
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/CFXR_ParticleText.cs: 954edc24969e7d36de6c6a079a85cb98 -> 3f1f97f09f1dd1cf194149bcb9712660
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/UICanvasManager.cs: 5aab136b4eea2569aa2aed1e7de128ee -> ad5d5df5b0e004a8bd01e6144db352c4
+  custom:scripting/monoscript/fileName/ButtonAdvertisingActivater.cs: 02b41e87feb8a90eddb8c402366a85d4 -> 41ff114cb6cd930f89f2da01f0c06586
+  custom:scripting/monoscript/fileName/StoreScrollViewFiller.cs: e351a2ed75f20a98d1c67595a2c23110 -> 4832e81d321e2519b5c9bdfc22c8b6d3
+  custom:scripting/monoscript/fileName/TotalWalletUI.cs: 203235a84e7e9d43f5eec25088d1dfa8 -> 29591be4276ae5107c9f2dc4cd7fabc5
+  custom:scripting/monoscript/fileName/SelectItemPresenter.cs: de0e17317123bb956d4038ad401752b1 -> 3ad6b2491a718e47d51b5d04fa42c278
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/WalletGameSessionUI.cs: 3038f5994dd91a5bd64e8c5994cfe76a -> 739bf19ce08ce06cc30ece58116f5a22
+  custom:scripting/monoscript/fileName/ETFXFireProjectile.cs: 4a8f4cc37966f793dd786ff73ce40e16 -> 848ec65e1ca5a78b8976353fa3b86db5
+  custom:scripting/monoscript/fileName/VolumeSliderViewHandler.cs: 6d46a60b9f0f65b2cebdc3d210ba73d8 -> 370f6d32382e5dc8fc5b1c8cf4a5a106
+  custom:scripting/monoscript/fileName/CFXR_ShaderPostProcessor.cs: 8c6e989bfa7de8931452a3b2acaa3404 -> eee4c4410265e19bfd8b3e2c4c5b2a2d
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/WaterReflection.cs: f1c57f2ce2c094032b710e8e5eb21bd7 -> 
+  custom:scripting/monoscript/fileName/ParticleEffectsLibrary.cs: 412580748e6eff2b9440bcfa77c1a309 -> 3a37ad8c45f2dea0089853c8f2c9d55f
+  custom:scripting/monoscript/fileName/PanelSwitchButton.cs: b910b529510210faa8c32b84764ec141 -> 76b58ea2b40d6f9a8b5c85f32ddcf561
+  custom:scripting/monoscript/fileName/ETFXLoopScript.cs: 4392199dbfd6d3b5bd95d917e63f7b7c -> d5bc634ada6d0fb61f6dc312af0d35d8
+  custom:scripting/monoscript/fileName/CFXR_Styles.cs: 0757069e7af3ba4444d0d25cf7f1aee1 -> 14132385ef0a62dc85f08de4f5687ece
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ETFXRotation.cs: 74c758b096ccc015ecc0b543e025d32f -> e343bb3cdc2d115200128a669b71dda1
+  custom:scripting/monoscript/fileName/ETFXTarget.cs: ad09be64d07fe8ab15ea3df3041afe33 -> c04ff8e5450f1152d1f50a47046a7522
+  custom:scripting/monoscript/fileName/CFXR_ShaderImporter.cs: a566cd0f556f35f05719aac10415b17c -> f0ef3fb7c5ca7b4517f50c44917fac9e
+  custom:scripting/monoscript/fileName/PEButtonScript.cs: 1196c7824c32320b807ca3d248e82337 -> bf6c80445f44505babe53d9f3e6c71a8
+  custom:scripting/monoscript/fileName/ETFXPitchRandomizer.cs: 5f93baac467b5aad804964f6f5c855d3 -> 5e0812fb099c455198fae606e4820674
+  custom:scripting/monoscript/fileName/ButtonNewRoundBeginner.cs: 098a7c5cc3e21b3622fddf23150abe72 -> 44a9e9acc129b5b3f35710c90b5df09c
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/MainMenuButton.cs: 4098447632a53dbfa21ba80ff1c94e6c -> a5f9612fecd52ef4ae1a7635963afb78
+  custom:scripting/monoscript/fileName/MuteButton.cs: 7a1dd7acfd1e76ade4a77efae5e78a42 -> 2b32d9086e4e2b46e2bc89667c5f51ce
+  custom:scripting/monoscript/fileName/VesselFillLevelView.cs: 722ca4d6088972ac489b2e8a7cbcbf42 -> 33024f164a265ba358dad87d9cc110de
+  custom:scripting/monoscript/fileName/GameResumerButton.cs: f3eff2b8884a222a959deb7ab1c7fd73 -> e57b8363a4cd76528754562f94ef9657
+  custom:scripting/monoscript/fileName/LanguageView.cs: be59db19cba4e26a1bfa455462169ad1 -> d36ddad95beae92db8bd81c49d09570a
+  custom:scripting/monoscript/fileName/StoreItemView.cs: b33e1f0b62e5729554d127908b6573df -> 00305d6006fa1d79e01971084cf65387
+  custom:scripting/monoscript/fileName/ETFXLightFade.cs: 8adc4a249aece59aef9b7f4a8f8629eb -> bc15e838f9d3884226cb2e9af0c78277
+  custom:scripting/monoscript/fileName/ETFXProjectileScript.cs: ad4e5185dd169c5daa1ccc4c9f735f7c -> 91e6ec5b2311ff6de4abc8636a61f0dc
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/CanvasDesktopSetter.cs: cb19fc954d4cd92bb0e9da607b66087c -> 55665036aae3fadf31b792947adb1b7c
+  custom:scripting/monoscript/fileName/ETFXButtonScript.cs: 72e9c0fa11c1debacc9e5b71ea9f9526 -> ed5b95a3380373270aaebfcd2475e74c
+  custom:scripting/monoscript/fileName/Player.cs: 80914e69fca100394591c57dc5d337d6 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 62242.301639 seconds.
+  path: Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Ambient 4.wav
+  artifactKey: Guid(2bb11656f97be57428129fbe40a92e55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Ambient 4.wav using Guid(2bb11656f97be57428129fbe40a92e55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3097affab15759362a7290272ed8cc06') in 0.273808 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Light Ambience 5.wav
+  artifactKey: Guid(d449d241bc7960e40a650048e7a578d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Light Ambience 5.wav using Guid(d449d241bc7960e40a650048e7a578d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '285082d71911daeda19f78af64625e67') in 0.029953 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Distant Land.wav
+  artifactKey: Guid(54d9f79d92db5c646a3dfb9bc35947aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Audio/Free 25 Fantasy RPG Tracks Vol. 1/Distant Land.wav using Guid(54d9f79d92db5c646a3dfb9bc35947aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '5863b42c46e2dd483b6799bcf8b7b444') in 0.805809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: ќпераци€ ввода/вывода была прервана из-за завершени€ потока команд или по запросу приложени€.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

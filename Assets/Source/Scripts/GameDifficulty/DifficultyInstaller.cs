@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace GameDifficulty
+namespace Assets.Source.Scripts.GameDifficulty
 {
     public class DifficultyInstaller : MonoInstaller
     {

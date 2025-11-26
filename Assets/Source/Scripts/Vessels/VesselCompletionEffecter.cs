@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
-using Pool;
+using Assets.Source.Scripts.Pool;
+using System;
 
-namespace Vessels
+namespace Assets.Source.Scripts.Vessels
 {
     public class VesselCompletionEffecter : MonoBehaviour
     {
@@ -12,6 +13,18 @@ namespace Vessels
 
         public void Initialize(int value)
         {
+            if (_particlePool == null)
+            {
+                throw new NullReferenceException(
+                    "ParticlePool reference is missing in VesselCompletionEffecter.");
+            }
+
+            if (value <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value),
+                    "Particle count must be greater than zero.");
+            }
+
             _particlePool.Initialize(value);
         }
 
@@ -20,7 +33,20 @@ namespace Vessels
             Color color,
             float duration)
         {
+            if (duration <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(duration),
+                    "Effect duration must be greater than zero.");
+            }
+
             ParticleSystem particle = _particlePool.HandOver();
+
+            if (particle == null)
+            {
+                throw new InvalidOperationException(
+                    "No available particles in pool.");
+            }
+
             particle.transform.position = new Vector3
                 (position.x, position.y - _offsetY, position.z);
             var main = particle.main;

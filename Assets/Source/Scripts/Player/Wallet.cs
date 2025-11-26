@@ -1,17 +1,12 @@
 using System;
 using YG;
 
-namespace PlayerCore
+namespace Assets.Source.Scripts.Player
 {
     public class Wallet
     {
         private int _currentScore;
         private int _totalScore;
-
-        public int TotalScore => _totalScore;
-
-        public event Action<int> CurrentScoreChanged;
-        public event Action<int> TotalScoreChanged;
 
         private Wallet()
         {
@@ -20,10 +15,15 @@ namespace PlayerCore
             TotalScoreChanged?.Invoke(TotalScore);
         }
 
+        public event Action<int> CurrentScoreChanged;
+        public event Action<int> TotalScoreChanged;
+
+        public int TotalScore => _totalScore;
+
         public void AddPoints(int value)
         {
-            if (value <= 0)
-                throw new ArgumentException("Значение не может быть равным или меньше нуля");
+            if (value < 0)
+                throw new ArgumentException("The value cannot be equal to or less than zero.");
 
             _currentScore += value;
 
@@ -34,24 +34,26 @@ namespace PlayerCore
         {
             _totalScore += _currentScore;
             _currentScore = 0;
-            YG2.saves.SavePoints(_totalScore);
 
+            YG2.saves.SavePoints(_totalScore);
             TotalScoreChanged?.Invoke(TotalScore);
             CurrentScoreChanged?.Invoke(_currentScore);
-
-            //проверить название таблицы
             YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
         }
 
         public void BuyItem(int price)
         {
             if (price < 0)
-                throw new ArgumentException("Значение не может быть равным или меньше нуля");
+                throw new ArgumentException("The price cannot be less than zero.");
+
+            if (price == 0)
+                return;
 
             if (CanAfford(price) == false)
                 return;
 
             _totalScore -= price;
+
             YG2.saves.SavePoints(_totalScore);
             TotalScoreChanged?.Invoke(TotalScore);
         }

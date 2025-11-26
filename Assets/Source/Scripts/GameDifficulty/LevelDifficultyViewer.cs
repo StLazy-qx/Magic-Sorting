@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace GameDifficulty
+namespace Assets.Source.Scripts.GameDifficulty
 {
     public class LevelDifficultyViewer : MonoBehaviour
     {
@@ -16,8 +17,8 @@ namespace GameDifficulty
 
         private void Awake()
         {
-            if (_easyLevelButton != null)
-                _defaultColorButton = _easyLevelButton.image.color;
+            ValidateObjects();
+            DefineDefaultColor();
         }
 
         private void Start()
@@ -47,29 +48,6 @@ namespace GameDifficulty
         public void Construct(DifficultyState state)
         {
             _difficultyState = state;
-        }
-
-        public DifficultyLevel Increase(DifficultyLevel currentLevel)
-        {
-            DifficultyLevel newLevel = currentLevel;
-
-            switch (currentLevel)
-            {
-                case DifficultyLevel.Easy:
-                    newLevel = DifficultyLevel.Medium;
-                    break;
-                case DifficultyLevel.Medium:
-                    newLevel = DifficultyLevel.Hard;
-                    break;
-                case DifficultyLevel.Hard:
-                    newLevel = DifficultyLevel.Hard;
-                    break;
-            }
-
-            if (newLevel != currentLevel)
-                _difficultyState.SetDifficulty(newLevel);
-
-            return newLevel;
         }
 
         private void SetEasy()
@@ -104,16 +82,28 @@ namespace GameDifficulty
             button.image.color = _selectedColor;
         }
 
+        private void DefineDefaultColor()
+        {
+            _defaultColorButton = _easyLevelButton.image.color;
+        }
+
         private void ResetButtonColors()
         {
-            if (_easyLevelButton != null)
-                _easyLevelButton.image.color = _defaultColorButton;
+            _easyLevelButton.image.color = _defaultColorButton;
+            _middleLevelButton.image.color = _defaultColorButton;
+            _hardLevelButton.image.color = _defaultColorButton;
+        }
 
-            if (_middleLevelButton != null)
-                _middleLevelButton.image.color = _defaultColorButton;
+        private void ValidateObjects()
+        {
+            if (_easyLevelButton == null)
+                throw new ArgumentNullException(nameof(_easyLevelButton));
 
-            if (_hardLevelButton != null)
-                _hardLevelButton.image.color = _defaultColorButton;
+            if (_middleLevelButton == null)
+                throw new ArgumentNullException(nameof(_middleLevelButton));
+
+            if (_hardLevelButton == null)
+                throw new ArgumentNullException(nameof(_hardLevelButton));
         }
     }
 }

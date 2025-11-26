@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Colorize;
-using InteractiveObjects;
-using MagicCells;
-using Vessels;
+using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.InteractiveObjects;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Vessels;
 using System;
 using System.Linq;
 
-namespace FactoryCore
+namespace Assets.Source.Scripts.Factory
 {
     public class ColumnsFactory : Factory<MagicColumn>
     {

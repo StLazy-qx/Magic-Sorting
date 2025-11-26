@@ -1,12 +1,15 @@
 using Zenject;
-using GameDifficulty;
+using Assets.Source.Scripts.GameDifficulty;
 
-public class SceneInstaller : MonoInstaller
+namespace Assets.Source.Scripts.Installers
 {
-    public override void InstallBindings()
+    public class SceneInstaller : MonoInstaller
     {
-        Container.Bind<LevelDifficultyViewer>()
-            .FromComponentInHierarchy()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<LevelDifficultyViewer>()
+                .FromComponentInHierarchy()
+                .AsSingle();
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace GameDifficulty
+namespace Assets.Source.Scripts.GameDifficulty
 {
     [CreateAssetMenu(menuName = "Config/Difficulty Setting", 
         fileName = "Difficulty Setting", order = 51)]
@@ -20,13 +20,13 @@ namespace GameDifficulty
 
         private void OnValidate()
         {
-            ValidatePositive(maxSpawnPoints, nameof(maxSpawnPoints));
-            ValidatePositive(minCellsPerColumn, nameof(minCellsPerColumn));
-            ValidatePositive(vesselsCount, nameof(vesselsCount));
-            ValidatePositive(colorsCount, nameof(colorsCount));
+            ValidateValue(maxSpawnPoints, nameof(maxSpawnPoints));
+            ValidateValue(minCellsPerColumn, nameof(minCellsPerColumn));
+            ValidateValue(vesselsCount, nameof(vesselsCount));
+            ValidateValue(colorsCount, nameof(colorsCount));
         }
 
-        private void ValidatePositive(int value, string paramName)
+        private void ValidateValue(int value, string paramName)
         {
             if (value <= 0)
             {

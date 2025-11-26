@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PlayerCore;
-using Items;
-using Storage;
+using Assets.Source.Scripts.Player;
+using Assets.Source.Scripts.Items;
+using Assets.Source.Scripts.Storage;
 
-namespace FactoryCore
+namespace Assets.Source.Scripts.Factory
 {
     public class StoreItemFactory : Factory<Button>
     {
         [SerializeField] private Store _store;
-        [SerializeField] private Player _player;
+        [SerializeField] private PlayerEntity _player;
         [SerializeField] private Transform _contentTransform;
 
         public event Action<Button> Created;

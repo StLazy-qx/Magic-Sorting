@@ -3,20 +3,20 @@ using System;
 using UnityEngine;
 using YG;
 using System.Linq;
-using EntryPoint;
-using Items;
+using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.Items;
 
-namespace PlayerCore
+namespace Assets.Source.Scripts.Player
 {
     public class Inventory : MonoBehaviour, IObjectInitilizable
     {
         private Item _equippedItem;
         private List<Item> _items = new List<Item>();
 
+        public event Action<Item> ItemEquipped;
+
         public Item EquippedItem => _equippedItem;
         public bool IsInitialized { get; private set; }
-
-        public event Action<Item> ItemEquipped;
 
         public void Initilize()
         {
@@ -25,29 +25,16 @@ namespace PlayerCore
             IsInitialized = true;
         }
 
-        private void LoadInventory()
-        {
-            IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
-            _items = savedItems?.ToList() ?? new List<Item>();
-
-            Item savedEquippedItem = YG2.saves.GetEquippedItem();
-
-            if (savedEquippedItem != null)
-                EquipItem(savedEquippedItem);
-        }
-
         public bool HasItem(Item item)
         {
-            if (item == null)
-                return false;
+            ValidateItem(item);
 
             return _items.Any(currentItem => currentItem.ID == item.ID);
         }
 
         public void AddItem(Item item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item), "Item cannot be null");
+            ValidateItem(item);
 
             if (HasItem(item))
                 return;
@@ -58,8 +45,7 @@ namespace PlayerCore
 
         public void EquipItem(Item item)
         {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item), "Item cannot be null");
+            ValidateItem(item);
 
             if (HasItem(item) == false)
                 return;
@@ -68,6 +54,22 @@ namespace PlayerCore
 
             ItemEquipped?.Invoke(item);
             YG2.saves.SetEquippedItem(item);
+        }
+
+        private void LoadInventory()
+        {
+            IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
+            _items = savedItems?.ToList() ?? new List<Item>();
+            Item savedEquippedItem = YG2.saves.GetEquippedItem();
+
+            if (savedEquippedItem != null)
+                EquipItem(savedEquippedItem);
+        }
+
+        private void ValidateItem(Item item)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
         }
     }
 }

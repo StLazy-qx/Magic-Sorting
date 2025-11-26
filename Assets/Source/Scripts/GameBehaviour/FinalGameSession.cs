@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
-using EntryPoint;
+using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.UI.GamePanel;
 
-namespace GameBehaviour
+namespace Assets.Source.Scripts.GameBehaviour
 {
     public class FinalGameSession : MonoBehaviour, IObjectInitilizable
     {

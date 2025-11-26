@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using Zenject;
-using GameDifficulty;
-using EntryPoint;
-using PlayerCore;
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.Player;
+using Assets.Source.Scripts.SceneManagement;
 
-namespace GameBehaviour
+namespace Assets.Source.Scripts.GameBehaviour
 {
     public abstract class BaseGameHandler : MonoBehaviour, IObjectInitilizable, IGameHandler
     {

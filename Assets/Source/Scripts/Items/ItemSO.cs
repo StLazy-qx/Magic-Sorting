@@ -1,6 +1,7 @@
+using Assets.Source.Scripts.UI.StoreView;
 using UnityEngine;
 
-namespace Items
+namespace Assets.Source.Scripts.Items
 {
     [CreateAssetMenu(fileName = "NewItem", menuName = "Store/Item")]
     public class ItemSO : ScriptableObject

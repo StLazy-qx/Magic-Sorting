@@ -1,10 +1,11 @@
-using EntryPoint;
+using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.UI.SoundView;
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
 
-namespace Sound
+namespace Assets.Source.Scripts.Audio
 {
     public class SoundSetter : MonoBehaviour, IObjectInitilizable
     {

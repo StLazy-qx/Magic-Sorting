@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameDifficulty
+namespace Assets.Source.Scripts.GameDifficulty
 {
     [CreateAssetMenu(menuName = "Config/Difficulty Database", 
         fileName = "DifficultyDatabase", order = 51)]

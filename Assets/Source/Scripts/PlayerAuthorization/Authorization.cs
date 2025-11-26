@@ -1,19 +1,50 @@
 using UnityEngine;
+using YG;
 
-namespace Core.Authorization
+namespace Assets.Source.Scripts.PlayerAuthorization
 {
     public class Authorization : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private string _playerID;
 
+        private void Awake()
+        {
+            _playerID = YG2.player.id;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnEnable()
         {
+            YG2.onGetSDKData += UpdatePlayerData;
+        }
 
+        private void OnDisable()
+        {
+            YG2.onGetSDKData -= UpdatePlayerData;
+        }
+
+        private void AuthorizePlayer()
+        {
+            if (YG2.player.auth)
+            {
+                UpdatePlayerData();
+                return;
+            }
+
+            YG2.OpenAuthDialog();
+        }
+
+        private void UpdatePlayerData()
+        {
+            if (YG2.player.auth)
+            {
+                _playerID = YG2.player.id;
+                Debug.Log($"Игрок авторизован. ID: {_playerID}, Ник: {YG2.player.name}");
+            }
+            else
+            {
+                _playerID = "unauthorized";
+                Debug.Log("Игрок не авторизован.");
+            }
         }
     }
 }

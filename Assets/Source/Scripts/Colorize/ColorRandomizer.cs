@@ -1,16 +1,17 @@
 using System;
 using UnityEngine;
 
-namespace Colorize
+namespace Assets.Source.Scripts.Colorize
 {
     public class ColorRandomizer : MonoBehaviour
     {
         private const float AlphaValue = 0.93f;
 
-        private EnumColor[] _allColors = (EnumColor[])Enum.GetValues(typeof(EnumColor));
+        private EnumColor[] _allColors = 
+            (EnumColor[])Enum.GetValues(typeof(EnumColor));
         private Color[] _currentColors;
 
-        public Color GenerateRandomColor()
+        public Color GenerateRandomColor() // проверь
         {
             if (_allColors.Length == 0)
                 throw new InvalidOperationException("No colors available");

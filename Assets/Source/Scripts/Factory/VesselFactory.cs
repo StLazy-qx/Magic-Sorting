@@ -1,12 +1,12 @@
 using System.Linq;
 using UnityEngine;
-using Colorize;
-using GameDifficulty;
-using MagicCells;
-using Vessels;
+using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Vessels;
 using System;
 
-namespace FactoryCore
+namespace Assets.Source.Scripts.Factory
 {
     public class VesselFactory : Factory<Vessel>
     {

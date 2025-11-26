@@ -1,21 +1,25 @@
 using System;
 using YG;
 
-namespace Language
+namespace Assets.Source.Scripts.Language
 {
     public class LanguageSetter
     {
-        public string CurrentLanguage { get; private set; }
-
         public event Action<string> OnLanguageChanged;
+
+        public string CurrentLanguage { get; private set; }
 
         public LanguageSetter(string initialLanguage)
         {
+            ValidateString(initialLanguage);
+
             CurrentLanguage = initialLanguage;
         }
 
         public void SetLanguage(string language)
         {
+            ValidateString(language);
+
             if (CurrentLanguage == language)
                 return;
 
@@ -23,6 +27,15 @@ namespace Language
 
             YG2.SwitchLanguage(language);
             OnLanguageChanged?.Invoke(language);
+        }
+
+        private void ValidateString(string language)
+        {
+            if (string.IsNullOrWhiteSpace(language))
+            {
+                throw new ArgumentException(
+                    "Language cannot be null, empty or whitespace.", nameof(language));
+            }
         }
     }
 }

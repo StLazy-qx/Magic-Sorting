@@ -1,10 +1,12 @@
 using UnityEngine;
-using FactoryCore;
+using Assets.Source.Scripts.Factory;
 using YG;
 using System;
-using Sound;
+using Assets.Source.Scripts.Audio;
+using Assets.Source.Scripts.UI.CanvasOption;
+using Assets.Source.Scripts.UI.SoundView;
 
-namespace EntryPoint
+namespace Assets.Source.Scripts.EntryPoint
 {
     public abstract class PlatformAdapter : MonoBehaviour
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using GameBehaviour;
+using Assets.Source.Scripts.GameBehaviour;
 
-namespace ActionHandler
+namespace Assets.Source.Scripts.ActionHandlers
 {
     public class ClickHandler : MonoBehaviour
     {
@@ -35,8 +35,11 @@ namespace ActionHandler
 
         private void OnMouseDown()
         {
-            if (_canClick && Input.GetMouseButtonDown(LeftMouseButton))
+            if (_canClick &&
+                Input.GetMouseButtonDown(LeftMouseButton))
+            {
                 OnClicked?.Invoke();
+            }
         }
 
         private void OnPauseStateChanged(bool isPaused)

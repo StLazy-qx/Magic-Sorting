@@ -2,7 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
-namespace MagicCells
+namespace Assets.Source.Scripts.MagicCells
 {
     public class MagicCellMover : MonoBehaviour
     {
@@ -21,15 +21,17 @@ namespace MagicCells
 
         private void Awake()
         {
+            ValidateObjects();
             _secondToShake = Random.Range(BeginTimeToShake, LostTimeToShake);
         }
 
         private void Start()
         {
-            _moveTween = transform.DOMoveY(transform.position.y - _moveDistance, _durationMove)
-                .SetEase(Ease.InOutSine)
-                .SetLoops(InfinityAnimation, LoopType.Yoyo)
-                .SetLink(gameObject);
+            _moveTween = transform.DOMoveY(
+                transform.position.y - _moveDistance, _durationMove).
+                SetEase(Ease.InOutSine).
+                SetLoops(InfinityAnimation, LoopType.Yoyo).
+                SetLink(gameObject);
 
             StartCoroutine(ShakeLoop());
         }
@@ -45,8 +47,25 @@ namespace MagicCells
             {
                 yield return new WaitForSeconds(_secondToShake);
 
-                transform.DOShakePosition(_shakeDuration, _shakeStrength, _shakeVibrato)
-                         .SetLink(gameObject);
+                transform.DOShakePosition(
+                    _shakeDuration,
+                    _shakeStrength,
+                    _shakeVibrato).SetLink(gameObject);
+            }
+        }
+
+        private void ValidateObjects()
+        {
+            if (_moveDistance <= 0)
+            {
+                throw new System.ArgumentException(
+                    "Move distance must be positive", nameof(_moveDistance));
+            }
+
+            if (_durationMove <= 0)
+            {
+                throw new System.ArgumentException(
+                    "Move duration must be positive", nameof(_durationMove));
             }
         }
     }
