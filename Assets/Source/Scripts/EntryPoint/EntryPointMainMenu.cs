@@ -38,7 +38,7 @@ namespace Assets.Source.Scripts.EntryPoint
         {
             foreach (IObjectInitilizable currentObject in _servicesInitializable)
             {
-                currentObject.Initilize();
+                currentObject.Initialize();
             }
 
             yield return new WaitUntil(()

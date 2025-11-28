@@ -15,7 +15,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public bool IsInitialized { get; private set; }
 
-        public void Initilize()
+        public void Initialize()
         {
             ValidateObjects();
             _currentPanel.Close();

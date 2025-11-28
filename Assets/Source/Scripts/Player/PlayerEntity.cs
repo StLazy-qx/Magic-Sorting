@@ -21,7 +21,7 @@ namespace Assets.Source.Scripts.Player
                 "[Player] Wallet не может быть null");
         }
 
-        public void Initilize()
+        public void Initialize()
         {
             if (_wallet == null)
                 throw new ArgumentNullException(nameof(_wallet));

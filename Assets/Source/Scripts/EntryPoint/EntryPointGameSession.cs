@@ -18,7 +18,7 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private void Awake()
         {
-            //ValidateDependencies();
+            ValidateDependencies();
             _platformDependentSetter.Initialize();
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());
@@ -72,7 +72,7 @@ namespace Assets.Source.Scripts.EntryPoint
 
             foreach (IObjectInitilizable currentObject in _objectsInitilizable)
             {
-                currentObject.Initilize();
+                currentObject.Initialize();
             }
 
             yield return new WaitUntil(()

@@ -32,7 +32,7 @@ namespace Assets.Source.Scripts.Audio
                 "[SoundSetter] AudioSettingsData не может быть null");
         }
 
-        public void Initilize()
+        public void Initialize()
         {
             ValidateDependencies();
 

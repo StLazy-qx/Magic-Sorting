@@ -25,7 +25,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public bool IsInitialized { get; protected set; }
 
-        public virtual void Initilize()
+        public virtual void Initialize()
         {
             if (_sceneLoader == null)
                 throw new ArgumentNullException(nameof(_sceneLoader));

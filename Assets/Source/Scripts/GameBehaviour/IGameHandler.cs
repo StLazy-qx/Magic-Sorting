@@ -9,7 +9,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         public event Action<bool> PauseStateChanged;
         public event Action GameClosed;
 
-        public void Initilize();
+        public void Initialize();
         public void ContinueGame();
         public void PauseGame();
         public void ResumeGame();

@@ -4,6 +4,6 @@ namespace Assets.Source.Scripts.EntryPoint
     {
         public bool IsInitialized { get; }
 
-        public void Initilize();
+        public void Initialize();
     }
 }

@@ -36,7 +36,6 @@ namespace Assets.Source.Scripts.UI.SoundView
         public void SetInitialValues(float master, float ambient, float effect, bool isMute)
         {
             ValidateVolumeValues(master, ambient, effect);
-
             _sliderMasterVolume.SetValueWithoutNotify(master);
             _sliderAmbientVolume.SetValueWithoutNotify(ambient);
             _sliderEffectVolume.SetValueWithoutNotify(effect);
@@ -73,7 +72,7 @@ namespace Assets.Source.Scripts.UI.SoundView
         private void ValidateVolumeValues(float master, float ambient, float effect)
         {
             int maxVolume = 1;
-            int minVolume = 1;
+            int minVolume = 0;
 
             if (master < minVolume || master > maxVolume)
             {

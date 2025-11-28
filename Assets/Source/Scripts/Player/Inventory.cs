@@ -18,7 +18,7 @@ namespace Assets.Source.Scripts.Player
         public Item EquippedItem => _equippedItem;
         public bool IsInitialized { get; private set; }
 
-        public void Initilize()
+        public void Initialize()
         {
             LoadInventory();
 

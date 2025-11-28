@@ -43,7 +43,7 @@ namespace Assets.Source.Scripts.Vessels
                 "[VesselStateTracker] Wallet cannot be null");
         }
 
-        public void Initilize()
+        public void Initialize()
         {
             if (IsInitialized)
                 return;
