@@ -15,7 +15,7 @@ F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63459
+63846
 Successfully changed project path to: F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,17 +49,19 @@ F:/ST/Unity project/Pyitochnaya/Magic-Sorting
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8108]  Target information:
+Player connection [23788]  Target information:
 
-Player connection [8108]  * "[IP] 26.0.158.205 [Port] 0 [Flags] 2 [Guid] 83036212 [EditorId] 83036212 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [23788]  * "[IP] 26.0.158.205 [Port] 0 [Flags] 2 [Guid] 2739961582 [EditorId] 2739961582 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [8108]  * "[IP] 192.168.3.26 [Port] 0 [Flags] 2 [Guid] 83036212 [EditorId] 83036212 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [23788]  * "[IP] 192.168.3.26 [Port] 0 [Flags] 2 [Guid] 2739961582 [EditorId] 2739961582 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [8108] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [8108] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [23788]  * "[IP] 10.8.0.3 [Port] 0 [Flags] 2 [Guid] 2739961582 [EditorId] 2739961582 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23788] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23788] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-Refreshing native plugins compatible for Editor in 34.17 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 31.72 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.62f2 (7670c08855a9)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Resources/UnitySubsystems
@@ -75,50 +77,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56824
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56896
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.022749 seconds.
-- Loaded All Assemblies, in  0.618 seconds
+Registered in 0.019667 seconds.
+- Loaded All Assemblies, in  0.534 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 313 ms
+Android Extension - Scanning For ADB Devices 343 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.742 seconds
-Domain Reload Profiling: 1358ms
-	BeginReloadAssembly (174ms)
+- Finished resetting the current domain, in  0.785 seconds
+Domain Reload Profiling: 1317ms
+	BeginReloadAssembly (156ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (60ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (108ms)
-	LoadAllAssembliesAndSetupDomain (256ms)
-		LoadAssemblies (172ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (217ms)
+		LoadAssemblies (154ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (252ms)
-			TypeCache.Refresh (250ms)
-				TypeCache.ScanAssembly (228ms)
+		AnalyzeDomain (213ms)
+			TypeCache.Refresh (212ms)
+				TypeCache.ScanAssembly (193ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (742ms)
+	FinalizeReload (785ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (672ms)
+		SetupLoadedEditorAssemblies (718ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (427ms)
+			InitializePlatformSupportModulesInManaged (460ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (172ms)
+			ProcessInitializeOnLoadAttributes (184ms)
 			ProcessInitializeOnLoadMethodAttributes (65ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
@@ -128,12 +130,12 @@ Domain Reload Profiling: 1358ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.244 seconds
+- Loaded All Assemblies, in  1.298 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=e20cb0a209781c849a19e5b08537a5f2): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a842acd393b057d45b052ce724202a00): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
 Package Manager log level set to [2]
@@ -143,36 +145,36 @@ Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  1.316 seconds
-Domain Reload Profiling: 2557ms
-	BeginReloadAssembly (205ms)
+- Finished resetting the current domain, in  1.212 seconds
+Domain Reload Profiling: 2507ms
+	BeginReloadAssembly (247ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
-	RebuildCommonClasses (50ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (51ms)
 	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (64ms)
-	LoadAllAssembliesAndSetupDomain (906ms)
-		LoadAssemblies (533ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (916ms)
+		LoadAssemblies (587ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (492ms)
-			TypeCache.Refresh (412ms)
-				TypeCache.ScanAssembly (382ms)
-			ScanForSourceGeneratedMonoScriptInfo (53ms)
-			ResolveRequiredComponents (24ms)
-	FinalizeReload (1317ms)
+		AnalyzeDomain (487ms)
+			TypeCache.Refresh (408ms)
+				TypeCache.ScanAssembly (379ms)
+			ScanForSourceGeneratedMonoScriptInfo (52ms)
+			ResolveRequiredComponents (25ms)
+	FinalizeReload (1212ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1017ms)
+		SetupLoadedEditorAssemblies (925ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (31ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (145ms)
-			ProcessInitializeOnLoadAttributes (723ms)
-			ProcessInitializeOnLoadMethodAttributes (101ms)
+			BeforeProcessingInitializeOnLoad (127ms)
+			ProcessInitializeOnLoadAttributes (652ms)
+			ProcessInitializeOnLoadMethodAttributes (100ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -189,19 +191,21 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 24.69 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 27.24 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7107 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 63 unused Assets / (3.2 MB). Loaded Objects now: 7553.
-Memory consumption went from 262.3 MB to 259.0 MB.
-Total: 6.245000 ms (FindLiveObjects: 0.682600 ms CreateObjectMapping: 0.457100 ms MarkObjects: 4.080600 ms  DeleteObjects: 1.023500 ms)
+Unloading 7097 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 63 unused Assets / (3.2 MB). Loaded Objects now: 7543.
+Memory consumption went from 261.8 MB to 258.6 MB.
+Total: 10.044100 ms (FindLiveObjects: 1.059800 ms CreateObjectMapping: 0.505500 ms MarkObjects: 6.863900 ms  DeleteObjects: 1.613500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LevelDifficultyViewer.cs: 06b17db793b59197defa2653c84754da -> c2f374a09602e09fdfce1a38e3a9c581
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/Class1.cs: 1a740c34e9a812381e7524c23b604f08 -> f01d8806d5388ad87f283a8093224233
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
@@ -212,781 +216,261 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 153140.100030 seconds.
-  path: Assets/Adaptive Performance
-  artifactKey: Guid(0f98e4ad472a7d742bd3a8f1846a4e16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Adaptive Performance using Guid(0f98e4ad472a7d742bd3a8f1846a4e16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'e1df82d40b24650a0083c18b21c82b1d') in 0.002872 seconds
+  Time since last request: 41130.660115 seconds.
+  path: Assets/Source/Scenes/GameSessionScene.unity
+  artifactKey: Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scenes/GameSessionScene.unity using Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '4b7ae5ffc48b3c0b2a6995f48cf5add3') in 0.003477 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Adaptive Performance/Settings/Simulator Provider Settings.asset
-  artifactKey: Guid(e81e5b35440273047a91dd133f3eb0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Adaptive Performance/Settings/Simulator Provider Settings.asset using Guid(e81e5b35440273047a91dd133f3eb0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '39658e3df7f53051a306f407345e2bb6') in 0.337465 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 4.791715 seconds.
-  path: Assets/Editor
-  artifactKey: Guid(9a2df797eb7ea8e44843144af9429b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Editor using Guid(9a2df797eb7ea8e44843144af9429b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a2984d40dc10e4e979279e01c8ba14a6') in 0.000656 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 9.231760 seconds.
-  path: Assets/IgniteCoders
-  artifactKey: Guid(412cfb7f2cc52a0499d010be0bc08bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/IgniteCoders using Guid(412cfb7f2cc52a0499d010be0bc08bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '6d4a2e2bfcb16641d6f109d435841196') in 0.000713 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 11.881536 seconds.
-  path: Assets/Resources
-  artifactKey: Guid(40fec08ed8e9cfd4bb3adaf15d7eb77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources using Guid(40fec08ed8e9cfd4bb3adaf15d7eb77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '333e2550560741fba94081d5443bdbcf') in 0.000642 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.078493 seconds.
-  path: Assets/Resources/DOTweenSettings.asset
-  artifactKey: Guid(73c63e309ba0d914daf72a6fd04ea93f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/DOTweenSettings.asset using Guid(73c63e309ba0d914daf72a6fd04ea93f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'cd66f4ccc7a43fe884035b503900e8b6') in 0.001954 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.019118 seconds.
-  path: Assets/Resources/ProjectContext.prefab
-  artifactKey: Guid(8a470a1e823fcdd42b97ec25f8e7254c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/ProjectContext.prefab using Guid(8a470a1e823fcdd42b97ec25f8e7254c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '296adb2d1af18e5ebe92f94688ce4ca5') in 0.022682 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 27.269159 seconds.
-  path: Assets/Source
-  artifactKey: Guid(367c7c6be9f324d4798226c598c05dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source using Guid(367c7c6be9f324d4798226c598c05dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'd655b1f81464640a2030cdd7114edcac') in 0.000636 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 2.129342 seconds.
-  path: Assets/Source/Audio
-  artifactKey: Guid(ae8e4408d18e2e64b86590b5ea7135bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio using Guid(ae8e4408d18e2e64b86590b5ea7135bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '2647ee2253c82c4ee895896f0c06e68a') in 0.000596 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.029107 seconds.
-  path: Assets/Source/Audio/MainMixer.mixer
-  artifactKey: Guid(d912505dfde61954b9fceeda9e70cfbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/MainMixer.mixer using Guid(d912505dfde61954b9fceeda9e70cfbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-Refreshing native plugins compatible for Editor in 14.68 ms, found 3 plugins.
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.789 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=00095fc3e0579e040bab65db6512def8): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+System.IO.IOException: Sharing violation on path F:\ST\Unity project\Pyitochnaya\Magic-Sorting\Assets\PluginYourGames\Editor\ModulesListYG2.txt
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <1071a2cb0cb3433aae80a793c277a048>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <1071a2cb0cb3433aae80a793c277a048>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) [0x00055] in <1071a2cb0cb3433aae80a793c277a048>:0 
+  at System.IO.StreamWriter..ctor (System.String path) [0x00008] in <1071a2cb0cb3433aae80a793c277a048>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string)
+  at System.IO.File.WriteAllText (System.String path, System.String contents) [0x00026] in <1071a2cb0cb3433aae80a793c277a048>:0 
+  at YG.EditorScr.DefineSymbols.ModulesDefineSymbols () [0x0021c] in F:\ST\Unity project\Pyitochnaya\Magic-Sorting\Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs:232 
+  at YG.EditorScr.DefineSymbols.UpdateDefineSymbols () [0x00014] in F:\ST\Unity project\Pyitochnaya\Magic-Sorting\Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs:61 
+  at YG.EditorScr.DefineSymbols..cctor () [0x00029] in F:\ST\Unity project\Pyitochnaya\Magic-Sorting\Assets\PluginYourGames\Scripts\EditorScr\DefineSymbols.cs:34 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.170 seconds
+Domain Reload Profiling: 2955ms
+	BeginReloadAssembly (229ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (63ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (439ms)
+		LoadAssemblies (519ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (40ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (26ms)
+	FinalizeReload (2171ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (823ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (532ms)
+			ProcessInitializeOnLoadMethodAttributes (105ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 24.85 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
- -> (artifact id: 'ac35dbc8ec425bf1d13b8764c5efb416') in 0.016917 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
+Unloading 6950 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (3.3 MB). Loaded Objects now: 7558.
+Memory consumption went from 228.6 MB to 225.3 MB.
+Total: 10.000600 ms (FindLiveObjects: 0.971000 ms CreateObjectMapping: 0.609900 ms MarkObjects: 6.846800 ms  DeleteObjects: 1.571600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LevelDifficultyViewer.cs: 06b17db793b59197defa2653c84754da -> c2f374a09602e09fdfce1a38e3a9c581
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/Class1.cs: 1a740c34e9a812381e7524c23b604f08 -> f01d8806d5388ad87f283a8093224233
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.784 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=3eab2838b9cecc04aa3800b14dfd060b): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  5.324 seconds
+Domain Reload Profiling: 6104ms
+	BeginReloadAssembly (219ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (445ms)
+		LoadAssemblies (524ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (42ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (5325ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (798ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (131ms)
+			ProcessInitializeOnLoadAttributes (524ms)
+			ProcessInitializeOnLoadMethodAttributes (94ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 25.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6950 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (3.3 MB). Loaded Objects now: 7573.
+Memory consumption went from 228.6 MB to 225.3 MB.
+Total: 9.058700 ms (FindLiveObjects: 1.403100 ms CreateObjectMapping: 0.560700 ms MarkObjects: 6.159000 ms  DeleteObjects: 0.934700 ms)
+
+Prepare: number of updated asset objects reloaded= 1
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/LevelDifficultyViewer.cs: 06b17db793b59197defa2653c84754da -> c2f374a09602e09fdfce1a38e3a9c581
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/Class1.cs: 1a740c34e9a812381e7524c23b604f08 -> f01d8806d5388ad87f283a8093224233
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.449700 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds
-  artifactKey: Guid(65881ce089140704198e788befb6e12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds using Guid(65881ce089140704198e788befb6e12b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '18c2c7c885109b19c0462c98186f3f45') in 0.000730 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.074880 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/light-magic-effect-sound_082225.mp3
-  artifactKey: Guid(b71454475d0d73f4cb76bf2b3fef07a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/light-magic-effect-sound_082225.mp3 using Guid(b71454475d0d73f4cb76bf2b3fef07a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '239a06ef0a5f935407498ea403c0aca1') in 0.115912 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_5.mp3
-  artifactKey: Guid(e56c009cc87b40442acbfc64ce6cc0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_5.mp3 using Guid(e56c009cc87b40442acbfc64ce6cc0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'ce0d9e7ff6e78ce91cbdb035e0a049de') in 0.017279 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.006052 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_7.mp3
-  artifactKey: Guid(ea871d5ae2b9ae9479878f05e562a01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_7.mp3 using Guid(ea871d5ae2b9ae9479878f05e562a01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a4daa9f15d825ca29e033c8e935e3963') in 0.018392 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_6.mp3
-  artifactKey: Guid(5d5e33cb7b5341a4e9210c329408f290) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_6.mp3 using Guid(5d5e33cb7b5341a4e9210c329408f290) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '8f564d55acab7498f3052e754c56ea4b') in 0.017995 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_10.mp3
-  artifactKey: Guid(ec12657234729c040bddf56990109254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_10.mp3 using Guid(ec12657234729c040bddf56990109254) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '26bad72b3d758c7627f4b9001a840dec') in 0.018433 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_3.mp3
-  artifactKey: Guid(fa6b91dfa5d71784999ba586a5f6a8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Nagic Move Sounds/sound-of-the-magic-sphere-moving_3.mp3 using Guid(fa6b91dfa5d71784999ba586a5f6a8e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'fee4832e3e24f9b0ec63d41c680d9100') in 0.021019 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 1.367705 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1
-  artifactKey: Guid(1b514769541a1e04aa340a2ee5960779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1 using Guid(1b514769541a1e04aa340a2ee5960779) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'dd301666b34fd7deaadb76ac4c3bfa85') in 0.000629 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.018457 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 1.wav
-  artifactKey: Guid(692e36d0b8b019344b6f7a28c60cd142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 1.wav using Guid(692e36d0b8b019344b6f7a28c60cd142) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a3bbe50d68a0c9067852f90d1567493c') in 0.016493 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 9.wav
-  artifactKey: Guid(23de3eaa1aba8b34eb631ca4dc3e51c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 9.wav using Guid(23de3eaa1aba8b34eb631ca4dc3e51c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '5641406d15ebd5ec5cf1f2a8009f9926') in 0.017146 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 10.wav
-  artifactKey: Guid(b3ea4d2aa8d764b469047c29dc9097a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 10.wav using Guid(b3ea4d2aa8d764b469047c29dc9097a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'd10165cacd0eb30b66e7b82edd2f2013') in 0.017890 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 7.wav
-  artifactKey: Guid(50c015fcf1d8f034db1c12896fdc8385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 7.wav using Guid(50c015fcf1d8f034db1c12896fdc8385) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '4c019df0a6270dcb9a87bd08bb8e09a7') in 0.029389 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 4.wav
-  artifactKey: Guid(2bb11656f97be57428129fbe40a92e55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 4.wav using Guid(2bb11656f97be57428129fbe40a92e55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '3097affab15759362a7290272ed8cc06') in 0.046191 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 6.wav
-  artifactKey: Guid(2c589877e4256294e9cb6f490f79e318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Audio/Fantasy Tracks Vol. 1/Ambient 6.wav using Guid(2c589877e4256294e9cb6f490f79e318) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'c66c8b3fdb28323d69e3cafd344b9bcb') in 0.017248 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 3.796779 seconds.
-  path: Assets/Source/Effects
-  artifactKey: Guid(608990c46cadbf04ab1601cec17c811d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects using Guid(608990c46cadbf04ab1601cec17c811d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '733d19345a591c1eb01dd4921ad8c2d4') in 0.000614 seconds
+  Time since last request: 1985.997856 seconds.
+  path: Assets/Source/Prefabs
+  artifactKey: Guid(c2327f54e26b7ac4d87ba0c61ee739ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Prefabs using Guid(c2327f54e26b7ac4d87ba0c61ee739ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'f5f459c6493da80a2e57925264288268') in 0.003335 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 74.442804 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosion.prefab
-  artifactKey: Guid(de85f8f81ea29ea479250adb36debd92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosion.prefab using Guid(de85f8f81ea29ea479250adb36debd92) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '700f2515ce74b21fed9747a7e6b46249') in 0.047974 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosionRoundAnimated.prefab
-  artifactKey: Guid(f563a43ef6da8ce43b59040b834b597d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosionRoundAnimated.prefab using Guid(f563a43ef6da8ce43b59040b834b597d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '783e09479203a002c808f4054355ae98') in 0.060570 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosionSpikyAnimated.prefab
-  artifactKey: Guid(b2a41848dc033f04295f551876431a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodExplosionSpikyAnimated.prefab using Guid(b2a41848dc033f04295f551876431a40) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'fadc6aa1f4d0add41b82a7a0a0e63815') in 0.163449 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodSplatWide.prefab
-  artifactKey: Guid(22e35da3d2c81274bb1c8fd73cca399e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodSplatWide.prefab using Guid(22e35da3d2c81274bb1c8fd73cca399e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'fec585ac18ff1c014318c8d4258e90ab') in 0.018311 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodShowerLoop.prefab
-  artifactKey: Guid(760c52d3ecd5c27449429eab2a5a8c7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodShowerLoop.prefab using Guid(760c52d3ecd5c27449429eab2a5a8c7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '1a514eba2830d1845357bddba0ca1881') in 0.023298 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodSplatCritical.prefab
-  artifactKey: Guid(685804666097ffc4a92177383378ddc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Blood/Green/GreenBloodSplatCritical.prefab using Guid(685804666097ffc4a92177383378ddc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '2b835f75ca662ce0a80dbc22554d0a7f') in 0.028091 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 15.718861 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/BombFuse/BombFuse2.prefab
-  artifactKey: Guid(460fc6c4a00afd347a5cca537a1d6fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/BombFuse/BombFuse2.prefab using Guid(460fc6c4a00afd347a5cca537a1d6fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '87991a011ec44277322d8b1ddffef15e') in 0.051800 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 15.734145 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyFightAction.prefab
-  artifactKey: Guid(4a3acdc5cefd5f74ebcb02914ae9be64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyFightAction.prefab using Guid(4a3acdc5cefd5f74ebcb02914ae9be64) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '669bc847c9f1fd365c341499089147f3') in 0.076125 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.131076 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyFightAction2.prefab
-  artifactKey: Guid(fa0f45d143def4e4188900695d955614) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyFightAction2.prefab using Guid(fa0f45d143def4e4188900695d955614) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '76af6fc21ae0a0455f1c29455c530e96') in 0.082885 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.281616 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyPunchLight.prefab
-  artifactKey: Guid(3b9161edba9968c48bd058067ad18c84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Brawling/Cartoony/CartoonyPunchLight.prefab using Guid(3b9161edba9968c48bd058067ad18c84) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'ebbd9fc0973c9d960986f446c3002284') in 0.034515 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 24
-========================================================================
-Received Import Request.
-  Time since last request: 12.240462 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulElectricDeathBlue.prefab
-  artifactKey: Guid(0e37cdfe4a79e73478288f3c171e917b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulElectricDeathBlue.prefab using Guid(0e37cdfe4a79e73478288f3c171e917b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '00d2fa66319444ad549a8c7c25131c81') in 0.224673 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 38
-========================================================================
-Received Import Request.
-  Time since last request: 0.001900 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulFireDeath.prefab
-  artifactKey: Guid(db8e5e1cf4c43a4479b6a7ed83ced530) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulFireDeath.prefab using Guid(db8e5e1cf4c43a4479b6a7ed83ced530) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '907cc9e9afebfceaec1637a44d4a4059') in 0.081248 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 38
-========================================================================
-Received Import Request.
-  Time since last request: 0.116500 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulPoisonDeath.prefab
-  artifactKey: Guid(7b5359d8127ef9747b50137fa47912f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Death/Souls/SoulPoisonDeath.prefab using Guid(7b5359d8127ef9747b50137fa47912f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '95d752b9a966e7baef7239820cc3ad66') in 0.023129 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 7.921828 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Decals/Bullet Decal/BulletDecalGrass.prefab
-  artifactKey: Guid(5bc227c2a45a7e44ea8521ddb446b620) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Decals/Bullet Decal/BulletDecalGrass.prefab using Guid(5bc227c2a45a7e44ea8521ddb446b620) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'e3bae4e7b9458fd6ee48686840139978') in 0.063668 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 27.367237 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Decals/Energy Decal/EnergyDecalFire.prefab
-  artifactKey: Guid(9ad869c77f7612f469d3c7ee2fad52ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Decals/Energy Decal/EnergyDecalFire.prefab using Guid(9ad869c77f7612f469d3c7ee2fad52ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'b24606b4c1e8a7962178ef9d6a85c5a4') in 0.078884 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 11.858658 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/BulletFatExplosion/BulletFatExplosionFire.prefab
-  artifactKey: Guid(71b02155078e4bf4e962f302d3675af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/BulletFatExplosion/BulletFatExplosionFire.prefab using Guid(71b02155078e4bf4e962f302d3675af2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '8f5e8037bc597ca18ce53487d818f044') in 0.154713 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 29
-========================================================================
-Received Import Request.
-  Time since last request: 5.720221 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/GrenadeExplosion/GrenadeExplosionFire.prefab
-  artifactKey: Guid(a7c694f0877ea874fa57e033221095c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/GrenadeExplosion/GrenadeExplosionFire.prefab using Guid(a7c694f0877ea874fa57e033221095c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '892e11ff22fb4f43d3d2c0a200f94e72') in 0.231983 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 42
-========================================================================
-Received Import Request.
-  Time since last request: 5.401410 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/LaserExplosion/LaserExplosionFire.prefab
-  artifactKey: Guid(c816e04fdd948ef479558e37f6acc4ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Combat/Explosions/LaserExplosion/LaserExplosionFire.prefab using Guid(c816e04fdd948ef479558e37f6acc4ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'dbd1a26dd823bd78d586434c496454a9') in 0.022827 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 58.004827 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/CurvySmoke.prefab
-  artifactKey: Guid(3b85a9e16cc798c4ca3ce98b38fbb8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/CurvySmoke.prefab using Guid(3b85a9e16cc798c4ca3ce98b38fbb8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a972902815c2c91d642952624f0019a3') in 0.033877 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 9
-========================================================================
-Received Import Request.
-  Time since last request: 0.056152 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/Plexus.prefab
-  artifactKey: Guid(beb57d582b696b645928b556533430b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/Plexus.prefab using Guid(beb57d582b696b645928b556533430b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '29164cdd730e40c08d62c9a3115d2903') in 0.063659 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.167127 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/TypingMessageLight.prefab
-  artifactKey: Guid(d99c8456d28dde44fa44a87e0bfbef3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Misc/TypingMessageLight.prefab using Guid(d99c8456d28dde44fa44a87e0bfbef3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '63f2b0a961580dafecaf05ba5997481a') in 0.069245 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 10.779714 seconds.
+  Time since last request: 0.110103 seconds.
   path: Assets/Source/Prefabs/Item.prefab
   artifactKey: Guid(5e62f464b596d2744bb8bcdb34a94ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Source/Prefabs/Item.prefab using Guid(5e62f464b596d2744bb8bcdb34a94ef9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '512cb9443cd7830b9a5677d46c15dce7') in 0.050614 seconds
+ -> (artifact id: '512cb9443cd7830b9a5677d46c15dce7') in 0.084991 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 24
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000068 seconds.
+  Time since last request: 0.003830 seconds.
   path: Assets/Source/Prefabs/MagicColumn.prefab
   artifactKey: Guid(654b8c3d09549b0418902b1f884d6303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Source/Prefabs/MagicColumn.prefab using Guid(654b8c3d09549b0418902b1f884d6303) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '26bf463615c0c9c178827293f4ba1534') in 0.002809 seconds
+ -> (artifact id: '26bf463615c0c9c178827293f4ba1534') in 0.003067 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 6
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Source/Prefabs/Magic_Cell.prefab
-  artifactKey: Guid(4eeaf34ff5fddaa4ba7404e4b0953003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Prefabs/Magic_Cell.prefab using Guid(4eeaf34ff5fddaa4ba7404e4b0953003) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'c115bcb7a63b3092be20bc05018cc8fc') in 0.187482 seconds
+  Time since last request: 0.000020 seconds.
+  path: Assets/Source/Prefabs/PlayerDataPrefab.prefab
+  artifactKey: Guid(007399c2ee0cc124a84a1785de0fdc39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Prefabs/PlayerDataPrefab.prefab using Guid(007399c2ee0cc124a84a1785de0fdc39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'cb741ed3470b17e63d66f4b5f5fb5006') in 0.025836 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
+Number of asset objects unloaded after import = 41
 ========================================================================
 Received Import Request.
-  Time since last request: 11.014604 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Impacts/CFXR Hit D 3D (Yellow).prefab
-  artifactKey: Guid(265d3a5ba69981a4698ceabcedf368b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Impacts/CFXR Hit D 3D (Yellow).prefab using Guid(265d3a5ba69981a4698ceabcedf368b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Source/Prefabs/Vessel (1).prefab
+  artifactKey: Guid(d4ba3de7188880a4084fe8ffae7af5bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Prefabs/Vessel (1).prefab using Guid(d4ba3de7188880a4084fe8ffae7af5bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '96562e3d270655a1e35efe45433bde3b') in 0.369333 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 23
-========================================================================
-Received Import Request.
-  Time since last request: 7.418276 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Light/CFXR3 LightGlow A (Loop).prefab
-  artifactKey: Guid(acdb90624a404aa438447006f1026065) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Light/CFXR3 LightGlow A (Loop).prefab using Guid(acdb90624a404aa438447006f1026065) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '8bcd1dd883007412a14b9ecdc9fc8e76') in 0.100794 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 23
-========================================================================
-Received Import Request.
-  Time since last request: 3.897508 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Liquids/CFXR Water Splash (Smaller).prefab
-  artifactKey: Guid(326e86d5729c54e479798cacab220bb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Liquids/CFXR Water Splash (Smaller).prefab using Guid(326e86d5729c54e479798cacab220bb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'ff30be2388deecdd250f7ddc399f2bc6') in 0.319418 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 44
-========================================================================
-Received Import Request.
-  Time since last request: 24.704461 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Magic circles/Healing circle.prefab
-  artifactKey: Guid(12a56ee4630040c4eb17ae9707ed4cef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Magic circles/Healing circle.prefab using Guid(12a56ee4630040c4eb17ae9707ed4cef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'cf38c7095054ffca6cf7b8bb8fed97cb') in 0.187085 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 6.501662 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Magic shields/Magic shield pink.prefab
-  artifactKey: Guid(5156d6689efbccb4991059f3a5755566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Magic shields/Magic shield pink.prefab using Guid(5156d6689efbccb4991059f3a5755566) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '1e9677d4fdf06a4adcb4423a22aaf68e') in 0.032631 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 23
-========================================================================
-Received Import Request.
-  Time since last request: 3.616943 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal green.prefab
-  artifactKey: Guid(13c990b8270c70b4c9f196019286028c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Portals/Portal green.prefab using Guid(13c990b8270c70b4c9f196019286028c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '36503463aef7a9574bdd67b40ef27ed3') in 0.136396 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 3.106974 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Charge slash purple.prefab
-  artifactKey: Guid(df9374346b76e444dbbb2b019de4da25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Charge slash purple.prefab using Guid(df9374346b76e444dbbb2b019de4da25) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'fb3374f75f053ec329035b69ff41e063') in 0.037519 seconds
+ -> (artifact id: '8b056de78ca7d3e3eaeb0f50be196f73') in 0.445146 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 33
 ========================================================================
 Received Import Request.
-  Time since last request: 0.011282 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Electro slash.prefab
-  artifactKey: Guid(4aa9f30a28a77224ba84b2a2c334c71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Slash effects/Electro slash.prefab using Guid(4aa9f30a28a77224ba84b2a2c334c71b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '339697c758a6b6b372e5aba44887f1f6') in 0.072157 seconds
+  Time since last request: 32.943561 seconds.
+  path: Assets/Source/Scriptable Object/Store/ItemScin 1.asset
+  artifactKey: Guid(35e536e4c6573734ca073b6944a54919) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scriptable Object/Store/ItemScin 1.asset using Guid(35e536e4c6573734ca073b6944a54919) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3c990ffbe9a3191798110e49ecc075de') in 0.024734 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 28
+Number of asset objects unloaded after import = 34
 ========================================================================
 Received Import Request.
-  Time since last request: 3.744497 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode blue.prefab
-  artifactKey: Guid(1095a5c9f65bfbe4383f63d5d1886c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode blue.prefab using Guid(1095a5c9f65bfbe4383f63d5d1886c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '15b96c5a405628f55d0b7fc6812d3a67') in 0.018059 seconds
+  Time since last request: 0.000019 seconds.
+  path: Assets/Source/Scriptable Object/Store/ItemScin 4.asset
+  artifactKey: Guid(a475a94d17740fb41bed0e998a45d6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scriptable Object/Store/ItemScin 4.asset using Guid(a475a94d17740fb41bed0e998a45d6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '39ac53de2d683940337b3011507e3134') in 0.022495 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.017974 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode pink.prefab
-  artifactKey: Guid(48e196c36363e814bad43a44c92dc11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks explode pink.prefab using Guid(48e196c36363e814bad43a44c92dc11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '7ffab9914a485171486706611721c6f9') in 0.018444 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.048416 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing blue.prefab
-  artifactKey: Guid(fb66a85d95aa25e439cb3c7792564804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing blue.prefab using Guid(fb66a85d95aa25e439cb3c7792564804) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '0202f6a8852a981cfefcf61c7ea1abc1') in 0.018780 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.014063 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing pink.prefab
-  artifactKey: Guid(658d046b38b9935498936eaed505d73f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing pink.prefab using Guid(658d046b38b9935498936eaed505d73f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '4d141968d34862c71ff7b52c518fd517') in 0.019850 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.008243 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing white.prefab
-  artifactKey: Guid(45c1a9f607b571349b0186f437fb0702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks flashing white.prefab using Guid(45c1a9f607b571349b0186f437fb0702) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '7c45d5f30996d8971e1e55e3a99b7412') in 0.017972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.007611 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks green.prefab
-  artifactKey: Guid(324fc9687c94a5f4585d7728801af43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks green.prefab using Guid(324fc9687c94a5f4585d7728801af43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '6ecc9a6dd955df2d8c4af8fe2bce9edd') in 0.018991 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.004997 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks red.prefab
-  artifactKey: Guid(0d3a2dc2176fee345b9d92ac7a089808) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks red.prefab using Guid(0d3a2dc2176fee345b9d92ac7a089808) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '60ab58cb63559d9b878f23425ff1adfd') in 0.018175 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.015439 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks yellow.prefab
-  artifactKey: Guid(c4af6be39e87b634d9e26d8ce65b529b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Sparks/Sparks yellow.prefab using Guid(c4af6be39e87b634d9e26d8ce65b529b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'af4ed17b48184d8f24a557262332fecc') in 0.018278 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 2.967069 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Character auras/Debuff.prefab
-  artifactKey: Guid(a58aa9a78f2b45b45bb0f3e2e1e3ad3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Character auras/Debuff.prefab using Guid(a58aa9a78f2b45b45bb0f3e2e1e3ad3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '19d0f0c4583120130c07603fcd13995c') in 0.022136 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 0.049319 seconds.
-  path: Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Character auras/Love aura.prefab
-  artifactKey: Guid(43d1d06cf70fcb2488255051aaae40a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Hovl Studio/Magic effects pack/Prefabs/Character auras/Love aura.prefab using Guid(43d1d06cf70fcb2488255051aaae40a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '4c0af827316f18ab1037636b7799a547') in 0.083580 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
-========================================================================
-Received Import Request.
-  Time since last request: 25.045102 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Misc/CFXR Smoke Source 3D.prefab
-  artifactKey: Guid(e509867be4f82f246a95eca1ee5a2d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Misc/CFXR Smoke Source 3D.prefab using Guid(e509867be4f82f246a95eca1ee5a2d61) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '3411de97f2fe63fcbb4db6c69caf6e1e') in 0.226638 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Misc/CFXR2 Poison Cloud.prefab
-  artifactKey: Guid(bbeeb0ddc21369746aaaae5c5c1c09cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Misc/CFXR2 Poison Cloud.prefab using Guid(bbeeb0ddc21369746aaaae5c5c1c09cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a78cde697d76e00cabef6c99d7e3718b') in 0.142319 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 15
-========================================================================
-Received Import Request.
-  Time since last request: 1.674085 seconds.
-  path: Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Nature/CFXR3 Shield Leaves A (Lit).prefab
-  artifactKey: Guid(e1385af346f4e624eb313ec1ea4fcd7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Nature/CFXR3 Shield Leaves A (Lit).prefab using Guid(e1385af346f4e624eb313ec1ea4fcd7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'cc55ab55cecc318a128a0b5c32f61786') in 0.225366 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 17
-========================================================================
-Received Import Request.
-  Time since last request: 30.783623 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterDripFlowSoft.prefab
-  artifactKey: Guid(9b70cd7433df3484396fdec7eae38f39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterDripFlowSoft.prefab using Guid(9b70cd7433df3484396fdec7eae38f39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'f284bf31aa16dc7291ce87da898f28b5') in 0.020474 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterfallBigSoft.prefab
-  artifactKey: Guid(b4d3a97bed138894e8d3f1b23aaae66d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterfallBigSoft.prefab using Guid(b4d3a97bed138894e8d3f1b23aaae66d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '9e33934d504cdb54def2d8d08e25d2f2') in 0.020933 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
-========================================================================
-Received Import Request.
-  Time since last request: 0.008870 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterGeysirSoft.prefab
-  artifactKey: Guid(529f03ad21f893a41af74febfcc4bc1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterGeysirSoft.prefab using Guid(529f03ad21f893a41af74febfcc4bc1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '86ff5fda7c6f3c35372330592750c6c1') in 0.019075 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 0.047062 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterSplashTinySoft.prefab
-  artifactKey: Guid(a312715abb227c246acf4ae4abbc1501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Soft/WaterSplashTinySoft.prefab using Guid(a312715abb227c246acf4ae4abbc1501) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'c8f4578002265f382f3f2aeb3b926931') in 0.020374 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 15.224389 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterDripFlowSharp.prefab
-  artifactKey: Guid(4a4d6f9eb73b8054783390f1c25b2d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterDripFlowSharp.prefab using Guid(4a4d6f9eb73b8054783390f1c25b2d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'ca1217b627d37cee31d889888dbcc53a') in 0.021097 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 0.015899 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterfallBigSharp.prefab
-  artifactKey: Guid(559b36e032a8acb44a5ffe0ededc6df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterfallBigSharp.prefab using Guid(559b36e032a8acb44a5ffe0ededc6df9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '60478b7433e09adde3ad9a141fb7624e') in 0.019627 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
-========================================================================
-Received Import Request.
-  Time since last request: 0.027879 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterGeysirSharp.prefab
-  artifactKey: Guid(11abcf894073489409459f7f08e60bda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterGeysirSharp.prefab using Guid(11abcf894073489409459f7f08e60bda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'de0385d76af34ae7cc33ab7c5f4fad8b') in 0.019352 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Import Request.
-  Time since last request: 0.025791 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterSplashSharp.prefab
-  artifactKey: Guid(e2550dae06524a94bbc4bcdf375a88b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Flowing/Sharp/WaterSplashSharp.prefab using Guid(e2550dae06524a94bbc4bcdf375a88b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'f60ab539b12a0a8c9ffde6f10083d39f') in 0.020991 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
-========================================================================
-Received Import Request.
-  Time since last request: 6.530116 seconds.
-  path: Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Bubbles/BubbleSimpleTrail.prefab
-  artifactKey: Guid(0f180487b63af3d4cb875ae7455d65b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Effects/Epic Toon FX/Prefabs/Environment/Water/Bubbles/BubbleSimpleTrail.prefab using Guid(0f180487b63af3d4cb875ae7455d65b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '833da63498b6ad4ac8ea9cbe2ceedf1b') in 0.062556 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
+Number of asset objects unloaded after import = 34
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: ќпераци€ ввода/вывода была прервана из-за завершени€ потока команд или по запросу приложени€.
 AssetImportWorker is now disconnected from the server

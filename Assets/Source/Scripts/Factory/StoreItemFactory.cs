@@ -12,7 +12,8 @@ namespace Assets.Source.Scripts.Factory
     {
         [SerializeField] private Store _store;
         [SerializeField] private PlayerEntity _player;
-        [SerializeField] private Transform _contentTransform;
+
+        private Transform _contentTransform;
 
         public event Action<Button> Created;
 

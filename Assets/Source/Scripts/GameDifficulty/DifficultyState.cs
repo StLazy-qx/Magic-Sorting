@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace Assets.Source.Scripts.GameDifficulty
@@ -11,6 +12,8 @@ namespace Assets.Source.Scripts.GameDifficulty
 
         public void SetDifficulty(DifficultyLevel level)
         {
+            Debug.Log($"Изменение уровня сложности {CurrentDifficulty}");
+
             if (CurrentDifficulty == level)
                 return;
 

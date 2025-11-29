@@ -43,7 +43,6 @@ namespace Assets.Source.Scripts.GameBehaviour
             }
 
             ContinueGame();
-            _difficultyState.SetDifficulty(DifficultyLevel.Easy);
             _wallet.Reset();
             ExtendInitialize();
 

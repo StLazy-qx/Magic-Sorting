@@ -1185,6 +1185,10 @@
       <Project>{79A6DB82-BD4C-6B3C-DC76-F4B62537A363}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
+    <ProjectReference Include="CFXREditor.csproj">
+      <Project>{31219BF4-E286-9951-854B-395685A84A0E}</Project>
+      <Name>CFXREditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
       <Project>{5B90AD1B-7EC0-36F3-A746-7E03FECAF5A0}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
@@ -1192,10 +1196,6 @@
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{B2BE6A3B-502A-8368-2AEA-BED42D75B98D}</Project>
       <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="CFXREditor.csproj">
-      <Project>{31219BF4-E286-9951-854B-395685A84A0E}</Project>
-      <Name>CFXREditor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{3FC736EF-FB51-4F19-7C77-A5F1D699A50C}</Project>

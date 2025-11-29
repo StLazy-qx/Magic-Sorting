@@ -2467,7 +2467,6 @@ MonoBehaviour:
   DifficultyDatabase: {fileID: 11400000, guid: a0c325b75a00c9641a7203ac82d7b2f8, type: 2}
   _store: {fileID: 615017041}
   _player: {fileID: 252190736}
-  _contentTransform: {fileID: 1744984481}
 --- !u!4 &239844990
 Transform:
   m_ObjectHideFlags: 0

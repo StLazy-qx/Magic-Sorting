@@ -65,18 +65,24 @@ namespace Assets.Source.Scripts.Audio
 
         private void SetVolume(string parameter, float value)
         {
-            if (_settings.IsMuted)
-                return;
-
-            float db = Mathf.Log10(Mathf.Clamp(value, MinVolume, MaxVolume)) * VolumeMultiplier;
+            float db = Mathf.Log10(Mathf.Clamp(
+                value, MinVolume, MaxVolume)) * VolumeMultiplier;
 
             _mixer.SetFloat(parameter, db);
 
             switch (parameter)
             {
-                case Master: _settings.SetMasterVolume(value); break;
-                case Ambient: _settings.SetAmbientVolume(value); break;
-                case Effect: _settings.SetEffectVolume(value); break;
+                case Master: 
+                    _settings.SetMasterVolume(value); 
+                    break;
+
+                case Ambient: 
+                    _settings.SetAmbientVolume(value); 
+                    break;
+
+                case Effect: 
+                    _settings.SetEffectVolume(value); 
+                    break;
             }
         }
 
@@ -114,13 +120,22 @@ namespace Assets.Source.Scripts.Audio
         private void ValidateDependencies()
         {
             if (_mixer == null)
-                throw new InvalidOperationException("[SoundSetter] AudioMixer не установлен в инспекторе");
+            {
+                throw new InvalidOperationException(
+                    "[SoundSetter] AudioMixer не установлен в инспекторе");
+            }
 
             if (_settings == null)
-                throw new InvalidOperationException("[SoundSetter] AudioSettingsData не был передан в Construct()");
+            {
+                throw new InvalidOperationException(
+                    "[SoundSetter] AudioSettingsData не был передан в Construct()");
+            }
 
             if (_volumeSliderView == null)
-                throw new InvalidOperationException("[SoundSetter] VolumeSliderViewHandler не был передан в ApplyAudioHandler()");
+            {
+                throw new InvalidOperationException(
+                    "[SoundSetter] VolumeSliderViewHandler не был передан в ApplyAudioHandler()");
+            }
         }
 
         private void ValidateVolumeValue(float volume, string name)

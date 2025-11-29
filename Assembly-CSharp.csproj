@@ -223,7 +223,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yandexPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\GameDifficulty\LevelDifficultyViewer.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\ObjectsBeginPositionSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\MonoPInvokeCallbackAttribute.cs" />
@@ -295,6 +294,7 @@
     <Compile Include="Assets\Source\Scripts\Vessels\Flag.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\ProjectSettings.cs" />
     <Compile Include="Assets\Source\Scripts\Player\Wallet.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\GameDifficultyView\LevelDifficultyViewer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yandexPlatform.cs" />

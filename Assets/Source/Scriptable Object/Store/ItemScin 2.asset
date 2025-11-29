@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemScin 2
   m_EditorClassIdentifier: 
   _id: 1653b835-0569-4fc2-8922-7621ae49a49a
-  _prefabView: {fileID: 7273396328987246237, guid: 21393050d5cf17441a7fc20158e8fae5,
+  _prefabView: {fileID: 5726828821464473346, guid: 21393050d5cf17441a7fc20158e8fae5,
     type: 3}
   _item: {fileID: 3068035011096992569, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
   _price: 0

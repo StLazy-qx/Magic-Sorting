@@ -1,9 +1,10 @@
+using Assets.Source.Scripts.GameDifficulty;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Assets.Source.Scripts.GameDifficulty
+namespace Assets.Source.Scripts.UI.GameDifficultyView
 {
     public class LevelDifficultyViewer : MonoBehaviour
     {
@@ -66,9 +67,11 @@ namespace Assets.Source.Scripts.GameDifficulty
                 case DifficultyLevel.Easy:
                     HighlightButton(_easyLevelButton);
                     break;
+
                 case DifficultyLevel.Medium:
                     HighlightButton(_middleLevelButton);
                     break;
+
                 case DifficultyLevel.Hard:
                     HighlightButton(_hardLevelButton);
                     break;

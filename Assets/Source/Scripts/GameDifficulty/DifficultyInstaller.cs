@@ -1,3 +1,4 @@
+using Assets.Source.Scripts.UI.GameDifficultyView;
 using UnityEngine;
 using Zenject;
 
@@ -13,7 +14,8 @@ namespace Assets.Source.Scripts.GameDifficulty
 
             if (_difficultyDatabase != null)
             {
-                Container.BindInstance(_difficultyDatabase).WhenInjectedInto<LevelDifficultyViewer>();
+                Container.BindInstance(_difficultyDatabase).
+                    WhenInjectedInto<LevelDifficultyViewer>();
             }
         }
     }
