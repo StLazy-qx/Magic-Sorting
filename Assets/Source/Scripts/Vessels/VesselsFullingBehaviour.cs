@@ -92,6 +92,7 @@ namespace Assets.Source.Scripts.Vessels
             if (_veselsCount == _vessels.Count)
             {
                 _wallet.ConfirmPoints();
+                _wallet.Reset();
                 _currentPanel.Close();
                 _finalGame.ActivateFinalPanelAndPauseGame();
 

@@ -11,33 +11,35 @@ namespace Assets.Source.Scripts.Player
         private Wallet()
         {
             _totalScore = YG2.saves.Points;
-            CurrentScoreChanged?.Invoke(_currentScore);
-            TotalScoreChanged?.Invoke(TotalScore);
+            _currentScore = 0;
+
+            TotalScoreChanged?.Invoke(_totalScore);
         }
 
-        public event Action<int> CurrentScoreChanged;
         public event Action<int> TotalScoreChanged;
 
         public int TotalScore => _totalScore;
+        public int DisplayScore => _totalScore + _currentScore;
 
         public void AddPoints(int value)
         {
             if (value < 0)
-                throw new ArgumentException("The value cannot be equal to or less than zero.");
+            {
+                throw new ArgumentException(
+                    "The value cannot be equal to or less than zero.");
+            }
 
             _currentScore += value;
 
-            CurrentScoreChanged?.Invoke(_currentScore);
+            TotalScoreChanged?.Invoke(DisplayScore);
         }
 
         public void ConfirmPoints()
         {
             _totalScore += _currentScore;
-            _currentScore = 0;
 
             YG2.saves.SavePoints(_totalScore);
-            TotalScoreChanged?.Invoke(TotalScore);
-            CurrentScoreChanged?.Invoke(_currentScore);
+            TotalScoreChanged?.Invoke(_totalScore);
             YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
         }
 
@@ -55,14 +57,12 @@ namespace Assets.Source.Scripts.Player
             _totalScore -= price;
 
             YG2.saves.SavePoints(_totalScore);
-            TotalScoreChanged?.Invoke(TotalScore);
+            TotalScoreChanged?.Invoke(_totalScore);
         }
 
         public void Reset()
         {
             _currentScore = 0;
-
-            CurrentScoreChanged?.Invoke(_currentScore);
         }
 
         public bool CanAfford(int value)

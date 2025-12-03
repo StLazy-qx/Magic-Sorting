@@ -1,15 +1,18 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using UnityEngine;
 using YG;
 using System.Linq;
 using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.Items;
+using Assets.Source.Scripts.Storage;
 
 namespace Assets.Source.Scripts.Player
 {
     public class Inventory : MonoBehaviour, IObjectInitilizable
     {
+        [SerializeField] private Store _store;
+
         private Item _equippedItem;
         private List<Item> _items = new List<Item>();
 
@@ -20,7 +23,13 @@ namespace Assets.Source.Scripts.Player
 
         public void Initialize()
         {
-            LoadInventory();
+            if (_store == null)
+                throw new ArgumentNullException(nameof(_store));
+
+            Load();
+
+            if (_equippedItem != null)
+                EquipItem(_equippedItem);
 
             IsInitialized = true;
         }
@@ -53,17 +62,34 @@ namespace Assets.Source.Scripts.Player
             _equippedItem = item;
 
             ItemEquipped?.Invoke(item);
-            YG2.saves.SetEquippedItem(item);
+            YG2.saves.SaveEquippedItem(item);
         }
 
-        private void LoadInventory()
+        private void Load()
         {
-            IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
-            _items = savedItems?.ToList() ?? new List<Item>();
-            Item savedEquippedItem = YG2.saves.GetEquippedItem();
+            IReadOnlyList<string> savedIDs = YG2.saves.GetAllItemIDs();
 
-            if (savedEquippedItem != null)
-                EquipItem(savedEquippedItem);
+            _items = new List<Item>();
+
+            foreach (string id in savedIDs)
+            {
+                Item restoredItem = _store.GetItemByID(id);
+
+                if (restoredItem != null)
+                    _items.Add(restoredItem);
+            }
+
+            string equippedID = YG2.saves.GetEquippedItemID();
+
+            if (string.IsNullOrEmpty(equippedID) == false)
+            {
+                _equippedItem = _items.FirstOrDefault(
+                    i => i.ID == equippedID);
+            }
+
+            //IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
+            //_items = savedItems?.ToList() ?? new List<Item>();
+            //_equippedItem = YG2.saves.GetEquippedItem();
         }
 
         private void ValidateItem(Item item)

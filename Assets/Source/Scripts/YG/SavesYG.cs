@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 using Assets.Source.Scripts.Items;
 
 namespace YG
@@ -8,17 +8,22 @@ namespace YG
     public partial class SavesYG
     {
         private int _points;
-		private string _equippedItemName = string.Empty;
-		private List<Item> _items = new List<Item>();
+		//private string _equippedItemName = string.Empty;
+		//private List<Item> _items = new List<Item>();
+        private List<string> _itemIDs = new();
+        private string _equippedItemID;
 
-		public int Points => _points;
+        public int Points => _points;
 
         public void SavePoints(int value)
         {
 			if (value < 0)
-				throw new ArgumentException("Значение не может быть равным или меньше нуля");
+            {
+                throw new ArgumentException(
+                    "The value cannot be equal to or less than zero");
+            }
 
-			_points = value;
+            _points = value;
 		}
 
         public void AddItem(Item item)
@@ -26,30 +31,43 @@ namespace YG
             if (item == null)
                 return;
 
-            _items = _items.Where(item => item != null).ToList();
-
-            if (_items.Any(existingItem => existingItem.name == item.name))
+            if (_itemIDs.Contains(item.ID)) 
                 return;
 
-            _items.Add(item);
+            _itemIDs.Add(item.ID);
+
+            //_items = _items.Where(item => item != null).ToList();
+
+            //if (_items.Any(existingItem => existingItem.name == item.name))
+            //    return;
+
+            //_items.Add(item);
         }
 
-        public void SetEquippedItem(Item item)
+        public void SaveEquippedItem(Item item)
         {
-            _equippedItemName = item?.name ?? string.Empty;
+            _equippedItemID = item?.ID ?? string.Empty;
+
+            //_equippedItemName = item?.name ?? string.Empty;
         }
 
-        public Item GetEquippedItem()
-        {
-            if (string.IsNullOrEmpty(_equippedItemName))
-                return null;
+        //public Item GetEquippedItem()
+        //{
+        //    if (string.IsNullOrEmpty(_equippedItemName))
+        //        return null;
 
-            return _items.FirstOrDefault(item => item.name == _equippedItemName);
-        }
+        //    return _items.FirstOrDefault(item => item.name == _equippedItemName);
+        //}
 
-        public IReadOnlyList<Item> GetAllItems()
-        {
-            return _items.AsReadOnly();
-        }
+        //public IReadOnlyList<Item> GetAllItems()
+        //{
+        //    return _items.AsReadOnly();
+        //}
+
+        public string GetEquippedItemID() 
+            => _equippedItemID;
+
+        public IReadOnlyList<string> GetAllItemIDs() 
+            => _itemIDs.AsReadOnly();
     }
 }

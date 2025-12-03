@@ -54,6 +54,19 @@ namespace Assets.Source.Scripts.Storage
             inventory.EquipItem(selectedItem);
         }
 
+        public Item GetItemByID(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException(nameof(id));
+
+            ItemSO data = _itemsData.FirstOrDefault(item => item.ID == id);
+            Item item = Instantiate(data.Item);
+
+            item.Initialize(data);
+
+            return item;
+        }
+
         private void ConfirmFirstItem()
         {
             int indexFirstScin = 0;

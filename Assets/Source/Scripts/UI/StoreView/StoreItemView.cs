@@ -8,7 +8,7 @@ namespace Assets.Source.Scripts.UI.StoreView
 {
     public class StoreItemView : MonoBehaviour
     {
-        private readonly List<Button> _createdButtons = new();
+        private List<Button> _createdButtons = new();
 
         [SerializeField] private StoreItemFactory _itemFactory;
         [SerializeField] private Color _selectItemColor;
@@ -35,7 +35,7 @@ namespace Assets.Source.Scripts.UI.StoreView
             _itemFactory.Created += OnButtonCreated;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _itemFactory.Created -= OnButtonCreated;
         }
@@ -47,6 +47,9 @@ namespace Assets.Source.Scripts.UI.StoreView
                 throw new ArgumentNullException(nameof(button),
                     "Created button is null in StoreItemView.");
             }
+
+            if (_createdButtons.Contains(button))
+                return;
 
             _defaultColor = button.image.color;
 

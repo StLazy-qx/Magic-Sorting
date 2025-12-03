@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Player;
-using System;
+using Assets.Source.Scripts.Storage;
 
 namespace Assets.Source.Scripts.UI.StoreView
 {
@@ -10,7 +11,7 @@ namespace Assets.Source.Scripts.UI.StoreView
     {
         [SerializeField] private StoreItemView _itemView;
         [SerializeField] private Inventory _inventory;
-        [SerializeField] private Storage.Store _store;
+        [SerializeField] private Store _store;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _equipButton;
 

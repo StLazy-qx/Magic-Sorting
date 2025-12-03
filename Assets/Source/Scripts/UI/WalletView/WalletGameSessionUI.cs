@@ -23,14 +23,14 @@ namespace Assets.Source.Scripts.UI.WalletView
 
         private void OnEnable()
         {
-            _wallet.CurrentScoreChanged += OnCoinView;
+            _wallet.TotalScoreChanged += OnCoinView;
 
-            OnCoinView(_wallet.TotalScore);
+            OnCoinView(_wallet.DisplayScore);
         }
 
         private void OnDisable()
         {
-            _wallet.CurrentScoreChanged -= OnCoinView;
+            _wallet.TotalScoreChanged -= OnCoinView;
         }
 
         [Inject]
