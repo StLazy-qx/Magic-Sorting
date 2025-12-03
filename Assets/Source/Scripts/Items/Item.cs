@@ -1,6 +1,7 @@
 using Assets.Source.Scripts.UI.StoreView;
 using System;
 using UnityEngine;
+using YG;
 
 namespace Assets.Source.Scripts.Items
 {
@@ -17,6 +18,11 @@ namespace Assets.Source.Scripts.Items
         public Texture Texture => _texture;
         public bool IsBuyed { get; private set; }
 
+        private void Start()
+        {
+            if (YG2.saves.HasItem(_id))
+                ActivateBought();
+        }
 
         public void Initialize(ItemSO itemData)
         {
@@ -38,7 +44,7 @@ namespace Assets.Source.Scripts.Items
             _itemView.ActivateBoughtText();
         }
 
-        public void ActivateBought()
+        private void ActivateBought()
         {
             if (_itemView == null)
                 return;
@@ -57,7 +63,7 @@ namespace Assets.Source.Scripts.Items
                     "Price must be positive", nameof(itemData));
             }
 
-            if (string.IsNullOrEmpty(itemData.ID))
+            if (string.IsNullOrWhiteSpace(itemData.ID))
             {
                 throw new ArgumentException(
                     "ID cannot be null or empty", nameof(itemData));

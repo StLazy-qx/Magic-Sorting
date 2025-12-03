@@ -67,7 +67,7 @@ namespace Assets.Source.Scripts.Player
 
         private void Load()
         {
-            IReadOnlyList<string> savedIDs = YG2.saves.GetAllItemIDs();
+            IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
 
             _items = new List<Item>();
 
@@ -84,12 +84,8 @@ namespace Assets.Source.Scripts.Player
             if (string.IsNullOrEmpty(equippedID) == false)
             {
                 _equippedItem = _items.FirstOrDefault(
-                    i => i.ID == equippedID);
+                    item => item.ID == equippedID);
             }
-
-            //IReadOnlyList<Item> savedItems = YG2.saves.GetAllItems();
-            //_items = savedItems?.ToList() ?? new List<Item>();
-            //_equippedItem = YG2.saves.GetEquippedItem();
         }
 
         private void ValidateItem(Item item)

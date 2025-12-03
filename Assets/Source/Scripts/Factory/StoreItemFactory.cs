@@ -42,8 +42,6 @@ namespace Assets.Source.Scripts.Factory
                     itemComponent = button.gameObject.AddComponent<Item>();
 
                 itemComponent.Initialize(itemData);
-
-                Debug.Log("Добавлен предмет в инвентарь");
             }
 
             NotifyObjectsChanged();

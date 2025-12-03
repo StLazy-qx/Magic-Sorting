@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-//using System.Linq;
 using Assets.Source.Scripts.Items;
 
 namespace YG
@@ -8,8 +7,6 @@ namespace YG
     public partial class SavesYG
     {
         private int _points;
-		//private string _equippedItemName = string.Empty;
-		//private List<Item> _items = new List<Item>();
         private List<string> _itemIDs = new();
         private string _equippedItemID;
 
@@ -35,39 +32,27 @@ namespace YG
                 return;
 
             _itemIDs.Add(item.ID);
-
-            //_items = _items.Where(item => item != null).ToList();
-
-            //if (_items.Any(existingItem => existingItem.name == item.name))
-            //    return;
-
-            //_items.Add(item);
         }
 
         public void SaveEquippedItem(Item item)
         {
-            _equippedItemID = item?.ID ?? string.Empty;
-
-            //_equippedItemName = item?.name ?? string.Empty;
+            _equippedItemID = item?
+                .ID ??
+                string.Empty;
         }
 
-        //public Item GetEquippedItem()
-        //{
-        //    if (string.IsNullOrEmpty(_equippedItemName))
-        //        return null;
+        public bool HasItem(string itemID)
+        {
+            if (string.IsNullOrWhiteSpace(itemID))
+                return false;
 
-        //    return _items.FirstOrDefault(item => item.name == _equippedItemName);
-        //}
-
-        //public IReadOnlyList<Item> GetAllItems()
-        //{
-        //    return _items.AsReadOnly();
-        //}
+            return _itemIDs.Contains(itemID);
+        }
 
         public string GetEquippedItemID() 
             => _equippedItemID;
 
-        public IReadOnlyList<string> GetAllItemIDs() 
+        public IReadOnlyList<string> GetPurchasedItems() 
             => _itemIDs.AsReadOnly();
     }
 }

@@ -67,7 +67,8 @@ namespace Assets.Source.Scripts.Vessels
 
         public void ApplyPanel(Panel panel)
         {
-            _currentPanel = panel ?? throw new ArgumentNullException(nameof(panel),
+            _currentPanel = panel ??
+                throw new ArgumentNullException(nameof(panel),
                 "[VesselStateTracker] Панель не может быть нуль");
         }
 
@@ -147,7 +148,7 @@ namespace Assets.Source.Scripts.Vessels
                     "[VesselStateTracker] Vessel list is empty.");
             }
 
-            if (_vessels.Any(v => v == null))
+            if (_vessels.Any(vessel => vessel == null))
             {
                 throw new ArgumentException(
                     "[VesselStateTracker] Vessel list contains null entries.");
@@ -175,7 +176,7 @@ namespace Assets.Source.Scripts.Vessels
                     nameof(vessels));
             }
 
-            if (vessels.Any(v => v == null))
+            if (vessels.Any(vessel => vessel == null))
             {
                 throw new ArgumentException(
                     "[VesselStateTracker] Vessel list contains null entries",

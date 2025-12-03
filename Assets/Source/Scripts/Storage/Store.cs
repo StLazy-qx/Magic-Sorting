@@ -89,7 +89,6 @@ namespace Assets.Source.Scripts.Storage
 
             firstItem.Initialize(firstItemData);
             _inventory.AddItem(firstItem);
-            _inventory.EquipItem(firstItem);
         }
 
         private void ValidateInitializeArguments()

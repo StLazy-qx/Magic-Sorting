@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Source.Scripts.UI.WalletView
+namespace Assets.Source.Scripts.UI.StoreView
 {
-    class Class1
+    class AcquiredItemsView
     {
+
     }
 }
