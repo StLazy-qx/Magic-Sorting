@@ -8,6 +8,9 @@ namespace Assets.Source.Scripts.Vessels
 
     public class Flag : MonoBehaviour, IColorable
     {
+        private const float FabricDarkenFactor = 0.75f;
+        private const float Saturation = 0.8f;
+
         private Renderer _renderer;
 
         public Color Color => _renderer.material.color;
@@ -31,7 +34,18 @@ namespace Assets.Source.Scripts.Vessels
                     "Renderer material is not assigned");
             }
 
-            _renderer.material.color = color;
+            Color fabricColor = GetFabricAdjustedColor(color);
+            _renderer.material.color = fabricColor;
+        }
+
+        private Color GetFabricAdjustedColor(Color color)
+        {
+            Color.RGBToHSV(color, out float hue, out float saturation, out float value);
+
+            saturation *= Saturation;
+            value *= FabricDarkenFactor;
+
+            return Color.HSVToRGB(hue, Mathf.Clamp01(saturation), Mathf.Clamp01(value));
         }
     }
 }

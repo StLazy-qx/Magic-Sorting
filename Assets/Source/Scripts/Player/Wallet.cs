@@ -5,6 +5,8 @@ namespace Assets.Source.Scripts.Player
 {
     public class Wallet
     {
+        private readonly string leaderboardName = "GameLB";
+
         private int _currentScore;
         private int _totalScore;
 
@@ -40,7 +42,7 @@ namespace Assets.Source.Scripts.Player
 
             YG2.saves.SavePoints(_totalScore);
             TotalScoreChanged?.Invoke(_totalScore);
-            YG2.SetLeaderboard("MainLeaderboard", YG2.saves.Points);
+            YG2.SetLeaderboard(leaderboardName, YG2.saves.Points);
         }
 
         public void BuyItem(int price)
