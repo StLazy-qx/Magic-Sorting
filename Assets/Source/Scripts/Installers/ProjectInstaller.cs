@@ -1,7 +1,8 @@
-using Zenject;
 using Assets.Source.Scripts.GameDifficulty;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Audio;
+using Assets.Source.Scripts.SceneManagement;
+using Zenject;
 
 namespace Assets.Source.Scripts.Installers
 {
@@ -12,6 +13,7 @@ namespace Assets.Source.Scripts.Installers
             Container.Bind<DifficultyState>().AsSingle().NonLazy();
             Container.Bind<Wallet>().AsSingle();
             Container.Bind<AudioSettingsData>().AsSingle();
+            Container.Bind<SceneLoader>().AsSingle();
         }
     }
 }

@@ -1,10 +1,11 @@
-using System;
-using UnityEngine;
-using Zenject;
 using Assets.Source.Scripts.GameDifficulty;
 using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.SceneManagement;
+using Assets.Source.Scripts.Enums;
+using System;
+using UnityEngine;
+using Zenject;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -15,8 +16,9 @@ namespace Assets.Source.Scripts.GameBehaviour
         protected readonly int GamePause = 0;
         protected readonly int GameResume = 1;
 
-        [SerializeField] protected SceneLoader _sceneLoader;
+        //[SerializeField] protected SceneLoader _sceneLoader;
 
+        protected SceneLoader _sceneLoader;
         protected Wallet _wallet;
         protected DifficultyState _difficultyState;
 
@@ -25,9 +27,9 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public bool IsInitialized { get; protected set; }
 
-        public virtual void Initialize()
+        public void Initialize()
         {
-            if (_sceneLoader == null)
+            if (_sceneLoader == null) 
                 throw new ArgumentNullException(nameof(_sceneLoader));
 
             if (_wallet == null)
@@ -56,16 +58,17 @@ namespace Assets.Source.Scripts.GameBehaviour
             Time.timeScale = GameResume;
         }
 
-        public virtual void PauseGame()
+        public void PauseGame()
         {
             Time.timeScale = GamePause;
 
             PauseStateChanged?.Invoke(true);
         }
 
-        public virtual void ResumeGame()
+        public void ResumeGame()
         {
-            NavigateScene(GameSessionIndex);
+            LoadingSceneBootstrap.Initialize();
+            //NavigateScene(GameSessionIndex);
         }
 
         public virtual void OpenMainMenu()
@@ -99,8 +102,12 @@ namespace Assets.Source.Scripts.GameBehaviour
         }
 
         [Inject]
-        private void Construct(Wallet wallet, DifficultyState difficultyState)
+        private void Construct(
+            SceneLoader sceneLoader,
+            Wallet wallet, 
+            DifficultyState difficultyState)
         {
+            _sceneLoader = sceneLoader;
             _wallet = wallet;
             _difficultyState = difficultyState;
         }

@@ -1,6 +1,6 @@
+using Assets.Source.Scripts.EntryPoint;
 using UnityEngine;
 using Zenject;
-using Assets.Source.Scripts.EntryPoint;
 using System;
 
 namespace Assets.Source.Scripts.Player

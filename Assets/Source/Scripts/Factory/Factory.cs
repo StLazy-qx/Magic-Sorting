@@ -1,8 +1,9 @@
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.Enums;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Assets.Source.Scripts.GameDifficulty;
 
 namespace Assets.Source.Scripts.Factory
 {

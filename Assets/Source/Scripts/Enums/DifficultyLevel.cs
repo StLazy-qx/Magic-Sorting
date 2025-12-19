@@ -1,4 +1,4 @@
-﻿namespace Assets.Source.Scripts.GameDifficulty
+﻿namespace Assets.Source.Scripts.Enums
 {
     public enum DifficultyLevel
     {

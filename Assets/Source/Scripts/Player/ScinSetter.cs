@@ -1,5 +1,5 @@
-using UnityEngine;
 using Assets.Source.Scripts.Items;
+using UnityEngine;
 
 namespace Assets.Source.Scripts.Player
 {

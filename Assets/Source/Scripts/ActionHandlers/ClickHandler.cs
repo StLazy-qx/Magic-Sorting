@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Assets.Source.Scripts.GameBehaviour;
+using System;
 using UnityEngine;
-using Assets.Source.Scripts.GameBehaviour;
 
 namespace Assets.Source.Scripts.ActionHandlers
 {

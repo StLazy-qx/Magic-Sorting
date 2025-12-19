@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Audio
@@ -8,6 +9,8 @@ namespace Assets.Source.Scripts.Audio
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip[] _interactClips;
 
+        private bool _isPlaying;
+
         public void PlayInteractSound()
         {
             if (_audioSource == null)
@@ -16,14 +19,28 @@ namespace Assets.Source.Scripts.Audio
                     (nameof(_audioSource), "AudioSource cannot be null");
             }
 
-            if (_interactClips.Length == 0)
+            if (_interactClips.Length == 0 || _interactClips == null)
+                return;
+
+            if (_isPlaying)
                 return;
 
             int beginIndex = 0;
             int randomIndex = UnityEngine.Random.Range(beginIndex, _interactClips.Length);
-            AudioClip clipToPlay = _interactClips[randomIndex];
+            AudioClip clip = _interactClips[randomIndex];
 
-            _audioSource.PlayOneShot(clipToPlay);
+            StartCoroutine(PlaySoundRoutine(clip));
+        }
+
+        private IEnumerator PlaySoundRoutine(AudioClip clip)
+        {
+            _isPlaying = true;
+
+            _audioSource.PlayOneShot(clip);
+
+            yield return new WaitForSeconds(clip.length);
+
+            _isPlaying = false;
         }
     }
 }

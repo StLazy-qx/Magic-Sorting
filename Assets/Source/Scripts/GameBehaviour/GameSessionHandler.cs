@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using Assets.Source.Scripts.GameDifficulty;
 using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.InteractiveObjects;
 using System;
+
 
 namespace Assets.Source.Scripts.GameBehaviour
 {

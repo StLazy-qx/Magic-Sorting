@@ -1,9 +1,9 @@
+using Assets.Source.Scripts.Pool;
+using Assets.Source.Scripts.Vessels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Assets.Source.Scripts.Pool;
-using Assets.Source.Scripts.Vessels;
 
 namespace Assets.Source.Scripts.Colorize
 {

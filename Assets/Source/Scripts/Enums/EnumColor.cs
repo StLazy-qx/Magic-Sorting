@@ -1,4 +1,4 @@
-namespace Assets.Source.Scripts.Colorize
+namespace Assets.Source.Scripts.Enums
 {
     public enum EnumColor
     {

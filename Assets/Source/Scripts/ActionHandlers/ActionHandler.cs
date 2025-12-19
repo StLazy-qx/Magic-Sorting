@@ -1,9 +1,9 @@
-using System.Collections;
-using UnityEngine;
 using Assets.Source.Scripts.Audio;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Pool;
+using System.Collections;
+using UnityEngine;
 using System;
 
 namespace Assets.Source.Scripts.ActionHandlers
@@ -32,11 +32,12 @@ namespace Assets.Source.Scripts.ActionHandlers
             Color color)
         {
             ValidateParameters(beginPosition, targetPosition);
-
             _animator.PlayInteract();
             _soundPlayer.PlayInteractSound();
-
-            StartCoroutine(MoveParticle(beginPosition, targetPosition, color));
+            StartCoroutine(MoveParticle(
+                beginPosition, 
+                targetPosition, 
+                color));
         }
 
         private IEnumerator MoveParticle(
@@ -144,4 +145,3 @@ namespace Assets.Source.Scripts.ActionHandlers
         }
     }
 }
-

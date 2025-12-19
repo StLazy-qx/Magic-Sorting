@@ -1,6 +1,6 @@
+using Assets.Source.Scripts.Vessels;
 using System;
 using UnityEngine;
-using Assets.Source.Scripts.Vessels;
 
 namespace Assets.Source.Scripts.Colorize
 {

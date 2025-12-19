@@ -1,8 +1,4 @@
-﻿using System;
-
-namespace Assets.Source.Scripts.GameBehaviour
+﻿namespace Assets.Source.Scripts.GameBehaviour
 {
-    class GameHandler
-    {
-    }
+    class GameHandler {}
 }

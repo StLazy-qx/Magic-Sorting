@@ -1,10 +1,10 @@
-using System;
-using UnityEngine;
 using Assets.Source.Scripts.ActionHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Pool;
+using System;
+using UnityEngine;
 
 namespace Assets.Source.Scripts.InteractiveObjects
 {

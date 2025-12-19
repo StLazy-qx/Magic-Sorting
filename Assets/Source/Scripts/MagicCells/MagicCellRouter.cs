@@ -1,8 +1,8 @@
+using Assets.Source.Scripts.InteractiveObjects;
+using Assets.Source.Scripts.Vessels;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Source.Scripts.InteractiveObjects;
-using Assets.Source.Scripts.Vessels;
 
 namespace Assets.Source.Scripts.MagicCells
 {

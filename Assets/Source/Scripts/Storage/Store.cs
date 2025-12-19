@@ -1,8 +1,8 @@
+using Assets.Source.Scripts.Items;
+using Assets.Source.Scripts.Player;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Assets.Source.Scripts.Items;
-using Assets.Source.Scripts.Player;
 using System;
 
 namespace Assets.Source.Scripts.Storage
