@@ -1,98 +1,43 @@
+using Assets.Source.Scripts.EntryPoint;
 using System;
-using System.IO;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Source.Scripts.SceneManagement
 {
     public class SceneLoader
     {
-        private string[] _scenes;
-        //private AsyncOperation _loadingOperation;
+        private const int GameSceneIndex = 1;
+        private const int MainMenuIndex = 0;
 
-        //private void Awake()
-        //{
-        //    int sceneCount = SceneManager.sceneCountInBuildSettings;
-        //    _scenes = new string[sceneCount];
-
-        //    for (int i = 0; i < sceneCount; i++)
-        //    {
-        //        string path = SceneUtility.GetScenePathByBuildIndex(i);
-        //        string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
-        //        _scenes[i] = sceneName;
-        //    }
-        //}
-
-        public SceneLoader()
+        public void LoadMainMenu()
         {
-            int sceneCount = SceneManager.sceneCountInBuildSettings;
-            _scenes = new string[sceneCount];
+            LoadScene(MainMenuIndex);
+        }
 
-            for (int i = 0; i < sceneCount; i++)
+        public void LoadGame()
+        {
+            LoadScene(GameSceneIndex);
+        }
+
+        private void LoadScene(int sceneIndex)
+        {
+            ValidateIndex(sceneIndex);
+
+            LoadingWindow.Instance.Show();
+
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+            operation.completed += _ =>
             {
-                string path = SceneUtility.GetScenePathByBuildIndex(i);
-                _scenes[i] = Path.GetFileNameWithoutExtension(path);
-            }
-        }
-
-        public void LoadSceneByIndex(int index)
-        {
-            ValidateIndex(index);
-            SceneManager.LoadScene(_scenes[index]);
-        }
-
-        public void LoadSceneAdditive(int index)
-        {
-            ValidateIndex(index);
-            SceneManager.LoadScene(_scenes[index], LoadSceneMode.Additive);
+                if (LoadingWindow.Instance != null)
+                    LoadingWindow.Instance.Hide();
+            };
         }
 
         private void ValidateIndex(int index)
         {
-            if (index < 0)
+            if (index < 0 || index >= SceneManager.sceneCountInBuildSettings)
                 throw new ArgumentOutOfRangeException(nameof(index));
-
-            if (index >= _scenes.Length)
-            {
-                throw new ArgumentOutOfRangeException(nameof(index),
-                    $"Index {index} out of range (0–{_scenes.Length - 1})");
-            }
         }
-
-        //public void LoadSceneByIndex(int targetSceneIndex)
-        //{
-        //    if (targetSceneIndex < 0)
-        //    {
-        //        throw new ArgumentOutOfRangeException(nameof(targetSceneIndex),
-        //            "Scene index cannot be negative");
-        //    }
-
-        //    if (targetSceneIndex >= _scenes.Length)
-        //    {
-        //        throw new ArgumentOutOfRangeException(nameof(targetSceneIndex),
-        //            $"Scene index {targetSceneIndex} is out of range." +
-        //            $" Available scenes: 0-{_scenes.Length - 1}");
-        //    }
-
-        //    SceneManager.LoadScene(_scenes[targetSceneIndex]);
-        //    //StartCoroutine(LoadSceneAsync(targetSceneIndex));
-        //}
-
-        //private IEnumerator LoadSceneAsync(int targetSceneIndex)
-        //{
-        //    _loadingOperation =
-        //        SceneManager.LoadSceneAsync(targetSceneIndex);
-        //    _loadingOperation.allowSceneActivation = false;
-
-        //    while (!_loadingOperation.isDone)
-        //    {
-        //        if (_loadingOperation.progress >= 0.9f)
-        //        {
-        //            yield return new WaitForSeconds(0.5f);
-        //            _loadingOperation.allowSceneActivation = true;
-        //        }
-
-        //        yield return null;
-        //    }
-        //}
     }
 }

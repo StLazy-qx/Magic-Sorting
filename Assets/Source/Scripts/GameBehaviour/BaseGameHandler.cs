@@ -16,8 +16,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         protected readonly int GamePause = 0;
         protected readonly int GameResume = 1;
 
-        //[SerializeField] protected SceneLoader _sceneLoader;
-
         protected SceneLoader _sceneLoader;
         protected Wallet _wallet;
         protected DifficultyState _difficultyState;
@@ -67,8 +65,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void ResumeGame()
         {
-            LoadingSceneBootstrap.Initialize();
-            //NavigateScene(GameSessionIndex);
+            _sceneLoader.LoadGame();
         }
 
         public virtual void OpenMainMenu()
@@ -124,8 +121,6 @@ namespace Assets.Source.Scripts.GameBehaviour
                 PauseGame();
             else
                 ContinueGame();
-
-            _sceneLoader.LoadSceneByIndex(sceneIndex);
         }
     }
 }

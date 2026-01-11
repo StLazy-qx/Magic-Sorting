@@ -103,7 +103,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Example\Scripts\PlayerStatsExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Source\Scripts\UI\StoreView\StoreScrollViewFiller.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Buttons\ExitButton.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -145,6 +144,8 @@
     <Compile Include="Assets\Source\Scripts\UI\Buttons\LevelDifficultyButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Source\Scripts\ActionHandlers\ClickHandler.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseColumnButton.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\LoadingWindow.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\SoundSetter.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\ParticlePool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\CorrectLang.cs" />
@@ -269,7 +270,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonNewRoundBeginner.cs" />
-    <Compile Include="Assets\Source\Scripts\SceneManagement\LoadingSceneBootstrap.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\SceneInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettingsAttributes.cs" />
@@ -322,6 +322,7 @@
     <Compile Include="Assets\Source\Scripts\UI\Buttons\GamePauseButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Example\Scripts\FlagsExample.cs" />
+    <Compile Include="Assets\Source\Scripts\SceneManagement\LoadingSceneLoader.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYG_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />

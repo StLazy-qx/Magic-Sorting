@@ -16,6 +16,6 @@ MonoBehaviour:
   _prefabView: {fileID: 5726828821464473346, guid: 21393050d5cf17441a7fc20158e8fae5,
     type: 3}
   _item: {fileID: 3068035011096992569, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
-  _price: 0
+  _price: 600
   _icon: {fileID: 21300000, guid: d5b03b102f8441140ba6d62d331b6b67, type: 3}
   _texture: {fileID: 2800000, guid: b6b0aa51c742aea4cb1d21a3c9f8d8b3, type: 3}

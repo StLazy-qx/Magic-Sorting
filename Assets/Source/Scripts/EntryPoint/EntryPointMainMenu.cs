@@ -1,11 +1,9 @@
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Language;
-using Assets.Source.Scripts.SceneManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 using YG;
 
 namespace Assets.Source.Scripts.EntryPoint
@@ -14,20 +12,21 @@ namespace Assets.Source.Scripts.EntryPoint
     {
         [SerializeField] private PlatformMenuAdapter _platformDependentMenuSetter;
         [SerializeField] private StoreItemFactory _storeItemFactory;
+        [SerializeField] private LoadingWindow _loadingWindowPrefab;
         [SerializeField] private MonoBehaviour[] _servicesMono;
 
         private LanguageSetter _languageSetter;
-        private SceneLoader _sceneLoader;
+        private LoadingWindow _loadingWindow;
         private List<IObjectInitilizable> _servicesInitializable = new();
 
         private void Awake()
         {
             ValidateDependencies();
 
-            _sceneLoader = new SceneLoader();
+            _loadingWindow = Instantiate(_loadingWindowPrefab);
             _languageSetter = new LanguageSetter(YG2.lang);
 
-            _platformDependentMenuSetter.Initialize(_languageSetter);
+            _platformDependentMenuSetter.Initialize(_loadingWindow, _languageSetter);
 
             foreach (var mono in _servicesMono)
             {

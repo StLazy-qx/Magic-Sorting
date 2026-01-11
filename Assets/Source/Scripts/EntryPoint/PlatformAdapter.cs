@@ -1,10 +1,10 @@
-using UnityEngine;
-using Assets.Source.Scripts.Factory;
-using YG;
-using System;
 using Assets.Source.Scripts.Audio;
 using Assets.Source.Scripts.UI.CanvasOption;
 using Assets.Source.Scripts.UI.SoundView;
+using Assets.Source.Scripts.Factory;
+using UnityEngine;
+using System;
+using YG;
 
 namespace Assets.Source.Scripts.EntryPoint
 {

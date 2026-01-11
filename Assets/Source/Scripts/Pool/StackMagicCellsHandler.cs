@@ -38,6 +38,16 @@ namespace Assets.Source.Scripts.Pool
             CreateCells(countCells);
         }
 
+        public void ReverseCellsStack()
+        {
+            Stack<MagicCell> reversedStack = new();
+
+            while (_cellsStack.Count > 0)
+                reversedStack.Push(_cellsStack.Pop());
+
+            _cellsStack = reversedStack;
+        }
+
         private void CreateCells(int countCells)
         {
             float currentY = 0f;
