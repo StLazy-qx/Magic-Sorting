@@ -1,4 +1,4 @@
-using Assets.Source.Scripts.ActionHandlers;
+using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.MagicCells;
 using System;
 using UnityEngine;
@@ -14,7 +14,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private MagicCellRouter _cellRouter;
 
         private MagicCell _waitingCell;
-        private ClickHandler _clickHandler;
+        private CellClickHandler _clickHandler;
 
         public bool IsFreePlace { get; private set; }
 
@@ -38,7 +38,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
             IsFreePlace = false;
             Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
             _waitingCell = Instantiate(cell, _storagePoint.position, cellRotation);
-            _clickHandler = _waitingCell.GetComponent<ClickHandler>();
+            _clickHandler = _waitingCell.GetComponent<CellClickHandler>();
 
             if (_clickHandler == null)
             {

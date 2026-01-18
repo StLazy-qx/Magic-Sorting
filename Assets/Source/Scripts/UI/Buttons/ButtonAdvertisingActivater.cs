@@ -2,7 +2,7 @@ using YG;
 
 namespace Assets.Source.Scripts.UI.Buttons
 {
-    public class ButtonAdvertisingActivater : BaseMenuButton
+    public class ButtonAdvertisingActivater : BaseButton
     {
         protected override void OnButtonClick()
         {

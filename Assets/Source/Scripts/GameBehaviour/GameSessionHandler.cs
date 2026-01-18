@@ -1,10 +1,10 @@
-using System.Collections;
-using UnityEngine;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.InteractiveObjects;
+using Assets.Source.Scripts.ActionsHandlers;
+using System.Collections;
+using UnityEngine;
 using System;
-
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -13,6 +13,9 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
+        [SerializeField] private ClickImpactHandler _clickImpactHandler;
+
+        public ClickImpactHandler ClickImpactHandler => _clickImpactHandler;
 
         private void Start()
         {

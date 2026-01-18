@@ -4,36 +4,36 @@ using UnityEngine.UI;
 
 namespace Assets.Source.Scripts.UI.Buttons
 {
-    [RequireComponent(typeof(Button))]
-
     public class ReverseColumnButton : MonoBehaviour
     {
-        [SerializeField] private Button _button;
-        [SerializeField] private Color _defaultColor;
-        [SerializeField] private Color _includeColor;
+        //здесь логика изменение цвета как у кнопки mute
 
-        private bool _isInclude;
+        //[SerializeField] private Button _button;
+        //[SerializeField] private Color _defaultColor;
+        //[SerializeField] private Color _includeColor;
 
-        private void Awake()
-        {
-            if (_button == null)
-            {
-                throw new NullReferenceException(
-                    "Button reference is missing in MuteButton.");
-            }
-        }
+        //private bool _isInclude;
 
-        public void ToggleMuteState()
-        {
-            _isInclude = !_isInclude;
+        //private void Awake()
+        //{
+        //    if (_button == null)
+        //    {
+        //        throw new NullReferenceException(
+        //            "Button reference is missing in MuteButton.");
+        //    }
+        //}
 
-            UpdateButtonAppearance();
-        }
+        //public void ToggleMuteState()
+        //{
+        //    _isInclude = !_isInclude;
 
-        private void UpdateButtonAppearance()
-        {
-            _button.image.color = _isInclude ?
-                _includeColor : _defaultColor;
-        }
+        //    UpdateButtonAppearance();
+        //}
+
+        //private void UpdateButtonAppearance()
+        //{
+        //    _button.image.color = _isInclude ?
+        //        _includeColor : _defaultColor;
+        //}
     }
 }

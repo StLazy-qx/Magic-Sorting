@@ -2,7 +2,7 @@ using Assets.Source.Scripts.GameBehaviour;
 
 namespace Assets.Source.Scripts.UI.Buttons
 {
-    public class ButtonNewRoundBeginner : BaseMenuButton
+    public class ButtonNewRoundBeginner : BaseButton
     {
         protected override void OnButtonClick()
         {

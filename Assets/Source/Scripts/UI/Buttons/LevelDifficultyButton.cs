@@ -2,7 +2,7 @@ using Assets.Source.Scripts.GameBehaviour;
 
 namespace Assets.Source.Scripts.UI.Buttons
 {
-    public class LevelDifficultyButton : BaseMenuButton
+    public class LevelDifficultyButton : BaseButton
     {
         protected override void OnButtonClick()
         {

@@ -4,6 +4,7 @@ using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Vessels;
+using Assets.Source.Scripts.EntryPoint;
 using System;
 using System.Linq;
 

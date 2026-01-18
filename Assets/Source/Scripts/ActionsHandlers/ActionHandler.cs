@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-namespace Assets.Source.Scripts.ActionHandlers
+namespace Assets.Source.Scripts.ActionsHandlers
 {
     public class ActionHandler : MonoBehaviour
     {

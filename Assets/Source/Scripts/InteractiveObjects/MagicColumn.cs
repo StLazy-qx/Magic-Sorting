@@ -1,4 +1,4 @@
-using Assets.Source.Scripts.ActionHandlers;
+using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.MagicCells;
@@ -10,7 +10,8 @@ namespace Assets.Source.Scripts.InteractiveObjects
 {
     public class MagicColumn : MonoBehaviour, IInteractable
     {
-        [SerializeField] private StackMagicCellsHandler _stackHandler;
+        [SerializeField] private MagicCellsStack _stackHandler;
+        [SerializeField] private ClickImpactHandler _modeHandler;
 
         private int _countCells;
         private float _prefabHeight;
@@ -28,8 +29,10 @@ namespace Assets.Source.Scripts.InteractiveObjects
             ValidateObjects();
         }
 
-        public void Initialize(MagicCellRouter distributerMagicCell,
-            ShuffledColorDistributor colorSource, int countCells)
+        public void Initialize(
+            MagicCellRouter distributerMagicCell,
+            ShuffledColorDistributor colorSource,
+            int countCells)
         {
             if (countCells <= 0)
             {
@@ -39,6 +42,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
             _cellRouter = distributerMagicCell ??
                 throw new ArgumentNullException(nameof(distributerMagicCell));
+
             _cellRouter = distributerMagicCell;
             _colorSource = colorSource;
             _countCells = countCells;
@@ -47,7 +51,9 @@ namespace Assets.Source.Scripts.InteractiveObjects
         }
 
         public void OnClick()
-            => Interacted?.Invoke();
+        {
+            Interacted?.Invoke();
+        }
 
         private void CreateStackHandler()
         {

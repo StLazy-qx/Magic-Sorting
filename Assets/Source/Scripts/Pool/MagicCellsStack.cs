@@ -1,4 +1,4 @@
-using Assets.Source.Scripts.ActionHandlers;
+using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.MagicCells;
@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Pool
 {
-    public class StackMagicCellsHandler : MonoBehaviour
+    public class MagicCellsStack : MonoBehaviour
     {
         private MagicCellsFactory _factory;
         private MagicCellRouter _cellRouter;
@@ -38,12 +38,10 @@ namespace Assets.Source.Scripts.Pool
             CreateCells(countCells);
         }
 
-        public void ReverseCellsStack()
+        public void ApplyReversedStack(Stack<MagicCell> reversedStack)
         {
-            Stack<MagicCell> reversedStack = new();
-
-            while (_cellsStack.Count > 0)
-                reversedStack.Push(_cellsStack.Pop());
+            if (reversedStack == null)
+                throw new ArgumentNullException(nameof(reversedStack));
 
             _cellsStack = reversedStack;
         }
@@ -62,7 +60,7 @@ namespace Assets.Source.Scripts.Pool
                     localPosition: new Vector3(0, currentY, 0),
                     color: pickedColor);
 
-                ClickHandler clickHandler = cell.GetComponent<ClickHandler>();
+                CellClickHandler clickHandler = cell.GetComponent<CellClickHandler>();
 
                 if (clickHandler != null)
                     clickHandler.OnClicked += OnCellClicked;

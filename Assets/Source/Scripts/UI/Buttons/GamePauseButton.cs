@@ -1,6 +1,6 @@
 namespace Assets.Source.Scripts.UI.Buttons
 {
-    public class GamePauseButton : BaseMenuButton
+    public class GamePauseButton : BaseButton
     {
         protected override void OnButtonClick()
         {

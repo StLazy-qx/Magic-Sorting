@@ -66,8 +66,8 @@
     <Compile Include="Assets\Source\Scripts\GameBehaviour\IGameHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\GameLabel\Scripts\GameLabel_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ActionHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_interface.cs" />
-    <Compile Include="Assets\Source\Scripts\ActionHandlers\ActionHandler.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\IObjectInitilizable.cs" />
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\AdNotification\AdNotificationYG.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStackReverser.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yndexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\SceneManagement\SceneLoader.cs" />
@@ -135,7 +136,7 @@
     <Compile Include="Assets\Source\Scripts\Factory\ColumnsFactory.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />
-    <Compile Include="Assets\Source\Scripts\ActionHandlers\IInteractable.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\IInteractable.cs" />
     <Compile Include="Assets\Source\Scripts\Player\MagicianAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_yg.cs" />
@@ -143,10 +144,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\LevelDifficultyButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\Source\Scripts\ActionHandlers\ClickHandler.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseColumnButton.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\LoadingWindow.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\SoundSetter.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Tutorial\ActionButton.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\ParticlePool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\CorrectLang.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\IColorable.cs" />
@@ -181,7 +182,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
     <Compile Include="Assets\Source\Scripts\UI\SoundView\MuteButton.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Buttons\BaseMenuButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_info.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\ProjectInstaller.cs" />
@@ -248,6 +248,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SavesDataExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStack.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_interface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -289,6 +290,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LeaderboardYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_optionalPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\Education\TutorialMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\GameYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReturnGameSessionButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
@@ -308,6 +310,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_interface.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\BaseButton.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PurchaseYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yg.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -326,8 +329,8 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYG_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\CellClickHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yg.cs" />
-    <Compile Include="Assets\Source\Scripts\Pool\StackMagicCellsHandler.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LBPlayerDataYG.cs" />
@@ -348,6 +351,7 @@
     <Compile Include="Assets\Source\Scripts\Items\ItemSO.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Example\Scripts\ReceivingPurchaseExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\MagicCells\ArcMoveAnimator.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
     <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
@@ -369,9 +373,11 @@
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\Clipboard_yg.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyDatabase.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_interface.cs" />
+    <Compile Include="Assets\Source\Scripts\Enums\ClickImpactMode.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DebugViewing.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCellMover.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ClickImpactHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformOptions.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ShuffledColorDistributor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Example\Scripts\IsFullscreenDebug.cs" />

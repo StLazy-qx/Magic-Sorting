@@ -8,7 +8,7 @@ namespace Assets.Source.Scripts.UI.Buttons
 {
     [RequireComponent(typeof(Button))]
 
-    public abstract class BaseMenuButton : MonoBehaviour
+    public abstract class BaseButton : MonoBehaviour
     {
         [SerializeField] protected BaseGameHandler GameHandler;
         [SerializeField] protected Panel TargetPanel;
