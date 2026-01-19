@@ -12,6 +12,8 @@ namespace Assets.Source.Scripts.MagicCells
 
         private Renderer _renderer;
 
+        public event Action Interacted;
+
         public Color Color => _renderer.material.color;
 
         private void Awake()
@@ -30,14 +32,14 @@ namespace Assets.Source.Scripts.MagicCells
             gameObject.SetActive(false);
         }
 
-        public void Enable()
-        {
-            gameObject.SetActive(true);
-        }
-
         public void SetColor(Color color)
         {
             _renderer.material.color = color;
+        }
+
+        private void OnMouseDown()
+        {
+            Interacted?.Invoke();
         }
     }
 }

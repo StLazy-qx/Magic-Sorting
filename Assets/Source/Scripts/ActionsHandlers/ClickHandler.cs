@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.ActionsHandlers
 {
-    public class CellClickHandler : MonoBehaviour
+    public class ClickHandler : MonoBehaviour
     {
         private const int LeftMouseButton = 0;
 
@@ -45,14 +45,11 @@ namespace Assets.Source.Scripts.ActionsHandlers
         private void OnMouseDown()
         {
             if (_canClick && Input.GetMouseButtonDown(LeftMouseButton))
-            {
                 OnClicked?.Invoke();
-            }
         }
 
         private void OnPauseStateChanged(bool isPaused)
         {
-            //_canClick = !isPaused;
             _canClick = isPaused;
 
             UpdateCanClick();

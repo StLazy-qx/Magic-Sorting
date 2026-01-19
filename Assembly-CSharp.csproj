@@ -163,6 +163,7 @@
     <Compile Include="Assets\Source\Scripts\Player\PlayerEntity.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings_langs.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ClickHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PaymentsCatalogYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\PanelSwitchButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_info.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\LocalStorage_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoSceneLoadButton.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\StackMagicCells.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\Factory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Example\Scripts\EnvirLangExample.cs" />
@@ -248,7 +250,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SavesDataExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStack.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_interface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\ProjectSettings.cs" />
     <Compile Include="Assets\Source\Scripts\Player\Wallet.cs" />
     <Compile Include="Assets\Source\Scripts\UI\GameDifficultyView\LevelDifficultyViewer.cs" />
+    <Compile Include="Assets\Source\Scripts\InteractiveObjects\ColumnRevercer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_lang.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_yandexPlatform.cs" />
@@ -329,7 +331,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\InfoYG_lang.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Source\Scripts\ActionsHandlers\CellClickHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yg.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />

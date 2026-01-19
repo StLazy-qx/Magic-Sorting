@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -6,40 +5,14 @@ namespace Assets.Source.Scripts.MagicCells
 {
     public class MagicCellMover : MonoBehaviour
     {
-        private const int InfinityAnimation = -1;
-        private const float BeginTimeToShake = 0.8f;
-        private const float LostTimeToShake = 1.5f;
-
-        [Header("Idle Move")]
-        [SerializeField] private float _moveDistance;
-        [SerializeField] private float _durationMove;
-        [Header("Shake")]
-        [SerializeField] private float _shakeStrength;
-        [SerializeField] private float _shakeDuration;
-        [SerializeField] private int _shakeVibrato;
-        [Header("Arc Move")]
         [SerializeField] private float _arcMoveDuration = 1f;
         [SerializeField] private float _sideOffsetX = 1f;
 
-        private float _secondToShake;
         private Tween _moveTween;
 
         private void Awake()
         {
             ValidateObjects();
-
-            _secondToShake = Random.Range(BeginTimeToShake, LostTimeToShake);
-        }
-
-        private void Start()
-        {
-            _moveTween = transform.DOMoveY(
-                transform.position.y - _moveDistance, _durationMove).
-                SetEase(Ease.InOutSine).
-                SetLoops(InfinityAnimation, LoopType.Yoyo).
-                SetLink(gameObject);
-
-            StartCoroutine(ShakeLoop());
         }
 
         private void OnDestroy()
@@ -50,6 +23,18 @@ namespace Assets.Source.Scripts.MagicCells
         public void MoveArc(Vector3 targetPosition)
         {
             _moveTween?.Kill();
+
+            //_moveTween = transform
+            //    .DOMove(targetPosition, _arcMoveDuration)
+            //    .SetEase(Ease.Linear)
+            //    .SetLink(gameObject)
+            //    .OnComplete(() =>
+            //    {
+            //        if (transform != null)
+            //            transform.position = targetPosition;
+
+            //        _moveTween = null;
+            //    });
 
             Vector3 start = transform.position;
 
@@ -76,31 +61,18 @@ namespace Assets.Source.Scripts.MagicCells
                 });
         }
 
-        private IEnumerator ShakeLoop()
-        {
-            while (gameObject.activeSelf)
-            {
-                yield return new WaitForSeconds(_secondToShake);
-
-                transform.DOShakePosition(
-                    _shakeDuration,
-                    _shakeStrength,
-                    _shakeVibrato).SetLink(gameObject);
-            }
-        }
-
         private void ValidateObjects()
         {
-            if (_moveDistance <= 0)
+            if (_arcMoveDuration <= 0)
             {
                 throw new System.ArgumentException(
-                    "Move distance must be positive", nameof(_moveDistance));
+                    "Move distance must be positive", nameof(_arcMoveDuration));
             }
 
-            if (_durationMove <= 0)
+            if (_sideOffsetX <= 0)
             {
                 throw new System.ArgumentException(
-                    "Move duration must be positive", nameof(_durationMove));
+                    "Move duration must be positive", nameof(_sideOffsetX));
             }
         }
     }

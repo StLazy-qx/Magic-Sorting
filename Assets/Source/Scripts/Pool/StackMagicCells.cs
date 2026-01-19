@@ -1,6 +1,8 @@
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using System;
 using System.Collections.Generic;
@@ -8,42 +10,43 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Pool
 {
-    public class MagicCellsStack : MonoBehaviour
+    public class StackMagicCells : MonoBehaviour
     {
+        [SerializeField] private ColumnRevercer _columnRevercer;
+
         private MagicCellsFactory _factory;
         private MagicCellRouter _cellRouter;
         private ShuffledColorDistributor _colorSource;
+        private ClickImpactHandler _clickImpactHandler;
         private Transform _parent;
         private float _prefabHeight;
-
         private Stack<MagicCell> _cellsStack = new();
 
         public void Initialize(
             MagicCellsFactory factory,
             MagicCellRouter cellRouter,
             ShuffledColorDistributor colorSource,
+            ClickImpactHandler clickHandler,
             Transform parent,
             int countCells,
             float prefabHeight)
         {
-            ValidateArguments(factory, cellRouter, colorSource, parent);
+            ValidateArguments(factory, cellRouter, colorSource, clickHandler, parent);
             ValidateValues(countCells, prefabHeight);
 
             _factory = factory;
             _cellRouter = cellRouter;
             _colorSource = colorSource;
+            _clickImpactHandler = clickHandler;
             _parent = parent;
             _prefabHeight = prefabHeight;
 
             CreateCells(countCells);
         }
 
-        public void ApplyReversedStack(Stack<MagicCell> reversedStack)
+        public IReadOnlyList<MagicCell> GetReadOnlyCells()
         {
-            if (reversedStack == null)
-                throw new ArgumentNullException(nameof(reversedStack));
-
-            _cellsStack = reversedStack;
+            return _cellsStack.ToArray();
         }
 
         private void CreateCells(int countCells)
@@ -60,10 +63,7 @@ namespace Assets.Source.Scripts.Pool
                     localPosition: new Vector3(0, currentY, 0),
                     color: pickedColor);
 
-                CellClickHandler clickHandler = cell.GetComponent<CellClickHandler>();
-
-                if (clickHandler != null)
-                    clickHandler.OnClicked += OnCellClicked;
+                cell.Interacted += OnCellClicked;
 
                 _cellsStack.Push(cell);
 
@@ -73,27 +73,36 @@ namespace Assets.Source.Scripts.Pool
 
         private void OnCellClicked()
         {
-            if (_cellsStack.Count == 0)
-                return;
-
-            if (_cellsStack.TryPop(out MagicCell cell) == false)
-                return;
-
-            if (_cellRouter.IsCheckCellColor(cell.Color) == false)
+            if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverce)
             {
-                _cellsStack.Push(cell);
-
-                return;
+                _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
             }
 
-            _cellRouter.DeliverMagicCell(cell);
-            cell.Disable();
+            if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
+            {
+                if (_cellsStack.Count == 0)
+                    return;
+
+                if (_cellsStack.TryPop(out MagicCell cell) == false)
+                    return;
+
+                if (_cellRouter.IsCheckCellColor(cell.Color) == false)
+                {
+                    _cellsStack.Push(cell);
+
+                    return;
+                }
+
+                _cellRouter.DeliverMagicCell(cell);
+                cell.Disable();
+            }
         }
 
         private void ValidateArguments(
         MagicCellsFactory factory,
         MagicCellRouter cellRouter,
         ShuffledColorDistributor colorSource,
+        ClickImpactHandler clickImpactHandler,
         Transform parent)
         {
             if (factory == null)
@@ -104,6 +113,9 @@ namespace Assets.Source.Scripts.Pool
 
             if (colorSource == null)
                 throw new ArgumentNullException(nameof(colorSource));
+
+            if (clickImpactHandler == null)
+                throw new ArgumentNullException(nameof(clickImpactHandler));
 
             if (parent == null)
                 throw new ArgumentNullException(nameof(parent));

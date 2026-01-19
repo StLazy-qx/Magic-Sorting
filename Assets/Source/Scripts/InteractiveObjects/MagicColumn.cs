@@ -8,10 +8,10 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.InteractiveObjects
 {
-    public class MagicColumn : MonoBehaviour, IInteractable
+    public class MagicColumn : MonoBehaviour
     {
-        [SerializeField] private MagicCellsStack _stackHandler;
-        [SerializeField] private ClickImpactHandler _modeHandler;
+        [SerializeField] private StackMagicCells _stackHandler;
+        [SerializeField] private ClickImpactHandler _clickImpactHandler;
 
         private int _countCells;
         private float _prefabHeight;
@@ -19,8 +19,6 @@ namespace Assets.Source.Scripts.InteractiveObjects
         private ShuffledColorDistributor _colorSource;
         private MagicCellRouter _cellRouter;
         private MagicCellsFactory _factory;
-
-        public event Action Interacted;
 
         private void Awake()
         {
@@ -50,11 +48,6 @@ namespace Assets.Source.Scripts.InteractiveObjects
             CreateStackHandler();
         }
 
-        public void OnClick()
-        {
-            Interacted?.Invoke();
-        }
-
         private void CreateStackHandler()
         {
             _prefabHeight = _factory.GetCellHeight() + _distanceBetweenCells;
@@ -69,6 +62,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
                 _factory,
                 _cellRouter,
                 _colorSource,
+                _clickImpactHandler,
                 transform,
                 _countCells,
                 _prefabHeight
