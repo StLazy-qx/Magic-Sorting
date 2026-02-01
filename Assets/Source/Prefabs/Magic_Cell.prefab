@@ -102,10 +102,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f400027f9bb8b114fa810d98a0f45168,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4112006336846242257}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f400027f9bb8b114fa810d98a0f45168,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8498605024532365265}
   m_SourcePrefab: {fileID: 100100000, guid: f400027f9bb8b114fa810d98a0f45168, type: 3}
 --- !u!1 &3947596793263860455 stripped
@@ -160,19 +156,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.019602861, z: 0.020000003}
   m_Center: {x: 6.5898134e-19, y: -0.00019856641, z: -4.8020647e-18}
---- !u!114 &4112006336846242257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3947596793263860455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6602340bcb5df64f94645fb6770261b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameHandler: {fileID: 0}
 --- !u!114 &8498605024532365265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,10 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3118e1a061f5ca9438abc91cd1f9a9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDistance: 0.012
-  _durationMove: 0.75
-  _shakeStrength: 0
-  _shakeDuration: 0
-  _shakeVibrato: 0
   _arcMoveDuration: 1
   _sideOffsetX: 1

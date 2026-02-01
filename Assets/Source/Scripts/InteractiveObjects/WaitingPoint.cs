@@ -1,4 +1,5 @@
 using Assets.Source.Scripts.ActionsHandlers;
+using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.MagicCells;
 using System;
 using UnityEngine;
@@ -12,9 +13,9 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private int _seatsNumber;
         [SerializeField] private Transform _storagePoint;
         [SerializeField] private MagicCellRouter _cellRouter;
+        [SerializeField] private ClickImpactHandler _clickImpactHandler;
 
         private MagicCell _waitingCell;
-        private ClickHandler _clickHandler;
 
         public bool IsFreePlace { get; private set; }
 
@@ -37,16 +38,11 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
             IsFreePlace = false;
             Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
-            _waitingCell = Instantiate(cell, _storagePoint.position, cellRotation);
-            _clickHandler = _waitingCell.GetComponent<ClickHandler>();
-
-            if (_clickHandler == null)
-            {
-                throw new MissingComponentException(
-                    "[WaitingPoint] На ячейке отсутствует компонент ClickHandler.");
-            }
-
-            _clickHandler.OnClicked += OnCellClicked;
+            _waitingCell = Instantiate(
+                cell, 
+                _storagePoint.position, 
+                cellRotation);
+            _waitingCell.Interacted += OnCellClicked;
         }
 
         public void Reset()
@@ -59,23 +55,24 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
                 _waitingCell = null;
             }
-
-            _clickHandler = null;
         }
 
         private void OnCellClicked()
         {
-            MagicCell waitCell = _waitingCell;
+            if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
+            {
+                MagicCell waitCell = _waitingCell;
 
-            if (_cellRouter.IsCheckCellColor(waitCell.Color) == false)
-                return;
+                if (_cellRouter.IsCheckCellColor(waitCell.Color) == false)
+                    return;
 
-            _cellRouter.DeliverMagicCell(waitCell);
-            _waitingCell.Disable();
+                _cellRouter.DeliverMagicCell(waitCell);
+                _waitingCell.Disable();
 
-            _clickHandler.OnClicked -= OnCellClicked;
+                _waitingCell.Interacted -= OnCellClicked;
 
-            Reset();
+                Reset();
+            }
         }
 
         private void ValidateObjects()

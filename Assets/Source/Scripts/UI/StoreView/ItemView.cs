@@ -11,13 +11,15 @@ namespace Assets.Source.Scripts.UI.StoreView
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private Image _imageScin;
         [SerializeField] private TMP_Text _priceText;
-        [SerializeField] private TMP_Text _boughtText;
+        [SerializeField] private Button _equipButton;
+        [SerializeField] private Button _buyButton;
+        [SerializeField] private Color _nonClickedColor;
+        [SerializeField] private Color _clickedColor;
+        [SerializeField] private Image _equipImage;
 
         private void Awake()
         {
             ValidateInitializeArguments();
-
-            _boughtText.gameObject.SetActive(false);
         }
 
         public void Initialize(ItemSO itemData)
@@ -28,14 +30,21 @@ namespace Assets.Source.Scripts.UI.StoreView
             _priceText.text = itemData.Price.ToString();
         }
 
-        public void ChangeBackgroundColor(Color color)
+        public void HideBuyButton()
         {
-            _backgroundImage.color = color;
+            _buyButton.gameObject.SetActive(false);
         }
 
-        public void ActivateBoughtText()
+        public void SetSelectedState()
         {
-            _boughtText.gameObject.SetActive(true);
+            _equipButton.interactable = false;
+            _backgroundImage.color = _nonClickedColor;
+        }
+
+        public void SetUnselectedState()
+        {
+            _equipButton.interactable = true;
+            _backgroundImage.color = _clickedColor;
         }
 
         private void ValidateInitializeArguments()
@@ -56,12 +65,6 @@ namespace Assets.Source.Scripts.UI.StoreView
             {
                 throw new NullReferenceException(
                     "Price text reference is missing in ItemView.");
-            }
-
-            if (_boughtText == null)
-            {
-                throw new NullReferenceException(
-                    "Bought text reference is missing in ItemView.");
             }
         }
 

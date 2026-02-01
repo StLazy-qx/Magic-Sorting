@@ -10,12 +10,14 @@ namespace Assets.Source.Scripts.SceneManagement
         private const int GameSceneIndex = 1;
         private const int MainMenuIndex = 0;
 
+        private AsyncOperation _currentLoadOperation;
+
         public void LoadMainMenu()
         {
             LoadScene(MainMenuIndex);
         }
 
-        public void LoadGame()
+        public void LoadGameScene()
         {
             LoadScene(GameSceneIndex);
         }
@@ -26,8 +28,9 @@ namespace Assets.Source.Scripts.SceneManagement
 
             LoadingWindow.Instance.Show();
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-            operation.completed += _ =>
+            _currentLoadOperation = SceneManager.LoadSceneAsync(sceneIndex);
+
+            _currentLoadOperation.completed += _ =>
             {
                 if (LoadingWindow.Instance != null)
                     LoadingWindow.Instance.Hide();

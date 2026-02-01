@@ -39,14 +39,12 @@ namespace Assets.Source.Scripts.EntryPoint
 
         protected override void OnMobileSelected()
         {
-            _loadingWindow.SetParent(_mobileCanvas.transform);
             _loadingWindow.SetImage(_mobileImage);
             _mobileLanguageView.Initialize(_languageSetter);
         }
 
         protected override void OnDesktopSelected()
         {
-            _loadingWindow.SetParent(_desktopCanvas.transform);
             _loadingWindow.SetImage(_desktopImage);
             _desktopLanguageView.Initialize(_languageSetter);
         }

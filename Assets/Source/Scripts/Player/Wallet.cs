@@ -45,7 +45,7 @@ namespace Assets.Source.Scripts.Player
             YG2.SetLeaderboard(leaderboardName, YG2.saves.Points);
         }
 
-        public void BuyItem(int price)
+        public void SpendPoints(int price)
         {
             if (price < 0)
                 throw new ArgumentException("The price cannot be less than zero.");

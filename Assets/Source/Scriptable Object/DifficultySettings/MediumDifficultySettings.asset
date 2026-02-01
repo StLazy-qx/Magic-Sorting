@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MediumDifficultySettings
   m_EditorClassIdentifier: 
   level: 2
-  maxSpawnPoints: 5
+  maxSpawnPoints: 6
   minCellsPerColumn: 5
-  vesselsCount: 5
-  colorsCount: 4
+  vesselsCount: 6
+  colorsCount: 5

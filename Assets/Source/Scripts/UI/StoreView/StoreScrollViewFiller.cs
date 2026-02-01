@@ -48,7 +48,8 @@ namespace Assets.Source.Scripts.UI.StoreView
                 if (storeItem == null)
                     continue;
 
-                ItemView itemView = Instantiate(storeItem.ItemView, _scrollRect.content);
+                ItemView itemView = Instantiate(
+                    storeItem.ItemView, _scrollRect.content);
 
                 if (itemView == null)
                 {
@@ -56,7 +57,7 @@ namespace Assets.Source.Scripts.UI.StoreView
                         "Instantiated ItemView is null in StoreScrollViewFiller.");
                 }
 
-                itemView.Initialize(storeItem);
+                //itemView.Initialize(storeItem);
             }
 
             Canvas.ForceUpdateCanvases();

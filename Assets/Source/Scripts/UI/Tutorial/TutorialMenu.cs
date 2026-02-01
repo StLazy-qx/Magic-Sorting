@@ -2,6 +2,7 @@
 using Assets.Source.Scripts.UI.Tutorial;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Source.Scripts.Education
 {
@@ -14,13 +15,18 @@ namespace Assets.Source.Scripts.Education
         [SerializeField] private Panel _menuPanel;
         [SerializeField] private Panel[] _panels;
 
+        private Button _nextUIButton;
+        private Button _backUIButton;
+
         private int _currentIndex;
 
         private void Awake()
         {
+            _nextUIButton = _nextButton.UIButton;
+            _backUIButton = _backButton.UIButton;
+
             _nextButton.OnClick.AddListener(OnNextPanel);
             _backButton.OnClick.AddListener(OnPreviousPanel);
-
             ResetFirstPanel();
             UpdateButtons();
         }
@@ -35,7 +41,6 @@ namespace Assets.Source.Scripts.Education
                     $"{_panels.Length - 1}]");
             }
 
-            CloseAllPanels();
             _panels[index].Open();
 
             _currentIndex = index;
@@ -72,10 +77,8 @@ namespace Assets.Source.Scripts.Education
 
         private void UpdateButtons()
         {
-            _backButton.GetComponent<UnityEngine.UI.Button>()
-                .interactable = _currentIndex > FirstPanelIndex;
-            _nextButton.GetComponent<UnityEngine.UI.Button>()
-                .interactable = _currentIndex < _panels.Length - 1;
+            _backUIButton.interactable = _currentIndex > FirstPanelIndex;
+            _nextUIButton.interactable = _currentIndex < _panels.Length - 1;
         }
     }
 }

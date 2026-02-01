@@ -1,3 +1,4 @@
+using Assets.Source.Scripts.UI.Buttons;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
@@ -9,7 +10,7 @@ namespace Assets.Source.Scripts.UI.SoundView
         [SerializeField] private Slider _sliderMasterVolume;
         [SerializeField] private Slider _sliderAmbientVolume;
         [SerializeField] private Slider _sliderEffectVolume;
-        [SerializeField] private MuteButton _muteButton;
+        [SerializeField] private StatefulButton _muteButton;
 
         public event Action<float> OnMasterChanged;
         public event Action<float> OnAmbientChanged;
@@ -29,7 +30,6 @@ namespace Assets.Source.Scripts.UI.SoundView
             _muteButton.OnClick.AddListener(() => 
             {
                 OnMuteClicked?.Invoke();
-                _muteButton.ToggleMuteState();
             });
         }
 
@@ -39,7 +39,7 @@ namespace Assets.Source.Scripts.UI.SoundView
             _sliderMasterVolume.SetValueWithoutNotify(master);
             _sliderAmbientVolume.SetValueWithoutNotify(ambient);
             _sliderEffectVolume.SetValueWithoutNotify(effect);
-            _muteButton.SetMuteState(isMute);
+            _muteButton.SetState(isMute);
         }
 
         private void ValidateInitializeArguments()

@@ -15,6 +15,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickImpactHandler _clickImpactHandler;
 
+        //зачем?
         public ClickImpactHandler ClickImpactHandler => _clickImpactHandler;
 
         private void Start()
@@ -25,8 +26,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         public void BeginNewRound()
         {
             ContinueGame();
-            _wallet.Reset();
-            _waitingPoint.Reset();
+            ResetEntity();
             StartCoroutine(BeginRoundRoutine());
         }
 
@@ -41,7 +41,7 @@ namespace Assets.Source.Scripts.GameBehaviour
                 _difficultyState.SetDifficulty(newLevel);
 
             ResetFactories();
-            _wallet.Reset();
+            ResetEntity();
             StartCoroutine(BeginRoundRoutine());
         }
 
@@ -65,10 +65,19 @@ namespace Assets.Source.Scripts.GameBehaviour
             }
         }
 
+        private void ResetEntity()
+        {
+            _wallet.Reset();
+            _waitingPoint.Reset();
+            _clickImpactHandler.Reset();
+        }
+
         private void ResetFactories()
         {
-            _vesselFactory.ResetFactory(_difficultyState.CurrentDifficulty);
-            _columnsFactory.ResetFactory(_difficultyState.CurrentDifficulty);
+            _vesselFactory.ResetFactory(
+                _difficultyState.CurrentDifficulty);
+            _columnsFactory.ResetFactory(
+                _difficultyState.CurrentDifficulty);
         }
 
         private void ValidateObjects()

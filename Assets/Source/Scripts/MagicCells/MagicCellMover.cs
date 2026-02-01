@@ -5,6 +5,8 @@ namespace Assets.Source.Scripts.MagicCells
 {
     public class MagicCellMover : MonoBehaviour
     {
+        private const float Half = 0.5f;
+
         [SerializeField] private float _arcMoveDuration = 1f;
         [SerializeField] private float _sideOffsetX = 1f;
 
@@ -24,21 +26,8 @@ namespace Assets.Source.Scripts.MagicCells
         {
             _moveTween?.Kill();
 
-            //_moveTween = transform
-            //    .DOMove(targetPosition, _arcMoveDuration)
-            //    .SetEase(Ease.Linear)
-            //    .SetLink(gameObject)
-            //    .OnComplete(() =>
-            //    {
-            //        if (transform != null)
-            //            transform.position = targetPosition;
-
-            //        _moveTween = null;
-            //    });
-
             Vector3 start = transform.position;
-
-            Vector3 mid = (start + targetPosition) * 0.5f;
+            Vector3 mid = (start + targetPosition) * Half;
             mid.x += _sideOffsetX;
 
             Vector3[] path =
@@ -54,9 +43,7 @@ namespace Assets.Source.Scripts.MagicCells
                 .SetLink(gameObject)
                 .OnComplete(() =>
                 {
-                    if (transform != null)
-                        transform.position = targetPosition;
-
+                    transform.position = targetPosition;
                     _moveTween = null;
                 });
         }

@@ -6,25 +6,28 @@ using System;
 using UnityEngine;
 using YG;
 using System.Linq;
+using Assets.Source.Scripts.UI.StoreView;
 
 namespace Assets.Source.Scripts.Player
 {
     public class Inventory : MonoBehaviour, IObjectInitilizable
     {
         [SerializeField] private Store _store;
+        [SerializeField] private ScinSetter _scinSetter;
 
         private Item _equippedItem;
         private List<Item> _items = new List<Item>();
 
-        public event Action<Item> ItemEquipped;
-
-        public Item EquippedItem => _equippedItem;
         public bool IsInitialized { get; private set; }
+        public Item EquippedItem => _equippedItem;
 
         public void Initialize()
         {
             if (_store == null)
                 throw new ArgumentNullException(nameof(_store));
+
+            if (_scinSetter == null)
+                throw new ArgumentNullException(nameof(_scinSetter));
 
             Load();
 
@@ -38,7 +41,8 @@ namespace Assets.Source.Scripts.Player
         {
             ValidateItem(item);
 
-            return _items.Any(currentItem => currentItem.ID == item.ID);
+            return _items.Any(currentItem 
+                => currentItem.ID == item.ID);
         }
 
         public void AddItem(Item item)
@@ -49,20 +53,28 @@ namespace Assets.Source.Scripts.Player
                 return;
 
             _items.Add(item);
-            YG2.saves.AddItem(item);
+            YG2.saves.AddItem(item.ID);
         }
 
         public void EquipItem(Item item)
         {
             ValidateItem(item);
+            item.Equip();
 
-            if (HasItem(item) == false)
-                return;
+            if (_equippedItem != null)
+            {
+                _equippedItem.UnEquip();
+
+                ItemView itemView = _equippedItem.GetComponent<ItemView>();
+
+                if(itemView != null)
+                    itemView.SetUnselectedState();
+            }
 
             _equippedItem = item;
 
-            ItemEquipped?.Invoke(item);
-            YG2.saves.SaveEquippedItem(item);
+            _scinSetter.ApplyItem(item);
+            YG2.saves.SaveEquippedItem(item.ID);
         }
 
         private void Load()
@@ -73,10 +85,15 @@ namespace Assets.Source.Scripts.Player
 
             foreach (string id in savedIDs)
             {
-                Item restoredItem = _store.GetItemByID(id);
+                Item item = _store.GetItemByID(id);
 
-                if (restoredItem != null)
-                    _items.Add(restoredItem);
+                if (item != null)
+                    _items.Add(item);
+
+                ItemView itemView = item.GetComponent<ItemView>();
+
+                if (itemView != null)
+                    itemView.HideBuyButton();
             }
 
             string equippedID = YG2.saves.GetEquippedItemID();

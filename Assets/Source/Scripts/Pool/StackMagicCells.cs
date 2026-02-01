@@ -2,6 +2,7 @@ using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using System;
@@ -12,6 +13,7 @@ namespace Assets.Source.Scripts.Pool
 {
     public class StackMagicCells : MonoBehaviour
     {
+        [SerializeField] private GameSessionHandler _gameHandler;
         [SerializeField] private ColumnRevercer _columnRevercer;
 
         private MagicCellsFactory _factory;
@@ -20,6 +22,7 @@ namespace Assets.Source.Scripts.Pool
         private ClickImpactHandler _clickImpactHandler;
         private Transform _parent;
         private float _prefabHeight;
+        private bool _isPaused;
         private Stack<MagicCell> _cellsStack = new();
 
         public void Initialize(
@@ -41,12 +44,19 @@ namespace Assets.Source.Scripts.Pool
             _parent = parent;
             _prefabHeight = prefabHeight;
 
+            _gameHandler.PauseStateChanged += OnGamePause;
+
             CreateCells(countCells);
         }
 
-        public IReadOnlyList<MagicCell> GetReadOnlyCells()
+        private void OnDisable()
         {
-            return _cellsStack.ToArray();
+            _gameHandler.PauseStateChanged -= OnGamePause;
+        }
+
+        private void OnGamePause(bool isPaused)
+        {
+            _isPaused = isPaused;
         }
 
         private void CreateCells(int countCells)
@@ -73,10 +83,8 @@ namespace Assets.Source.Scripts.Pool
 
         private void OnCellClicked()
         {
-            if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverce)
-            {
-                _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
-            }
+            if (_isPaused)
+                return;
 
             if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
             {
@@ -95,6 +103,13 @@ namespace Assets.Source.Scripts.Pool
 
                 _cellRouter.DeliverMagicCell(cell);
                 cell.Disable();
+            }
+            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverce)
+            {
+                _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
+
+                _clickImpactHandler.Reverse();
+                _clickImpactHandler.ToggleMode();
             }
         }
 

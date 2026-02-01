@@ -10,11 +10,9 @@ namespace Assets.Source.Scripts.GameDifficulty
     public class DifficultySettings : ScriptableObject
     {
         public DifficultyLevel level;
-
         [Header("Columns settings")]
         public int maxSpawnPoints;
         public int minCellsPerColumn;
-
         [Header("Vessels settings")]
         public int vesselsCount;
         public int colorsCount;

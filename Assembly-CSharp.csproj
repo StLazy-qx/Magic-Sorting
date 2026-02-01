@@ -113,7 +113,6 @@
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyInstaller.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\AdNotification\AdNotificationYG.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
-    <Compile Include="Assets\Source\Scripts\Pool\MagicCellsStackReverser.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yndexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\SceneManagement\SceneLoader.cs" />
@@ -144,7 +143,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\LevelDifficultyButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseColumnButton.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\LoadingWindow.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\SoundSetter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Tutorial\ActionButton.cs" />
@@ -168,6 +166,7 @@
     <Compile Include="Assets\Source\Scripts\UI\Buttons\PanelSwitchButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\ConsumePurchasesYG.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Tutorial\TutorialMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Liquid.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
@@ -177,12 +176,13 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\InitAttributes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformGameAdapter.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseButton.cs" />
+    <Compile Include="Assets\Source\Scripts\Storage\StoreItemPresenter.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\OptionalPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\DifficultyLevel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yg.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ModuleJson.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\SoundView\MuteButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_info.cs" />
     <Compile Include="Assets\Source\Scripts\Installers\ProjectInstaller.cs" />
@@ -197,7 +197,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Example\Scripts\GetEnvirData.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\JsonYG.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\StoreView\StoreItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Example\Scripts\ClipboardExample.cs" />
@@ -226,7 +225,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\BasicSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yandexPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\StoreView\AcquiredItemsView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\ColorYGAttribute.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\ObjectsBeginPositionSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\MonoPInvokeCallbackAttribute.cs" />
@@ -291,7 +289,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LeaderboardYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_optionalPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\Education\TutorialMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\GameYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReturnGameSessionButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
@@ -332,11 +329,13 @@
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\StatefulButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LBPlayerDataYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\CanvasOption\CanvasDesktopSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
+    <Compile Include="Assets\Source\Scripts\MagicCells\MoveAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\EventsYG2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
@@ -352,7 +351,6 @@
     <Compile Include="Assets\Source\Scripts\Items\ItemSO.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Example\Scripts\ReceivingPurchaseExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
-    <Compile Include="Assets\Source\Scripts\MagicCells\ArcMoveAnimator.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
     <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />

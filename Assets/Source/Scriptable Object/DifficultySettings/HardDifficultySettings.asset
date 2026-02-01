@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HardDifficultySettings
   m_EditorClassIdentifier: 
   level: 3
-  maxSpawnPoints: 6
-  minCellsPerColumn: 5
-  vesselsCount: 6
-  colorsCount: 5
+  maxSpawnPoints: 7
+  minCellsPerColumn: 6
+  vesselsCount: 7
+  colorsCount: 6

@@ -5,12 +5,14 @@ using UnityEngine.UI;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Storage;
+using Assets.Source.Scripts.UI.StoreView;
 
 namespace Assets.Source.Scripts.Factory
 {
     public class StoreItemFactory : Factory<Button>
     {
         [SerializeField] private Store _store;
+        [SerializeField] private Inventory _inventory;
         [SerializeField] private PlayerEntity _player;
 
         private Transform _contentTransform;
@@ -32,16 +34,24 @@ namespace Assets.Source.Scripts.Factory
             foreach (ItemSO itemData in items)
             {
                 Button button = Instantiate(Prefab, _contentTransform);
+                StoreItemPresenter presenter = button.GetComponent<StoreItemPresenter>();
+                Item item = button.GetComponent<Item>();
+                ItemView itemView = button.GetComponent<ItemView>();
 
+                if (presenter == null)
+                    throw new ArgumentNullException(nameof(presenter));
+
+                if (item == null)
+                    throw new ArgumentNullException(nameof(item));
+
+                if (itemView == null)
+                    throw new ArgumentNullException(nameof(itemView));
+
+                item.Initialize(itemData);
+                itemView.Initialize(itemData);
+                presenter.Initialize(item, _store);
                 Add(button);
                 Created?.Invoke(button);
-
-                Item itemComponent = button.GetComponent<Item>();
-
-                if (itemComponent == null)
-                    itemComponent = button.gameObject.AddComponent<Item>();
-
-                itemComponent.Initialize(itemData);
             }
 
             NotifyObjectsChanged();
@@ -51,6 +61,12 @@ namespace Assets.Source.Scripts.Factory
         {
             if (_store == null)
                 throw new ArgumentNullException(nameof(_store));
+
+            if (_inventory == null)
+                throw new ArgumentNullException(nameof(_inventory));
+
+            if (Prefab == null)
+                throw new ArgumentNullException(nameof(Prefab));
 
             if (_contentTransform == null)
                 throw new ArgumentNullException(nameof(_contentTransform));

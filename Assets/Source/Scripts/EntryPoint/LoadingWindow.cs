@@ -12,10 +12,16 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+
+                return;
+            }
+
             Instance = this;
 
             DontDestroyOnLoad(gameObject);
-            Hide();
         }
 
         public void SetImage(Sprite sprite)
@@ -24,11 +30,6 @@ namespace Assets.Source.Scripts.EntryPoint
                 throw new InvalidOperationException("Image is null");
 
             _image.sprite = sprite;
-        }
-
-        public void SetParent(Transform parent)
-        {
-            transform.SetParent(parent, false);
         }
 
         public void Show()

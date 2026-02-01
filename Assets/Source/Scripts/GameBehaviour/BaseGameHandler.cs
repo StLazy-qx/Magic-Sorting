@@ -65,12 +65,12 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void ResumeGame()
         {
-            _sceneLoader.LoadGame();
+            _sceneLoader.LoadGameScene();
         }
 
         public virtual void OpenMainMenu()
         {
-            NavigateScene(MainMenuIndex, true);
+            _sceneLoader.LoadMainMenu();
         }
 
         public virtual void QuitGame()
@@ -107,20 +107,6 @@ namespace Assets.Source.Scripts.GameBehaviour
             _sceneLoader = sceneLoader;
             _wallet = wallet;
             _difficultyState = difficultyState;
-        }
-
-        private void NavigateScene(int sceneIndex, bool isPause = false)
-        {
-            if (sceneIndex < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(sceneIndex),
-                    "sceneIndex cannot be negative.");
-            }
-
-            if (isPause)
-                PauseGame();
-            else
-                ContinueGame();
         }
     }
 }

@@ -1,8 +1,10 @@
-using UnityEngine;
+using Assets.Source.Scripts.UI.GamePanel;
+using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.Vessels;
+using UnityEngine;
 using System;
-using Assets.Source.Scripts.UI.GamePanel;
+using Assets.Source.Scripts.UI.Buttons;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -11,12 +13,15 @@ namespace Assets.Source.Scripts.EntryPoint
         [Header("Begin Objects Position")]
         [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
         [SerializeField] private ObjectsBeginPositionSetter _mobileObjectsPosition;
-        [Header("Panels")]
+        [Header("UI Elements")]
         [SerializeField] private Panel _finalMatchPanelDesktop;
         [SerializeField] private Panel _finalMatchPanelMobile;
+        [SerializeField] private ReverseButton _reverseButtonDesktop;
+        [SerializeField] private ReverseButton _reverseButtonMobile;
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
+        [SerializeField] private ClickImpactHandler _clickImpactHandler;
 
         public void Initialize()
         {
@@ -29,6 +34,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _mobileObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
+            _clickImpactHandler.SetButton(_reverseButtonMobile);
         }
 
         protected override void OnDesktopSelected()
@@ -36,6 +42,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _desktopObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
+            _clickImpactHandler.SetButton(_reverseButtonDesktop);
         }
 
         private void ValidateRequiredDependencies()

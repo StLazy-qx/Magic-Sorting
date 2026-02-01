@@ -23,35 +23,35 @@ namespace Assets.Source.Scripts.Storage
 
             IsInitialized = true;
 
-            ConfirmFirstItem();
+            //ConfirmFirstItem();
         }
 
         public IReadOnlyList<ItemSO> GetItemsSO()
             => _itemsData.AsReadOnly();
 
-        public void BuyItem(Item selectedItem, Inventory inventory)
+        public void BuyItem(Item selectedItem)
         {
-            ValidateInventory(selectedItem, inventory);
+            ValidateInventory(selectedItem, _inventory);
 
-            if (inventory.HasItem(selectedItem))
+            if (_inventory.HasItem(selectedItem))
                 return;
 
             if (_playerWallet.CanAfford(selectedItem.Price))
             {
-                _playerWallet.BuyItem(selectedItem.Price);
-                inventory.AddItem(selectedItem);
+                _playerWallet.SpendPoints(selectedItem.Price);
                 selectedItem.Buy();
+                _inventory.AddItem(selectedItem);
             }
         }
 
-        public void EquipItem(Item selectedItem, Inventory inventory)
+        public void EquipItem(Item selectedItem)
         {
-            ValidateInventory(selectedItem, inventory);
+            ValidateInventory(selectedItem, _inventory);
 
-            if (inventory.HasItem(selectedItem) == false)
+            if (_inventory.HasItem(selectedItem) == false)
                 return;
 
-            inventory.EquipItem(selectedItem);
+            _inventory.EquipItem(selectedItem);
         }
 
         public Item GetItemByID(string id)
@@ -67,29 +67,32 @@ namespace Assets.Source.Scripts.Storage
             return item;
         }
 
-        private void ConfirmFirstItem()
-        {
-            int indexFirstScin = 0;
-            ItemSO firstItemData = _itemsData[indexFirstScin];
+        //подумать над загрузкой первого предмета
+        //private void ConfirmFirstItem()
+        //{
+        //    //проверка ,есть ли в инветоре первый предмет
+        //    int indexFirstScin = 0;
+        //    ItemSO firstItemData = _itemsData[indexFirstScin];
 
-            if (firstItemData == null)
-            {
-                throw new NullReferenceException(
-                    "First ItemSO in list is null.");
-            }
+        //    if (firstItemData == null)
+        //    {
+        //        throw new NullReferenceException(
+        //            "First ItemSO in list is null.");
+        //    }
 
-            if (firstItemData.Item == null)
-            {
-                throw new NullReferenceException(
-                    "Item prefab in ItemSO is missing.");
+        //    if (firstItemData.Item == null)
+        //    {
+        //        throw new NullReferenceException(
+        //            "Item prefab in ItemSO is missing.");
 
-            }
+        //    }
 
-            Item firstItem = Instantiate(firstItemData.Item);
+        //    Item firstItem = Instantiate(firstItemData.Item);
 
-            firstItem.Initialize(firstItemData);
-            _inventory.AddItem(firstItem);
-        }
+        //    firstItem.Initialize(firstItemData);
+        //    firstItem.Buy();
+        //    _inventory.AddItem(firstItem);
+        //}
 
         private void ValidateInitializeArguments()
         {
