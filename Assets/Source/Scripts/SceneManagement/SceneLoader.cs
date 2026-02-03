@@ -10,7 +10,7 @@ namespace Assets.Source.Scripts.SceneManagement
         private const int GameSceneIndex = 1;
         private const int MainMenuIndex = 0;
 
-        private AsyncOperation _currentLoadOperation;
+        private AsyncOperation _currentOperation;
 
         public void LoadMainMenu()
         {
@@ -24,23 +24,22 @@ namespace Assets.Source.Scripts.SceneManagement
 
         private void LoadScene(int sceneIndex)
         {
-            ValidateIndex(sceneIndex);
+            if (sceneIndex < 0
+                || sceneIndex
+                >= SceneManager.sceneCountInBuildSettings)
+            {
+                throw new ArgumentOutOfRangeException(nameof(sceneIndex));
+            }
 
             LoadingWindow.Instance.Show();
 
-            _currentLoadOperation = SceneManager.LoadSceneAsync(sceneIndex);
+            _currentOperation = SceneManager.LoadSceneAsync(sceneIndex);
 
-            _currentLoadOperation.completed += _ =>
+            _currentOperation.completed += _ =>
             {
                 if (LoadingWindow.Instance != null)
                     LoadingWindow.Instance.Hide();
             };
-        }
-
-        private void ValidateIndex(int index)
-        {
-            if (index < 0 || index >= SceneManager.sceneCountInBuildSettings)
-                throw new ArgumentOutOfRangeException(nameof(index));
         }
     }
 }

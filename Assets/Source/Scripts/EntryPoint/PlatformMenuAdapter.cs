@@ -5,19 +5,15 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
-    public class PlatformMenuAdapter : PlatformAdapter
+    public class PlatformMenuAdapter : BasePlatformAdapter
     {
         [Header("Panels")]
         [SerializeField] private LanguageView _desktopLanguageView;
         [SerializeField] private LanguageView _mobileLanguageView;
-        [Header("Loading Window Image")]
-        [SerializeField] private Sprite _desktopImage;
-        [SerializeField] private Sprite _mobileImage;
 
-        private LoadingWindow _loadingWindow;
         private LanguageSetter _languageSetter;
 
-        public void Initialize(LoadingWindow loadingWindow,LanguageSetter languageSetter)
+        public void Initialize(LoadingWindow loadingWindow, LanguageSetter languageSetter)
         {
             if (loadingWindow == null)
                 throw new ArgumentNullException(nameof(loadingWindow));
@@ -31,21 +27,18 @@ namespace Assets.Source.Scripts.EntryPoint
             if (_mobileLanguageView == null)
                 throw new ArgumentNullException(nameof(_mobileLanguageView));
 
-            _loadingWindow = loadingWindow;
             _languageSetter = languageSetter;
 
-            InitializeBase();
+            InitializeBase(loadingWindow);
         }
 
         protected override void OnMobileSelected()
         {
-            _loadingWindow.SetImage(_mobileImage);
             _mobileLanguageView.Initialize(_languageSetter);
         }
 
         protected override void OnDesktopSelected()
         {
-            _loadingWindow.SetImage(_desktopImage);
             _desktopLanguageView.Initialize(_languageSetter);
         }
     }

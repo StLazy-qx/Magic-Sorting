@@ -1986,19 +1986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c37c9c1fb7c5646a012dfd9c3784a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _createdButtons: []
-  _itemFactory: {fileID: 203805686}
-  _selectItemColor:
-    r: 0.31073725
-    g: 0.6415094
-    b: 0.26326096
-    a: 1
-  _defaultColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  _selectedButton: {fileID: 0}
 --- !u!1 &210416150
 GameObject:
   m_ObjectHideFlags: 0
@@ -9203,6 +9190,8 @@ MonoBehaviour:
   _columnsFactory: {fileID: 946066169}
   _vesselFactory: {fileID: 654057274}
   _storeItemFactory: {fileID: 203805686}
+  _loadingWindowPrefab: {fileID: 8549297619527576458, guid: 3a48cda6fca8fa644a1517a8487e85bd,
+    type: 3}
   _objectsToInitializeMono:
   - {fileID: 569123143}
   - {fileID: 1845276654}
@@ -9265,14 +9254,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80198e0fe40a41f43a88bea8e4bd48ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobileCanvas: {fileID: 602692575}
-  _desktopCanvas: {fileID: 1127532906}
-  _itemFactory: {fileID: 203805686}
-  _desktopContent: {fileID: 1086301618}
-  _mobileContent: {fileID: 2052164915}
+  MobileCanvas: {fileID: 602692575}
+  DesktopCanvas: {fileID: 1127532906}
+  ItemFactory: {fileID: 203805686}
+  DesktopContent: {fileID: 1086301618}
+  MobileContent: {fileID: 2052164915}
   _soundSetter: {fileID: 908648324}
   _mobileAudioViewHandler: {fileID: 739493107}
   _desktopAudioViewHandler: {fileID: 197352327}
+  _desktopImage: {fileID: 21300000, guid: bf7b25fe983d4b54dadfeb5b95695f49, type: 3}
+  _mobileImage: {fileID: 21300000, guid: fb4b23168f2fa6f4090ba41be7b6dc77, type: 3}
   _desktopObjectsPosition: {fileID: 1009920591}
   _mobileObjectsPosition: {fileID: 1009920592}
   _finalMatchPanelDesktop: {fileID: 1917943191}

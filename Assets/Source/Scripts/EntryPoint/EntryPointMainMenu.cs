@@ -10,7 +10,7 @@ namespace Assets.Source.Scripts.EntryPoint
 {
     public class EntryPointMainMenu : MonoBehaviour
     {
-        [SerializeField] private PlatformMenuAdapter _platformDependentMenuSetter;
+        [SerializeField] private PlatformMenuAdapter _platformSetter;
         [SerializeField] private StoreItemFactory _storeItemFactory;
         [SerializeField] private LoadingWindow _loadingWindowPrefab;
         [SerializeField] private MonoBehaviour[] _servicesMono;
@@ -26,7 +26,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _loadingWindow = Instantiate(_loadingWindowPrefab);
             _languageSetter = new LanguageSetter(YG2.lang);
 
-            _platformDependentMenuSetter.Initialize(_loadingWindow, _languageSetter);
+            _platformSetter.Initialize(_loadingWindow, _languageSetter);
 
             foreach (var mono in _servicesMono)
             {
@@ -45,15 +45,16 @@ namespace Assets.Source.Scripts.EntryPoint
             }
 
             yield return new WaitUntil(()
-                => _servicesInitializable.TrueForAll(currentObject => currentObject.IsInitialized));
+                => _servicesInitializable.TrueForAll
+                (currentObject => currentObject.IsInitialized));
 
             _storeItemFactory.Spawn();
         }
 
         private void ValidateDependencies()
         {
-            if (_platformDependentMenuSetter == null)
-                throw new ArgumentNullException(nameof(_platformDependentMenuSetter));
+            if (_platformSetter == null)
+                throw new ArgumentNullException(nameof(_platformSetter));
 
             if (_storeItemFactory == null)
                 throw new ArgumentNullException(nameof(_storeItemFactory));

@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{AB4D310A-D7F3-BEBE-97F9-88FD1C70052D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -72,7 +73,7 @@
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformAdapter.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\BasePlatformAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\Source\Scripts\UI\GamePanel\Panel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\LBExample.cs" />

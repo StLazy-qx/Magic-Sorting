@@ -8,7 +8,7 @@ using Assets.Source.Scripts.UI.Buttons;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
-    public class PlatformGameAdapter : PlatformAdapter
+    public class PlatformGameAdapter : BasePlatformAdapter
     {
         [Header("Begin Objects Position")]
         [SerializeField] private ObjectsBeginPositionSetter _desktopObjectsPosition;
@@ -23,10 +23,10 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private FinalGameSession _finalGameSession;
         [SerializeField] private ClickImpactHandler _clickImpactHandler;
 
-        public void Initialize()
+        public void Initialize(LoadingWindow loadingWindow)
         {
-            ValidateRequiredDependencies();
-            InitializeBase();
+            ValidateRequiredDependencies(loadingWindow);
+            InitializeBase(loadingWindow);
         }
 
         protected override void OnMobileSelected()
@@ -45,8 +45,11 @@ namespace Assets.Source.Scripts.EntryPoint
             _clickImpactHandler.SetButton(_reverseButtonDesktop);
         }
 
-        private void ValidateRequiredDependencies()
+        private void ValidateRequiredDependencies(LoadingWindow loadingWindow)
         {
+            if (loadingWindow == null)
+                throw new ArgumentNullException(nameof(loadingWindow));
+
             if (_desktopObjectsPosition == null)
                 throw new ArgumentNullException(nameof(_desktopObjectsPosition));
 

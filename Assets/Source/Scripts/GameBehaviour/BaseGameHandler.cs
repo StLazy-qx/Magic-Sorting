@@ -16,9 +16,9 @@ namespace Assets.Source.Scripts.GameBehaviour
         protected readonly int GamePause = 0;
         protected readonly int GameResume = 1;
 
-        protected SceneLoader _sceneLoader;
-        protected Wallet _wallet;
-        protected DifficultyState _difficultyState;
+        protected SceneLoader SceneLoader;
+        protected Wallet Wallet;
+        protected DifficultyState DifficultyState;
 
         public event Action<bool> PauseStateChanged;
         public event Action GameClosed;
@@ -27,23 +27,23 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void Initialize()
         {
-            if (_sceneLoader == null) 
-                throw new ArgumentNullException(nameof(_sceneLoader));
+            if (SceneLoader == null)
+                throw new ArgumentNullException(nameof(SceneLoader));
 
-            if (_wallet == null)
+            if (Wallet == null)
             {
                 throw new InvalidOperationException(
                     "Wallet not injected via Construct().");
             }
 
-            if (_difficultyState == null)
+            if (DifficultyState == null)
             {
                 throw new InvalidOperationException(
                     "DifficultyState not injected via Construct().");
             }
 
             ContinueGame();
-            _wallet.Reset();
+            Wallet.Reset();
             ExtendInitialize();
 
             IsInitialized = true;
@@ -65,12 +65,12 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void ResumeGame()
         {
-            _sceneLoader.LoadGameScene();
+            SceneLoader.LoadGameScene();
         }
 
         public virtual void OpenMainMenu()
         {
-            _sceneLoader.LoadMainMenu();
+            SceneLoader.LoadMainMenu();
         }
 
         public virtual void QuitGame()
@@ -104,9 +104,9 @@ namespace Assets.Source.Scripts.GameBehaviour
             Wallet wallet, 
             DifficultyState difficultyState)
         {
-            _sceneLoader = sceneLoader;
-            _wallet = wallet;
-            _difficultyState = difficultyState;
+            SceneLoader = sceneLoader;
+            Wallet = wallet;
+            DifficultyState = difficultyState;
         }
     }
 }

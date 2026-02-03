@@ -12,14 +12,19 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
+        [SerializeField] private LoadingWindow _loadingWindowPrefab;
         [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
+        private LoadingWindow _loadingWindow;
         private List<IObjectInitilizable> _objectsInitilizable = new();
 
         private void Awake()
         {
             ValidateDependencies();
-            _platformDependentSetter.Initialize();
+
+            _loadingWindow = Instantiate(_loadingWindowPrefab);
+
+            _platformDependentSetter.Initialize(_loadingWindow);
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());
         }

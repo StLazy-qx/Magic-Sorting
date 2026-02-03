@@ -34,11 +34,11 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             ContinueGame();
 
-            DifficultyLevel current = _difficultyState.CurrentDifficulty;
+            DifficultyLevel current = DifficultyState.CurrentDifficulty;
             DifficultyLevel newLevel = GetIncreasedDifficulty(current);
 
             if (newLevel != current)
-                _difficultyState.SetDifficulty(newLevel);
+                DifficultyState.SetDifficulty(newLevel);
 
             ResetFactories();
             ResetEntity();
@@ -67,7 +67,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private void ResetEntity()
         {
-            _wallet.Reset();
+            Wallet.Reset();
             _waitingPoint.Reset();
             _clickImpactHandler.Reset();
         }
@@ -75,9 +75,9 @@ namespace Assets.Source.Scripts.GameBehaviour
         private void ResetFactories()
         {
             _vesselFactory.ResetFactory(
-                _difficultyState.CurrentDifficulty);
+                DifficultyState.CurrentDifficulty);
             _columnsFactory.ResetFactory(
-                _difficultyState.CurrentDifficulty);
+                DifficultyState.CurrentDifficulty);
         }
 
         private void ValidateObjects()
