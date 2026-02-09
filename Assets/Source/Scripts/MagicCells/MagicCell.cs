@@ -9,6 +9,7 @@ namespace Assets.Source.Scripts.MagicCells
     public class MagicCell : MonoBehaviour, IColorable
     {
         [SerializeField] private ColorRandomizer _colorRandomizer;
+        [SerializeField] private CellAnimator _animator;
 
         private Renderer _renderer;
 

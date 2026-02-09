@@ -58,8 +58,8 @@ namespace Assets.Source.Scripts.ActionsHandlers
         }
 
         private void SetupParticle(
-            ParticleSystem particle, 
-            Vector3 beginPosition, 
+            ParticleSystem particle,
+            Vector3 beginPosition,
             Color color)
         {
             particle.transform.position = beginPosition;
@@ -74,7 +74,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
             ParticleSystem.MainModule main = particle.main;
             main.startColor = color;
 
-            ParticleSystem[] childParticles = 
+            ParticleSystem[] childParticles =
                 particle.GetComponentsInChildren<ParticleSystem>();
 
             foreach (ParticleSystem childParticle in childParticles)

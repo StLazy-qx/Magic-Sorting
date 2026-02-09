@@ -1,4 +1,4 @@
-using Assets.Source.Scripts.Colorize;
+﻿using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.MagicCells;
 using System;
 using UnityEngine;
@@ -7,21 +7,23 @@ namespace Assets.Source.Scripts.Vessels
 {
     [RequireComponent(typeof(VolumeAggregator))]
 
-    public class Vessel : MonoBehaviour, IColorable
+    class MixVessel : MonoBehaviour, IColorable
     {
         [SerializeField] private Liquid _liquid;
         [SerializeField] private int _maxSize;
         [SerializeField] private int _points;
+        [SerializeField] private int _colorCount;
 
-        private Color _mainColor;
+        private Color _currentColor;
         private VolumeAggregator _aggregator;
 
         public event Action<Vector3> Filled;
+        public event Action<Color> ColorChanged;
         public event Action<Vector3, int, Color> RewardIssued;
 
         public int Count => _maxSize;
         public bool IsActive => gameObject.activeSelf;
-        public Color Color => _mainColor;
+        public Color Color => _currentColor;
         public Liquid Liquid => _liquid;
         public bool IsFilled { get; private set; }
 
@@ -53,14 +55,14 @@ namespace Assets.Source.Scripts.Vessels
             {
                 IsFilled = true;
 
-                RewardIssued?.Invoke(transform.position, _points, _mainColor);
+                RewardIssued?.Invoke(transform.position, _points, _currentColor);
                 Filled?.Invoke(transform.position);
                 gameObject.SetActive(false);
             }
         }
 
         public void SetColor(Color color)
-            => _mainColor = color;
+            => _currentColor = color;
 
         private void ValidateInitializeArguments()
         {

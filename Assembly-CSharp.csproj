@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{AB4D310A-D7F3-BEBE-97F9-88FD1C70052D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -73,7 +72,6 @@
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\Source\Scripts\EntryPoint\BasePlatformAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\Source\Scripts\UI\GamePanel\Panel.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\LBExample.cs" />
@@ -116,6 +114,7 @@
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yndexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\CameraMover.cs" />
     <Compile Include="Assets\Source\Scripts\SceneManagement\SceneLoader.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Source\Scripts\UI\SoundView\VolumeSliderViewHandler.cs" />
@@ -178,6 +177,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformGameAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseButton.cs" />
+    <Compile Include="Assets\Source\Scripts\Vessels\MixVessel.cs" />
     <Compile Include="Assets\Source\Scripts\Storage\StoreItemPresenter.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\OptionalPlatform.cs" />
@@ -201,10 +201,12 @@
     <Compile Include="Assets\PluginYourGames\Modules\RedefinePlayerPrefs\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Example\Scripts\ClipboardExample.cs" />
+    <Compile Include="Assets\Source\Scripts\EntryPoint\BasePlatformAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\GameSessionHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\Auth_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_info.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Utils\LocalStorage_yg.cs" />
+    <Compile Include="Assets\Source\Scripts\MagicCells\CellAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoSceneLoadButton.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\StackMagicCells.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Flags\Scripts\Flags_yg.cs" />

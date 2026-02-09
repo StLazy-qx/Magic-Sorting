@@ -34,11 +34,10 @@ namespace Assets.Source.Scripts.Vessels
                     "Renderer material is not assigned");
             }
 
-            Color fabricColor = GetFabricAdjustedColor(color);
-            _renderer.material.color = fabricColor;
+            _renderer.material.color = AdjustedColor(color);
         }
 
-        private Color GetFabricAdjustedColor(Color color)
+        private Color AdjustedColor(Color color)
         {
             Color.RGBToHSV(color, out float hue, out float saturation, out float value);
 
