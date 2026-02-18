@@ -4,8 +4,6 @@ using System;
 
 namespace Assets.Source.Scripts.Vessels
 {
-    [RequireComponent(typeof(Vessel))]
-
     public class VolumeAggregator : MonoBehaviour
     {
         private const float Half = 0.5f;
@@ -18,7 +16,6 @@ namespace Assets.Source.Scripts.Vessels
         private float _deltaSize;
         private Vector3 _initialBottomPoint;
         private Liquid _liquid;
-
 
         public event Action<int> SizeChanged;
 

@@ -49,6 +49,19 @@ namespace Assets.Source.Scripts.Pool
             CreateCells(countCells);
         }
 
+        public MagicCell GetUpperMagicCell(/*out Color color, out Vector3 position*/)
+        {
+            //MagicCell cell = _cellsStack.Peek();
+
+            //color = cell.Color;
+            //position = cell.transform.position;
+
+            if (_cellsStack.TryPeek(out MagicCell cell))
+                return cell;
+
+            return null;
+        }
+
         private void OnDisable()
         {
             _gameHandler.PauseStateChanged -= OnGamePause;

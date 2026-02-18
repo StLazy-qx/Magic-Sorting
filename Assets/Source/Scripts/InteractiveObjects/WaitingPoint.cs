@@ -17,6 +17,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
         private MagicCell _waitingCell;
 
+        public Vector3 CellPosition => _waitingCell.transform.position;
         public bool IsFreePlace { get; private set; }
 
         private void Awake()
@@ -38,10 +39,12 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
             IsFreePlace = false;
             Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
+
             _waitingCell = Instantiate(
                 cell, 
                 _storagePoint.position, 
                 cellRotation);
+
             _waitingCell.Interacted += OnCellClicked;
         }
 

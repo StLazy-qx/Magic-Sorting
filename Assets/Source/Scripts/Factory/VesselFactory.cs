@@ -1,9 +1,10 @@
-using System.Linq;
-using UnityEngine;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.GameDifficulty;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Vessels;
+using Assets.Source.Scripts.Pool;
+using System.Linq;
+using UnityEngine;
 using System;
 
 namespace Assets.Source.Scripts.Factory
@@ -11,6 +12,7 @@ namespace Assets.Source.Scripts.Factory
     public class VesselFactory : Factory<Vessel>
     {
         [SerializeField] private VesselStateTracker _gameFullingBehaviour;
+        [SerializeField] private VesselPool _vesselPool;
         [SerializeField] private MagicCellRouter _distributerMagicCell;
         [SerializeField] private ColorRandomizer _colorRandomizer;
 

@@ -11,7 +11,7 @@ namespace Assets.Source.Scripts.GameDifficulty
     {
         public DifficultyLevel level;
         [Header("Columns settings")]
-        public int maxSpawnPoints;
+        public int columnsCount;
         public int minCellsPerColumn;
         [Header("Vessels settings")]
         public int vesselsCount;
@@ -19,7 +19,7 @@ namespace Assets.Source.Scripts.GameDifficulty
 
         private void OnValidate()
         {
-            ValidateValue(maxSpawnPoints, nameof(maxSpawnPoints));
+            ValidateValue(columnsCount, nameof(columnsCount));
             ValidateValue(minCellsPerColumn, nameof(minCellsPerColumn));
             ValidateValue(vesselsCount, nameof(vesselsCount));
             ValidateValue(colorsCount, nameof(colorsCount));

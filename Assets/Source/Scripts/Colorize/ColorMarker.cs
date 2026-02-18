@@ -11,18 +11,12 @@ namespace Assets.Source.Scripts.Colorize
 
         private Liquid _liquid;
 
-        private Color _assignedColor; // проверь
-
-        public Color AssignedColor => _assignedColor; // проверь
-
         public void Initialize(Color color)
         {
             ValidateObjects();
 
             if (_vessel != null)
                 _liquid = _vessel.Liquid;
-
-            _assignedColor = color; // проверь
 
             if (_vessel != null)
                 _vessel.SetColor(color);
