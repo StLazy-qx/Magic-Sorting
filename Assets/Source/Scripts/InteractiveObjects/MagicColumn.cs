@@ -11,7 +11,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
     public class MagicColumn : MonoBehaviour
     {
         [SerializeField] private StackMagicCells _stackHandler;
-        [SerializeField] private ClickImpactHandler _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
         private int _countCells;
         private float _prefabHeight;

@@ -7,7 +7,7 @@ namespace Assets.Source.Scripts.Vessels
 {
     [RequireComponent(typeof(VolumeAggregator))]
 
-    public class Vessel : MonoBehaviour, IColorable
+    public class MonoVessel : MonoBehaviour, IColorable, IVesselable
     {
         [SerializeField] private Liquid _liquid;
         [SerializeField] private int _maxSize;

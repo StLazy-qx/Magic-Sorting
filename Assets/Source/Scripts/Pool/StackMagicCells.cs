@@ -19,7 +19,7 @@ namespace Assets.Source.Scripts.Pool
         private MagicCellsFactory _factory;
         private MagicCellRouter _cellRouter;
         private ShuffledColorDistributor _colorSource;
-        private ClickImpactHandler _clickImpactHandler;
+        private ClickModeSwitcher _clickImpactHandler;
         private Transform _parent;
         private float _prefabHeight;
         private bool _isPaused;
@@ -29,7 +29,7 @@ namespace Assets.Source.Scripts.Pool
             MagicCellsFactory factory,
             MagicCellRouter cellRouter,
             ShuffledColorDistributor colorSource,
-            ClickImpactHandler clickHandler,
+            ClickModeSwitcher clickHandler,
             Transform parent,
             int countCells,
             float prefabHeight)
@@ -130,7 +130,7 @@ namespace Assets.Source.Scripts.Pool
         MagicCellsFactory factory,
         MagicCellRouter cellRouter,
         ShuffledColorDistributor colorSource,
-        ClickImpactHandler clickImpactHandler,
+        ClickModeSwitcher clickImpactHandler,
         Transform parent)
         {
             if (factory == null)

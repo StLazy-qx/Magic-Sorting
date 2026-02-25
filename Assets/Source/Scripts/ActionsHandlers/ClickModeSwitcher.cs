@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.ActionsHandlers
 {
-    public class ClickImpactHandler : MonoBehaviour
+    public class ClickModeSwitcher : MonoBehaviour
     {
         private ReverseButton _reverceButton;
+        private ButtonRewardedAdv _rewardedButton;
         private bool _isReverseUsed;
 
         public event Action<ClickImpactMode> ModeChanged;
@@ -24,14 +25,18 @@ namespace Assets.Source.Scripts.ActionsHandlers
             _isReverseUsed = false;
 
             _reverceButton.ResetState();
+            _rewardedButton.Disable();
             ActivateDistributionMode();
-            UpdateButtonState();
+            UpdateButtonsState();
         }
 
-        public void SetButton(ReverseButton reverseButton)
+        public void SetButton(ReverseButton reverseButton, ButtonRewardedAdv rewardedButton)
         {
             _reverceButton = reverseButton
                 ?? throw new ArgumentNullException(nameof(reverseButton));
+
+            _rewardedButton = rewardedButton
+                ?? throw new ArgumentNullException(nameof(rewardedButton));
 
             _reverceButton.OnClick.AddListener(ToggleMode);
         }
@@ -43,17 +48,16 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
             _isReverseUsed = true;
 
-            UpdateButtonState();
+            _rewardedButton.Enable();
+            UpdateButtonsState();
         }
 
-        //подумать о другой реализации
         public void ToggleMode()
         {
             if (_isReverseUsed &&
                 CurrentMode == ClickImpactMode.ModeReverce)
             {
                 ActivateDistributionMode();
-
                 return;
             }
 
@@ -63,7 +67,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 ActivateDistributionMode();
         }
 
-        private void UpdateButtonState()
+        private void UpdateButtonsState()
         {
             bool shouldDisable =
                 (_isReverseUsed && CurrentMode ==
@@ -71,10 +75,13 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 || (_isReverseUsed && CurrentMode ==
                 ClickImpactMode.ModeDistribution);
 
-            if (shouldDisable)
-                _reverceButton.Disable();
-            else
-                _reverceButton.Enable();
+            _reverceButton.ResetState();
+            _rewardedButton.ResetState();
+
+            //if (shouldDisable)
+            //    _reverceButton.Disable();
+            //else
+            //    _reverceButton.Enable();
         }
 
         private void ActivateDistributionMode()

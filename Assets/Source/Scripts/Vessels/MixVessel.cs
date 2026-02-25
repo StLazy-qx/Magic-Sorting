@@ -7,13 +7,14 @@ namespace Assets.Source.Scripts.Vessels
 {
     [RequireComponent(typeof(VolumeAggregator))]
 
-    class MixVessel : MonoBehaviour, IColorable
+    class MixVessel : MonoBehaviour, IColorable, IVesselable
     {
         [SerializeField] private Liquid _liquid;
         [SerializeField] private int _maxSize;
         [SerializeField] private int _points;
-        [SerializeField] private int _colorCount;
 
+        private Color[] _colors;
+        private int _currentColorIndex;
         private Color _currentColor;
         private VolumeAggregator _aggregator;
 
@@ -36,7 +37,7 @@ namespace Assets.Source.Scripts.Vessels
             if (_aggregator == null)
             {
                 throw new NullReferenceException(
-                    "VolumeAggregator component is missing on Vessel.");
+                    "Volume Aggregator component is missing on Vessel.");
             }
 
             _aggregator.InitParameters(_maxSize, _liquid);
@@ -50,6 +51,7 @@ namespace Assets.Source.Scripts.Vessels
                 return;
 
             _aggregator.GrowUpVolume();
+            UpdateColorByLevel();
 
             if (_aggregator.IsFull)
             {
@@ -57,12 +59,29 @@ namespace Assets.Source.Scripts.Vessels
 
                 RewardIssued?.Invoke(transform.position, _points, _currentColor);
                 Filled?.Invoke(transform.position);
+
                 gameObject.SetActive(false);
             }
         }
 
         public void SetColor(Color color)
             => _currentColor = color;
+
+        private void UpdateColorByLevel()
+        {
+            int level = _aggregator.CurrentVolume;
+
+            if (level <= 0)
+                return;
+
+            int newIndex = Mathf.Clamp(level - 1, 0, _colors.Length - 1);
+
+            if (newIndex != _currentColorIndex)
+            {
+                _currentColorIndex = newIndex;
+                SetColor(_colors[_currentColorIndex]);
+            }
+        }
 
         private void ValidateInitializeArguments()
         {

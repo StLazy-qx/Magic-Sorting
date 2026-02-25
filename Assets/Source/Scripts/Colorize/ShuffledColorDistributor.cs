@@ -11,13 +11,13 @@ namespace Assets.Source.Scripts.Colorize
     {
         [SerializeField] private ParticlePool _particlePool;
 
-        private IReadOnlyList<Vessel> _vessels;
+        private IReadOnlyList<MonoVessel> _vessels;
         private List<Color> _colors = new List<Color>();
         private Queue<Color> _mixedColors = new Queue<Color>();
 
         public int TotalColors => _colors.Count;
 
-        public void Initialize(IReadOnlyList<Vessel> vessels)
+        public void Initialize(IReadOnlyList<MonoVessel> vessels)
         {
             ValidateVessels(vessels);
 
@@ -36,7 +36,7 @@ namespace Assets.Source.Scripts.Colorize
         {
             _colors.Clear();
 
-            foreach (Vessel vessel in _vessels)
+            foreach (MonoVessel vessel in _vessels)
             {
                 if (vessel.Count <= 0)
                 {
@@ -73,7 +73,7 @@ namespace Assets.Source.Scripts.Colorize
                 _mixedColors.Enqueue(color);
         }
 
-        private void ValidateVessels(IReadOnlyList<Vessel> vessels)
+        private void ValidateVessels(IReadOnlyList<MonoVessel> vessels)
         {
             if (vessels == null)
                 throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");

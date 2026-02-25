@@ -13,47 +13,56 @@ namespace Assets.Source.Scripts.Tutorial
     class Seeker : MonoBehaviour
     {
         [SerializeField] private AnimationParticle _animationParticle;
+        [SerializeField] private MagicCellRouter _cellRouter;
         [SerializeField] private MagicColumnPool _magicColumnPool;
         [SerializeField] private VesselPool _vesselPool;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private Transform[] _columns;
 
-        private float _beginsearchInterval = 2f;
-        private float _searchInterval = 10f;
-        private MagicCell _cerruntCell;
+        private float _beginsearchInterval = 1f;
+        private float _searchInterval = 7f;
+        private Coroutine _beginSearchRoutine;
         private Coroutine _searchRoutine;
         private WaitForSeconds _waitForSearch;
+        private WaitForSeconds _beginWaitForSearch;
         private List<MagicColumn> _currentColumns;
-        private List<Vessel> _currentVessels;
+        private List<MonoVessel> _currentVessels;
 
         private void Awake()
         {
-            _currentVessels = new List<Vessel>();
+            _currentVessels = new List<MonoVessel>();
+            _currentColumns = new List<MagicColumn>();
             _waitForSearch = new WaitForSeconds(_searchInterval);
+            _beginWaitForSearch = new WaitForSeconds(_beginsearchInterval);
 
             ValidateDependencies();
         }
 
         private void Start()
         {
-            StartSearchLoop();
+            if (_beginSearchRoutine == null)
+                _beginSearchRoutine = StartCoroutine(BeginSearchRoutine());
         }
 
         private void OnEnable()
         {
-            StartSearchLoop();
+            _cellRouter.CellDeparturing += OnStartSearchLoop;
         }
 
         private void OnDisable()
         {
+            _cellRouter.CellDeparturing -= OnStartSearchLoop;
+
             StopSearchLoop();
         }
 
-        private void StartSearchLoop()
+        private void OnStartSearchLoop()
         {
-            if (_searchRoutine == null)
-                _searchRoutine = StartCoroutine(SearchRoutine());
+            if (_searchRoutine != null)
+                StopCoroutine(_searchRoutine);
+
+            _searchRoutine = StartCoroutine(SearchRoutine());
         }
 
         private void StopSearchLoop()
@@ -66,81 +75,82 @@ namespace Assets.Source.Scripts.Tutorial
             }
         }
 
-        private IEnumerator SearchRoutine()
+        private IEnumerator BeginSearchRoutine()
         {
-            yield return new WaitForSeconds(_beginsearchInterval);
+            yield return _beginWaitForSearch;
+
             PerformAnalysis();
 
-            while (true)
-            {
-                yield return _waitForSearch;
+            _beginSearchRoutine = null;
+        }
 
-                PerformAnalysis();
-            }
+        private IEnumerator SearchRoutine()
+        {
+            yield return _waitForSearch;
+
+            PerformAnalysis();
+
+            _searchRoutine = null;
         }
 
         private void PerformAnalysis()
         {
             LoadCurrentColumns();
             LoadCurrentVessels();
-            SetCurrentColumnsCondition();
+            SearchForMatchingCell();
         }
 
         public void LoadCurrentColumns()
         {
-            IReadOnlyList<MagicColumn> columnPool = _magicColumnPool.GetActiveObjects();
-
-            _currentColumns = new List<MagicColumn>(columnPool);
+            _currentColumns.Clear();
+            _currentColumns.AddRange(_magicColumnPool
+                .GetActiveObjects());
         }
 
         public void LoadCurrentVessels()
         {
             _currentVessels.Clear();
 
-            IReadOnlyList<Vessel> vessels = _vesselFactory.Objects;
-
-            foreach (var vessel in vessels)
+            foreach (var vessel in _vesselFactory.Objects)
             {
                 if (vessel.IsActive)
                     _currentVessels.Add(vessel);
             }
         }
 
-        private void SetCurrentColumnsCondition()
+        private void SearchForMatchingCell()
         {
-            bool isMatchFound = false;
             MagicCell firstWrongCell = null;
 
-            foreach (Vessel vessel in _currentVessels)
+            foreach (MonoVessel vessel in _currentVessels)
             {
-                if (vessel.gameObject.activeSelf == false)
-                    continue;
-
                 foreach (MagicColumn column in _currentColumns)
                 {
-                    StackMagicCells stack = column.GetComponent<StackMagicCells>();
+                    MagicCell cell = GetUpperCell(column);
 
-                    FindCorrectMagicCell(stack);
-
-                    if (_cerruntCell == null)
+                    if (cell == null)
                         continue;
 
-                    if (_cerruntCell.Color == vessel.Color)
+                    if (cell.Color == vessel.Color)
                     {
-                        _animationParticle.Play(_cerruntCell.transform.position);
-
-                        isMatchFound = true;
+                        _animationParticle.Play(cell.transform.position);
 
                         return;
                     }
 
                     if (firstWrongCell == null)
-                        firstWrongCell = _cerruntCell;
+                        firstWrongCell = cell;
                 }
-
-                if (isMatchFound == false)
-                    HandleNoMatch(firstWrongCell);
             }
+
+            HandleNoMatch(firstWrongCell);
+        }
+
+        private MagicCell GetUpperCell(MagicColumn column)
+        {
+            StackMagicCells stack = column.GetComponent<StackMagicCells>();
+
+            return stack?.GetUpperMagicCell();
         }
 
         private void HandleNoMatch(MagicCell firstWrongCell)
@@ -158,13 +168,6 @@ namespace Assets.Source.Scripts.Tutorial
             }
         }
 
-        private void FindCorrectMagicCell(StackMagicCells stack)
-        {
-            _cerruntCell = stack != null
-                ? stack.GetUpperMagicCell()
-                : null;
-        }
-
         private void ValidateDependencies()
         {
             if (_animationParticle == null)
@@ -173,16 +176,28 @@ namespace Assets.Source.Scripts.Tutorial
                     $"{nameof(_animationParticle)} не назначен в инспекторе.");
             }
 
+            if (_cellRouter == null)
+            {
+                throw new InvalidOperationException(
+                    $"{nameof(_cellRouter)} не назначен в инспекторе.");
+            }
+
+            if (_magicColumnPool == null)
+            {
+                throw new InvalidOperationException(
+                    $"{nameof(_magicColumnPool)} не назначен в инспекторе.");
+            }
+
             if (_vesselPool == null)
             {
                 throw new InvalidOperationException(
                     $"{nameof(_vesselPool)} не назначен в инспекторе.");
             }
 
-            if (_columns == null || _columns.Length == 0)
+            if (_waitingPoint == null)
             {
                 throw new InvalidOperationException(
-                    $"{nameof(_columns)} не назначен или пуст.");
+                    $"{nameof(_waitingPoint)} не назначен или пуст.");
             }
         }
     }

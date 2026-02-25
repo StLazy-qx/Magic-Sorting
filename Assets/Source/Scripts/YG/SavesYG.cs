@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Assets.Source.Scripts.Items;
 
 namespace YG
 {
@@ -32,14 +31,6 @@ namespace YG
                 return;
 
             _itemIDs.Add(itemID);
-
-            //if (item == null)
-            //    return;
-
-            //if (_itemIDs.Contains(item.ID)) 
-            //    return;
-
-            //_itemIDs.Add(item.ID);
         }
 
         public void SaveEquippedItem(string itemID)
@@ -47,10 +38,6 @@ namespace YG
             _equippedItemID = string.IsNullOrWhiteSpace(itemID)
                 ? string.Empty
                 : itemID;
-
-            //_equippedItemID = item?
-            //    .ID ?? 
-            //    string.Empty;
         }
 
         public bool HasItem(string itemID)

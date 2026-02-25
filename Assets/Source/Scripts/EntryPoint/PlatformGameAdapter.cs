@@ -18,10 +18,12 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private ReverseButton _reverseButtonDesktop;
         [SerializeField] private ReverseButton _reverseButtonMobile;
+        [SerializeField] private ButtonRewardedAdv _rewardedButtonDesktop;
+        [SerializeField] private ButtonRewardedAdv _rewardedButtonMobile;
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
-        [SerializeField] private ClickImpactHandler _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
         public void Initialize(LoadingWindow loadingWindow)
         {
@@ -34,7 +36,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _mobileObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
-            _clickImpactHandler.SetButton(_reverseButtonMobile);
+            _clickImpactHandler.SetButton(_reverseButtonMobile, _rewardedButtonMobile);
         }
 
         protected override void OnDesktopSelected()
@@ -42,7 +44,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _desktopObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
-            _clickImpactHandler.SetButton(_reverseButtonDesktop);
+            _clickImpactHandler.SetButton(_reverseButtonDesktop, _rewardedButtonDesktop);
         }
 
         private void ValidateRequiredDependencies(LoadingWindow loadingWindow)

@@ -13,7 +13,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private int _seatsNumber;
         [SerializeField] private Transform _storagePoint;
         [SerializeField] private MagicCellRouter _cellRouter;
-        [SerializeField] private ClickImpactHandler _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
         private MagicCell _waitingCell;
 

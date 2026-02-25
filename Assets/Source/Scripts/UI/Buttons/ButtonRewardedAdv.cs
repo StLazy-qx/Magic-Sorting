@@ -1,21 +1,20 @@
 ﻿namespace Assets.Source.Scripts.UI.Buttons
 {
-    public class ReverseButton : StatefulButton
+    public class ButtonRewardedAdv : StatefulButton
     {
+        private void Start()
+        {
+            Disable();
+        }
+
         public void Disable()
         {
-            //Button.interactable = false;
             Button.gameObject.SetActive(false);
-
-            SetState(true);
         }
 
         public void Enable()
         {
-            //Button.interactable = true;
             Button.gameObject.SetActive(true);
-
-            ResetState();
         }
     }
 }

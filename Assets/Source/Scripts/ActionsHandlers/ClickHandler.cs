@@ -11,7 +11,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         [SerializeField] private GameSessionHandler _gameHandler;
 
-        private ClickImpactHandler _clickImpactHandler;
+        private ClickModeSwitcher _clickImpactHandler;
         private bool _canClick = true;
         private bool _isPaused;
 

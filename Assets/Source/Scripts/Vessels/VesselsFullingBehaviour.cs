@@ -24,7 +24,7 @@ namespace Assets.Source.Scripts.Vessels
         private Wallet _wallet;
         private Panel _currentPanel;
         private int _veselsCount;
-        private IReadOnlyList<Vessel> _vessels;
+        private IReadOnlyList<MonoVessel> _vessels;
 
         public bool IsInitialized { get; private set; }
 
@@ -33,7 +33,7 @@ namespace Assets.Source.Scripts.Vessels
             if (_vessels == null)
                 return;
 
-            foreach (Vessel vessel in _vessels)
+            foreach (MonoVessel vessel in _vessels)
                 vessel.RewardIssued -= OnPerformEffectCoroutine;
         }
 
@@ -54,13 +54,13 @@ namespace Assets.Source.Scripts.Vessels
             IsInitialized = true;
         }
 
-        public void SetVesselsList(IReadOnlyList<Vessel> vessels)
+        public void SetVesselsList(IReadOnlyList<MonoVessel> vessels)
         {
             ValidateVesselsList(vessels);
 
             _vessels = vessels;
 
-            foreach (Vessel vessel in _vessels)
+            foreach (MonoVessel vessel in _vessels)
                 vessel.RewardIssued += OnPerformEffectCoroutine;
 
             _effecter.Initialize(vessels.Count);
@@ -162,7 +162,7 @@ namespace Assets.Source.Scripts.Vessels
             }
         }
 
-        private void ValidateVesselsList(IReadOnlyList<Vessel> vessels)
+        private void ValidateVesselsList(IReadOnlyList<MonoVessel> vessels)
         {
             if (vessels == null)
             {

@@ -6,7 +6,7 @@ namespace Assets.Source.Scripts.Colorize
 {
     public class ColorMarker : MonoBehaviour
     {
-        [SerializeField] private Vessel _vessel;
+        [SerializeField] private MonoVessel _vessel;
         [SerializeField] private Flag _flag;
 
         private Liquid _liquid;

@@ -13,10 +13,10 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
-        [SerializeField] private ClickImpactHandler _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
         //зачем?
-        public ClickImpactHandler ClickImpactHandler => _clickImpactHandler;
+        public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
 
         private void Start()
         {
