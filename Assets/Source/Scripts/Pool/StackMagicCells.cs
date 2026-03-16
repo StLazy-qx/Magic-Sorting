@@ -37,6 +37,8 @@ namespace Assets.Source.Scripts.Pool
             ValidateArguments(factory, cellRouter, colorSource, clickHandler, parent);
             ValidateValues(countCells, prefabHeight);
 
+            ClearStack();
+
             _factory = factory;
             _cellRouter = cellRouter;
             _colorSource = colorSource;
@@ -70,6 +72,19 @@ namespace Assets.Source.Scripts.Pool
         private void OnGamePause(bool isPaused)
         {
             _isPaused = isPaused;
+        }
+
+        private void ClearStack()
+        {
+            while (_cellsStack.Count > 0)
+            {
+                MagicCell cell = _cellsStack.Pop();
+
+                cell.Interacted -= OnCellClicked;
+
+                if (cell != null)
+                    Destroy(cell.gameObject);
+            }
         }
 
         private void CreateCells(int countCells)
@@ -122,7 +137,7 @@ namespace Assets.Source.Scripts.Pool
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 
                 _clickImpactHandler.Reverse();
-                _clickImpactHandler.ToggleMode();
+                _clickImpactHandler.OnToggleMode();
             }
         }
 

@@ -63,7 +63,6 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PlatformEventsYG2.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\VesselPool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_info.cs" />
-    <Compile Include="Assets\Source\Scripts\Colorize\ColorMarkerMix.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\UtilsLang.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\IGameHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -114,6 +113,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Attributes\LabelYGAttribute.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Scripts\Fullscreen_yg.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyInstaller.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\CanvasLight\LightAnimation.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\AdNotification\AdNotificationYG.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -183,7 +183,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\PlatformGameAdapter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReverseButton.cs" />
-    <Compile Include="Assets\Source\Scripts\Vessels\MixVessel.cs" />
     <Compile Include="Assets\Source\Scripts\Storage\StoreItemPresenter.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\OptionalPlatform.cs" />
@@ -344,8 +343,8 @@
     <Compile Include="Assets\Source\Scripts\Vessels\MonoVessel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LBPlayerDataYG.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\CanvasOption\CanvasDesktopSetter.cs" />
     <Compile Include="Assets\Source\Scripts\ActionsHandlers\ClickModeSwitcher.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\CanvasOption\CanvasDesktopSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\DemoScenePartial.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MoveAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\IPlatformsYG2.cs" />

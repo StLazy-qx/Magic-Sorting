@@ -5,6 +5,7 @@ using Assets.Source.Scripts.Vessels;
 using UnityEngine;
 using System;
 using Assets.Source.Scripts.UI.Buttons;
+using Assets.Source.Scripts.Tutorial;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -24,6 +25,7 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
+        [SerializeField] private Seeker _seeker;
 
         public void Initialize(LoadingWindow loadingWindow)
         {
@@ -37,6 +39,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
             _clickImpactHandler.SetButton(_reverseButtonMobile, _rewardedButtonMobile);
+            _seeker.SetButtonRewarded(_rewardedButtonMobile);
         }
 
         protected override void OnDesktopSelected()
@@ -45,6 +48,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
             _clickImpactHandler.SetButton(_reverseButtonDesktop, _rewardedButtonDesktop);
+            _seeker.SetButtonRewarded(_rewardedButtonDesktop);
         }
 
         private void ValidateRequiredDependencies(LoadingWindow loadingWindow)

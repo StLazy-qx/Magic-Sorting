@@ -46,28 +46,22 @@ namespace Assets.Source.Scripts.Factory
             for (int i = 0; i < countSpawnPoints; i++)
             {
                 Transform point = SpawnPoints[i];
-
                 MagicColumn column = _columnPool.Activate();
 
                 if (column == null)
                 {
-                    column = Instantiate(Prefab,
-                        point.position,
-                        point.rotation,
-                        _columnPool.Container);
-
-                    column.Initialize(
-                        _distributerMagicCell,
-                        _colorDistributor,
-                        cellsPerColumn);
+                    column = Instantiate(Prefab, point.position, 
+                        point.rotation, _columnPool.Container);
 
                     _columnPool.Add(column);
-                    column = _columnPool.Activate();
+                    column.gameObject.SetActive(true);
+                }
+                else
+                {
+                    column.transform.SetPositionAndRotation(point.position, point.rotation);
                 }
 
-                column.transform.SetPositionAndRotation(
-                    point.position,
-                    point.rotation);
+                column.Initialize(_distributerMagicCell, _colorDistributor, cellsPerColumn);
             }
         }
 

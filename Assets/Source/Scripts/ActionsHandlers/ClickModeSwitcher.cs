@@ -38,7 +38,8 @@ namespace Assets.Source.Scripts.ActionsHandlers
             _rewardedButton = rewardedButton
                 ?? throw new ArgumentNullException(nameof(rewardedButton));
 
-            _reverceButton.OnClick.AddListener(ToggleMode);
+            _reverceButton.OnClick.AddListener(OnToggleMode);
+            _rewardedButton.OnClick.AddListener(OnRewardedClicked);
         }
 
         public void Reverse()
@@ -52,7 +53,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
             UpdateButtonsState();
         }
 
-        public void ToggleMode()
+        public void OnToggleMode()
         {
             if (_isReverseUsed &&
                 CurrentMode == ClickImpactMode.ModeReverce)
@@ -67,21 +68,37 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 ActivateDistributionMode();
         }
 
+        //изменить название
         private void UpdateButtonsState()
         {
-            bool shouldDisable =
-                (_isReverseUsed && CurrentMode ==
-                ClickImpactMode.ModeReverce)
-                || (_isReverseUsed && CurrentMode ==
-                ClickImpactMode.ModeDistribution);
+            //bool shouldDisable =
+            //    (_isReverseUsed && CurrentMode ==
+            //    ClickImpactMode.ModeReverce)
+            //    || (_isReverseUsed && CurrentMode ==
+            //    ClickImpactMode.ModeDistribution);
 
-            _reverceButton.ResetState();
-            _rewardedButton.ResetState();
+            //_reverceButton.ResetState();
+            //_rewardedButton.SetState(false);
 
-            //if (shouldDisable)
-            //    _reverceButton.Disable();
-            //else
-            //    _reverceButton.Enable();
+            if (_isReverseUsed)
+            {
+                _reverceButton.Disable();
+                _rewardedButton.Enable();
+            }
+            else
+            {
+                _reverceButton.Enable();
+                _rewardedButton.Disable();
+            }
+        }
+
+        private void OnRewardedClicked()
+        {
+            _reverceButton.SetState(true);
+            _rewardedButton.SetState(false);
+
+            ActivateReverceMode();
+            UpdateButtonsState();
         }
 
         private void ActivateDistributionMode()

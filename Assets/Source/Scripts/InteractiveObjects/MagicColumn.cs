@@ -65,8 +65,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
                 _clickImpactHandler,
                 transform,
                 _countCells,
-                _prefabHeight
-                );
+                _prefabHeight);
         }
 
         private void ValidateObjects()

@@ -2,18 +2,18 @@
 {
     public class ReverseButton : StatefulButton
     {
+
+
         public void Disable()
         {
-            //Button.interactable = false;
-            Button.gameObject.SetActive(false);
+            Button.interactable = false;
 
             SetState(true);
         }
 
         public void Enable()
         {
-            //Button.interactable = true;
-            Button.gameObject.SetActive(true);
+            Button.interactable = true;
 
             ResetState();
         }

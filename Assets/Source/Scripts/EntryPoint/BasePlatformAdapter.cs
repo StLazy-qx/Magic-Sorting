@@ -41,10 +41,8 @@ namespace Assets.Source.Scripts.EntryPoint
                 UseMobileMode();
                 ItemFactory.SetContentTransform(MobileContent);
                 _soundSetter.ApplyAudioHandler(_mobileAudioViewHandler);
-
                 _loadingWindow.SetParent(MobileCanvas.transform);
                 _loadingWindow.SetImage(_mobileImage);
-
                 OnMobileSelected();
             }
             else
@@ -52,10 +50,8 @@ namespace Assets.Source.Scripts.EntryPoint
                 UseDesktopMode();
                 ItemFactory.SetContentTransform(DesktopContent);
                 _soundSetter.ApplyAudioHandler(_desktopAudioViewHandler);
-
                 _loadingWindow.SetParent(DesktopCanvas.transform);
                 _loadingWindow.SetImage(_desktopImage);
-
                 OnDesktopSelected();
             }
         }

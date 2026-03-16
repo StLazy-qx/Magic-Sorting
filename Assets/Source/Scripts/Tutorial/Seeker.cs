@@ -2,6 +2,7 @@
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Pool;
+using Assets.Source.Scripts.UI.Buttons;
 using Assets.Source.Scripts.Vessels;
 using System;
 using System.Collections;
@@ -22,6 +23,7 @@ namespace Assets.Source.Scripts.Tutorial
 
         private float _beginsearchInterval = 1f;
         private float _searchInterval = 7f;
+        private ButtonRewardedAdv _rewardedButton;
         private Coroutine _beginSearchRoutine;
         private Coroutine _searchRoutine;
         private WaitForSeconds _waitForSearch;
@@ -55,6 +57,14 @@ namespace Assets.Source.Scripts.Tutorial
             _cellRouter.CellDeparturing -= OnStartSearchLoop;
 
             StopSearchLoop();
+        }
+
+        public void SetButtonRewarded(ButtonRewardedAdv rewardedButton)
+        {
+            _rewardedButton = rewardedButton
+                ?? throw new ArgumentNullException(nameof(rewardedButton));
+
+            //_rewardedButton.OnClick.AddListener(OnRewardedClicked);
         }
 
         private void OnStartSearchLoop()
@@ -165,6 +175,11 @@ namespace Assets.Source.Scripts.Tutorial
             if (firstWrongCell != null)
             {
                 _animationParticle.Play(firstWrongCell.transform.position);
+            }
+
+            if (_rewardedButton != null)
+            {
+                _animationParticle.Play(_rewardedButton.transform.position);
             }
         }
 

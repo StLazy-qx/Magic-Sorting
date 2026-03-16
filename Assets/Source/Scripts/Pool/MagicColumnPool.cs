@@ -26,10 +26,11 @@ namespace Assets.Source.Scripts.Pool
 
         public void DeactivateAll()
         {
-            for (int i = 0; i < _objects.Count; i++)
+            IReadOnlyList<MagicColumn> active = GetActiveObjects();
+
+            foreach (var column in active)
             {
-                if (_objects[i].gameObject.activeSelf)
-                    Deactivate(_objects[i]);
+                Deactivate(column);
             }
         }
 
