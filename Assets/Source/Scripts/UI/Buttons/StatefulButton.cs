@@ -12,6 +12,8 @@ namespace Assets.Source.Scripts.UI.Buttons
 
         protected bool IsActive;
 
+        public event Action Activated;
+
         public Button.ButtonClickedEvent OnClick => Button.onClick;
 
         protected virtual void Awake()
@@ -31,6 +33,9 @@ namespace Assets.Source.Scripts.UI.Buttons
             IsActive = isActive;
 
             UpdateAppearance();
+
+            if (isActive)
+                Activated.Invoke();
         }
 
         public void ResetState()

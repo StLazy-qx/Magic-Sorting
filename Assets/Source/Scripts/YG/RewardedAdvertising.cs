@@ -11,12 +11,14 @@ namespace Assets.Source.Scripts.YG
 
         public string rewardID;
 
+        //инициализация кнопки через EntryPoint
         private void OnEnable()
         {
             _buttonRewardedD.OnClick.AddListener(OnGetLog);
             _buttonRewardedM.OnClick.AddListener(OnGetLog);
 
-            YG2.onCloseRewardedAdv += OnCloseButtonRewardedAdv;
+            //YG2.onCloseRewardedAdv += OnCloseButtonRewardedAdv;
+            YG2.onCloseInterAdv += OnCloseButtonRewardedAdv;
         }
 
         private void OnDisable()
@@ -24,15 +26,19 @@ namespace Assets.Source.Scripts.YG
             _buttonRewardedD.OnClick.RemoveListener(OnGetLog);
             _buttonRewardedM.OnClick.RemoveListener(OnGetLog);
 
-            YG2.onCloseRewardedAdv -= OnCloseButtonRewardedAdv;
+            //YG2.onCloseRewardedAdv -= OnCloseButtonRewardedAdv;
+            YG2.onCloseInterAdv -= OnCloseButtonRewardedAdv;
         }
 
         private void OnGetLog()
         {
-            YG2.RewardedAdvShow(rewardID, () =>
-            {
-                Debug.Log("Вызвана реклама за вознаграждения");
-            });
+            //для тестов
+            YG2.InterstitialAdvShow();
+
+            //YG2.RewardedAdvShow(rewardID, () =>
+            //{
+            //    Debug.Log("Вызвана реклама за вознаграждения");
+            //});
         }
 
         private void OnCloseButtonRewardedAdv()

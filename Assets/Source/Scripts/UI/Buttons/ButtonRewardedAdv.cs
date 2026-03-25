@@ -31,12 +31,13 @@ namespace Assets.Source.Scripts.UI.Buttons
             ResetState();
         }
 
-        //упростить реализацию
         private void SetImageAlpha(float alpha)
         {
-            Color color = _image.color;
-            color.a = alpha;
-            _image.color = color;
+            _image.color = new Color(
+                _image.color.r, 
+                _image.color.g, 
+                _image.color.b, 
+                alpha);
         }
     }
 }

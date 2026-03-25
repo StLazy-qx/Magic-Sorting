@@ -15,6 +15,8 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
+        public event Action GameReseting;
+
         //зачем?
         public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
 
@@ -25,6 +27,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void BeginNewRound()
         {
+            //убрать повторяемость в коде
             ContinueGame();
             ResetEntity();
             StartCoroutine(BeginRoundRoutine());
@@ -63,6 +66,8 @@ namespace Assets.Source.Scripts.GameBehaviour
                 _columnsFactory.Initialize(_vesselFactory.Objects);
                 _columnsFactory.Spawn();
             }
+
+            GameReseting?.Invoke();
         }
 
         private void ResetEntity()

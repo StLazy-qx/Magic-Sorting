@@ -143,7 +143,7 @@ MonoBehaviour:
     flags: []
   InterstitialAdv:
     showFirstAdv: 0
-    interAdvInterval: 60
+    interAdvInterval: 1
     postponeCallByFail: 0
     postponeCallTimer: 10
     labelAdvSimLabel: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
   Simulation:
     device: 0
     language: 
-    advIntervalSimulation: 60
+    advIntervalSimulation: 1
     durationAdv: 0.5
     loadAdv: 0
     testFailAds: 0

@@ -11,13 +11,13 @@ namespace Assets.Source.Scripts.Colorize
     {
         [SerializeField] private ParticlePool _particlePool;
 
-        private IReadOnlyList<MonoVessel> _vessels;
+        private IReadOnlyList<Vessel> _vessels;
         private List<Color> _colors = new List<Color>();
         private Queue<Color> _mixedColors = new Queue<Color>();
 
         public int TotalColors => _colors.Count;
 
-        public void Initialize(IReadOnlyList<MonoVessel> vessels)
+        public void Initialize(IReadOnlyList<Vessel> vessels)
         {
             ValidateVessels(vessels);
 
@@ -36,7 +36,7 @@ namespace Assets.Source.Scripts.Colorize
         {
             _colors.Clear();
 
-            foreach (MonoVessel vessel in _vessels)
+            foreach (Vessel vessel in _vessels)
             {
                 if (vessel.Count <= 0)
                 {
@@ -53,19 +53,69 @@ namespace Assets.Source.Scripts.Colorize
 
         private void ShuffleColors()
         {
-            int startRandomRange = 0;
-            int stepIndex = 1;
+            //int startRandomRange = 0;
+            //int stepIndex = 1;
+
+            //_particlePool.Initialize(TotalColors);
+
+            //for (int i = _colors.Count - 1; i > 0; i--)
+            //{
+            //    int randomNumber = UnityEngine.Random.Range(startRandomRange, i + stepIndex);
+
+            //    Color tempColor = _colors[i];
+            //    _colors[i] = _colors[randomNumber];
+            //    _colors[randomNumber] = tempColor;
+            //}
+
+            //_mixedColors.Clear();
+
+            //foreach (Color color in _colors)
+            //    _mixedColors.Enqueue(color);
 
             _particlePool.Initialize(TotalColors);
 
-            for (int i = _colors.Count - 1; i > 0; i--)
-            {
-                int randomNumber = UnityEngine.Random.Range(startRandomRange, i + stepIndex);
+            bool hasAdjacentDuplicate;
+            int maxAttempts = 100;
+            int attempt = 0;
+            bool allColorsSame = _colors.All(color => color == _colors[0]);
 
-                Color tempColor = _colors[i];
-                _colors[i] = _colors[randomNumber];
-                _colors[randomNumber] = tempColor;
+            if (allColorsSame)
+            {
+                _mixedColors.Clear();
+
+                foreach (Color color in _colors)
+                    _mixedColors.Enqueue(color);
+
+                return;
             }
+
+            do
+            {
+                for (int i = _colors.Count - 1; i > 0; i--)
+                {
+                    int randomNumber = UnityEngine.Random.Range(0, i + 1);
+                    Color tempColor = _colors[i];
+                    _colors[i] = _colors[randomNumber];
+                    _colors[randomNumber] = tempColor;
+                }
+
+                hasAdjacentDuplicate = false;
+
+                for (int i = 1; i < _colors.Count; i++)
+                {
+                    if (_colors[i] == _colors[i - 1])
+                    {
+                        hasAdjacentDuplicate = true;
+
+                        break;
+                    }
+                }
+
+                attempt++;
+
+                if (attempt >= maxAttempts)
+                    break;
+            } while (hasAdjacentDuplicate);
 
             _mixedColors.Clear();
 
@@ -73,7 +123,7 @@ namespace Assets.Source.Scripts.Colorize
                 _mixedColors.Enqueue(color);
         }
 
-        private void ValidateVessels(IReadOnlyList<MonoVessel> vessels)
+        private void ValidateVessels(IReadOnlyList<Vessel> vessels)
         {
             if (vessels == null)
                 throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");

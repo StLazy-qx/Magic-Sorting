@@ -345,8 +345,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4975748952671624660}
   - component: {fileID: 1568123885071470448}
-  - component: {fileID: 6022674453398985754}
   - component: {fileID: -8985536886210334600}
+  - component: {fileID: 1395426458300891916}
   m_Layer: 0
   m_Name: Vessel
   m_TagString: Untagged
@@ -387,21 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _internalVolume: {fileID: 1148786463839263389}
---- !u!114 &6022674453398985754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849995967529546710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef069293fa266c845acd4fe45d6fa2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _liquid: {fileID: 5760919888768954542}
-  _maxSize: 5
-  _points: 100
 --- !u!114 &-8985536886210334600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,8 +399,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c355d8002fb404ea718ed5decddcfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vessel: {fileID: 6022674453398985754}
+  _vessel: {fileID: 1395426458300891916}
   _flag: {fileID: 8917719976895528804}
+--- !u!114 &1395426458300891916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849995967529546710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8318533ce1e0f37468d9f021c917abe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _liquid: {fileID: 5760919888768954542}
+  _maxSize: 5
+  _points: 50
 --- !u!1 &4275581809591085073
 GameObject:
   m_ObjectHideFlags: 0

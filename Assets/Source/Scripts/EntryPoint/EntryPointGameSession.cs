@@ -12,19 +12,19 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
-        [SerializeField] private LoadingWindow _loadingWindowPrefab;
+        //[SerializeField] private LoadingWindow _loadingWindowPrefab;
         [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
-        private LoadingWindow _loadingWindow;
+        //private LoadingWindow _loadingWindow;
         private List<IObjectInitilizable> _objectsInitilizable = new();
 
         private void Awake()
         {
             ValidateDependencies();
 
-            _loadingWindow = Instantiate(_loadingWindowPrefab);
+            //_loadingWindow = Instantiate(_loadingWindowPrefab);
 
-            _platformDependentSetter.Initialize(_loadingWindow);
+            _platformDependentSetter.Initialize(/*_loadingWindow*/);
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());
         }
@@ -86,6 +86,9 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private void ValidateDependencies()
         {
+            //if (_loadingWindowPrefab == null)
+            //    throw new ArgumentNullException(nameof(_loadingWindowPrefab));
+
             if (_platformDependentSetter == null)
                 throw new ArgumentNullException(nameof(_platformDependentSetter));
 

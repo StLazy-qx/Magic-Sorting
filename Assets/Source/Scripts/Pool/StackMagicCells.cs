@@ -25,6 +25,11 @@ namespace Assets.Source.Scripts.Pool
         private bool _isPaused;
         private Stack<MagicCell> _cellsStack = new();
 
+        private void OnDisable()
+        {
+            _gameHandler.PauseStateChanged -= OnGamePause;
+        }
+
         public void Initialize(
             MagicCellsFactory factory,
             MagicCellRouter cellRouter,
@@ -51,22 +56,61 @@ namespace Assets.Source.Scripts.Pool
             CreateCells(countCells);
         }
 
-        public MagicCell GetUpperMagicCell(/*out Color color, out Vector3 position*/)
+        public MagicCell TryGetCellByColor(Color color)
         {
-            //MagicCell cell = _cellsStack.Peek();
+            MagicCell topCell = GetUpperCell();
 
-            //color = cell.Color;
-            //position = cell.transform.position;
+            if (topCell == null)
+                return null;
 
+            if (topCell.Color == color)
+                return topCell;
+
+            return null;
+        }
+
+        public bool CheckSecondCell(Color color)
+        {
+            MagicCell secondCell = GetSecondCell();
+
+            if (secondCell == null)
+                return false;
+
+            return secondCell.Color == color;
+        }
+
+        public MagicCell GetBottomCell()
+        {
+            if (_cellsStack.Count == 0)
+                return null;
+
+            MagicCell bottomCell = null;
+
+            foreach (MagicCell cell in _cellsStack)
+                bottomCell = cell;
+
+            return bottomCell;
+        }
+
+        private MagicCell GetUpperCell()
+        {
             if (_cellsStack.TryPeek(out MagicCell cell))
                 return cell;
 
             return null;
         }
 
-        private void OnDisable()
+        private MagicCell GetSecondCell()
         {
-            _gameHandler.PauseStateChanged -= OnGamePause;
+            if (_cellsStack.Count < 2)
+                return null;
+
+            MagicCell topCell = _cellsStack.Pop();
+            MagicCell secondCell = _cellsStack.Peek();
+
+            _cellsStack.Push(topCell);
+
+            return secondCell;
         }
 
         private void OnGamePause(bool isPaused)

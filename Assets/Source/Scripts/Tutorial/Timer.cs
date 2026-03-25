@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Tutorial
 {
-    class Timer : MonoBehaviour
+    public class Timer : MonoBehaviour
     {
         [SerializeField] private MagicCellRouter _cellRouter;
         [SerializeField] private float _beginSearchInterval = 1f;

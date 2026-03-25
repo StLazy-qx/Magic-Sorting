@@ -10,11 +10,12 @@ namespace Assets.Source.Scripts.ActionsHandlers
 {
     public class ActionHandler : MonoBehaviour
     {
-        [SerializeField] private MagicianAnimator _animator;
         [SerializeField] private SoundPlayer _soundPlayer;
         [SerializeField] private MagicCellRouter _cellRouter;
         [SerializeField] private ParticlePool _particlePool;
         [SerializeField] private float _moveDuration = 1f;
+
+        public event Action SkillUsed;
 
         private void OnEnable()
         {
@@ -32,7 +33,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
             Color color)
         {
             ValidateParameters(beginPosition, targetPosition);
-            _animator.PlayInteract();
+            SkillUsed.Invoke();
             _soundPlayer.PlayInteractSound();
             StartCoroutine(MoveParticle(
                 beginPosition, 
@@ -107,12 +108,6 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         private void ValidateParameters(Vector3 beginPosition, Vector3 targetPosition)
         {
-            if (_animator == null)
-            {
-                throw new ArgumentNullException
-                    (nameof(_animator), "MagicianAnimator cannot be null");
-            }
-
             if (_soundPlayer == null)
             {
                 throw new ArgumentNullException

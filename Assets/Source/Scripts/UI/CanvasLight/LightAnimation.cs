@@ -20,6 +20,8 @@ namespace Assets.Source.Scripts.UI.CanvasLight
         {
             if (_image == null)
                 _image = GetComponent<Image>();
+
+            gameObject.SetActive(true);
         }
 
         private void OnEnable()
@@ -30,6 +32,11 @@ namespace Assets.Source.Scripts.UI.CanvasLight
         private void OnDisable()
         {
             _tween?.Kill();
+        }
+
+        public void Disable()
+        {
+            gameObject.SetActive(false);
         }
 
         private void StartAnimation()
@@ -44,9 +51,15 @@ namespace Assets.Source.Scripts.UI.CanvasLight
 
         private void SetAlpha(float value)
         {
-            Color color = _image.color;
-            color.a = value;
-            _image.color = color;
+            //Color color = _image.color;
+            //color.a = value;
+            //_image.color = color;
+
+            _image.color = new Color(
+                _image.color.r, 
+                _image.color.g, 
+                _image.color.b, 
+                value);
         }
     }
 }

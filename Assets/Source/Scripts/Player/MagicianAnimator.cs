@@ -1,3 +1,5 @@
+using Assets.Source.Scripts.ActionsHandlers;
+using Assets.Source.Scripts.Vessels;
 using System;
 using UnityEngine;
 
@@ -8,8 +10,16 @@ namespace Assets.Source.Scripts.Player
     public class MagicianAnimator : MonoBehaviour
     {
         private readonly int AnimationInteract = Animator.StringToHash("Interact");
+        private readonly int AnimationChangeClothes = Animator.StringToHash("ChangeClothes");
+        private readonly int AnimationWinning = Animator.StringToHash("Winning");
+
+        [SerializeField] private ScinSetter _scinSetter;
+        [SerializeField] private ActionHandler _actionHandler;
+        [SerializeField] private VesselStateTracker _vesselStateTracker;
+        [SerializeField] private Transform _staff;
 
         private Animator _animator;
+        private Vector3 _staffPosition;
 
         private void Awake()
         {
@@ -19,7 +29,29 @@ namespace Assets.Source.Scripts.Player
                 throw new ArgumentNullException(nameof(_animator));
         }
 
-        public void PlayInteract()
+        private void OnEnable()
+        {
+            _scinSetter.ItemChanged += OnPlayAnimationChangeClothes;
+            _vesselStateTracker.RoundOvering += OnPlayAnimationWinning;
+            _actionHandler.SkillUsed += OnPlayInteract;
+        }
+
+        private void OnDisable()
+        {
+            _scinSetter.ItemChanged -= OnPlayAnimationChangeClothes;
+            _vesselStateTracker.RoundOvering -= OnPlayAnimationWinning;
+            _actionHandler.SkillUsed -= OnPlayInteract;
+        }
+
+        private void OnPlayInteract()
             => _animator.SetTrigger(AnimationInteract);
+
+        private void OnPlayAnimationChangeClothes()
+        {
+            _animator.SetTrigger(AnimationChangeClothes);
+        }
+
+        private void OnPlayAnimationWinning()
+            => _animator.SetTrigger(AnimationWinning);
     }
 }

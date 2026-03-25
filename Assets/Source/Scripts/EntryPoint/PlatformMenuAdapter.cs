@@ -13,23 +13,15 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private LanguageSetter _languageSetter;
 
-        public void Initialize(LoadingWindow loadingWindow, LanguageSetter languageSetter)
+        public void Initialize(
+            //LoadingWindow loadingWindow, 
+            LanguageSetter languageSetter)
         {
-            if (loadingWindow == null)
-                throw new ArgumentNullException(nameof(loadingWindow));
-
-            if (languageSetter == null)
-                throw new ArgumentNullException(nameof(languageSetter));
-
-            if (_desktopLanguageView == null)
-                throw new ArgumentNullException(nameof(_desktopLanguageView));
-
-            if (_mobileLanguageView == null)
-                throw new ArgumentNullException(nameof(_mobileLanguageView));
+            ValidateDependencies(/*loadingWindow,*/ languageSetter);
 
             _languageSetter = languageSetter;
 
-            InitializeBase(loadingWindow);
+            InitializeBase(/*loadingWindow*/);
         }
 
         protected override void OnMobileSelected()
@@ -40,6 +32,23 @@ namespace Assets.Source.Scripts.EntryPoint
         protected override void OnDesktopSelected()
         {
             _desktopLanguageView.Initialize(_languageSetter);
+        }
+
+        private void ValidateDependencies(
+            //LoadingWindow loadingWindow,
+            LanguageSetter languageSetter)
+        {
+            //if (loadingWindow == null)
+            //    throw new ArgumentNullException(nameof(loadingWindow));
+
+            if (languageSetter == null)
+                throw new ArgumentNullException(nameof(languageSetter));
+
+            if (_desktopLanguageView == null)
+                throw new ArgumentNullException(nameof(_desktopLanguageView));
+
+            if (_mobileLanguageView == null)
+                throw new ArgumentNullException(nameof(_mobileLanguageView));
         }
     }
 }

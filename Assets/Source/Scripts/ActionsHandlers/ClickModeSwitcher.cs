@@ -68,21 +68,12 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 ActivateDistributionMode();
         }
 
-        //изменить название
         private void UpdateButtonsState()
         {
-            //bool shouldDisable =
-            //    (_isReverseUsed && CurrentMode ==
-            //    ClickImpactMode.ModeReverce)
-            //    || (_isReverseUsed && CurrentMode ==
-            //    ClickImpactMode.ModeDistribution);
-
-            //_reverceButton.ResetState();
-            //_rewardedButton.SetState(false);
-
             if (_isReverseUsed)
             {
                 _reverceButton.Disable();
+                _reverceButton.SetState(false);
                 _rewardedButton.Enable();
             }
             else
@@ -94,11 +85,11 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         private void OnRewardedClicked()
         {
-            _reverceButton.SetState(true);
             _rewardedButton.SetState(false);
+            _reverceButton.Enable();
+            _reverceButton.SetState(true);
 
             ActivateReverceMode();
-            UpdateButtonsState();
         }
 
         private void ActivateDistributionMode()

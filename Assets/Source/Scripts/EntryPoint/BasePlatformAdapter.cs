@@ -5,6 +5,7 @@ using Assets.Source.Scripts.Factory;
 using UnityEngine;
 using System;
 using YG;
+using Assets.Source.Scripts.UI.GamePanel;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -21,28 +22,27 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private SoundSetter _soundSetter;
         [SerializeField] private VolumeSliderViewHandler _mobileAudioViewHandler;
         [SerializeField] private VolumeSliderViewHandler _desktopAudioViewHandler;
-        [Header("Loading Window Image")]
-        [SerializeField] private Sprite _desktopImage;
-        [SerializeField] private Sprite _mobileImage;
+        //[Header("Loading Window Panel")]
+        //[SerializeField] private Panel _mobileloadingWindowPrefab;
+        //[SerializeField] private Panel _desktoploadingWindowPrefab;
 
-        private LoadingWindow _loadingWindow;
+        //private LoadingWindow _loadingWindow;
 
-        protected void InitializeBase(LoadingWindow loadingWindow)
+        protected void InitializeBase(/*LoadingWindow loadingWindow*/)
         {
             ValidateRequiredObjects();
             MobileCanvas.Disable();
             DesktopCanvas.Disable();
 
-            _loadingWindow = loadingWindow 
-                ??throw new ArgumentNullException(nameof(loadingWindow));
+            //_loadingWindow = loadingWindow
+            //    ?? throw new ArgumentNullException(nameof(loadingWindow));
 
             if (YG2.envir.isMobile)
             {
                 UseMobileMode();
                 ItemFactory.SetContentTransform(MobileContent);
                 _soundSetter.ApplyAudioHandler(_mobileAudioViewHandler);
-                _loadingWindow.SetParent(MobileCanvas.transform);
-                _loadingWindow.SetImage(_mobileImage);
+                //_loadingWindow.SetParent(MobileCanvas.transform);
                 OnMobileSelected();
             }
             else
@@ -50,8 +50,7 @@ namespace Assets.Source.Scripts.EntryPoint
                 UseDesktopMode();
                 ItemFactory.SetContentTransform(DesktopContent);
                 _soundSetter.ApplyAudioHandler(_desktopAudioViewHandler);
-                _loadingWindow.SetParent(DesktopCanvas.transform);
-                _loadingWindow.SetImage(_desktopImage);
+                //_loadingWindow.SetParent(DesktopCanvas.transform);
                 OnDesktopSelected();
             }
         }
@@ -86,6 +85,12 @@ namespace Assets.Source.Scripts.EntryPoint
 
             if (DesktopContent == null)
                 throw new ArgumentNullException(nameof(DesktopContent));
+
+            //if (_mobileloadingWindowPrefab == null)
+            //    throw new ArgumentNullException(nameof(_mobileloadingWindowPrefab));
+
+            //if (_desktoploadingWindowPrefab == null)
+            //    throw new ArgumentNullException(nameof(_desktoploadingWindowPrefab));
         }
     }
 }

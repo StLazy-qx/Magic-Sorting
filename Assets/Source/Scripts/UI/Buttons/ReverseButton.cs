@@ -1,9 +1,9 @@
-﻿namespace Assets.Source.Scripts.UI.Buttons
+﻿using System;
+
+namespace Assets.Source.Scripts.UI.Buttons
 {
     public class ReverseButton : StatefulButton
     {
-
-
         public void Disable()
         {
             Button.interactable = false;

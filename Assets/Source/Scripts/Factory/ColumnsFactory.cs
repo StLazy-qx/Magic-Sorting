@@ -3,10 +3,10 @@ using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Vessels;
+using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using System;
 using System.Linq;
-using Assets.Source.Scripts.Pool;
 
 namespace Assets.Source.Scripts.Factory
 {
@@ -16,7 +16,7 @@ namespace Assets.Source.Scripts.Factory
         [SerializeField] private MagicCellRouter _distributerMagicCell;
         [SerializeField] private ShuffledColorDistributor _colorDistributor;
 
-        public void Initialize(IReadOnlyList<MonoVessel> vessels)
+        public void Initialize(IReadOnlyList<Vessel> vessels)
         {
             if (_distributerMagicCell == null)
                 throw new ArgumentNullException(nameof(_distributerMagicCell));
@@ -76,7 +76,7 @@ namespace Assets.Source.Scripts.Factory
             return Mathf.Min(CurrentSettings.columnsCount, SpawnPoints.Length);
         }
 
-        private void ValidateVessels(IReadOnlyList<MonoVessel> vessels)
+        private void ValidateVessels(IReadOnlyList<Vessel> vessels)
         {
             if (vessels == null)
                 throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");

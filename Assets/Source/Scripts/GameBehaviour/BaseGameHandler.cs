@@ -58,7 +58,8 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void PauseGame()
         {
-            Time.timeScale = GamePause;
+            //Time.timeScale = GamePause;
+            Time.timeScale = GameResume;
 
             PauseStateChanged?.Invoke(true);
         }

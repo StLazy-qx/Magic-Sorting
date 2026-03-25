@@ -1,4 +1,5 @@
 using Assets.Source.Scripts.Items;
+using System;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Player
@@ -8,6 +9,8 @@ namespace Assets.Source.Scripts.Player
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
 
         private Material _materialInstance;
+
+        public event Action ItemChanged;
 
         private void Start()
         {
@@ -32,6 +35,7 @@ namespace Assets.Source.Scripts.Player
             }
 
             _materialInstance.SetTexture("_MainTex", item.Texture);
+            ItemChanged.Invoke();
         }
 
         // может убрать

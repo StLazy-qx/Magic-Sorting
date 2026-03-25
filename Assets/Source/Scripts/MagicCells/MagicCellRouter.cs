@@ -10,12 +10,12 @@ namespace Assets.Source.Scripts.MagicCells
     {
         [SerializeField] private WaitingPoint _waitingPoint;
 
-        private IReadOnlyList<MonoVessel> _vessels;
+        private IReadOnlyList<Vessel> _vessels;
 
         public event Action<Vector3, Vector3, Color> CellDelivering;
         public event Action CellDeparturing;
 
-        public void Initialize(IReadOnlyList<MonoVessel> vessels)
+        public void Initialize(IReadOnlyList<Vessel> vessels)
         {
             if (vessels == null)
             {
@@ -43,7 +43,7 @@ namespace Assets.Source.Scripts.MagicCells
             }
 
             Color cellColor = cell.Color;
-            MonoVessel targetVessel = FindVesselByColor(cellColor);
+            Vessel targetVessel = FindVesselByColor(cellColor);
 
             if (targetVessel != null)
             {
@@ -77,9 +77,9 @@ namespace Assets.Source.Scripts.MagicCells
             return _waitingPoint.IsFreePlace;
         }
 
-        private MonoVessel FindVesselByColor(Color color)
+        private Vessel FindVesselByColor(Color color)
         {
-            foreach (MonoVessel vessel in _vessels)
+            foreach (Vessel vessel in _vessels)
             {
                 if (vessel.IsActive && vessel.Color == color)
                 {

@@ -27,10 +27,11 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
         [SerializeField] private Seeker _seeker;
 
-        public void Initialize(LoadingWindow loadingWindow)
+        public void Initialize(
+            /*LoadingWindow loadingWindow*/)
         {
-            ValidateRequiredDependencies(loadingWindow);
-            InitializeBase(loadingWindow);
+            ValidateRequiredDependencies(/*loadingWindow*/);
+            InitializeBase(/*loadingWindow*/);
         }
 
         protected override void OnMobileSelected()
@@ -39,7 +40,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
             _clickImpactHandler.SetButton(_reverseButtonMobile, _rewardedButtonMobile);
-            _seeker.SetButtonRewarded(_rewardedButtonMobile);
+            _seeker.SetButtonRewarded(_rewardedButtonMobile, _reverseButtonMobile);
         }
 
         protected override void OnDesktopSelected()
@@ -48,13 +49,13 @@ namespace Assets.Source.Scripts.EntryPoint
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
             _clickImpactHandler.SetButton(_reverseButtonDesktop, _rewardedButtonDesktop);
-            _seeker.SetButtonRewarded(_rewardedButtonDesktop);
+            _seeker.SetButtonRewarded(_rewardedButtonDesktop, _reverseButtonDesktop);
         }
 
-        private void ValidateRequiredDependencies(LoadingWindow loadingWindow)
+        private void ValidateRequiredDependencies(/*LoadingWindow loadingWindow*/)
         {
-            if (loadingWindow == null)
-                throw new ArgumentNullException(nameof(loadingWindow));
+            //if (loadingWindow == null)
+            //    throw new ArgumentNullException(nameof(loadingWindow));
 
             if (_desktopObjectsPosition == null)
                 throw new ArgumentNullException(nameof(_desktopObjectsPosition));

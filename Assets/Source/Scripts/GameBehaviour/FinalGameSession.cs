@@ -31,7 +31,7 @@ namespace Assets.Source.Scripts.GameBehaviour
             _currentPanel = panel;
         }
 
-        public void ActivateFinalPanelAndPauseGame()
+        public void ActivatePanel()
         {
             _gameHandler.PauseGame();
             _currentPanel.Open();

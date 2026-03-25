@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Assets.Source.Scripts.UI.GamePanel;
 using UnityEngine;
-using UnityEngine.UI;
+using YG;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
     public class LoadingWindow : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Panel _desktopPanel;
+        [SerializeField] private Panel _mobilePanel;
+
+        private Panel _currentPanel;
 
         public static LoadingWindow Instance { get; private set; }
 
@@ -21,31 +24,35 @@ namespace Assets.Source.Scripts.EntryPoint
 
             Instance = this;
 
-            Hide();
             DontDestroyOnLoad(gameObject);
+
+            if (YG2.envir.isMobile)
+            {
+                _currentPanel = _mobilePanel;
+            }
+            else
+            {
+                _currentPanel = _desktopPanel;
+            }
+
+            Hide();
         }
 
-        public void SetImage(Sprite sprite)
+        public void SetParent(Transform parentTransform)
         {
-            if (_image == null)
-                throw new InvalidOperationException("Image is null");
-
-            _image.sprite = sprite;
-        }
-
-        public void SetParent(Transform parent)
-        {
-            transform.SetParent(parent, false);
+            transform.SetParent(parentTransform);
         }
 
         public void Show()
         {
-            gameObject.SetActive(true);
+            if (_currentPanel != null)
+                _currentPanel.gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
+            if (_currentPanel != null)
+                _currentPanel.gameObject.SetActive(false);
         }
     }
 }

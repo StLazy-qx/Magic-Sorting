@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
 using Assets.Source.Scripts.Pool;
@@ -8,11 +9,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Source.Scripts.Tutorial
 {
-    class Seeker : MonoBehaviour
+    public class Seeker : MonoBehaviour
     {
+        [SerializeField] private GameSessionHandler _gameHandler;
         [SerializeField] private AnimationParticle _animationParticle;
         [SerializeField] private MagicCellRouter _cellRouter;
         [SerializeField] private MagicColumnPool _magicColumnPool;
@@ -21,58 +24,130 @@ namespace Assets.Source.Scripts.Tutorial
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private Transform[] _columns;
 
-        private float _beginsearchInterval = 1f;
-        private float _searchInterval = 7f;
+        private float _beginsearchInterval = 1.5f;
+        private float _searchInterval = 8f;
         private ButtonRewardedAdv _rewardedButton;
-        private Coroutine _beginSearchRoutine;
+        private ReverseButton _reverseButton;
         private Coroutine _searchRoutine;
-        private WaitForSeconds _waitForSearch;
-        private WaitForSeconds _beginWaitForSearch;
         private List<MagicColumn> _currentColumns;
-        private List<MonoVessel> _currentVessels;
+        private List<Vessel> _currentVessels;
 
         private void Awake()
         {
-            _currentVessels = new List<MonoVessel>();
+            _currentVessels = new List<Vessel>();
             _currentColumns = new List<MagicColumn>();
-            _waitForSearch = new WaitForSeconds(_searchInterval);
-            _beginWaitForSearch = new WaitForSeconds(_beginsearchInterval);
 
             ValidateDependencies();
         }
 
         private void Start()
         {
-            if (_beginSearchRoutine == null)
-                _beginSearchRoutine = StartCoroutine(BeginSearchRoutine());
+            SearchWithDelay(_beginsearchInterval);
         }
 
         private void OnEnable()
         {
+            _gameHandler.GameReseting += OnStartInitialSearch;
             _cellRouter.CellDeparturing += OnStartSearchLoop;
         }
 
         private void OnDisable()
         {
+            _gameHandler.GameReseting -= OnStartInitialSearch;
             _cellRouter.CellDeparturing -= OnStartSearchLoop;
+
+            if (_reverseButton != null)
+                _reverseButton.Activated -= OnReverseButtonActivated;
 
             StopSearchLoop();
         }
 
-        public void SetButtonRewarded(ButtonRewardedAdv rewardedButton)
+        public void SetButtonRewarded(
+            ButtonRewardedAdv rewardedButton,
+            ReverseButton reverseButton)
         {
             _rewardedButton = rewardedButton
                 ?? throw new ArgumentNullException(nameof(rewardedButton));
 
-            //_rewardedButton.OnClick.AddListener(OnRewardedClicked);
+            _reverseButton = reverseButton
+                ?? throw new ArgumentNullException(nameof(reverseButton));
+
+            _reverseButton.Activated += OnReverseButtonActivated;
         }
 
         private void OnStartSearchLoop()
         {
+            SearchWithDelay(_searchInterval);
+        }
+
+        private void OnStartInitialSearch()
+        {
+            SearchWithDelay(_beginsearchInterval);
+        }
+
+        private void OnReverseButtonActivated()
+        {
+            LoadCurrentColumns();
+
+            MagicColumn targetColumn = FindColumnWithBottomMatchingTop();
+
+            if (targetColumn != null)
+            {
+                _animationParticle.Play(targetColumn.transform.position);
+            }
+        }
+
+        private MagicColumn FindColumnWithBottomMatchingTop()
+        {
+            foreach (MagicColumn column in _currentColumns)
+            {
+                StackMagicCells stack = column.GetComponent<StackMagicCells>();
+
+                if (stack == null) 
+                    continue;
+
+                MagicCell bottomCell = stack.GetBottomCell();
+
+                if (bottomCell == null) 
+                    continue;
+
+                Color bottomColor = bottomCell.Color;
+
+                foreach (MagicColumn otherColumn in _currentColumns)
+                {
+                    if (otherColumn == column) 
+                        continue;
+
+                    StackMagicCells otherStack = otherColumn.GetComponent<StackMagicCells>();
+
+                    if (otherStack == null) 
+                        continue;
+
+                    MagicCell topCell = otherStack.TryGetCellByColor(bottomColor);
+
+                    if (topCell != null)
+                        return column;
+                }
+            }
+
+            return null;
+        }
+
+        private IEnumerator SearchRoutine(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            PerformAnalysis();
+
+            _searchRoutine = null;
+        }
+
+        private void SearchWithDelay(float delay)
+        {
             if (_searchRoutine != null)
                 StopCoroutine(_searchRoutine);
 
-            _searchRoutine = StartCoroutine(SearchRoutine());
+            _searchRoutine = StartCoroutine(SearchRoutine(delay));
         }
 
         private void StopSearchLoop()
@@ -85,36 +160,18 @@ namespace Assets.Source.Scripts.Tutorial
             }
         }
 
-        private IEnumerator BeginSearchRoutine()
-        {
-            yield return _beginWaitForSearch;
-
-            PerformAnalysis();
-
-            _beginSearchRoutine = null;
-        }
-
-        private IEnumerator SearchRoutine()
-        {
-            yield return _waitForSearch;
-
-            PerformAnalysis();
-
-            _searchRoutine = null;
-        }
-
         private void PerformAnalysis()
         {
             LoadCurrentColumns();
             LoadCurrentVessels();
-            SearchForMatchingCell();
+            FindMatch();
         }
 
         public void LoadCurrentColumns()
         {
             _currentColumns.Clear();
-            _currentColumns.AddRange(_magicColumnPool
-                .GetActiveObjects());
+            _currentColumns.AddRange(_magicColumnPool.
+                GetActiveObjects());
         }
 
         public void LoadCurrentVessels()
@@ -128,59 +185,98 @@ namespace Assets.Source.Scripts.Tutorial
             }
         }
 
-        private void SearchForMatchingCell()
+        private void FindMatch()
         {
             MagicCell firstWrongCell = null;
 
-            foreach (MonoVessel vessel in _currentVessels)
+            bool hasMatchInColumns = false;
+
+            foreach (Vessel vessel in _currentVessels)
             {
+                Color color = vessel.Color;
+
                 foreach (MagicColumn column in _currentColumns)
                 {
-                    MagicCell cell = GetUpperCell(column);
+                    StackMagicCells stack = column.GetComponent<StackMagicCells>();
 
-                    if (cell == null)
-                        continue;
+                    MagicCell topCell = stack.TryGetCellByColor(color);
 
-                    if (cell.Color == vessel.Color)
+                    if (topCell != null)
                     {
-                        _animationParticle.Play(cell.transform.position);
+                        hasMatchInColumns = true;
+
+                        PlayAnimationCell(topCell);
 
                         return;
                     }
 
                     if (firstWrongCell == null)
-                        firstWrongCell = cell;
+                    {
+                        MagicCell upperCell = stack.GetBottomCell();
+
+                        if (upperCell != null)
+                            firstWrongCell = upperCell;
+                    }
                 }
             }
 
-            HandleNoMatch(firstWrongCell);
+            ResolveNoMatchCases(firstWrongCell, hasMatchInColumns);
         }
 
-        private MagicCell GetUpperCell(MagicColumn column)
+        private void ResolveNoMatchCases(MagicCell firstWrongCell,bool hasMatchInColumns)
         {
-            StackMagicCells stack = column.GetComponent<StackMagicCells>();
+            Button reverseButton = GetComponentButton(_reverseButton);
+            Button rewardedButton = GetComponentButton(_rewardedButton);
 
-            return stack?.GetUpperMagicCell();
-        }
-
-        private void HandleNoMatch(MagicCell firstWrongCell)
-        {
-            if (_waitingPoint.IsFreePlace == false)
+            if (hasMatchInColumns == false && _waitingPoint.IsFreePlace)
             {
-                _animationParticle.Play(_waitingPoint.CellPosition);
+                if (firstWrongCell != null)
+                    _animationParticle.Play(firstWrongCell.transform.position);
 
                 return;
             }
 
-            if (firstWrongCell != null)
+            if (hasMatchInColumns == false && _waitingPoint.IsFreePlace == false && IsInteractable(_reverseButton))
             {
-                _animationParticle.Play(firstWrongCell.transform.position);
+                _animationParticle.Play(reverseButton);
+                return;
             }
 
-            if (_rewardedButton != null)
+            if (hasMatchInColumns == false && _waitingPoint.IsFreePlace == false && !IsInteractable(_reverseButton))
             {
-                _animationParticle.Play(_rewardedButton.transform.position);
+                _animationParticle.Play(rewardedButton);
+                return;
             }
+        }
+
+        private void PlayAnimationCell(MagicCell magicCell)
+        {
+            if(magicCell == null)
+                throw new ArgumentNullException(nameof(magicCell));
+
+            _animationParticle.Play(magicCell.transform.position);
+
+            return;
+        }
+
+        private bool IsInteractable(Component button)
+        {
+            Button checkingButton = button.GetComponent<Button>();
+
+            return checkingButton != null && checkingButton.interactable;
+        }
+
+        private Button GetComponentButton(Component component)
+        {
+            if (component == null)
+                return null;
+
+            Button button = component.GetComponent<Button>();
+
+            if (button == null)
+                throw new ArgumentNullException(nameof(button));
+
+            return button;
         }
 
         private void ValidateDependencies()

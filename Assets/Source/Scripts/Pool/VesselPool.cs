@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Pool
 {
-    class VesselPool : Pool<MonoVessel>
+    class VesselPool : Pool<Vessel>
     {
         public void DeactivateAll()
         {
@@ -16,9 +16,9 @@ namespace Assets.Source.Scripts.Pool
             }
         }
 
-        public IReadOnlyList<MonoVessel> GetInactiveObjects()
+        public IReadOnlyList<Vessel> GetInactiveObjects()
         {
-            List<MonoVessel> inactive = new List<MonoVessel>();
+            List<Vessel> inactive = new List<Vessel>();
 
             for (int i = 0; i < _objects.Count; i++)
             {
@@ -29,7 +29,7 @@ namespace Assets.Source.Scripts.Pool
             return inactive;
         }
 
-        public void Activate(MonoVessel vessel)
+        public void Activate(Vessel vessel)
         {
             if (vessel == null)
                 throw new ArgumentNullException(nameof(vessel));

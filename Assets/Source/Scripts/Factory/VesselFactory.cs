@@ -9,7 +9,7 @@ using System;
 
 namespace Assets.Source.Scripts.Factory
 {
-    public class VesselFactory : Factory<MonoVessel>
+    public class VesselFactory : Factory<Vessel>
     {
         [SerializeField] private VesselStateTracker _gameFullingBehaviour;
         [SerializeField] private VesselPool _vesselPool;
@@ -42,7 +42,7 @@ namespace Assets.Source.Scripts.Factory
 
             for (int i = 0; i < settings.vesselsCount; i++)
             {
-                MonoVessel vessel = Instantiate(Prefab);
+                Vessel vessel = Instantiate(Prefab);
                 vessel.Filled += OnPutRemainingVessel;
 
                 vessel.gameObject.SetActive(false);
@@ -58,7 +58,7 @@ namespace Assets.Source.Scripts.Factory
 
         private void OnPutRemainingVessel(Vector3 position)
         {
-            MonoVessel remainingVessel = Objects.FirstOrDefault(
+            Vessel remainingVessel = Objects.FirstOrDefault(
                 vessel => vessel.IsFilled == false && vessel.gameObject.activeSelf == false);
 
             if (remainingVessel == null)
@@ -104,7 +104,7 @@ namespace Assets.Source.Scripts.Factory
             }
         }
 
-        private void AssignColor(MonoVessel vessel, Color color)
+        private void AssignColor(Vessel vessel, Color color)
         {
             if (vessel == null)
                 throw new ArgumentNullException(nameof(vessel));
