@@ -1,4 +1,5 @@
-﻿using Assets.Source.Scripts.Factory;
+﻿using Assets.Source.Scripts.ActionsHandlers;
+using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.MagicCells;
@@ -22,6 +23,7 @@ namespace Assets.Source.Scripts.Tutorial
         [SerializeField] private VesselPool _vesselPool;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
+        [SerializeField] private ClickModeSwitcher _modeSwitcher;
         [SerializeField] private Transform[] _columns;
 
         private float _beginsearchInterval = 1.5f;
@@ -57,7 +59,7 @@ namespace Assets.Source.Scripts.Tutorial
             _cellRouter.CellDeparturing -= OnStartSearchLoop;
 
             if (_reverseButton != null)
-                _reverseButton.Activated -= OnReverseButtonActivated;
+                _modeSwitcher.ReverseButtonActivating -= OnReverseButtonActivated;
 
             StopSearchLoop();
         }
@@ -72,7 +74,7 @@ namespace Assets.Source.Scripts.Tutorial
             _reverseButton = reverseButton
                 ?? throw new ArgumentNullException(nameof(reverseButton));
 
-            _reverseButton.Activated += OnReverseButtonActivated;
+            _modeSwitcher.ReverseButtonActivating += OnReverseButtonActivated;
         }
 
         private void OnStartSearchLoop()
@@ -88,45 +90,35 @@ namespace Assets.Source.Scripts.Tutorial
         private void OnReverseButtonActivated()
         {
             LoadCurrentColumns();
+            LoadCurrentVessels();
 
-            MagicColumn targetColumn = FindColumnWithBottomMatchingTop();
+            MagicColumn targetColumn = FindReverseColumn();
+            StackMagicCells stack = targetColumn.GetComponent<StackMagicCells>();
+            MagicCell cell = stack.GetUpperCell();
 
-            if (targetColumn != null)
-            {
-                _animationParticle.Play(targetColumn.transform.position);
-            }
+            if (cell != null)
+                _animationParticle.Play(cell.transform.position);
         }
 
-        private MagicColumn FindColumnWithBottomMatchingTop()
+        private MagicColumn FindReverseColumn()
         {
-            foreach (MagicColumn column in _currentColumns)
+            foreach (Vessel vessel in _currentVessels)
             {
-                StackMagicCells stack = column.GetComponent<StackMagicCells>();
+                Color color = vessel.Color;
 
-                if (stack == null) 
-                    continue;
-
-                MagicCell bottomCell = stack.GetBottomCell();
-
-                if (bottomCell == null) 
-                    continue;
-
-                Color bottomColor = bottomCell.Color;
-
-                foreach (MagicColumn otherColumn in _currentColumns)
+                foreach (MagicColumn column in _currentColumns)
                 {
-                    if (otherColumn == column) 
-                        continue;
+                    StackMagicCells stack = column.GetComponent<StackMagicCells>();
 
-                    StackMagicCells otherStack = otherColumn.GetComponent<StackMagicCells>();
+                    MagicCell bottomCell = stack.GetBottomCell();
 
-                    if (otherStack == null) 
-                        continue;
-
-                    MagicCell topCell = otherStack.TryGetCellByColor(bottomColor);
-
-                    if (topCell != null)
-                        return column;
+                    if (bottomCell != null)
+                    {
+                        if (bottomCell.Color == color)
+                        {
+                            return column;
+                        }
+                    }
                 }
             }
 

@@ -5,7 +5,7 @@ using Assets.Source.Scripts.Factory;
 using UnityEngine;
 using System;
 using YG;
-using Assets.Source.Scripts.UI.GamePanel;
+using UnityEngine.UI;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -23,8 +23,8 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private VolumeSliderViewHandler _mobileAudioViewHandler;
         [SerializeField] private VolumeSliderViewHandler _desktopAudioViewHandler;
         //[Header("Loading Window Panel")]
-        //[SerializeField] private Panel _mobileloadingWindowPrefab;
-        //[SerializeField] private Panel _desktoploadingWindowPrefab;
+        //[SerializeField] private Sprite _mobileloadindgImage;
+        //[SerializeField] private Sprite _desktoploadingImage;
 
         //private LoadingWindow _loadingWindow;
 
@@ -43,6 +43,7 @@ namespace Assets.Source.Scripts.EntryPoint
                 ItemFactory.SetContentTransform(MobileContent);
                 _soundSetter.ApplyAudioHandler(_mobileAudioViewHandler);
                 //_loadingWindow.SetParent(MobileCanvas.transform);
+                //_loadingWindow.SetImage(_mobileloadindgImage);
                 OnMobileSelected();
             }
             else
@@ -51,6 +52,7 @@ namespace Assets.Source.Scripts.EntryPoint
                 ItemFactory.SetContentTransform(DesktopContent);
                 _soundSetter.ApplyAudioHandler(_desktopAudioViewHandler);
                 //_loadingWindow.SetParent(DesktopCanvas.transform);
+                //_loadingWindow.SetImage(_desktoploadingImage);
                 OnDesktopSelected();
             }
         }
@@ -86,11 +88,11 @@ namespace Assets.Source.Scripts.EntryPoint
             if (DesktopContent == null)
                 throw new ArgumentNullException(nameof(DesktopContent));
 
-            //if (_mobileloadingWindowPrefab == null)
-            //    throw new ArgumentNullException(nameof(_mobileloadingWindowPrefab));
+            //if (_mobileloadindgImage == null)
+            //    throw new ArgumentNullException(nameof(_mobileloadindgImage));
 
-            //if (_desktoploadingWindowPrefab == null)
-            //    throw new ArgumentNullException(nameof(_desktoploadingWindowPrefab));
+            //if (_desktoploadingImage == null)
+            //    throw new ArgumentNullException(nameof(_desktoploadingImage));
         }
     }
 }

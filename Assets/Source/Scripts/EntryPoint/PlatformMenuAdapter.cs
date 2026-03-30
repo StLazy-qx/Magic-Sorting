@@ -1,4 +1,5 @@
 using Assets.Source.Scripts.Language;
+using Assets.Source.Scripts.SceneManagement;
 using Assets.Source.Scripts.UI.LanguageView;
 using System;
 using UnityEngine;
@@ -10,18 +11,27 @@ namespace Assets.Source.Scripts.EntryPoint
         [Header("Panels")]
         [SerializeField] private LanguageView _desktopLanguageView;
         [SerializeField] private LanguageView _mobileLanguageView;
+        [Header("Loading Windows")]
+        //[SerializeField] private Sprite _mobileLoadindgImage;
+        //[SerializeField] private Sprite _desktopLoadingImage;
+        [SerializeField] private LoadingWindow _mobileLoadindgPanel;
+        [SerializeField] private LoadingWindow _desktopLoadindgPanel;
 
         private LanguageSetter _languageSetter;
+        //private LoadingWindow _loadingWindow;
+        private SceneLoader _sceneLoader;
 
         public void Initialize(
-            //LoadingWindow loadingWindow, 
+            //LoadingWindow loadingWindow,
             LanguageSetter languageSetter)
         {
             ValidateDependencies(/*loadingWindow,*/ languageSetter);
 
+            _sceneLoader = new SceneLoader();
             _languageSetter = languageSetter;
+            //_loadingWindow = loadingWindow;
 
-            InitializeBase(/*loadingWindow*/);
+            InitializeBase();
         }
 
         protected override void OnMobileSelected()
@@ -32,15 +42,14 @@ namespace Assets.Source.Scripts.EntryPoint
         protected override void OnDesktopSelected()
         {
             _desktopLanguageView.Initialize(_languageSetter);
+
+            //_loadingWindow.transform.SetParent(DesktopCanvas.transform, false);
+            //_sceneLoader.Initialize(_loadingWindow);
         }
 
         private void ValidateDependencies(
-            //LoadingWindow loadingWindow,
             LanguageSetter languageSetter)
         {
-            //if (loadingWindow == null)
-            //    throw new ArgumentNullException(nameof(loadingWindow));
-
             if (languageSetter == null)
                 throw new ArgumentNullException(nameof(languageSetter));
 

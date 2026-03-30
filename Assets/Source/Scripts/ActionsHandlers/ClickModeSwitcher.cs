@@ -10,8 +10,10 @@ namespace Assets.Source.Scripts.ActionsHandlers
         private ReverseButton _reverceButton;
         private ButtonRewardedAdv _rewardedButton;
         private bool _isReverseUsed;
+        private bool _reverseEventFired;
 
         public event Action<ClickImpactMode> ModeChanged;
+        public event Action ReverseButtonActivating;
 
         public ClickImpactMode CurrentMode { get; private set; }
 
@@ -23,6 +25,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
         public void Reset()
         {
             _isReverseUsed = false;
+            _reverseEventFired = false;
 
             _reverceButton.ResetState();
             _rewardedButton.Disable();
@@ -44,7 +47,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         public void Reverse()
         {
-            if (CurrentMode != ClickImpactMode.ModeReverce)
+            if (CurrentMode != ClickImpactMode.ModeReverse)
                 return;
 
             _isReverseUsed = true;
@@ -56,7 +59,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
         public void OnToggleMode()
         {
             if (_isReverseUsed &&
-                CurrentMode == ClickImpactMode.ModeReverce)
+                CurrentMode == ClickImpactMode.ModeReverse)
             {
                 ActivateDistributionMode();
                 return;
@@ -101,9 +104,16 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         private void ActivateReverceMode()
         {
-            CurrentMode = ClickImpactMode.ModeReverce;
+            CurrentMode = ClickImpactMode.ModeReverse;
 
             ModeChanged?.Invoke(CurrentMode);
+
+            if (_reverseEventFired == false)
+            {
+                ReverseButtonActivating?.Invoke();
+
+                _reverseEventFired = true;
+            }
         }
     }
 }

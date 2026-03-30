@@ -1,5 +1,6 @@
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Language;
+using Assets.Source.Scripts.SceneManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,8 +55,8 @@ namespace Assets.Source.Scripts.EntryPoint
         private void ValidateDependencies()
         {
             //if (_loadingWindowPrefab == null)
-            //    throw new ArgumentNullException(nameof(_loadingWindowPrefab));
-
+            //    throw new ArgumentNullException(nameof(_loadingWindowPrefab));            
+            
             if (_platformSetter == null)
                 throw new ArgumentNullException(nameof(_platformSetter));
 

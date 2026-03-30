@@ -92,7 +92,7 @@ namespace Assets.Source.Scripts.Pool
             return bottomCell;
         }
 
-        private MagicCell GetUpperCell()
+        public MagicCell GetUpperCell()
         {
             if (_cellsStack.TryPeek(out MagicCell cell))
                 return cell;
@@ -176,7 +176,7 @@ namespace Assets.Source.Scripts.Pool
                 _cellRouter.DeliverMagicCell(cell);
                 cell.Disable();
             }
-            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverce)
+            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
             {
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 

@@ -22,23 +22,22 @@ namespace Assets.Source.Scripts.SceneManagement
             LoadScene(GameSceneIndex);
         }
 
-        private void LoadScene(int sceneIndex)
+        private  void LoadScene(int sceneIndex)
         {
-            if (sceneIndex < 0
-                || sceneIndex
-                >= SceneManager.sceneCountInBuildSettings)
+            if (sceneIndex < 0 || 
+                sceneIndex >= SceneManager.sceneCountInBuildSettings)
             {
                 throw new ArgumentOutOfRangeException(nameof(sceneIndex));
             }
 
-            LoadingWindow.Instance.Show();
+            //LoadingWindow.Instance.Show();
 
             _currentOperation = SceneManager.LoadSceneAsync(sceneIndex);
 
             _currentOperation.completed += _ =>
             {
-                if (LoadingWindow.Instance != null)
-                    LoadingWindow.Instance.Hide();
+                //if (LoadingWindow.Instance != null)
+                //    LoadingWindow.Instance.Hide();
             };
         }
     }

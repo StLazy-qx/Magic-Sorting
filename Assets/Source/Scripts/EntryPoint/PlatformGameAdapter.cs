@@ -27,10 +27,9 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
         [SerializeField] private Seeker _seeker;
 
-        public void Initialize(
-            /*LoadingWindow loadingWindow*/)
+        public void Initialize(/*LoadingWindow loadingWindow*/)
         {
-            ValidateRequiredDependencies(/*loadingWindow*/);
+            ValidateRequiredDependencies();
             InitializeBase(/*loadingWindow*/);
         }
 
@@ -52,11 +51,8 @@ namespace Assets.Source.Scripts.EntryPoint
             _seeker.SetButtonRewarded(_rewardedButtonDesktop, _reverseButtonDesktop);
         }
 
-        private void ValidateRequiredDependencies(/*LoadingWindow loadingWindow*/)
+        private void ValidateRequiredDependencies()
         {
-            //if (loadingWindow == null)
-            //    throw new ArgumentNullException(nameof(loadingWindow));
-
             if (_desktopObjectsPosition == null)
                 throw new ArgumentNullException(nameof(_desktopObjectsPosition));
 

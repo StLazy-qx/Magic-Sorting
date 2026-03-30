@@ -86,9 +86,6 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private void ValidateDependencies()
         {
-            //if (_loadingWindowPrefab == null)
-            //    throw new ArgumentNullException(nameof(_loadingWindowPrefab));
-
             if (_platformDependentSetter == null)
                 throw new ArgumentNullException(nameof(_platformDependentSetter));
 

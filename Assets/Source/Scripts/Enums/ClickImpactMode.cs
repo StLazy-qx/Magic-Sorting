@@ -3,6 +3,6 @@
     public enum ClickImpactMode
     {
         ModeDistribution,
-        ModeReverce
+        ModeReverse
     }
 }

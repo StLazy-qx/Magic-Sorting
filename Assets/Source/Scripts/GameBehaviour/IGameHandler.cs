@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Source.Scripts.EntryPoint;
+using System;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -11,8 +12,8 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void ContinueGame();
         public void PauseGame();
-        public void ResumeGame();
-        public void OpenMainMenu();
+        //public void ResumeGame();
+        //public void OpenMainMenu();
         public void QuitGame();
     }
 }
