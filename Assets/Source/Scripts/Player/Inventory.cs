@@ -13,10 +13,12 @@ namespace Assets.Source.Scripts.Player
     public class Inventory : MonoBehaviour, IObjectInitilizable
     {
         [SerializeField] private Store _store;
-        [SerializeField] private ScinSetter _scinSetter;
+        [SerializeField] private SkinSetter _scinSetter;
 
         private Item _equippedItem;
         private List<Item> _items = new List<Item>();
+
+        public event Action<NewItemView> ItemBuyed;
 
         public bool IsInitialized { get; private set; }
         public Item EquippedItem => _equippedItem;
@@ -54,6 +56,11 @@ namespace Assets.Source.Scripts.Player
 
             _items.Add(item);
             YG2.saves.AddItem(item.ID);
+
+            NewItemView newItemView = item.GetComponent<NewItemView>();
+
+            if(newItemView != null)
+                ItemBuyed?.Invoke(newItemView);
         }
 
         public void EquipItem(Item item)

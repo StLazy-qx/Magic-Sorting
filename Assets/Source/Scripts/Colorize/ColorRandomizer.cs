@@ -1,5 +1,6 @@
 using Assets.Source.Scripts.Enums;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Colorize
@@ -8,9 +9,11 @@ namespace Assets.Source.Scripts.Colorize
     {
         private const float AlphaValue = 0.93f;
 
-        private EnumColor[] _allColors = 
-            (EnumColor[])Enum.GetValues(typeof(EnumColor));
+        private EnumColor[] _allColors = (EnumColor[])Enum.
+            GetValues(typeof(EnumColor));
         private Color[] _currentColors;
+
+        public IReadOnlyList<Color> Colors => _currentColors;
 
         public Color GenerateRandomColor() // проверь
         {
@@ -26,7 +29,7 @@ namespace Assets.Source.Scripts.Colorize
             return _currentColors[UnityEngine.Random.Range(0, _currentColors.Length)];
         }
 
-        public Color[] CrateArrayColors(int colorsNumber)
+        public void CrateArrayColors(int colorsNumber)
         {
             if (colorsNumber <= 0)
             {
@@ -45,7 +48,12 @@ namespace Assets.Source.Scripts.Colorize
                 _currentColors[i] = TransformEnumToColor(_allColors[shuffledIndices[i]]);
             }
 
-            return _currentColors;
+            Debug.Log("Вызван [ColorRandomizer]");
+
+            foreach (var color in _currentColors)
+            {
+                Debug.Log(color);
+            }
         }
 
         private int[] ShuffleIndices(int length)

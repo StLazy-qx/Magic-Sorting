@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3538acee0710fc489557d8fb3cc55e3, type: 3}
   m_Name: EasyDifficultySettings
   m_EditorClassIdentifier: 
-  level: 1
-  columnsCount: 4
-  minCellsPerColumn: 5
-  vesselsCount: 4
-  colorsCount: 4
+  Level: 1
+  ColumnsCount: 5
+  MaxCellsPerColumn: 5
+  VesselsCount: 4
+  ColorsCount: 4

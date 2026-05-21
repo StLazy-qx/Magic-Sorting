@@ -1,3 +1,4 @@
+using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.InteractiveObjects;
@@ -15,22 +16,36 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
+        private int _currentRound = 1;
+        private SequenceDifficultyLevel _sequenceDifficultyLevel;
+
         public event Action GameReseting;
+        public event Action<int> RoundChanged;
 
         //зачем?
         public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
 
+        private void Awake()
+        {
+            _sequenceDifficultyLevel = new SequenceDifficultyLevel();
+        }
+
         private void Start()
         {
             ValidateObjects();
+            RoundChanged?.Invoke(_currentRound);
         }
 
         public void BeginNewRound()
         {
             //убрать повторяемость в коде
+            ChangeDifficultyBySequence();
             ContinueGame();
             ResetEntity();
             StartCoroutine(BeginRoundRoutine());
+
+            _currentRound++;
+            RoundChanged?.Invoke(_currentRound);
         }
 
         public void IncreaseDifficultyLevel()
@@ -51,6 +66,13 @@ namespace Assets.Source.Scripts.GameBehaviour
         protected override void ExtendInitialize()
         {
             _waitingPoint.Reset();
+        }
+
+        private void ChangeDifficultyBySequence()
+        {
+            DifficultyLevel nextLevel = _sequenceDifficultyLevel.GetNext();
+
+            DifficultyState.SetDifficulty(nextLevel);
         }
 
         private IEnumerator BeginRoundRoutine()

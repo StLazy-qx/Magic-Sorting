@@ -9,20 +9,20 @@ namespace Assets.Source.Scripts.GameDifficulty
 
     public class DifficultySettings : ScriptableObject
     {
-        public DifficultyLevel level;
+        public DifficultyLevel Level;
         [Header("Columns settings")]
-        public int columnsCount;
-        public int minCellsPerColumn;
+        public int ColumnsCount;
+        public int MaxCellsPerColumn;
         [Header("Vessels settings")]
-        public int vesselsCount;
-        public int colorsCount;
+        public int VesselsCount;
+        public int ColorsCount;
 
         private void OnValidate()
         {
-            ValidateValue(columnsCount, nameof(columnsCount));
-            ValidateValue(minCellsPerColumn, nameof(minCellsPerColumn));
-            ValidateValue(vesselsCount, nameof(vesselsCount));
-            ValidateValue(colorsCount, nameof(colorsCount));
+            ValidateValue(ColumnsCount, nameof(ColumnsCount));
+            ValidateValue(MaxCellsPerColumn, nameof(MaxCellsPerColumn));
+            ValidateValue(VesselsCount, nameof(VesselsCount));
+            ValidateValue(ColorsCount, nameof(ColorsCount));
         }
 
         private void ValidateValue(int value, string paramName)

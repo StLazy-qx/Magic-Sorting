@@ -1,32 +1,47 @@
+using Assets.Source.Scripts.Factory;
+using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.GameDifficulty;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Source.Scripts.Factory;
 using System;
+using Zenject;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
     public class EntryPointGameSession : MonoBehaviour
     {
+        [SerializeField] private DifficultyDatabase _difficultyDatabase;
         [SerializeField] private PlatformGameAdapter _platformDependentSetter;
+        [SerializeField] private ColorRandomizer _colorRandomizer;
+        [SerializeField] private EntryColorListsFactory _entryColorListsFactory;
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
-        //[SerializeField] private LoadingWindow _loadingWindowPrefab;
         [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
-        //private LoadingWindow _loadingWindow;
+        private DifficultyState _difficultyState;
+        private DifficultySettings _currentSettings;
         private List<IObjectInitilizable> _objectsInitilizable = new();
 
         private void Awake()
         {
             ValidateDependencies();
 
-            //_loadingWindow = Instantiate(_loadingWindowPrefab);
+            _currentSettings = _difficultyDatabase.GetSettings(_difficultyState.CurrentDifficulty);
 
-            _platformDependentSetter.Initialize(/*_loadingWindow*/);
+            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
+            _platformDependentSetter.Initialize();
+            _entryColorListsFactory.Initialize(_colorRandomizer.Colors);
+            _vesselFactory.InitRandomizer(_colorRandomizer);
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());
+        }
+
+        [Inject]
+        private void Construct(DifficultyState difficultyState)
+        {
+            _difficultyState = difficultyState;
         }
 
         private void CollectInitializableObjects()

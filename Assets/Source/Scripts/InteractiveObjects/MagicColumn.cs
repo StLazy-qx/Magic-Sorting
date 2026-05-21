@@ -13,7 +13,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private StackMagicCells _stackHandler;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
 
-        private int _countCells;
+        private int _maxCountCells;
         private float _prefabHeight;
         private float _distanceBetweenCells = 0.05f;
         private ShuffledColorDistributor _colorSource;
@@ -43,7 +43,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
             _cellRouter = distributerMagicCell;
             _colorSource = colorSource;
-            _countCells = countCells;
+            _maxCountCells = countCells;
 
             CreateStackHandler();
         }
@@ -64,7 +64,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
                 _colorSource,
                 _clickImpactHandler,
                 transform,
-                _countCells,
+                _maxCountCells,
                 _prefabHeight);
         }
 

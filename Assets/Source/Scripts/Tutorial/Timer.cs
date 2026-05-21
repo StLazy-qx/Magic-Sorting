@@ -8,85 +8,49 @@ namespace Assets.Source.Scripts.Tutorial
     public class Timer : MonoBehaviour
     {
         [SerializeField] private MagicCellRouter _cellRouter;
-        [SerializeField] private float _beginSearchInterval = 1f;
-        [SerializeField] private float _searchInterval = 7f;
+        [SerializeField] private float _initialDelay = 1f;
+        [SerializeField] private float _repeatDelay = 7f;
 
-        private WaitForSeconds _beginWaitForSearch;
-        private WaitForSeconds _waitForSearch;
-        private Coroutine _initialSearchRoutine;
-        private Coroutine _delayedSearchRoutine;
+        private Coroutine _currentRoutine;
 
         public event Action SearchRequested;
 
-        private void Awake()
-        {
-            _beginWaitForSearch = new WaitForSeconds(_beginSearchInterval);
-            _waitForSearch = new WaitForSeconds(_searchInterval);
-
-            ValidateDependencies();
-        }
-
         private void OnEnable()
         {
-            if (_cellRouter != null)
-                _cellRouter.CellDeparturing += OnCellDeparturing;
+            _cellRouter.CellDeparturing += OnCellDeparturing;
         }
 
         private void OnDisable()
         {
-            if (_cellRouter != null)
-                _cellRouter.CellDeparturing -= OnCellDeparturing;
-
+            _cellRouter.CellDeparturing -= OnCellDeparturing;
             StopAllCoroutines();
-
-            _initialSearchRoutine = null;
-            _delayedSearchRoutine = null;
+            _currentRoutine = null;
         }
 
         private void Start()
         {
-            if (_initialSearchRoutine == null)
-                _initialSearchRoutine = StartCoroutine(InitialSearchRoutine());
+            StartTimer(_initialDelay);
         }
 
         private void OnCellDeparturing()
         {
-            if (_delayedSearchRoutine != null)
-                StopCoroutine(_delayedSearchRoutine);
-
-            _delayedSearchRoutine = StartCoroutine(DelayedSearchRoutine());
+            StartTimer(_repeatDelay);
         }
 
-        private IEnumerator InitialSearchRoutine()
+        private void StartTimer(float delay)
         {
-            yield return _beginWaitForSearch;
+            if (_currentRoutine != null)
+                StopCoroutine(_currentRoutine);
 
-            OnSearchRequested();
-
-            _initialSearchRoutine = null;
+            _currentRoutine = StartCoroutine(TimerRoutine(delay));
         }
 
-        private IEnumerator DelayedSearchRoutine()
+        private IEnumerator TimerRoutine(float delay)
         {
-            yield return _waitForSearch;
+            yield return new WaitForSeconds(delay);
 
-            OnSearchRequested();
-
-            _delayedSearchRoutine = null;
-        }
-
-        private void OnSearchRequested()
-        {
             SearchRequested?.Invoke();
-        }
-
-        private void ValidateDependencies()
-        {
-            if (_cellRouter == null)
-            {
-                throw new InvalidOperationException(
-                    $"{nameof(_cellRouter)} не назначен в инспекторе.");
-            }
+            _currentRoutine = null;
         }
     }
 }

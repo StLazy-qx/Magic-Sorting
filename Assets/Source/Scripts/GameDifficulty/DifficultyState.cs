@@ -10,14 +10,14 @@ namespace Assets.Source.Scripts.GameDifficulty
 
         public event Action<DifficultyLevel> DifficultyChanged;
 
-        public void SetDifficulty(DifficultyLevel level)
+        public void SetDifficulty(DifficultyLevel difficultyLevel)
         {
-            if (CurrentDifficulty == level)
+            if (CurrentDifficulty == difficultyLevel)
                 return;
 
-            CurrentDifficulty = level;
+            CurrentDifficulty = difficultyLevel;
 
-            DifficultyChanged?.Invoke(level);
+            DifficultyChanged?.Invoke(difficultyLevel);
         }
 
         public void Initialize() { }

@@ -21,6 +21,7 @@ namespace Assets.Source.Scripts.Pool
         private ShuffledColorDistributor _colorSource;
         private ClickModeSwitcher _clickImpactHandler;
         private Transform _parent;
+        private int _maxVolumeCells;
         private float _prefabHeight;
         private bool _isPaused;
         private Stack<MagicCell> _cellsStack = new();
@@ -36,11 +37,11 @@ namespace Assets.Source.Scripts.Pool
             ShuffledColorDistributor colorSource,
             ClickModeSwitcher clickHandler,
             Transform parent,
-            int countCells,
+            int maxVolumeCells,
             float prefabHeight)
         {
             ValidateArguments(factory, cellRouter, colorSource, clickHandler, parent);
-            ValidateValues(countCells, prefabHeight);
+            ValidateValues(maxVolumeCells, prefabHeight);
 
             ClearStack();
 
@@ -49,11 +50,17 @@ namespace Assets.Source.Scripts.Pool
             _colorSource = colorSource;
             _clickImpactHandler = clickHandler;
             _parent = parent;
+            _maxVolumeCells = maxVolumeCells;
             _prefabHeight = prefabHeight;
 
             _gameHandler.PauseStateChanged += OnGamePause;
 
-            CreateCells(countCells);
+            CreateCells(maxVolumeCells);
+        }
+
+        public bool CanAddCell()
+        {
+            return _cellsStack.Count < _maxVolumeCells;
         }
 
         public MagicCell TryGetCellByColor(Color color)
@@ -129,6 +136,14 @@ namespace Assets.Source.Scripts.Pool
                 if (cell != null)
                     Destroy(cell.gameObject);
             }
+        }
+
+        public void AcceptCell(MagicCell cell)
+        {
+            if (cell == null)
+                throw new ArgumentNullException(nameof(cell));
+
+            _cellsStack.Push(cell);
         }
 
         private void CreateCells(int countCells)

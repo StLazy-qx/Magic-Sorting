@@ -21,7 +21,7 @@ namespace Assets.Source.Scripts.Items
 
             _id = itemData.ID;
             _price = itemData.Price;
-            _texture = itemData.Scin;
+            _texture = itemData.Skin;
         }
 
         public void Buy()

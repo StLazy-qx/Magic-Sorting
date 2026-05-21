@@ -18,7 +18,7 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] protected StoreItemFactory ItemFactory;
         [SerializeField] protected Transform DesktopContent;
         [SerializeField] protected Transform MobileContent;
-        [Header("Audio panel installation")]
+        [Header("Audio panels installation")]
         [SerializeField] private SoundSetter _soundSetter;
         [SerializeField] private VolumeSliderViewHandler _mobileAudioViewHandler;
         [SerializeField] private VolumeSliderViewHandler _desktopAudioViewHandler;

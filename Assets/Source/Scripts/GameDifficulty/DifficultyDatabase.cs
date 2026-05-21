@@ -19,7 +19,7 @@ namespace Assets.Source.Scripts.GameDifficulty
 
             foreach (DifficultySettings parameter in _parameters)
             {
-                if (parameter.level == level)
+                if (parameter.Level == level)
                     return parameter;
             }
 

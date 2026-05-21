@@ -73,7 +73,7 @@ namespace Assets.Source.Scripts.Factory
                     GetSettings(DifficultyState.CurrentDifficulty);
             }
 
-            return Mathf.Min(CurrentSettings.columnsCount, SpawnPoints.Length);
+            return Mathf.Min(CurrentSettings.ColumnsCount, SpawnPoints.Length);
         }
 
         private void ValidateVessels(IReadOnlyList<Vessel> vessels)

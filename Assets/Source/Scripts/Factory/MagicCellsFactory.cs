@@ -5,7 +5,9 @@ namespace Assets.Source.Scripts.Factory
 {
     public class MagicCellsFactory : Factory<MagicCell>
     {
-        public MagicCell CreateCell(Transform parent, Vector3 localPosition, Color color)
+        public MagicCell CreateCell(Transform parent, 
+            Vector3 localPosition, 
+            Color color)
         {
             MagicCell cell = Instantiate(Prefab, parent);
             cell.transform.localPosition = localPosition;
@@ -23,7 +25,8 @@ namespace Assets.Source.Scripts.Factory
 
             Renderer renderer = Prefab.GetComponentInChildren<Renderer>();
 
-            return renderer != null ? renderer.bounds.size.y : cellHeight;
+            return renderer != null ? 
+                renderer.bounds.size.y : cellHeight;
         }
 
         protected override void BuildObjects() { }

@@ -6,6 +6,7 @@ using Assets.Source.Scripts.Pool;
 using System.Linq;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace Assets.Source.Scripts.Factory
 {
@@ -14,7 +15,8 @@ namespace Assets.Source.Scripts.Factory
         [SerializeField] private VesselStateTracker _gameFullingBehaviour;
         [SerializeField] private VesselPool _vesselPool;
         [SerializeField] private MagicCellRouter _distributerMagicCell;
-        [SerializeField] private ColorRandomizer _colorRandomizer;
+
+        private ColorRandomizer _colorRandomizer;
 
         public bool IsReady { get; private set; }
 
@@ -29,6 +31,12 @@ namespace Assets.Source.Scripts.Factory
             base.OnDestroy();
         }
 
+        public void InitRandomizer(ColorRandomizer colorRandomizer)
+        {
+            _colorRandomizer = colorRandomizer ??
+                throw new ArgumentNullException(nameof(colorRandomizer));
+        }
+
         protected override void BuildObjects()
         {
             ValidateBuildRequirements();
@@ -37,10 +45,10 @@ namespace Assets.Source.Scripts.Factory
             DifficultySettings settings = DifficultyDatabase.
                 GetSettings(DifficultyState.CurrentDifficulty);
 
-            if (settings.vesselsCount <= 0)
+            if (settings.VesselsCount <= 0)
                 throw new InvalidOperationException("Vessels count must be > 0");
 
-            for (int i = 0; i < settings.vesselsCount; i++)
+            for (int i = 0; i < settings.VesselsCount; i++)
             {
                 Vessel vessel = Instantiate(Prefab);
                 vessel.Filled += OnPutRemainingVessel;
@@ -49,7 +57,7 @@ namespace Assets.Source.Scripts.Factory
                 Add(vessel);
             }
 
-            AssignColorsCount(CurrentSettings.colorsCount);
+            AssignColorsCount(CurrentSettings.ColorsCount);
             _gameFullingBehaviour.SetVesselsList(Objects);
             ActivateVessels();
 
@@ -88,17 +96,18 @@ namespace Assets.Source.Scripts.Factory
             }
         }
 
+        //почему здесь?
         private void AssignColorsCount(int colorsCount)
         {
             if (colorsCount <= 0)
                 throw new InvalidOperationException("colorsCount must be > 0");
 
             int realColorCount = Mathf.Min(colorsCount, Objects.Count);
-            Color[] palette = _colorRandomizer.CrateArrayColors(realColorCount);
+            IReadOnlyList<Color> palette = _colorRandomizer.Colors;
 
             for (int i = 0; i < Objects.Count; i++)
             {
-                Color color = palette[i % palette.Length];
+                Color color = palette[i % palette.Count];
 
                 AssignColor(Objects[i], color);
             }

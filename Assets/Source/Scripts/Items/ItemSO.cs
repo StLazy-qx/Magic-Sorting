@@ -18,6 +18,6 @@ namespace Assets.Source.Scripts.Items
         public Item Item => _item;
         public Sprite Icon => _icon;
         public int Price => _price;
-        public Texture Scin => _texture;
+        public Texture Skin => _texture;
     }
 }

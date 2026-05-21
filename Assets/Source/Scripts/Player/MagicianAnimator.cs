@@ -13,7 +13,7 @@ namespace Assets.Source.Scripts.Player
         private readonly int AnimationChangeClothes = Animator.StringToHash("ChangeClothes");
         private readonly int AnimationWinning = Animator.StringToHash("Winning");
 
-        [SerializeField] private ScinSetter _scinSetter;
+        [SerializeField] private SkinSetter _scinSetter;
         [SerializeField] private ActionHandler _actionHandler;
         [SerializeField] private VesselStateTracker _vesselStateTracker;
         [SerializeField] private Transform _staff;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Player
 {
-    public class ScinSetter : MonoBehaviour
+    public class SkinSetter : MonoBehaviour
     {
         [SerializeField] private SkinnedMeshRenderer _meshRenderer;
 
@@ -35,13 +35,21 @@ namespace Assets.Source.Scripts.Player
             }
 
             _materialInstance.SetTexture("_MainTex", item.Texture);
-            ItemChanged.Invoke();
+            //ItemChanged.Invoke();
         }
 
-        // может убрать
-        public void Clear()
+        public void OnShowItemTexture(Texture texture)
         {
-            _materialInstance.SetTexture("_MainTex", null);
+            if (texture == null)
+                return;
+
+            if (_materialInstance == null)
+            {
+                throw new System.InvalidOperationException(
+                    "Material instance is not initialized");
+            }
+
+            _materialInstance.SetTexture("_MainTex", texture);
         }
     }
 }

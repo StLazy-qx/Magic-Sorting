@@ -18,7 +18,6 @@ namespace Assets.Source.Scripts.YG
             _buttonRewardedM.OnClick.AddListener(OnGetLog);
 
             //YG2.onCloseRewardedAdv += OnCloseButtonRewardedAdv;
-            YG2.onCloseInterAdv += OnCloseButtonRewardedAdv;
         }
 
         private void OnDisable()
@@ -27,18 +26,16 @@ namespace Assets.Source.Scripts.YG
             _buttonRewardedM.OnClick.RemoveListener(OnGetLog);
 
             //YG2.onCloseRewardedAdv -= OnCloseButtonRewardedAdv;
-            YG2.onCloseInterAdv -= OnCloseButtonRewardedAdv;
         }
 
         private void OnGetLog()
         {
-            //для тестов
-            YG2.InterstitialAdvShow();
+            //YG2.InterstitialAdvShow();
 
-            //YG2.RewardedAdvShow(rewardID, () =>
-            //{
-            //    Debug.Log("Вызвана реклама за вознаграждения");
-            //});
+            YG2.RewardedAdvShow(rewardID, () =>
+            {
+                Debug.Log("Вызвана реклама за вознаграждения");
+            });
         }
 
         private void OnCloseButtonRewardedAdv()

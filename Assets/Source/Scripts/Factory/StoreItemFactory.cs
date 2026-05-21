@@ -12,8 +12,11 @@ namespace Assets.Source.Scripts.Factory
     public class StoreItemFactory : Factory<Button>
     {
         [SerializeField] private Store _store;
-        [SerializeField] private Inventory _inventory;
-        [SerializeField] private PlayerEntity _player;
+        //[SerializeField] private Inventory _inventory;
+        [SerializeField] private SkinSetter _modelSkin;
+
+        //назначить через платформ адаптер
+        [SerializeField] private SelectItemPresenter _itemPresenter;
 
         private Transform _contentTransform;
 
@@ -34,12 +37,14 @@ namespace Assets.Source.Scripts.Factory
             foreach (ItemSO itemData in items)
             {
                 Button button = Instantiate(Prefab, _contentTransform);
-                StoreItemPresenter presenter = button.GetComponent<StoreItemPresenter>();
+                //StoreItemPresenter presenter = button.GetComponent<StoreItemPresenter>();
                 Item item = button.GetComponent<Item>();
-                ItemView itemView = button.GetComponent<ItemView>();
+                //ItemView itemView = button.GetComponent<ItemView>();
+                NewItemView itemView = button.GetComponent<NewItemView>();
+                OnPushItemPresenter(itemView);
 
-                if (presenter == null)
-                    throw new ArgumentNullException(nameof(presenter));
+                //if (presenter == null)
+                //    throw new ArgumentNullException(nameof(presenter));
 
                 if (item == null)
                     throw new ArgumentNullException(nameof(item));
@@ -49,7 +54,7 @@ namespace Assets.Source.Scripts.Factory
 
                 item.Initialize(itemData);
                 itemView.Initialize(itemData);
-                presenter.Initialize(item, _store);
+                //presenter.Initialize(item, _store);
                 Add(button);
                 Created?.Invoke(button);
             }
@@ -57,13 +62,19 @@ namespace Assets.Source.Scripts.Factory
             NotifyObjectsChanged();
         }
 
+        private void OnPushItemPresenter(NewItemView newItemView)
+        {
+            newItemView.OnClicked += _itemPresenter.OnSelectShowedItem;
+            newItemView.OnItemSelected += _modelSkin.OnShowItemTexture;
+        }
+
         private void ValidateBuildRequirements()
         {
             if (_store == null)
                 throw new ArgumentNullException(nameof(_store));
 
-            if (_inventory == null)
-                throw new ArgumentNullException(nameof(_inventory));
+            //if (_inventory == null)
+            //    throw new ArgumentNullException(nameof(_inventory));
 
             if (Prefab == null)
                 throw new ArgumentNullException(nameof(Prefab));
