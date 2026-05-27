@@ -3,9 +3,12 @@ using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Enums;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.ActionsHandlers;
+using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.Colorize;
 using System.Collections;
 using UnityEngine;
 using System;
+using Zenject;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -13,11 +16,17 @@ namespace Assets.Source.Scripts.GameBehaviour
     {
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
+        [SerializeField] private EntryColorListsFactory _entryColorListsFactory;
+        [SerializeField] private ColorRandomizer _colorRandomizer;
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
+        [SerializeField] private ColorColumnDistributor _columnDistributor;
+        [SerializeField] private DifficultyDatabase _difficultyDatabase;
 
         private int _currentRound = 1;
         private SequenceDifficultyLevel _sequenceDifficultyLevel;
+        private DifficultyState _difficultyState;
+        private DifficultySettings _currentSettings;
 
         public event Action GameReseting;
         public event Action<int> RoundChanged;
@@ -36,15 +45,24 @@ namespace Assets.Source.Scripts.GameBehaviour
             RoundChanged?.Invoke(_currentRound);
         }
 
+        [Inject]
+        private void Construct(DifficultyState difficultyState)
+        {
+            _difficultyState = difficultyState;
+        }
+
         public void BeginNewRound()
         {
             //убрать повторяемость в коде
             ChangeDifficultyBySequence();
+            _currentSettings = _difficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
             ContinueGame();
+            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
             ResetEntity();
             StartCoroutine(BeginRoundRoutine());
 
             _currentRound++;
+
             RoundChanged?.Invoke(_currentRound);
         }
 
@@ -78,6 +96,8 @@ namespace Assets.Source.Scripts.GameBehaviour
         private IEnumerator BeginRoundRoutine()
         {
             ResetFactories();
+            _vesselFactory.InitRandomizer(_colorRandomizer);
+            _entryColorListsFactory.Initialize(_colorRandomizer.Colors);
             _vesselFactory.Spawn();
 
             yield return new WaitUntil(() => _vesselFactory.IsReady);
@@ -85,10 +105,14 @@ namespace Assets.Source.Scripts.GameBehaviour
             if (_vesselFactory.Objects != null &&
                 _vesselFactory.Objects.Count > 0)
             {
-                _columnsFactory.Initialize(_vesselFactory.Objects);
+                _columnsFactory.Initialize(
+                    _vesselFactory.Objects,
+                    _currentSettings.ColumnsCount,
+                    _currentSettings.MaxCellsPerColumn);
                 _columnsFactory.Spawn();
             }
 
+            _columnDistributor.Distribute();
             GameReseting?.Invoke();
         }
 
@@ -101,6 +125,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private void ResetFactories()
         {
+            _entryColorListsFactory.Reset();
             _vesselFactory.ResetFactory(
                 DifficultyState.CurrentDifficulty);
             _columnsFactory.ResetFactory(

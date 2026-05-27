@@ -71,56 +71,6 @@ namespace Assets.Source.Scripts.Colorize
 
             foreach (Color color in _colors)
                 _mixedColors.Enqueue(color);
-
-            //_particlePool.Initialize(TotalColors);
-
-            //bool hasAdjacentDuplicate;
-            //int maxAttempts = 100;
-            //int attempt = 0;
-            //bool allColorsSame = _colors.All(color => color == _colors[0]);
-
-            //if (allColorsSame)
-            //{
-            //    _mixedColors.Clear();
-
-            //    foreach (Color color in _colors)
-            //        _mixedColors.Enqueue(color);
-
-            //    return;
-            //}
-
-            //do
-            //{
-            //    for (int i = _colors.Count - 1; i > 0; i--)
-            //    {
-            //        int randomNumber = UnityEngine.Random.Range(0, i + 1);
-            //        Color tempColor = _colors[i];
-            //        _colors[i] = _colors[randomNumber];
-            //        _colors[randomNumber] = tempColor;
-            //    }
-
-            //    hasAdjacentDuplicate = false;
-
-            //    for (int i = 1; i < _colors.Count; i++)
-            //    {
-            //        if (_colors[i] == _colors[i - 1])
-            //        {
-            //            hasAdjacentDuplicate = true;
-
-            //            break;
-            //        }
-            //    }
-
-            //    attempt++;
-
-            //    if (attempt >= maxAttempts)
-            //        break;
-            //} while (hasAdjacentDuplicate);
-
-            //_mixedColors.Clear();
-
-            //foreach (Color color in _colors)
-            //    _mixedColors.Enqueue(color);
         }
 
         private void ValidateVessels(IReadOnlyList<Vessel> vessels)

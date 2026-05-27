@@ -153,6 +153,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\LevelDifficultyButton.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Source\Scripts\Factory\ColorColumnDistributor.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\LoadingWindow.cs" />
     <Compile Include="Assets\Source\Scripts\Audio\SoundSetter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Tutorial\ActionButton.cs" />
@@ -296,6 +297,7 @@
     <Compile Include="Assets\Source\Scripts\EntryPoint\Validator.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\BaseGameHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\LangYGAdditionalText.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\EntryListColorPool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\ImageLoadYG.cs" />

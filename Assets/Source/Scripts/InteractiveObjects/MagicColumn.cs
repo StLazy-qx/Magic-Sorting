@@ -17,6 +17,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         private float _prefabHeight;
         private float _distanceBetweenCells = 0.05f;
         private ShuffledColorDistributor _colorSource;
+        private EntryListColorPool _listColorPool;
         private MagicCellRouter _cellRouter;
         private MagicCellsFactory _factory;
 
@@ -30,6 +31,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         public void Initialize(
             MagicCellRouter distributerMagicCell,
             ShuffledColorDistributor colorSource,
+            EntryListColorPool listColorPool,
             int countCells)
         {
             if (countCells <= 0)
@@ -43,9 +45,20 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
             _cellRouter = distributerMagicCell;
             _colorSource = colorSource;
+            _listColorPool = listColorPool;
             _maxCountCells = countCells;
 
             CreateStackHandler();
+        }
+
+        public void AddCell(Color color)
+        {
+            _stackHandler.CreateCell(color);
+        }
+
+        public bool CanAddCell()
+        {
+            return _stackHandler.CanAddCell();
         }
 
         private void CreateStackHandler()
@@ -62,6 +75,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
                 _factory,
                 _cellRouter,
                 _colorSource,
+                _listColorPool,
                 _clickImpactHandler,
                 transform,
                 _maxCountCells,

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Assets.Source.Scripts.Pool
 {
-    class MagicColumnPool : Pool<MagicColumn>
+    public class MagicColumnPool : Pool<MagicColumn>
     {
         public event Action<IReadOnlyList<MagicColumn>> ActiveColumnsChanged;
 

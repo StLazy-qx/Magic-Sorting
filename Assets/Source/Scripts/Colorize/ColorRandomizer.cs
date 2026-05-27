@@ -47,13 +47,6 @@ namespace Assets.Source.Scripts.Colorize
             {
                 _currentColors[i] = TransformEnumToColor(_allColors[shuffledIndices[i]]);
             }
-
-            Debug.Log("Вызван [ColorRandomizer]");
-
-            foreach (var color in _currentColors)
-            {
-                Debug.Log(color);
-            }
         }
 
         private int[] ShuffleIndices(int length)

@@ -18,10 +18,12 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
+        [SerializeField] private ColorColumnDistributor _columnDistributor;
         [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
         private DifficultyState _difficultyState;
         private DifficultySettings _currentSettings;
+        
         private List<IObjectInitilizable> _objectsInitilizable = new();
 
         private void Awake()
@@ -80,9 +82,14 @@ namespace Assets.Source.Scripts.EntryPoint
 
             if (_vesselFactory.Objects.Count > 0)
             {
-                _columnsFactory.Initialize(_vesselFactory.Objects);
+                _columnsFactory.Initialize(
+                    _vesselFactory.Objects,
+                    _currentSettings.ColumnsCount,
+                    _currentSettings.MaxCellsPerColumn);
                 _columnsFactory.Spawn();
             }
+
+            _columnDistributor.Distribute();
         }
 
         private IEnumerator EntityInitialize()

@@ -19,6 +19,7 @@ namespace Assets.Source.Scripts.Pool
         private MagicCellsFactory _factory;
         private MagicCellRouter _cellRouter;
         private ShuffledColorDistributor _colorSource;
+        private EntryListColorPool _listColorPool;
         private ClickModeSwitcher _clickImpactHandler;
         private Transform _parent;
         private int _maxVolumeCells;
@@ -35,6 +36,7 @@ namespace Assets.Source.Scripts.Pool
             MagicCellsFactory factory,
             MagicCellRouter cellRouter,
             ShuffledColorDistributor colorSource,
+            EntryListColorPool listColorPool,
             ClickModeSwitcher clickHandler,
             Transform parent,
             int maxVolumeCells,
@@ -48,6 +50,7 @@ namespace Assets.Source.Scripts.Pool
             _factory = factory;
             _cellRouter = cellRouter;
             _colorSource = colorSource;
+            _listColorPool = listColorPool;
             _clickImpactHandler = clickHandler;
             _parent = parent;
             _maxVolumeCells = maxVolumeCells;
@@ -55,7 +58,24 @@ namespace Assets.Source.Scripts.Pool
 
             _gameHandler.PauseStateChanged += OnGamePause;
 
-            CreateCells(maxVolumeCells);
+            //CreateCells(maxVolumeCells);
+        }
+
+        public void CreateCell(Color color)
+        {
+            if (CanAddCell() == false)
+                return;
+
+            float currentY = _cellsStack.Count * _prefabHeight;
+
+            MagicCell cell = _factory.CreateCell(
+                parent: _parent,
+                localPosition: new Vector3(0, currentY, 0),
+                color: color);
+
+            cell.Interacted += OnCellClicked;
+
+            _cellsStack.Push(cell);
         }
 
         public bool CanAddCell()
@@ -152,8 +172,15 @@ namespace Assets.Source.Scripts.Pool
 
             for (int i = 0; i < countCells; i++)
             {
-                if (_colorSource.TryGetRandomColor(out Color pickedColor) == false)
+                //if (_colorSource.TryGetRandomColor(out Color pickedColor) == false)
+                //    return;
+
+                EntryListColor entry = _listColorPool.Get();
+
+                if (entry == null)
                     return;
+
+                Color pickedColor = entry.TakeColor();
 
                 MagicCell cell = _factory.CreateCell(
                     parent: _parent,

@@ -6,7 +6,6 @@ using Assets.Source.Scripts.Vessels;
 using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using System;
-using System.Linq;
 
 namespace Assets.Source.Scripts.Factory
 {
@@ -15,9 +14,19 @@ namespace Assets.Source.Scripts.Factory
         [SerializeField] private MagicColumnPool _columnPool;
         [SerializeField] private MagicCellRouter _distributerMagicCell;
         [SerializeField] private ShuffledColorDistributor _colorDistributor;
+        [SerializeField] private EntryListColorPool _entryListColorPool;
 
-        public void Initialize(IReadOnlyList<Vessel> vessels)
+        private int _spawnPointCount;
+        private int _maxCellsPerColumn;
+
+        public void Initialize(IReadOnlyList<Vessel> vessels,int spawnPointCount, int maxCellsPerColumn)
         {
+            if (spawnPointCount <= 0)
+                throw new ArgumentNullException(nameof(spawnPointCount));
+
+            if (maxCellsPerColumn <= 0)
+                throw new ArgumentNullException(nameof(maxCellsPerColumn));
+
             if (_distributerMagicCell == null)
                 throw new ArgumentNullException(nameof(_distributerMagicCell));
 
@@ -27,7 +36,9 @@ namespace Assets.Source.Scripts.Factory
             if (_columnPool == null)
                 throw new ArgumentNullException(nameof(_columnPool));
 
-            ValidateVessels(vessels);
+            _spawnPointCount = spawnPointCount;
+            _maxCellsPerColumn = maxCellsPerColumn;
+
             _colorDistributor.Initialize(vessels);
             _distributerMagicCell.Initialize(vessels);
         }
@@ -39,11 +50,7 @@ namespace Assets.Source.Scripts.Factory
 
             _columnPool.DeactivateAll();
 
-            int countSpawnPoints = CalculateSpawnPoints();
-            int cellsPerColumn = Mathf.Max(1,
-                _colorDistributor.TotalColors / countSpawnPoints);
-
-            for (int i = 0; i < countSpawnPoints; i++)
+            for (int i = 0; i < _spawnPointCount; i++)
             {
                 Transform point = SpawnPoints[i];
                 MagicColumn column = _columnPool.Activate();
@@ -61,31 +68,8 @@ namespace Assets.Source.Scripts.Factory
                     column.transform.SetPositionAndRotation(point.position, point.rotation);
                 }
 
-                column.Initialize(_distributerMagicCell, _colorDistributor, cellsPerColumn);
+                column.Initialize(_distributerMagicCell, _colorDistributor, _entryListColorPool, _maxCellsPerColumn);
             }
-        }
-
-        private int CalculateSpawnPoints()
-        {
-            if (CurrentSettings == null && DifficultyDatabase != null)
-            {
-                CurrentSettings = DifficultyDatabase.
-                    GetSettings(DifficultyState.CurrentDifficulty);
-            }
-
-            return Mathf.Min(CurrentSettings.ColumnsCount, SpawnPoints.Length);
-        }
-
-        private void ValidateVessels(IReadOnlyList<Vessel> vessels)
-        {
-            if (vessels == null)
-                throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");
-
-            if (vessels.Count == 0)
-                throw new ArgumentException("The list of vessels cannot be empty", nameof(vessels));
-
-            if (vessels.Any(vessel => vessel == null))
-                throw new ArgumentException("The vessel list contains a zero element", nameof(vessels));
         }
     }
 }

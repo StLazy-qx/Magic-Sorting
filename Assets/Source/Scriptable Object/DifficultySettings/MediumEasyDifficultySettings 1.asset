@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 2
   ColumnsCount: 4
-  MaxCellsPerColumn: 5
+  MaxCellsPerColumn: 7
   VesselsCount: 4
   ColorsCount: 4

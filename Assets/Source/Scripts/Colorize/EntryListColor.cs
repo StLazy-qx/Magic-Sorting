@@ -16,8 +16,6 @@ namespace Assets.Source.Scripts.Colorize
             {
                 _colors.Add(initialColor);
             }
-
-            Debug.Log($"Создан EntryListColor, цвет {initialColor}, количество {_colors.Count}");
         }
 
         public Color CurrentColor => _mainColor;
@@ -31,9 +29,9 @@ namespace Assets.Source.Scripts.Colorize
             return color;
         }
 
-        public bool IsNonEmpty()
+        public bool IsEmpty()
         {
-            return _colors.Count > 0;
+            return _colors.Count == 0;
         }
 
         public void Reset()
