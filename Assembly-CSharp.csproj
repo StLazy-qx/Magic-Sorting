@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{AB4D310A-D7F3-BEBE-97F9-88FD1C70052D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -103,7 +104,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\EnvirData\Scripts\EnvirData_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\MagicCells\MagicCell.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Example\Scripts\PlayerStatsExample.cs" />
-    <Compile Include="Assets\Source\Scripts\Tutorial\Seeker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Source\Scripts\UI\StoreView\StoreScrollViewFiller.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\CallAction.cs" />
@@ -123,28 +123,27 @@
     <Compile Include="Assets\Source\Scripts\SceneManagement\SceneLoader.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Source\Scripts\UI\SoundView\VolumeSliderViewHandler.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\RoundView\RoundView.cs" />
     <Compile Include="Assets\Source\Scripts\UI\StoreView\ItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_info.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_yg.cs" />
-    <Compile Include="Assets\Source\Scripts\Tutorial\Timer.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\MagicColumnPool.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyState.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\VolumeAggregator.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Example\Scripts\CustomLBExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_info.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\RoundView\CountRoundView.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Vessel.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\Pool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\StoreView\NewItemView.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\StoreView\SelectItemPresenter.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\ColumnsFactory.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\ItemViewPool.cs" />
     <Compile Include="Assets\Source\Scripts\ActionsHandlers\IInteractable.cs" />
     <Compile Include="Assets\Source\Scripts\Player\MagicianAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
@@ -184,6 +183,7 @@
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonRewardedAdv.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
+    <Compile Include="Assets\Source\Scripts\Extensions\ShuffleExtensions.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\JsonUtils.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SaverTest.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\InitAttributes.cs" />
@@ -309,6 +309,8 @@
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LeaderboardYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_optionalPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\GameBehaviour\LevelCounter.cs" />
+    <Compile Include="Assets\Source\Scripts\Tutorial\DelayedActionTimer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\GameYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ReturnGameSessionButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\DemoTextTranslateRU.cs" />
@@ -330,6 +332,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_interface.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\BaseButton.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\StoreView\ItemSelectionHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PurchaseYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_yg.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -350,6 +353,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yg.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\StatefulButton.cs" />
+    <Compile Include="Assets\Source\Scripts\Extensions\Guard.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LBPlayerDataYG.cs" />
@@ -390,6 +394,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\SavesYG2.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Module.cs" />
+    <Compile Include="Assets\Source\Scripts\Tutorial\TutorialMatchHighlighter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YG2.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Clipboard\Scripts\Clipboard_yg.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyDatabase.cs" />
@@ -403,7 +408,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\Fullscreen\Example\Scripts\IsFullscreenDebug.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Example\Scripts\GetPlayerData.cs" />
-    <Compile Include="Assets\Source\Scripts\PlayerAuthorization\AuthorizationView.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Example\Scripts\BannerExample.cs" />
   </ItemGroup>
   <ItemGroup>

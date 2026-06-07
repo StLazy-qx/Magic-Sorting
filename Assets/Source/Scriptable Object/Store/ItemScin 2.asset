@@ -17,5 +17,5 @@ MonoBehaviour:
     type: 3}
   _item: {fileID: 2346628275988406105, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
   _price: 3500
-  _icon: {fileID: 21300000, guid: d5b03b102f8441140ba6d62d331b6b67, type: 3}
+  _icon: {fileID: 21300000, guid: 774e98160994d4d448c6140ea32b2158, type: 3}
   _texture: {fileID: 2800000, guid: b6b0aa51c742aea4cb1d21a3c9f8d8b3, type: 3}

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.UI.GamePanel;
+using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -12,6 +13,8 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private GameSessionHandler _gameHandler;
 
         private Panel _currentPanel;
+
+        public event Action RoundEnded;
 
         public bool IsInitialized { get; private set; }
 
@@ -31,31 +34,19 @@ namespace Assets.Source.Scripts.GameBehaviour
             _currentPanel = panel;
         }
 
-        public void ActivatePanel()
+        public void ShowEndRoundPanel()
         {
             _gameHandler.PauseGame();
             _currentPanel.Open();
-        }
 
-        public void DeactivateFinalPanelAndResumeGame()
-        {
-            if (_gameHandler == null)
-                return;
-
-            _currentPanel.Close();
-            _gameHandler.ContinueGame();
+            RoundEnded?.Invoke();
         }
 
         private void ValidateObjects()
         {
-            if (_gameHandler == null)
-                throw new ArgumentNullException(nameof(_gameHandler));
-
-            if (_finalMatchPanelDesctop == null)
-                throw new ArgumentNullException(nameof(_finalMatchPanelDesctop));
-
-            if (_finalMatchPanelMobile == null)
-                throw new ArgumentNullException(nameof(_finalMatchPanelMobile));
+            Guard.NotNull(_gameHandler, nameof(_gameHandler));
+            Guard.NotNull(_finalMatchPanelDesctop, nameof(_finalMatchPanelDesctop));
+            Guard.NotNull(_finalMatchPanelMobile, nameof(_finalMatchPanelMobile));
         }
     }
 }

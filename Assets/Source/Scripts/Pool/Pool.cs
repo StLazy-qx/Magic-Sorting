@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Source.Scripts.Extensions;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,13 @@ namespace Assets.Source.Scripts.Pool
         public Transform Container => _container;
         public IReadOnlyList<T> Objects => _objects;
 
+        public void SetContainer(Transform container)
+        {
+            Guard.NotNull(container, nameof(container));
+
+            _container = container;
+        }
+
         public virtual void Add(T @object)
         {
             if (@object == null)
@@ -23,6 +31,18 @@ namespace Assets.Source.Scripts.Pool
 
             if (_objects.Contains(@object) == false)
                 _objects.Add(@object);
+        }
+
+        public virtual void ActivateAll()
+        {
+            foreach (T obj in _objects)
+            {
+                if (obj != null && !obj.gameObject.activeSelf)
+                {
+                    obj.gameObject.SetActive(true);
+                    OnActivated(obj);
+                }
+            }
         }
 
         public virtual T Activate()

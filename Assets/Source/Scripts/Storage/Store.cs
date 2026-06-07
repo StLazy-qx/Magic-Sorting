@@ -3,7 +3,8 @@ using Assets.Source.Scripts.Player;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System;
+using Assets.Source.Scripts.UI.StoreView;
+using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.Storage
 {
@@ -21,9 +22,10 @@ namespace Assets.Source.Scripts.Storage
         {
             ValidateInitializeArguments();
 
-            IsInitialized = true;
+            if (_inventory.IsEmpty)
+                ConfirmFirstItem();
 
-            //ConfirmFirstItem();
+            IsInitialized = true;
         }
 
         public IReadOnlyList<ItemSO> GetItemsSO()
@@ -33,13 +35,17 @@ namespace Assets.Source.Scripts.Storage
         {
             ValidateInventory(selectedItem, _inventory);
 
-            if (_inventory.HasItem(selectedItem))
+            if (_inventory.HasItem(selectedItem.ID))
                 return;
 
             if (_playerWallet.CanAfford(selectedItem.Price))
             {
+                NewItemView selectedItemView = selectedItem.
+                    gameObject.GetComponent<NewItemView>();
+
                 _playerWallet.SpendPoints(selectedItem.Price);
                 selectedItem.Buy();
+                selectedItemView.ShowPurchaseValidation();
                 _inventory.AddItem(selectedItem);
             }
         }
@@ -48,7 +54,7 @@ namespace Assets.Source.Scripts.Storage
         {
             ValidateInventory(selectedItem, _inventory);
 
-            if (_inventory.HasItem(selectedItem) == false)
+            if (_inventory.HasItem(selectedItem.ID) == false)
                 return;
 
             _inventory.EquipItem(selectedItem);
@@ -56,110 +62,48 @@ namespace Assets.Source.Scripts.Storage
 
         public Item GetItemByID(string id)
         {
-            if (string.IsNullOrEmpty(id))
-                throw new ArgumentNullException(nameof(id));
+            Guard.NotNullOrWhiteSpace(id, nameof(id));
 
             ItemSO data = _itemsData.FirstOrDefault(item => item.ID == id);
+
+            Guard.NotNull(data, nameof(id));
+
             Item item = Instantiate(data.Item);
 
+            Guard.NotNull(item, nameof(item));
             item.Initialize(data);
 
             return item;
         }
 
-        //подумать над загрузкой первого предмета
-        //private void ConfirmFirstItem()
-        //{
-        //    //проверка ,есть ли в инветоре первый предмет
-        //    int indexFirstScin = 0;
-        //    ItemSO firstItemData = _itemsData[indexFirstScin];
+        private void ConfirmFirstItem()
+        {
+            int indexFirstScin = 0;
+            ItemSO firstItemData = _itemsData[indexFirstScin];
 
-        //    if (firstItemData == null)
-        //    {
-        //        throw new NullReferenceException(
-        //            "First ItemSO in list is null.");
-        //    }
-
-        //    if (firstItemData.Item == null)
-        //    {
-        //        throw new NullReferenceException(
-        //            "Item prefab in ItemSO is missing.");
-
-        //    }
-
-        //    Item firstItem = Instantiate(firstItemData.Item);
-
-        //    firstItem.Initialize(firstItemData);
-        //    firstItem.Buy();
-        //    _inventory.AddItem(firstItem);
-        //}
+            _inventory.AddItem(firstItemData.ID);
+        }
 
         private void ValidateInitializeArguments()
         {
-            if (_player == null)
-            {
-                throw new NullReferenceException(
-                    "Player reference is missing in Store.");
-            }
-
-            if (_inventory == null)
-            {
-                throw new NullReferenceException(
-                    "Inventory reference is missing in Store.");
-            }
+            Guard.NotNull(_player, nameof(_player));
+            Guard.NotNull(_inventory, nameof(_inventory));
+            Guard.NotNullOrEmpty(_itemsData, nameof(_itemsData));
 
             _playerWallet = _player.Wallet;
 
-            if (_playerWallet == null)
-            {
-                throw new NullReferenceException(
-                    "Player wallet is missing.");
-            }
-
-            if (_itemsData == null)
-            {
-                throw new ArgumentNullException(
-                    nameof(_itemsData), "Items list cannot be null.");
-            }
-
-            if (_itemsData == null)
-            {
-                throw new ArgumentNullException(
-                    nameof(_itemsData), "Items list cannot be null.");
-            }
-
-            if (_itemsData.Count == 0)
-            {
-                throw new ArgumentException(
-                    "Items list cannot be empty.", nameof(_itemsData));
-            }
-
-            if (_itemsData.Any(item => item == null))
-            {
-                throw new ArgumentException(
-                    "Items list contains null ItemSO entries.", nameof(_itemsData));
-            }
+            Guard.NotNull(_playerWallet, nameof(_playerWallet));
+            Guard.IsTrue(_itemsData.All(item => item != null),
+                nameof(_itemsData),
+                "Items list contains null ItemSO entries.");
         }
 
         private void ValidateInventory(Item selectedItem, Inventory inventory)
         {
-            if (selectedItem == null)
-            {
-                throw new ArgumentNullException(nameof(selectedItem),
-                    "Item reference cannot be null.");
-            }
-
-            if (inventory == null)
-            {
-                throw new ArgumentNullException(nameof(inventory),
-                    "Inventory cannot be null.");
-            }
-
-            if (selectedItem.Price < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(selectedItem.Price),
-                    "Item price cannot be negative.");
-            }
+            Guard.NotNull(selectedItem, nameof(selectedItem));
+            Guard.NotNull(inventory, nameof(inventory));
+            Guard.NotNegative(selectedItem.Price, 
+                $"{nameof(selectedItem)}.{nameof(selectedItem.Price)}");
         }
     }
 }

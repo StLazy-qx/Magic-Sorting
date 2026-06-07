@@ -9,11 +9,9 @@ namespace Assets.Source.Scripts.Language
 
         public string CurrentLanguage { get; private set; }
 
-        public LanguageSetter(string initialLanguage)
+        public LanguageSetter()
         {
-            ValidateString(initialLanguage);
-
-            CurrentLanguage = initialLanguage;
+            CurrentLanguage = YG2.lang;
         }
 
         public void SetLanguage(string language)

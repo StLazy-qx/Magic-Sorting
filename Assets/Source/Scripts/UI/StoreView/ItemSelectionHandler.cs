@@ -1,23 +1,24 @@
 using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Storage;
-using System;
+using Assets.Source.Scripts.Extensions;
+using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 namespace Assets.Source.Scripts.UI.StoreView
 {
-    public class SelectItemPresenter : MonoBehaviour
+    public class ItemSelectionHandler : MonoBehaviour
     {
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Store _store;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _equipButton;
         [SerializeField] private TMP_Text _priceText;
+        [SerializeField] private ItemViewPool _newItemViewPool;
 
         private Item _selectedItem;
-        //private ItemView _currentItemView;
         private NewItemView _currentItemView;
 
         private void Awake()
@@ -26,6 +27,12 @@ namespace Assets.Source.Scripts.UI.StoreView
 
             _buyButton.gameObject.SetActive(false);
             _equipButton.gameObject.SetActive(true);
+        }
+
+        private void Start()
+        {
+            _newItemViewPool.ActivateAll();
+            ValidateAllItemViews();
         }
 
         private void OnEnable()
@@ -53,10 +60,11 @@ namespace Assets.Source.Scripts.UI.StoreView
             _currentItemView = newItemView;
             _selectedItem = _currentItemView.GetComponent<Item>();
 
-            if (_inventory.HasItem(_selectedItem))
+            if (_inventory.HasItem(_selectedItem.ID))
             {
                 _buyButton.gameObject.SetActive(false);
                 _equipButton.gameObject.SetActive(true);
+                _equipButton.interactable = (_selectedItem != _inventory.EquippedItem);
             }
             else
             {
@@ -64,19 +72,6 @@ namespace Assets.Source.Scripts.UI.StoreView
                 _buyButton.gameObject.SetActive(true);
                 _priceText.text = _selectedItem.Price.ToString();
             }
-
-            //if (_selectedItem.IsBought)
-            //{
-            //    _buyButton.gameObject.SetActive(false);
-            //    _equipButton.gameObject.SetActive(true);
-            //}
-            //else
-            //{
-            //    _equipButton.gameObject.SetActive(false);
-            //    _buyButton.gameObject.SetActive(true);
-
-            //    _priceText.text = _selectedItem.Price.ToString();
-            //}
 
             _currentItemView.Selected();
         }
@@ -94,8 +89,15 @@ namespace Assets.Source.Scripts.UI.StoreView
             if (_selectedItem == null)
                 return;
 
-            if(_inventory.HasItem(_selectedItem))
-                _store.EquipItem(_selectedItem);
+            if (_inventory.HasItem(_selectedItem.ID) == false) 
+                return;
+
+            if (_selectedItem == _inventory.EquippedItem)
+                return;
+
+            _store.EquipItem(_selectedItem);
+            _currentItemView.ShowPurchaseValidation();
+            OnSelectShowedItem(_currentItemView);
         }
 
         private void OnShowEquipButton(NewItemView boughtItemView)
@@ -105,34 +107,34 @@ namespace Assets.Source.Scripts.UI.StoreView
             {
                 _buyButton.gameObject.SetActive(false);
                 _equipButton.gameObject.SetActive(true);
+
+                _equipButton.interactable = true;
+            }
+        }
+
+        private void ValidateAllItemViews()
+        {
+            if (_newItemViewPool == null)
+                return;
+
+            foreach (NewItemView view in _newItemViewPool.Objects)
+            {
+                Item item = view.GetComponent<Item>();
+
+                if (item != null && _inventory.HasItem(item.ID))
+                {
+                    view.ShowPurchaseValidation();
+                }
             }
         }
 
         private void ValidateInitializeArguments()
         {
-            if (_inventory == null)
-            {
-                throw new NullReferenceException(
-                    "Inventory not assigned in SelectItemPresenter.");
-            }
-
-            if (_store == null)
-            {
-                throw new NullReferenceException(
-                    "Store not assigned in SelectItemPresenter.");
-            }
-
-            if (_buyButton == null)
-            {
-                throw new NullReferenceException(
-                    "BuyButton not assigned in SelectItemPresenter.");
-            }
-
-            if (_equipButton == null)
-            {
-                throw new NullReferenceException(
-                    "EquipButton not assigned in SelectItemPresenter.");
-            }
+            Guard.NotNull(_inventory, nameof(_inventory));
+            Guard.NotNull(_store, nameof(_store));
+            Guard.NotNull(_buyButton, nameof(_buyButton));
+            Guard.NotNull(_equipButton, nameof(_equipButton));
+            Guard.NotNull(_priceText, nameof(_priceText));
         }
     }
 }

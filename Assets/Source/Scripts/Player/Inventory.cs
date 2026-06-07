@@ -1,12 +1,13 @@
 ﻿using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Storage;
+using Assets.Source.Scripts.UI.StoreView;
+using Assets.Source.Scripts.Extensions;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
 using YG;
 using System.Linq;
-using Assets.Source.Scripts.UI.StoreView;
 
 namespace Assets.Source.Scripts.Player
 {
@@ -20,17 +21,15 @@ namespace Assets.Source.Scripts.Player
 
         public event Action<NewItemView> ItemBuyed;
 
+        public bool IsEmpty => _items.Count == 0;
+
         public bool IsInitialized { get; private set; }
         public Item EquippedItem => _equippedItem;
 
         public void Initialize()
         {
-            if (_store == null)
-                throw new ArgumentNullException(nameof(_store));
-
-            if (_scinSetter == null)
-                throw new ArgumentNullException(nameof(_scinSetter));
-
+            Guard.NotNull(_store, nameof(_store));
+            Guard.NotNull(_scinSetter, nameof(_scinSetter));
             Load();
 
             if (_equippedItem != null)
@@ -39,19 +38,18 @@ namespace Assets.Source.Scripts.Player
             IsInitialized = true;
         }
 
-        public bool HasItem(Item item)
+        public bool HasItem(string itemID)
         {
-            ValidateItem(item);
+            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
-            return _items.Any(currentItem 
-                => currentItem.ID == item.ID);
+            return _items.Any(item => item.ID == itemID);
         }
 
         public void AddItem(Item item)
         {
             ValidateItem(item);
 
-            if (HasItem(item))
+            if (HasItem(item.ID))
                 return;
 
             _items.Add(item);
@@ -63,6 +61,13 @@ namespace Assets.Source.Scripts.Player
                 ItemBuyed?.Invoke(newItemView);
         }
 
+        public void AddItem(string itemID)
+        {
+            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
+            Guard.NotNull(_store, nameof(_store));
+            YG2.saves.AddItem(itemID);
+        }
+
         public void EquipItem(Item item)
         {
             ValidateItem(item);
@@ -72,10 +77,9 @@ namespace Assets.Source.Scripts.Player
             {
                 _equippedItem.UnEquip();
 
-                ItemView itemView = _equippedItem.GetComponent<ItemView>();
+                NewItemView newItemView = item.GetComponent<NewItemView>();
 
-                if(itemView != null)
-                    itemView.SetUnselectedState();
+                newItemView.ShowPurchaseValidation();
             }
 
             _equippedItem = item;
@@ -96,11 +100,6 @@ namespace Assets.Source.Scripts.Player
 
                 if (item != null)
                     _items.Add(item);
-
-                ItemView itemView = item.GetComponent<ItemView>();
-
-                if (itemView != null)
-                    itemView.HideBuyButton();
             }
 
             string equippedID = YG2.saves.GetEquippedItemID();
@@ -113,9 +112,6 @@ namespace Assets.Source.Scripts.Player
         }
 
         private void ValidateItem(Item item)
-        {
-            if (item == null)
-                throw new ArgumentNullException(nameof(item));
-        }
+            => Guard.NotNull(item, nameof(item));
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 using System;
 using YG;
 using Assets.Source.Scripts.UI.StoreView;
+using Assets.Source.Scripts.Pool;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -18,8 +19,8 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] protected StoreItemFactory ItemFactory;
         [SerializeField] protected Transform DesktopContent;
         [SerializeField] protected Transform MobileContent;
-        [SerializeField] protected SelectItemPresenter DesktopSelectItemPresenter;
-        [SerializeField] protected SelectItemPresenter MobileSelectItemPresenter;
+        [SerializeField] protected ItemSelectionHandler DesktopSelectItemPresenter;
+        [SerializeField] protected ItemSelectionHandler MobileSelectItemPresenter;
         [Header("Audio panels installation")]
         [SerializeField] private SoundSetter _soundSetter;
         [SerializeField] private VolumeSliderViewHandler _mobileAudioViewHandler;

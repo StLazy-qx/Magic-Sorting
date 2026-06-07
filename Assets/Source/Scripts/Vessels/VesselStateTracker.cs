@@ -100,7 +100,7 @@ namespace Assets.Source.Scripts.Vessels
                 _wallet.ConfirmPoints();
                 _wallet.Reset();
                 _currentPanel.Close();
-                _finalGame.ActivatePanel();
+                _finalGame.ShowEndRoundPanel();
 
                 _veselsCount = 0;
             }

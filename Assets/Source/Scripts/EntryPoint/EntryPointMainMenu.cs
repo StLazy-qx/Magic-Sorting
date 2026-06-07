@@ -21,7 +21,7 @@ namespace Assets.Source.Scripts.EntryPoint
         {
             ValidateDependencies();
 
-            _languageSetter = new LanguageSetter(YG2.lang);
+            _languageSetter = new LanguageSetter();
 
             _platformSetter.Initialize(_languageSetter);
 

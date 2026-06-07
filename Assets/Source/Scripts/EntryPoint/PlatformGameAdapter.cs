@@ -25,7 +25,7 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
-        [SerializeField] private Seeker _seeker;
+        [SerializeField] private TutorialMatchHighlighter _seeker;
 
         public void Initialize(/*LoadingWindow loadingWindow*/)
         {

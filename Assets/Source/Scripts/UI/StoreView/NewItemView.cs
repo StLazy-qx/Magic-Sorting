@@ -1,4 +1,5 @@
-﻿using Assets.Source.Scripts.Items;
+﻿using Assets.Source.Scripts.Extensions;
+using Assets.Source.Scripts.Items;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         [SerializeField] private Button _button;
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private Image _imageScin;
+        [SerializeField] private Image _purchaseValidation;
         [SerializeField] private Color _selectedColor;
         [SerializeField] private Color _normalColor;
 
@@ -21,6 +23,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         private void Awake()
         {
             _button.onClick.AddListener(OnHandleClick);
+            HidePurchaseValidation();
         }
 
         private void OnDestroy()
@@ -31,6 +34,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         public void Initialize(ItemSO itemData)
         {
             ValidateItemData(itemData);
+
             _imageScin.sprite = itemData.Icon;
             _mainTexture = itemData.Skin;
         }
@@ -38,6 +42,16 @@ namespace Assets.Source.Scripts.UI.StoreView
         public void SetSelected(bool selected)
         {
             _backgroundImage.color = selected ? _selectedColor : _normalColor;
+        }
+
+        public void ShowPurchaseValidation()
+        {
+            _purchaseValidation.gameObject.SetActive(true);
+        }
+
+        public void HidePurchaseValidation()
+        {
+            _purchaseValidation.gameObject.SetActive(false);
         }
 
         public void Selected()
@@ -58,35 +72,13 @@ namespace Assets.Source.Scripts.UI.StoreView
 
         private void ValidateItemData(ItemSO itemData)
         {
-            if (_backgroundImage == null)
-            {
-                throw new NullReferenceException(
-                    "Background image reference is missing in ItemView.");
-            }
-
-            if (_imageScin == null)
-            {
-                throw new NullReferenceException(
-                    "Skin image reference is missing in ItemView.");
-            }
-
-            if (itemData == null)
-            {
-                throw new ArgumentNullException(nameof(itemData),
-                    "ItemSO data cannot be null when initializing ItemView.");
-            }
-
-            if (itemData.Icon == null)
-            {
-                throw new ArgumentException(
-                    "ItemSO Icon is missing.", nameof(itemData));
-            }
-
-            if (itemData.Price < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(itemData.Price),
-                    "Item price cannot be negative.");
-            }
+            Guard.NotNull(_backgroundImage, nameof(_backgroundImage));
+            Guard.NotNull(_imageScin, nameof(_imageScin));
+            Guard.NotNull(_purchaseValidation, nameof(_purchaseValidation));
+            Guard.NotNull(itemData, nameof(itemData));
+            Guard.NotNull(itemData.Icon, nameof(itemData.Icon));
+            Guard.NotNull(itemData.Skin, nameof(itemData.Skin));
+            Guard.NotNegative(itemData.Price, nameof(itemData.Price));
         }
     }
 }

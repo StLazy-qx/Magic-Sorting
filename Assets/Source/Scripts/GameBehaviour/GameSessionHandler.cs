@@ -23,7 +23,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private ColorColumnDistributor _columnDistributor;
         [SerializeField] private DifficultyDatabase _difficultyDatabase;
 
-        private int _currentRound = 1;
         private SequenceDifficultyLevel _sequenceDifficultyLevel;
         private DifficultyState _difficultyState;
         private DifficultySettings _currentSettings;
@@ -42,7 +41,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         private void Start()
         {
             ValidateObjects();
-            RoundChanged?.Invoke(_currentRound);
         }
 
         [Inject]
@@ -55,15 +53,14 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             //убрать повторяемость в коде
             ChangeDifficultyBySequence();
-            _currentSettings = _difficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
+
+            _currentSettings = _difficultyDatabase.
+                GetSettings(DifficultyState.CurrentDifficulty);
+
             ContinueGame();
             _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
             ResetEntity();
             StartCoroutine(BeginRoundRoutine());
-
-            _currentRound++;
-
-            RoundChanged?.Invoke(_currentRound);
         }
 
         public void IncreaseDifficultyLevel()
