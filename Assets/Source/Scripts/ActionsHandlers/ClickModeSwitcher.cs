@@ -2,13 +2,15 @@
 using Assets.Source.Scripts.UI.Buttons;
 using System;
 using UnityEngine;
+using YG;
 
 namespace Assets.Source.Scripts.ActionsHandlers
 {
     public class ClickModeSwitcher : MonoBehaviour
     {
+        public string RewardID;
         private ReverseButton _reverceButton;
-        private ButtonRewardedAdv _rewardedButton;
+        private IconRewardedAdvertisement _rewardedIcon;
         private bool _isReverseUsed;
         private bool _reverseEventFired;
 
@@ -28,21 +30,20 @@ namespace Assets.Source.Scripts.ActionsHandlers
             _reverseEventFired = false;
 
             _reverceButton.ResetState();
-            _rewardedButton.Disable();
+            _rewardedIcon.Disable();
             ActivateDistributionMode();
             UpdateButtonsState();
         }
 
-        public void SetButton(ReverseButton reverseButton, ButtonRewardedAdv rewardedButton)
+        public void SetButton(ReverseButton reverseButton, IconRewardedAdvertisement rewardedButton)
         {
             _reverceButton = reverseButton
                 ?? throw new ArgumentNullException(nameof(reverseButton));
 
-            _rewardedButton = rewardedButton
+            _rewardedIcon = rewardedButton
                 ?? throw new ArgumentNullException(nameof(rewardedButton));
 
             _reverceButton.OnClick.AddListener(OnToggleMode);
-            _rewardedButton.OnClick.AddListener(OnRewardedClicked);
         }
 
         public void Reverse()
@@ -52,23 +53,50 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
             _isReverseUsed = true;
 
-            _rewardedButton.Enable();
+            _rewardedIcon.Enable();
             UpdateButtonsState();
         }
 
         public void OnToggleMode()
         {
-            if (_isReverseUsed &&
-                CurrentMode == ClickImpactMode.ModeReverse)
+            if (CurrentMode == ClickImpactMode.ModeReverse)
             {
                 ActivateDistributionMode();
+
                 return;
             }
 
-            if (CurrentMode == ClickImpactMode.ModeDistribution)
-                ActivateReverceMode();
+            if (_isReverseUsed)
+            {
+                if (_rewardedIcon.gameObject.activeSelf == false)
+                {
+                    ActivateReverceMode();
+
+                    return;
+                }
+
+                YG2.RewardedAdvShow(RewardID, () =>
+                {
+                    ActivateReverceMode();
+                });
+            }
             else
-                ActivateDistributionMode();
+            {
+                ActivateReverceMode();
+            }
+
+            //if (_isReverseUsed &&
+            //    CurrentMode == ClickImpactMode.ModeReverse)
+            //{
+            //    ActivateDistributionMode();
+
+            //    return;
+            //}
+
+            //if (CurrentMode == ClickImpactMode.ModeDistribution)
+            //    ActivateReverceMode();
+            //else
+            //    ActivateDistributionMode();
         }
 
         private void UpdateButtonsState()
@@ -77,22 +105,13 @@ namespace Assets.Source.Scripts.ActionsHandlers
             {
                 _reverceButton.Disable();
                 _reverceButton.SetState(false);
-                _rewardedButton.Enable();
+                _rewardedIcon.Enable();
             }
             else
             {
                 _reverceButton.Enable();
-                _rewardedButton.Disable();
+                _rewardedIcon.Disable();
             }
-        }
-
-        private void OnRewardedClicked()
-        {
-            _rewardedButton.SetState(false);
-            _reverceButton.Enable();
-            _reverceButton.SetState(true);
-
-            ActivateReverceMode();
         }
 
         private void ActivateDistributionMode()

@@ -17,18 +17,12 @@ namespace Assets.Source.Scripts.UI.RoundView
         }
 
         private void OnEnable()
-        {
-            _levelCounter.RoundChanged += OnCountTextChanged;
-        }
+            => _levelCounter.RoundChanged += OnCountTextChanged;
 
         private void OnDisable()
-        {
-            _levelCounter.RoundChanged -= OnCountTextChanged;
-        }
+            => _levelCounter.RoundChanged -= OnCountTextChanged;
 
         private void OnCountTextChanged(int roundNumber)
-        {
-            _countText.text = roundNumber.ToString();
-        }
+            => _countText.text = roundNumber.ToString();
     }
 }

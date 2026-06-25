@@ -28,7 +28,7 @@ namespace Assets.Source.Scripts.Tutorial
 
         private float _beginsearchInterval = 1.5f;
         private float _searchInterval = 8f;
-        private ButtonRewardedAdv _rewardedButton;
+        private IconRewardedAdvertisement _rewardedButton;
         private ReverseButton _reverseButton;
         private List<MagicColumn> _currentColumns;
         private List<Vessel> _currentVessels;
@@ -65,7 +65,7 @@ namespace Assets.Source.Scripts.Tutorial
         }
 
         public void SetButtonRewarded(
-            ButtonRewardedAdv rewardedButton,
+            IconRewardedAdvertisement rewardedButton,
             ReverseButton reverseButton)
         {
             Guard.NotNull(rewardedButton, nameof(rewardedButton));
@@ -185,7 +185,6 @@ namespace Assets.Source.Scripts.Tutorial
         private void ResolveNoMatchCases(MagicCell firstWrongCell, bool hasMatchInColumns)
         {
             Button reverseButton = GetComponentButton(_reverseButton);
-            Button rewardedButton = GetComponentButton(_rewardedButton);
 
             if (!hasMatchInColumns && _waitingPoint.IsFreePlace)
             {
@@ -208,7 +207,7 @@ namespace Assets.Source.Scripts.Tutorial
                 && _waitingPoint.IsFreePlace == false 
                 && IsInteractable(_reverseButton) == false)
             {
-                _animationParticle.Play(rewardedButton);
+                _animationParticle.Play(reverseButton);
             }
         }
 
@@ -236,200 +235,6 @@ namespace Assets.Source.Scripts.Tutorial
             return button;
         }
 
-        //private void OnStartSearchLoop()
-        //{
-        //    SearchWithDelay(_searchInterval);
-        //}
-
-        //private void OnStartInitialSearch()
-        //{
-        //    SearchWithDelay(_beginsearchInterval);
-        //}
-
-        //private void OnReverseButtonActivated()
-        //{
-        //    LoadCurrentColumns();
-        //    LoadCurrentVessels();
-
-        //    MagicColumn targetColumn = FindReverseColumn();
-        //    StackMagicCells stack = targetColumn.GetComponent<StackMagicCells>();
-        //    MagicCell cell = stack.GetUpperCell();
-
-        //    if (cell != null)
-        //        _animationParticle.Play(cell.transform.position);
-        //}
-
-        //private MagicColumn FindReverseColumn()
-        //{
-        //    foreach (Vessel vessel in _currentVessels)
-        //    {
-        //        Color color = vessel.Color;
-
-        //        foreach (MagicColumn column in _currentColumns)
-        //        {
-        //            StackMagicCells stack = column.GetComponent<StackMagicCells>();
-
-        //            MagicCell bottomCell = stack.GetBottomCell();
-
-        //            if (bottomCell != null)
-        //            {
-        //                if (bottomCell.Color == color)
-        //                {
-        //                    return column;
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    return null;
-        //}
-
-        //private IEnumerator SearchRoutine(float delay)
-        //{
-        //    yield return new WaitForSeconds(delay);
-
-        //    PerformAnalysis();
-
-        //    _searchRoutine = null;
-        //}
-
-        //private void SearchWithDelay(float delay)
-        //{
-        //    if (_searchRoutine != null)
-        //        StopCoroutine(_searchRoutine);
-
-        //    _searchRoutine = StartCoroutine(SearchRoutine(delay));
-        //}
-
-        //private void StopSearchLoop()
-        //{
-        //    if (_searchRoutine != null)
-        //    {
-        //        StopCoroutine(_searchRoutine);
-
-        //        _searchRoutine = null;
-        //    }
-        //}
-
-        //private void PerformAnalysis()
-        //{
-        //    LoadCurrentColumns();
-        //    LoadCurrentVessels();
-        //    FindMatch();
-        //}
-
-        //public void LoadCurrentColumns()
-        //{
-        //    _currentColumns.Clear();
-        //    _currentColumns.AddRange(_magicColumnPool.
-        //        GetActiveObjects());
-        //}
-
-        //public void LoadCurrentVessels()
-        //{
-        //    _currentVessels.Clear();
-
-        //    foreach (var vessel in _vesselFactory.Objects)
-        //    {
-        //        if (vessel.IsActive)
-        //            _currentVessels.Add(vessel);
-        //    }
-        //}
-
-        //private void FindMatch()
-        //{
-        //    MagicCell firstWrongCell = null;
-
-        //    bool hasMatchInColumns = false;
-
-        //    foreach (Vessel vessel in _currentVessels)
-        //    {
-        //        Color color = vessel.Color;
-
-        //        foreach (MagicColumn column in _currentColumns)
-        //        {
-        //            StackMagicCells stack = column.GetComponent<StackMagicCells>();
-
-        //            MagicCell topCell = stack.TryGetCellByColor(color);
-
-        //            if (topCell != null)
-        //            {
-        //                hasMatchInColumns = true;
-
-        //                PlayAnimationCell(topCell);
-
-        //                return;
-        //            }
-
-        //            if (firstWrongCell == null)
-        //            {
-        //                MagicCell upperCell = stack.GetBottomCell();
-
-        //                if (upperCell != null)
-        //                    firstWrongCell = upperCell;
-        //            }
-        //        }
-        //    }
-
-        //    ResolveNoMatchCases(firstWrongCell, hasMatchInColumns);
-        //}
-
-        //private void ResolveNoMatchCases(MagicCell firstWrongCell,bool hasMatchInColumns)
-        //{
-        //    Button reverseButton = GetComponentButton(_reverseButton);
-        //    Button rewardedButton = GetComponentButton(_rewardedButton);
-
-        //    if (hasMatchInColumns == false && _waitingPoint.IsFreePlace)
-        //    {
-        //        if (firstWrongCell != null)
-        //            _animationParticle.Play(firstWrongCell.transform.position);
-
-        //        return;
-        //    }
-
-        //    if (hasMatchInColumns == false && _waitingPoint.IsFreePlace == false && IsInteractable(_reverseButton))
-        //    {
-        //        _animationParticle.Play(reverseButton);
-        //        return;
-        //    }
-
-        //    if (hasMatchInColumns == false && _waitingPoint.IsFreePlace == false && !IsInteractable(_reverseButton))
-        //    {
-        //        _animationParticle.Play(rewardedButton);
-        //        return;
-        //    }
-        //}
-
-        //private void PlayAnimationCell(MagicCell magicCell)
-        //{
-        //    if(magicCell == null)
-        //        throw new ArgumentNullException(nameof(magicCell));
-
-        //    _animationParticle.Play(magicCell.transform.position);
-
-        //    return;
-        //}
-
-        //private bool IsInteractable(Component button)
-        //{
-        //    Button checkingButton = button.GetComponent<Button>();
-
-        //    return checkingButton != null && checkingButton.interactable;
-        //}
-
-        //private Button GetComponentButton(Component component)
-        //{
-        //    if (component == null)
-        //        return null;
-
-        //    Button button = component.GetComponent<Button>();
-
-        //    if (button == null)
-        //        throw new ArgumentNullException(nameof(button));
-
-        //    return button;
-        //}
-
         private void ValidateDependencies()
         {
             Guard.NotNull(_animationParticle, nameof(_animationParticle));
@@ -438,36 +243,6 @@ namespace Assets.Source.Scripts.Tutorial
             Guard.NotNull(_vesselPool, nameof(_vesselPool));
             Guard.NotNull(_waitingPoint, nameof(_waitingPoint));
             Guard.NotNull(_timer, nameof(_timer));
-
-            //if (_animationParticle == null)
-            //{
-            //    throw new InvalidOperationException(
-            //        $"{nameof(_animationParticle)} не назначен в инспекторе.");
-            //}
-
-            //if (_cellRouter == null)
-            //{
-            //    throw new InvalidOperationException(
-            //        $"{nameof(_cellRouter)} не назначен в инспекторе.");
-            //}
-
-            //if (_magicColumnPool == null)
-            //{
-            //    throw new InvalidOperationException(
-            //        $"{nameof(_magicColumnPool)} не назначен в инспекторе.");
-            //}
-
-            //if (_vesselPool == null)
-            //{
-            //    throw new InvalidOperationException(
-            //        $"{nameof(_vesselPool)} не назначен в инспекторе.");
-            //}
-
-            //if (_waitingPoint == null)
-            //{
-            //    throw new InvalidOperationException(
-            //        $"{nameof(_waitingPoint)} не назначен или пуст.");
-            //}
         }
     }
 }

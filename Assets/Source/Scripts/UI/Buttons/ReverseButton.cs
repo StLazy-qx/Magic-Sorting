@@ -6,14 +6,14 @@ namespace Assets.Source.Scripts.UI.Buttons
     {
         public void Disable()
         {
-            Button.interactable = false;
+            //Button.interactable = false;
 
             SetState(true);
         }
 
         public void Enable()
         {
-            Button.interactable = true;
+            //Button.interactable = true;
 
             ResetState();
         }

@@ -1,8 +1,8 @@
-using System;
-using UnityEngine;
 using Assets.Source.Scripts.EntryPoint;
 using Assets.Source.Scripts.UI.GamePanel;
 using Assets.Source.Scripts.Extensions;
+using System;
+using UnityEngine;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {

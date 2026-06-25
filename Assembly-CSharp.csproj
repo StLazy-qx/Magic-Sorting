@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{AB4D310A-D7F3-BEBE-97F9-88FD1C70052D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -127,6 +126,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\InfoYG\SimulationSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterAdv_info.cs" />
+    <Compile Include="Assets\Source\Scripts\Pool\ItemViewPool.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_yg.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\MagicColumnPool.cs" />
     <Compile Include="Assets\Source\Scripts\GameDifficulty\DifficultyState.cs" />
@@ -143,7 +143,6 @@
     <Compile Include="Assets\Source\Scripts\Factory\ColumnsFactory.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />
-    <Compile Include="Assets\Source\Scripts\Pool\ItemViewPool.cs" />
     <Compile Include="Assets\Source\Scripts\ActionsHandlers\IInteractable.cs" />
     <Compile Include="Assets\Source\Scripts\Player\MagicianAnimator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerJson.cs" />
@@ -180,7 +179,6 @@
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Liquid.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\ISpawnable.cs" />
-    <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonRewardedAdv.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\ShuffleExtensions.cs" />
@@ -253,6 +251,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\GameLabel\Scripts\GameLabel_interface.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\IconRewardedAdvertisement.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\Scenes\AllDemoScenes.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Authorization\Scripts\GetPlayerYG.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
@@ -280,6 +279,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_projectSettings.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\StoreItemFactory.cs" />
     <Compile Include="Assets\Source\Scripts\Tutorial\AnimationParticle.cs" />
+    <Compile Include="Assets\Source\Scripts\GameBehaviour\RewardedAdvertisementHandler.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\EntryListColor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Example\Scripts\DebugInterstitialAdv.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_interface.cs" />

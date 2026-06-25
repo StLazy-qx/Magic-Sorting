@@ -6,24 +6,24 @@ namespace Assets.Source.Scripts.YG
 {
     public class RewardedAdvertising : MonoBehaviour
     {
-        [SerializeField] private ButtonRewardedAdv _buttonRewardedD;
-        [SerializeField] private ButtonRewardedAdv _buttonRewardedM;
+        [SerializeField] private IconRewardedAdvertisement _iconRewardedD;
+        [SerializeField] private IconRewardedAdvertisement _iconRewardedM;
 
         public string rewardID;
 
         //инициализация кнопки через EntryPoint
         private void OnEnable()
         {
-            _buttonRewardedD.OnClick.AddListener(OnGetLog);
-            _buttonRewardedM.OnClick.AddListener(OnGetLog);
+            //_buttonRewardedD.OnClick.AddListener(OnGetLog);
+            //_buttonRewardedM.OnClick.AddListener(OnGetLog);
 
             //YG2.onCloseRewardedAdv += OnCloseButtonRewardedAdv;
         }
 
         private void OnDisable()
         {
-            _buttonRewardedD.OnClick.RemoveListener(OnGetLog);
-            _buttonRewardedM.OnClick.RemoveListener(OnGetLog);
+            //_buttonRewardedD.OnClick.RemoveListener(OnGetLog);
+            //_buttonRewardedM.OnClick.RemoveListener(OnGetLog);
 
             //YG2.onCloseRewardedAdv -= OnCloseButtonRewardedAdv;
         }
@@ -40,8 +40,8 @@ namespace Assets.Source.Scripts.YG
 
         private void OnCloseButtonRewardedAdv()
         {
-            _buttonRewardedD.Disable();
-            _buttonRewardedM.Disable();
+            _iconRewardedD.Disable();
+            _iconRewardedM.Disable();
         }
     }
 }

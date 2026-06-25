@@ -243,7 +243,7 @@ MonoBehaviour:
         rank: 5
         score: 60
         extraData: 
-    - technoName: time
+    - technoName: leaderboard
       entries: '1. Max: 7123
 
         2. Maria: 15321
@@ -291,6 +291,12 @@ MonoBehaviour:
         score: 127000
         photo: demo image
         uniqueID: 000
+        extraData: 
+      - rank: 6
+        name: Player 6
+        score: 340000
+        photo: demo image
+        uniqueID: 321
         extraData: 
       - rank: 6
         name: Player 6

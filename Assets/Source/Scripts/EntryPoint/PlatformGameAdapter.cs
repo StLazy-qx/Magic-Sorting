@@ -2,10 +2,10 @@ using Assets.Source.Scripts.UI.GamePanel;
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.Vessels;
-using UnityEngine;
-using System;
 using Assets.Source.Scripts.UI.Buttons;
 using Assets.Source.Scripts.Tutorial;
+using UnityEngine;
+using System;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -19,8 +19,8 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private ReverseButton _reverseButtonDesktop;
         [SerializeField] private ReverseButton _reverseButtonMobile;
-        [SerializeField] private ButtonRewardedAdv _rewardedButtonDesktop;
-        [SerializeField] private ButtonRewardedAdv _rewardedButtonMobile;
+        [SerializeField] private IconRewardedAdvertisement _rewardedButtonDesktop;
+        [SerializeField] private IconRewardedAdvertisement _rewardedButtonMobile;
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
