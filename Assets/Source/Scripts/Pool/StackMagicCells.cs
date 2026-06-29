@@ -175,12 +175,12 @@ namespace Assets.Source.Scripts.Pool
                 //if (_colorSource.TryGetRandomColor(out Color pickedColor) == false)
                 //    return;
 
-                EntryListColor entry = _listColorPool.Get();
+                ColorEntry entry = _listColorPool.Get();
 
                 if (entry == null)
                     return;
 
-                Color pickedColor = entry.TakeColor();
+                Color pickedColor = entry.ConsumeColor();
 
                 MagicCell cell = _factory.CreateCell(
                     parent: _parent,

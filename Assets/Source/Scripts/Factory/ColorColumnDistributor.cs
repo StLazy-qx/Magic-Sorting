@@ -20,12 +20,12 @@ namespace Assets.Source.Scripts.Factory
 
             while (TryGetRandomColumnWithSpace(out MagicColumn column))
             {
-                EntryListColor entry = _colorPool.Get();
+                ColorEntry entry = _colorPool.Get();
 
                 if (entry == null)
                     break;
 
-                Color color = entry.TakeColor();
+                Color color = entry.ConsumeColor();
 
                 column.AddCell(color);
             }

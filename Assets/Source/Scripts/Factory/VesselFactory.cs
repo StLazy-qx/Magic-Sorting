@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.Factory
 {
@@ -33,8 +34,9 @@ namespace Assets.Source.Scripts.Factory
 
         public void InitRandomizer(ColorRandomizer colorRandomizer)
         {
-            _colorRandomizer = colorRandomizer ??
-                throw new ArgumentNullException(nameof(colorRandomizer));
+            Guard.NotNull(colorRandomizer, nameof(colorRandomizer));
+
+            _colorRandomizer = colorRandomizer;
         }
 
         protected override void BuildObjects()
@@ -67,7 +69,8 @@ namespace Assets.Source.Scripts.Factory
         private void OnPutRemainingVessel(Vector3 position)
         {
             Vessel remainingVessel = Objects.FirstOrDefault(
-                vessel => vessel.IsFilled == false && vessel.gameObject.activeSelf == false);
+                vessel => vessel.IsFilled == false && 
+                vessel.gameObject.activeSelf == false);
 
             if (remainingVessel == null)
                 return;
@@ -89,6 +92,7 @@ namespace Assets.Source.Scripts.Factory
                 if (vessel.IsFilled == false && vessel.gameObject.activeSelf == false)
                 {
                     vessel.transform.position = SpawnPoints[index].position;
+
                     vessel.gameObject.SetActive(true);
 
                     index++;
@@ -96,14 +100,13 @@ namespace Assets.Source.Scripts.Factory
             }
         }
 
-        //почему здесь?
         private void AssignColorsCount(int colorsCount)
         {
-            if (colorsCount <= 0)
-                throw new InvalidOperationException("colorsCount must be > 0");
+            Guard.Positive(colorsCount, nameof(colorsCount));
 
-            int realColorCount = Mathf.Min(colorsCount, Objects.Count);
-            IReadOnlyList<Color> palette = _colorRandomizer.Colors;
+            List<Color> palette = new List<Color>(_colorRandomizer.BeginColors);
+
+            palette.AddRange(_colorRandomizer.RemainingColors);
 
             for (int i = 0; i < Objects.Count; i++)
             {
@@ -115,30 +118,21 @@ namespace Assets.Source.Scripts.Factory
 
         private void AssignColor(Vessel vessel, Color color)
         {
-            if (vessel == null)
-                throw new ArgumentNullException(nameof(vessel));
+            Guard.NotNull(vessel, nameof(vessel));
 
-            if (vessel.TryGetComponent(out ColorMarker colorMarker))
-            {
-                colorMarker.Initialize(color);
-            }
-            else
-            {
-                throw new InvalidOperationException(
-                    $"Vessel does not have required {nameof(ColorMarker)} component");
-            }
+            bool hasMarker = vessel.TryGetComponent(out ColorMarker colorMarker);
+
+            Guard.IsTrue(hasMarker,
+                $"Vessel does not have required {nameof(ColorMarker)} component");
+
+            colorMarker.Initialize(color);
         }
 
         private void ValidateBuildRequirements()
         {
-            if (_gameFullingBehaviour == null)
-                throw new ArgumentNullException(nameof(_gameFullingBehaviour));
-
-            if (_distributerMagicCell == null)
-                throw new ArgumentNullException(nameof(_distributerMagicCell));
-
-            if (_colorRandomizer == null)
-                throw new ArgumentNullException(nameof(_colorRandomizer));
+            Guard.NotNull(_gameFullingBehaviour, nameof(_gameFullingBehaviour));
+            Guard.NotNull(_distributerMagicCell, nameof(_distributerMagicCell));
+            Guard.NotNull(_colorRandomizer, nameof(_colorRandomizer));
         }
     }
 }

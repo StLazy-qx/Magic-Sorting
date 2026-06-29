@@ -1,61 +1,52 @@
+using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.Enums;
-using System;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Colorize
 {
     public class ColorRandomizer : MonoBehaviour
     {
-        private const float AlphaValue = 0.93f;
+        private const int BeginCountColors = 2;
 
-        private EnumColor[] _allColors = (EnumColor[])Enum.
-            GetValues(typeof(EnumColor));
-        private Color[] _currentColors;
+        private EnumColor[] _allColors = 
+            (EnumColor[])Enum.GetValues(typeof(EnumColor));
+        private Color[] _beginRoundColors;
+        private Color[] _remainingColors;
 
-        public IReadOnlyList<Color> Colors => _currentColors;
-
-        public Color GenerateRandomColor() // проверь
-        {
-            if (_allColors.Length == 0)
-                throw new InvalidOperationException("No colors available");
-
-            if (_currentColors == null || _currentColors.Length == 0)
-            {
-                return TransformEnumToColor(_allColors
-                    [UnityEngine.Random.Range(0, _allColors.Length)]);
-            }
-
-            return _currentColors[UnityEngine.Random.Range(0, _currentColors.Length)];
-        }
+        public IReadOnlyList<Color> BeginColors => _beginRoundColors;
+        public IReadOnlyList<Color> RemainingColors => _remainingColors;
 
         public void CrateArrayColors(int colorsNumber)
         {
-            if (colorsNumber <= 0)
-            {
-                throw new ArgumentException
-                    ("Colors number must be positive", nameof(colorsNumber));
-            }
+            Guard.Positive(colorsNumber, nameof(colorsNumber));
 
             if (colorsNumber > _allColors.Length)
                 colorsNumber = _allColors.Length;
 
             int[] shuffledIndices = ShuffleIndices(_allColors.Length);
-            _currentColors = new Color[colorsNumber];
 
-            for (int i = 0; i < colorsNumber; i++)
+            int beginCount = Mathf.Min(BeginCountColors, colorsNumber);
+
+            _beginRoundColors = new Color[beginCount];
+            _remainingColors = new Color[colorsNumber - beginCount];
+
+            FillColorsArray(_beginRoundColors, shuffledIndices, 0);
+            FillColorsArray(_remainingColors, shuffledIndices, beginCount);
+        }
+
+        private void FillColorsArray(Color[] targetArray, int[] shuffledIndices, int startIndex)
+        {
+            for (int i = 0; i < targetArray.Length; i++)
             {
-                _currentColors[i] = TransformEnumToColor(_allColors[shuffledIndices[i]]);
+                targetArray[i] = TransformEnumToColor(_allColors[shuffledIndices[startIndex + i]]);
             }
         }
 
         private int[] ShuffleIndices(int length)
         {
-            if (length <= 0)
-            {
-                throw new ArgumentException
-                    ("Length must be positive", nameof(length));
-            }
+            Guard.Positive(length, nameof(length));
 
             int[] indices = new int[length];
 
@@ -79,25 +70,25 @@ namespace Assets.Source.Scripts.Colorize
             switch (randomColor)
             {
                 case EnumColor.Red:
-                    return new Color(1f, 0f, 0f, AlphaValue);
+                    return new Color(1f, 0f, 0f);
 
                 case EnumColor.Green:
-                    return new Color(0f, 1f, 0f, AlphaValue);
+                    return new Color(0f, 1f, 0f);
 
                 case EnumColor.Blue:
-                    return new Color(0f, 0f, 1f, AlphaValue);
+                    return new Color(0f, 0f, 1f);
 
                 case EnumColor.Yellow:
-                    return new Color(1f, 1f, 0f, AlphaValue);
+                    return new Color(1f, 1f, 0f);
 
                 case EnumColor.Orange:
-                    return new Color(1f, 0.5f, 0f, AlphaValue);
+                    return new Color(1f, 0.5f, 0f);
 
                 case EnumColor.Purple:
-                    return new Color(0.5f, 0f, 0.5f, AlphaValue);
+                    return new Color(0.5f, 0f, 0.5f);
 
                 default:
-                    return new Color(1f, 1f, 1f, AlphaValue);
+                    return new Color(1f, 1f, 1f);
             }
         }
     }

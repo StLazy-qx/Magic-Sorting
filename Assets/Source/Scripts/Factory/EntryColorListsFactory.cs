@@ -10,15 +10,24 @@ namespace Assets.Source.Scripts.Factory
         [SerializeField] private int _countOneColor;
         [SerializeField] private EntryListColorPool _pool;
 
-        public void Initialize(IReadOnlyList<Color> colors)
+        public void Initialize(
+            IReadOnlyList<Color> beginColors,
+            IReadOnlyList<Color> remainingColors)
         {
             _pool.Clear();
 
-            foreach (Color color in colors)
+            foreach (Color color in beginColors)
             {
-                EntryListColor entryList = new EntryListColor(color, _countOneColor);
+                ColorEntry entry = new ColorEntry(color, _countOneColor);
 
-                _pool.Add(entryList);
+                _pool.AddBeginingColors(entry);
+            }
+
+            foreach (Color color in remainingColors)
+            {
+                ColorEntry entry = new ColorEntry(color, _countOneColor);
+
+                _pool.AddRemainingColors(entry);
             }
         }
 

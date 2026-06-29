@@ -6,35 +6,46 @@ namespace Assets.Source.Scripts.Pool
 {
     public class EntryListColorPool : MonoBehaviour
     {
-        private readonly List<EntryListColor> _pool = new List<EntryListColor>();
+        private readonly List<ColorEntry> _beginingPoolColors = new List<ColorEntry>();
+        private readonly List<ColorEntry> _remainingPoolColors = new List<ColorEntry>();
 
-        public int Count => _pool.Count;
-
-        public void Add(EntryListColor entry)
+        public void AddBeginingColors(ColorEntry color)
         {
-            if (entry == null)
+            if (color == null)
                 return;
 
-            _pool.Add(entry);
+            _beginingPoolColors.Add(color);
         }
 
-        public EntryListColor Get()
+        public void AddRemainingColors(ColorEntry color)
         {
-            if (_pool.Count == 0)
+            if (color == null)
+                return;
+
+            _remainingPoolColors.Add(color);
+        }
+
+        public ColorEntry Get()
+        {
+            ColorEntry entry = GetFromList(_remainingPoolColors);
+
+            if (entry != null)
+                return entry;
+
+            return GetFromList(_beginingPoolColors);
+        }
+
+        private ColorEntry GetFromList(List<ColorEntry> pool)
+        {
+            if (pool.Count == 0)
                 return null;
 
-            List<int> checkedIndexes = new List<int>();
+            int startIndex = Random.Range(0, pool.Count);
 
-            while (checkedIndexes.Count < _pool.Count)
+            for (int i = 0; i < pool.Count; i++)
             {
-                int randomIndex = Random.Range(0, _pool.Count);
-
-                if (checkedIndexes.Contains(randomIndex))
-                    continue;
-
-                checkedIndexes.Add(randomIndex);
-
-                EntryListColor entry = _pool[randomIndex];
+                int index = (startIndex + i) % pool.Count;
+                ColorEntry entry = pool[index];
 
                 if (entry.IsEmpty() == false)
                     return entry;
@@ -45,14 +56,8 @@ namespace Assets.Source.Scripts.Pool
 
         public void Clear()
         {
-            _pool.Clear();
-        }
-
-        private EntryListColor GetRandom()
-        {
-            int randomIndex = Random.Range(0, _pool.Count);
-
-            return _pool[randomIndex];
+            _beginingPoolColors.Clear();
+            _remainingPoolColors.Clear();
         }
     }
 }

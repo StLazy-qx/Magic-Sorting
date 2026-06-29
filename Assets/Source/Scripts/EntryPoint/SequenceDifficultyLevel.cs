@@ -1,7 +1,6 @@
 ﻿using Assets.Source.Scripts.Enums;
-using System;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -42,8 +41,6 @@ namespace Assets.Source.Scripts.EntryPoint
             DifficultyLevel level = _sequence[_currentIndex];
             _currentIndex++;
 
-            Debug.Log(_currentIndex);
-
             return level;
         }
 
@@ -53,7 +50,6 @@ namespace Assets.Source.Scripts.EntryPoint
                 {
                 DifficultyLevel.Easy,
                 DifficultyLevel.MediumEasy,
-                DifficultyLevel.Easy,
                 DifficultyLevel.MediumEasy,
                 DifficultyLevel.Medium,
                 DifficultyLevel.MediumEasy,
@@ -87,10 +83,11 @@ namespace Assets.Source.Scripts.EntryPoint
                 DifficultyLevel.Hard,
                 DifficultyLevel.MediumHard,
                 DifficultyLevel.Medium,
+                DifficultyLevel.Hard,
+                DifficultyLevel.Medium,
                 DifficultyLevel.MediumEasy,
-                DifficultyLevel.Easy,
-                DifficultyLevel.MediumEasy,
-                DifficultyLevel.Medium
+                DifficultyLevel.MediumHard,
+                DifficultyLevel.Hard
                 };
 
             _sequence.AddRange(sequence);

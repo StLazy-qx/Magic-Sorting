@@ -1,9 +1,10 @@
 using Assets.Source.Scripts.Pool;
 using Assets.Source.Scripts.Vessels;
-using System;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
+using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.Colorize
 {
@@ -14,6 +15,7 @@ namespace Assets.Source.Scripts.Colorize
         private IReadOnlyList<Vessel> _vessels;
         private List<Color> _colors = new List<Color>();
         private Queue<Color> _mixedColors = new Queue<Color>();
+
 
         public int TotalColors => _colors.Count;
 
@@ -40,8 +42,8 @@ namespace Assets.Source.Scripts.Colorize
             {
                 if (vessel.Count <= 0)
                 {
-                    throw new InvalidOperationException
-                        ($"Vessel count must be positive, but was {vessel.Count}");
+                    Guard.IsTrue(vessel.Count > 0,
+                        $"Vessel count must be positive, but was {vessel.Count}");
                 }
 
                 for (int i = 0; i < vessel.Count; i++)
@@ -75,14 +77,10 @@ namespace Assets.Source.Scripts.Colorize
 
         private void ValidateVessels(IReadOnlyList<Vessel> vessels)
         {
-            if (vessels == null)
-                throw new ArgumentNullException(nameof(vessels), "The list of vessels must be initialized");
-
-            if (vessels.Count == 0)
-                throw new ArgumentException("The list of vessels cannot be empty", nameof(vessels));
-
-            if (vessels.Any(vessel => vessel == null))
-                throw new ArgumentException("The vessel list contains a zero element", nameof(vessels));
+            Guard.NotNullOrEmpty(vessels, nameof(vessels));
+            Guard.IsTrue(vessels.All(v => v != null),
+                nameof(vessels),
+                "The vessel list contains a zero element");
         }
     }
 }

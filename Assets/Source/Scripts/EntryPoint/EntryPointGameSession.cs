@@ -30,11 +30,14 @@ namespace Assets.Source.Scripts.EntryPoint
         {
             ValidateDependencies();
 
-            _currentSettings = _difficultyDatabase.GetSettings(_difficultyState.CurrentDifficulty);
+            _currentSettings = _difficultyDatabase.GetSettings
+                (_difficultyState.CurrentDifficulty);
 
             _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
             _platformDependentSetter.Initialize();
-            _entryColorListsFactory.Initialize(_colorRandomizer.Colors);
+            _entryColorListsFactory.Initialize(
+                _colorRandomizer.BeginColors, 
+                _colorRandomizer.RemainingColors);
             _vesselFactory.InitRandomizer(_colorRandomizer);
             CollectInitializableObjects();
             StartCoroutine(SessionInitialize());

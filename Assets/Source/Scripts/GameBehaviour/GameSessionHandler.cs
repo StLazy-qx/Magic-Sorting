@@ -80,7 +80,9 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             ResetFactories();
             _vesselFactory.InitRandomizer(_colorRandomizer);
-            _entryColorListsFactory.Initialize(_colorRandomizer.Colors);
+            _entryColorListsFactory.Initialize(
+                _colorRandomizer.BeginColors,
+                _colorRandomizer.RemainingColors);
             _vesselFactory.Spawn();
 
             yield return new WaitUntil(() => _vesselFactory.IsReady);
