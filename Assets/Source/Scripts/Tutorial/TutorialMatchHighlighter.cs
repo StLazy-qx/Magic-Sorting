@@ -44,7 +44,6 @@ namespace Assets.Source.Scripts.Tutorial
         private void Start()
         {
             _timer.StartTimer(_beginsearchInterval, PerformAnalysis);
-
         }
 
         private void OnEnable()

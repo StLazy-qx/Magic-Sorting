@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MediumDifficultySettings
   m_EditorClassIdentifier: 
   Level: 3
-  ColumnsCount: 5
+  ColumnsCount: 4
   MaxCellsPerColumn: 8
-  VesselsCount: 5
-  ColorsCount: 5
+  VesselsCount: 6
+  ColorsCount: 6
