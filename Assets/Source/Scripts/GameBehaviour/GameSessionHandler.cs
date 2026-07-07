@@ -29,7 +29,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         private DifficultySettings _currentSettings;
 
         public event Action GameReseting;
-        public event Action<int> RoundChanged;
 
         //зачем?
         public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
@@ -113,86 +112,6 @@ namespace Assets.Source.Scripts.GameBehaviour
             _vesselFactory.ResetFactory(DifficultyState.CurrentDifficulty);
             _columnsFactory.ResetFactory(DifficultyState.CurrentDifficulty);
         }
-
-        //public void BeginNewRound()
-        //{
-        //    //убрать повторяемость в коде
-        //    ChangeDifficultyBySequence();
-
-        //    _currentSettings = _difficultyDatabase.
-        //        GetSettings(DifficultyState.CurrentDifficulty);
-
-        //    ContinueGame();
-        //    _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
-        //    ResetEntity();
-        //    StartCoroutine(BeginRoundRoutine());
-        //}
-
-        //public void IncreaseDifficultyLevel()
-        //{
-        //    ContinueGame();
-
-        //    DifficultyLevel current = DifficultyState.CurrentDifficulty;
-        //    DifficultyLevel newLevel = GetIncreasedDifficulty(current);
-
-        //    if (newLevel != current)
-        //        DifficultyState.SetDifficulty(newLevel);
-
-        //    ResetFactories();
-        //    ResetEntity();
-        //    StartCoroutine(BeginRoundRoutine());
-        //}
-
-        //protected override void ExtendInitialize()
-        //{
-        //    _waitingPoint.Reset();
-        //}
-
-        //private void ChangeDifficultyBySequence()
-        //{
-        //    DifficultyLevel nextLevel = _sequenceDifficultyLevel.GetNext();
-
-        //    DifficultyState.SetDifficulty(nextLevel);
-        //}
-
-        //private IEnumerator BeginRoundRoutine()
-        //{
-        //    ResetFactories();
-        //    _vesselFactory.InitRandomizer(_colorRandomizer);
-        //    _entryColorListsFactory.Initialize(_colorRandomizer.Colors);
-        //    _vesselFactory.Spawn();
-
-        //    yield return new WaitUntil(() => _vesselFactory.IsReady);
-
-        //    if (_vesselFactory.Objects != null &&
-        //        _vesselFactory.Objects.Count > 0)
-        //    {
-        //        _columnsFactory.Initialize(
-        //            _vesselFactory.Objects,
-        //            _currentSettings.ColumnsCount,
-        //            _currentSettings.MaxCellsPerColumn);
-        //        _columnsFactory.Spawn();
-        //    }
-
-        //    _columnDistributor.Distribute();
-        //    GameReseting?.Invoke();
-        //}
-
-        //private void ResetEntity()
-        //{
-        //    Wallet.Reset();
-        //    _waitingPoint.Reset();
-        //    _clickImpactHandler.Reset();
-        //}
-
-        //private void ResetFactories()
-        //{
-        //    _entryColorListsFactory.Reset();
-        //    _vesselFactory.ResetFactory(
-        //        DifficultyState.CurrentDifficulty);
-        //    _columnsFactory.ResetFactory(
-        //        DifficultyState.CurrentDifficulty);
-        //}
 
         private void ValidateObjects()
         {

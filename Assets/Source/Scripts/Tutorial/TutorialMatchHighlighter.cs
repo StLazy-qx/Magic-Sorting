@@ -103,17 +103,22 @@ namespace Assets.Source.Scripts.Tutorial
 
         private MagicColumn FindReverseColumn()
         {
-            foreach (Vessel vessel in _currentVessels)
+            if (_currentVessels.Count < 3)
+                return null;
+
+            Color firstColor = _currentVessels[0].Color;
+            Color secondColor = _currentVessels[1].Color;
+            Color thirdColor = _currentVessels[2].Color;
+
+            foreach (MagicColumn column in _currentColumns)
             {
-                Color color = vessel.Color;
+                StackMagicCells stack = column.GetComponent<StackMagicCells>();
 
-                foreach (MagicColumn column in _currentColumns)
+                if (stack.CheckLastCells(firstColor) ||
+                    stack.CheckLastCells(secondColor) ||
+                    stack.CheckLastCells(thirdColor))
                 {
-                    StackMagicCells stack = column.GetComponent<StackMagicCells>();
-                    MagicCell bottomCell = stack.GetBottomCell();
-
-                    if (bottomCell != null && bottomCell.Color == color)
-                        return column;
+                    return column;
                 }
             }
 

@@ -96,14 +96,15 @@ namespace Assets.Source.Scripts.Pool
             return null;
         }
 
-        public bool CheckSecondCell(Color color)
+        public bool CheckLastCells(Color color)
         {
-            MagicCell secondCell = GetSecondCell();
-
-            if (secondCell == null)
+            if (_cellsStack.Count < 2)
                 return false;
 
-            return secondCell.Color == color;
+            MagicCell[] cells = _cellsStack.ToArray();
+
+            return cells[0].Color == color &&
+                   cells[1].Color == color;
         }
 
         public MagicCell GetBottomCell()
