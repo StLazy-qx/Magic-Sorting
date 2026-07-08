@@ -76,6 +76,24 @@ namespace Assets.Source.Scripts.Tutorial
             _modeSwitcher.ReverseButtonActivating += OnReverseButtonActivated;
         }
 
+        public void LoadCurrentColumns()
+        {
+            _currentColumns.Clear();
+            _currentColumns.AddRange(
+                _magicColumnPool.GetActiveObjects());
+        }
+
+        public void LoadCurrentVessels()
+        {
+            _currentVessels.Clear();
+
+            foreach (var vessel in _vesselFactory.Objects)
+            {
+                if (vessel.IsActive)
+                    _currentVessels.Add(vessel);
+            }
+        }
+
         private void OnStartSearchLoop()
         {
             _animationParticle.Stop();
@@ -94,6 +112,10 @@ namespace Assets.Source.Scripts.Tutorial
             LoadCurrentVessels();
 
             MagicColumn targetColumn = FindReverseColumn();
+
+            if (targetColumn == null)
+                return;
+
             StackMagicCells stack = targetColumn.GetComponent<StackMagicCells>();
             MagicCell cell = stack.GetUpperCell();
 
@@ -103,44 +125,56 @@ namespace Assets.Source.Scripts.Tutorial
 
         private MagicColumn FindReverseColumn()
         {
-            if (_currentVessels.Count < 3)
-                return null;
-
-            Color firstColor = _currentVessels[0].Color;
-            Color secondColor = _currentVessels[1].Color;
-            Color thirdColor = _currentVessels[2].Color;
+            int thirdIndex = 3;
+            int vesselsToCheck = Mathf.Min(_currentVessels.Count, thirdIndex);
 
             foreach (MagicColumn column in _currentColumns)
             {
                 StackMagicCells stack = column.GetComponent<StackMagicCells>();
 
-                if (stack.CheckLastCells(firstColor) ||
-                    stack.CheckLastCells(secondColor) ||
-                    stack.CheckLastCells(thirdColor))
+                for (int i = 0; i < vesselsToCheck; i++)
                 {
-                    return column;
+                    if (stack.CheckLastCells(_currentVessels[i].Color))
+                        return column;
                 }
             }
 
             return null;
-        }
 
-        public void LoadCurrentColumns()
-        {
-            _currentColumns.Clear();
-            _currentColumns.AddRange(
-                _magicColumnPool.GetActiveObjects());
-        }
+            //int firstIndex = 0;
+            //int secondIndex = 1;
+            //int thirdIndex = 2;
+            //bool hasFirstColor = _currentVessels.Count > firstIndex;
+            //bool hasSecondColor = _currentVessels.Count > secondIndex;
+            //bool hasThirdColor = _currentVessels.Count > thirdIndex;
 
-        public void LoadCurrentVessels()
-        {
-            _currentVessels.Clear();
+            ////Color firstColor = _currentVessels[firstIndex].Color;
+            ////Color secondColor = _currentVessels[secondIndex].Color;
+            ////Color thirdColor = _currentVessels[thirdIndex].Color;
 
-            foreach (var vessel in _vesselFactory.Objects)
-            {
-                if (vessel.IsActive)
-                    _currentVessels.Add(vessel);
-            }
+            //foreach (MagicColumn column in _currentColumns)
+            //{
+            //    StackMagicCells stack = column.GetComponent<StackMagicCells>();
+
+            //    if ((hasFirstColor && 
+            //        stack.CheckLastCells(_currentVessels[firstIndex].Color)) ||
+            //        (hasSecondColor && 
+            //        stack.CheckLastCells(_currentVessels[secondIndex].Color)) ||
+            //        (hasThirdColor && 
+            //        stack.CheckLastCells(_currentVessels[thirdIndex].Color)))
+            //    {
+            //        return column;
+            //    }
+
+            //    //if (stack.CheckLastCells(firstColor) ||
+            //    //    stack.CheckLastCells(secondColor) ||
+            //    //    stack.CheckLastCells(thirdColor))
+            //    //{
+            //    //    return column;
+            //    //}
+            //}
+
+            //return null;
         }
 
         private void PerformAnalysis()

@@ -57,8 +57,6 @@ namespace Assets.Source.Scripts.Pool
             _prefabHeight = prefabHeight;
 
             _gameHandler.PauseStateChanged += OnGamePause;
-
-            //CreateCells(maxVolumeCells);
         }
 
         public void CreateCell(Color color)
@@ -103,8 +101,8 @@ namespace Assets.Source.Scripts.Pool
 
             MagicCell[] cells = _cellsStack.ToArray();
 
-            return cells[0].Color == color &&
-                   cells[1].Color == color;
+            return cells[cells.Length - 2].Color == color &&
+                   cells[cells.Length - 1].Color == color;
         }
 
         public MagicCell GetBottomCell()
@@ -173,9 +171,6 @@ namespace Assets.Source.Scripts.Pool
 
             for (int i = 0; i < countCells; i++)
             {
-                //if (_colorSource.TryGetRandomColor(out Color pickedColor) == false)
-                //    return;
-
                 ColorEntry entry = _listColorPool.Get();
 
                 if (entry == null)
