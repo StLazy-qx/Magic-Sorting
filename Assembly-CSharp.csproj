@@ -73,6 +73,7 @@
     <Compile Include="Assets\Source\Scripts\EntryPoint\IObjectInitilizable.cs" />
     <Compile Include="Assets\Source\Scripts\Language\LanguageSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Other\PauseGameYG.cs" />
+    <Compile Include="Assets\Source\Scripts\Leaderboard\LeaderboardChecker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\Vector3Extensions.cs" />
     <Compile Include="Assets\Source\Scripts\UI\GamePanel\Panel.cs" />
@@ -378,12 +379,14 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
     <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
+    <Compile Include="Assets\Source\Scripts\Leaderboard\Leaderboard.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Source\Scripts\PlayerAuthorization\Authorization.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_optionalPlatform.cs" />
     <Compile Include="Assets\Source\Scripts\Enums\EnumColor.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\PlayerStats\Scripts\PlayerStats_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Example\Scripts\LanguageExample.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\LeaderbourdView\LeaderbourdCheckEmptyText.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\TimerBeforeAds\TimerBeforeAdsYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Review\Scripts\ReviewYG.cs" />

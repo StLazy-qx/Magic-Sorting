@@ -1,4 +1,4 @@
-using System;
+using Assets.Source.Scripts.Extensions;
 using System.Collections.Generic;
 
 namespace YG
@@ -13,19 +13,17 @@ namespace YG
 
         public void SavePoints(int value)
         {
-			if (value < 0)
-            {
-                throw new ArgumentException(
-                    "The value cannot be equal to or less than zero");
-            }
+            Guard.NotNegative(value, nameof(value));
 
             _points = value;
-		}
+
+            if (YG2.isSDKEnabled)
+                YG2.SetLeaderboard("GameLeaderboard", value);
+        }
 
         public void AddItem(string itemID)
         {
-            if (string.IsNullOrWhiteSpace(itemID))
-                return;
+            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
             if (_itemIDs.Contains(itemID))
                 return;
@@ -35,6 +33,8 @@ namespace YG
 
         public void SaveEquippedItem(string itemID)
         {
+            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
+
             _equippedItemID = string.IsNullOrWhiteSpace(itemID)
                 ? string.Empty
                 : itemID;
@@ -42,8 +42,7 @@ namespace YG
 
         public bool HasItem(string itemID)
         {
-            if (string.IsNullOrWhiteSpace(itemID))
-                return false;
+            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
             return _itemIDs.Contains(itemID);
         }
