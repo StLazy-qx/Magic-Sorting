@@ -47,6 +47,8 @@ namespace Assets.Source.Scripts.UI.StoreView
         public void ShowPurchaseValidation()
         {
             _purchaseValidation.gameObject.SetActive(true);
+
+            Debug.Log("ShowPurchaseValidation in NewItemView" + _purchaseValidation.gameObject.activeSelf);
         }
 
         public void HidePurchaseValidation()

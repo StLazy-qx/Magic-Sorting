@@ -140,41 +140,6 @@ namespace Assets.Source.Scripts.Tutorial
             }
 
             return null;
-
-            //int firstIndex = 0;
-            //int secondIndex = 1;
-            //int thirdIndex = 2;
-            //bool hasFirstColor = _currentVessels.Count > firstIndex;
-            //bool hasSecondColor = _currentVessels.Count > secondIndex;
-            //bool hasThirdColor = _currentVessels.Count > thirdIndex;
-
-            ////Color firstColor = _currentVessels[firstIndex].Color;
-            ////Color secondColor = _currentVessels[secondIndex].Color;
-            ////Color thirdColor = _currentVessels[thirdIndex].Color;
-
-            //foreach (MagicColumn column in _currentColumns)
-            //{
-            //    StackMagicCells stack = column.GetComponent<StackMagicCells>();
-
-            //    if ((hasFirstColor && 
-            //        stack.CheckLastCells(_currentVessels[firstIndex].Color)) ||
-            //        (hasSecondColor && 
-            //        stack.CheckLastCells(_currentVessels[secondIndex].Color)) ||
-            //        (hasThirdColor && 
-            //        stack.CheckLastCells(_currentVessels[thirdIndex].Color)))
-            //    {
-            //        return column;
-            //    }
-
-            //    //if (stack.CheckLastCells(firstColor) ||
-            //    //    stack.CheckLastCells(secondColor) ||
-            //    //    stack.CheckLastCells(thirdColor))
-            //    //{
-            //    //    return column;
-            //    //}
-            //}
-
-            //return null;
         }
 
         private void PerformAnalysis()

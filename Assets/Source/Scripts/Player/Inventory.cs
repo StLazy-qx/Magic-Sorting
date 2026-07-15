@@ -73,13 +73,23 @@ namespace Assets.Source.Scripts.Player
             ValidateItem(item);
             item.Equip();
 
+            Debug.Log("Parameter item in EquipItem" + item != null);
+
             if (_equippedItem != null)
             {
+                Debug.Log("Parameter item in EquipItem" + _equippedItem != null);
+
                 _equippedItem.UnEquip();
+
+                Debug.Log("Equiped _equippedItem in EquipItem");
 
                 NewItemView newItemView = item.GetComponent<NewItemView>();
 
+                Debug.Log("Open newItemView in EquipItem");
+
                 newItemView.ShowPurchaseValidation();
+
+                Debug.Log("newItemView method ShowPurchaseValidation in EquipItem");
             }
 
             _equippedItem = item;

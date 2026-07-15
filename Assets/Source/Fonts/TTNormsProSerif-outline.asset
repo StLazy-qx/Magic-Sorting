@@ -74,8 +74,8 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.73125
+    - _ScaleRatioB: 0.69750005
+    - _ScaleRatioC: 0.69750005
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -94,7 +94,7 @@ Material:
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
-    - _WeightBold: 0.75
+    - _WeightBold: 0.9
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
@@ -767,6 +767,21 @@ MonoBehaviour:
       m_Y: 394
       m_Width: 42
       m_Height: 46
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 99
+    m_Metrics:
+      m_Width: 28.796875
+      m_Height: 63.90625
+      m_HorizontalBearingX: 2.515625
+      m_HorizontalBearingY: 63.90625
+      m_HorizontalAdvance: 32.046875
+    m_GlyphRect:
+      m_X: 730
+      m_Y: 694
+      m_Width: 30
+      m_Height: 64
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
@@ -2255,21 +2270,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 99
-    m_Metrics:
-      m_Width: 28.796875
-      m_Height: 63.90625
-      m_HorizontalBearingX: 2.515625
-      m_HorizontalBearingY: 63.90625
-      m_HorizontalAdvance: 32.046875
-    m_GlyphRect:
-      m_X: 730
-      m_Y: 694
-      m_Width: 30
-      m_Height: 64
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -2458,6 +2458,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 101
     m_GlyphIndex: 98
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 102
+    m_GlyphIndex: 99
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 103
@@ -2818,10 +2822,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 7
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 102
-    m_GlyphIndex: 99
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -130051029843364061}
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   fontWeights: []
   normalStyle: 0
   normalSpacingOffset: 0
-  boldStyle: 0.75
+  boldStyle: 0.9
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10

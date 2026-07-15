@@ -1,6 +1,7 @@
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.GameDifficulty;
+//using Assets.Source.Scripts.UI.GamePanel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private StoreItemFactory _storeItemFactory;
         [SerializeField] private ColorColumnDistributor _columnDistributor;
+        //[SerializeField] private Panel _storePanel;
         [SerializeField] private MonoBehaviour[] _objectsToInitializeMono;
 
         private DifficultyState _difficultyState;

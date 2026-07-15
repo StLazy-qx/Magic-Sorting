@@ -15,6 +15,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         [SerializeField] private Store _store;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _equipButton;
+        [SerializeField] private Button _selectedButton;
         [SerializeField] private TMP_Text _priceText;
         [SerializeField] private ItemViewPool _newItemViewPool;
 
@@ -26,6 +27,7 @@ namespace Assets.Source.Scripts.UI.StoreView
             ValidateInitializeArguments();
 
             _buyButton.gameObject.SetActive(false);
+            _selectedButton.gameObject.SetActive(false);
             _equipButton.gameObject.SetActive(true);
         }
 
@@ -60,19 +62,7 @@ namespace Assets.Source.Scripts.UI.StoreView
             _currentItemView = newItemView;
             _selectedItem = _currentItemView.GetComponent<Item>();
 
-            if (_inventory.HasItem(_selectedItem.ID))
-            {
-                _buyButton.gameObject.SetActive(false);
-                _equipButton.gameObject.SetActive(true);
-                _equipButton.interactable = (_selectedItem != _inventory.EquippedItem);
-            }
-            else
-            {
-                _equipButton.gameObject.SetActive(false);
-                _buyButton.gameObject.SetActive(true);
-                _priceText.text = _selectedItem.Price.ToString();
-            }
-
+            UpdateButtonsState();
             _currentItemView.Selected();
         }
 
@@ -98,6 +88,7 @@ namespace Assets.Source.Scripts.UI.StoreView
             _store.EquipItem(_selectedItem);
             _currentItemView.ShowPurchaseValidation();
             OnSelectShowedItem(_currentItemView);
+            UpdateButtonsState();
         }
 
         private void OnShowEquipButton(NewItemView boughtItemView)
@@ -105,10 +96,30 @@ namespace Assets.Source.Scripts.UI.StoreView
             if (_currentItemView != null && 
                 _currentItemView == boughtItemView)
             {
-                _buyButton.gameObject.SetActive(false);
-                _equipButton.gameObject.SetActive(true);
+                UpdateButtonsState();
+            }
+        }
 
-                _equipButton.interactable = true;
+        private void UpdateButtonsState()
+        {
+            if (_inventory.HasItem(_selectedItem.ID))
+            {
+                _buyButton.gameObject.SetActive(false);
+
+                bool isSelected = _selectedItem == _inventory.EquippedItem;
+
+                _equipButton.gameObject.SetActive(!isSelected);
+                _selectedButton.gameObject.SetActive(isSelected);
+
+                _selectedButton.interactable = false;
+            }
+            else
+            {
+                _buyButton.gameObject.SetActive(true);
+                _equipButton.gameObject.SetActive(false);
+                _selectedButton.gameObject.SetActive(false);
+
+                _priceText.text = _selectedItem.Price.ToString();
             }
         }
 
@@ -122,9 +133,7 @@ namespace Assets.Source.Scripts.UI.StoreView
                 Item item = view.GetComponent<Item>();
 
                 if (item != null && _inventory.HasItem(item.ID))
-                {
                     view.ShowPurchaseValidation();
-                }
             }
         }
 

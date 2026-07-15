@@ -16,10 +16,8 @@ namespace Assets.Source.Scripts.Player
         [SerializeField] private SkinSetter _scinSetter;
         [SerializeField] private ActionHandler _actionHandler;
         [SerializeField] private VesselStateTracker _vesselStateTracker;
-        [SerializeField] private Transform _staff;
 
         private Animator _animator;
-        private Vector3 _staffPosition;
 
         private void Awake()
         {

@@ -1,6 +1,7 @@
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.MagicCells;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Vessels
@@ -9,12 +10,15 @@ namespace Assets.Source.Scripts.Vessels
 
     public class Vessel : MonoBehaviour, IColorable, IVesselable
     {
+        private const float DeliveryDelay = 1.2f;
+
         [SerializeField] private Liquid _liquid;
         [SerializeField] private int _maxSize;
         [SerializeField] private int _points;
 
         private Color _mainColor;
         private VolumeAggregator _aggregator;
+        private WaitForSeconds _deliveryWait;
 
         public event Action<Vector3> Filled;
         public event Action<Vector3, int, Color> RewardIssued;
@@ -30,6 +34,7 @@ namespace Assets.Source.Scripts.Vessels
             ValidateInitializeArguments();
 
             _aggregator = GetComponent<VolumeAggregator>();
+            _deliveryWait = new WaitForSeconds(DeliveryDelay);
 
             if (_aggregator == null)
             {
@@ -47,6 +52,16 @@ namespace Assets.Source.Scripts.Vessels
             if (cell == null)
                 return;
 
+            StartCoroutine(ExecuteAfterDelay());
+        }
+
+        public void SetColor(Color color)
+            => _mainColor = color;
+
+        private IEnumerator ExecuteAfterDelay()
+        {
+            yield return _deliveryWait;
+
             _aggregator.GrowUpVolume();
 
             if (_aggregator.IsFull)
@@ -58,9 +73,6 @@ namespace Assets.Source.Scripts.Vessels
                 gameObject.SetActive(false);
             }
         }
-
-        public void SetColor(Color color)
-            => _mainColor = color;
 
         private void ValidateInitializeArguments()
         {

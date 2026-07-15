@@ -1,7 +1,7 @@
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Enums;
+using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.MagicCells;
-using System;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.InteractiveObjects
@@ -28,24 +28,24 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
         public void AcceptStorageCell(MagicCell cell)
         {
-            if (cell == null)
-            {
-                throw new ArgumentNullException(nameof(cell),
-                    "[WaitingPoint] Волшебная ячейка не может быть нулевой.");
-            }
+            Guard.NotNull(cell, nameof(cell));
 
-            if (_waitingCell != null && IsFreePlace == true)
+            if (_waitingCell != null)
                 return;
 
             IsFreePlace = false;
             Quaternion cellRotation = Quaternion.Euler(RotationX, 0f, 0f);
-
-            _waitingCell = Instantiate(
-                cell, 
-                _storagePoint.position, 
-                cellRotation);
+            _waitingCell = Instantiate(cell, 
+                _storagePoint.position, cellRotation);
 
             _waitingCell.Interacted += OnCellClicked;
+
+            _waitingCell.gameObject.SetActive(false);
+        }
+
+        public void ShowWaitingCell()
+        {
+            _waitingCell.gameObject.SetActive(true);
         }
 
         public void Reset()
@@ -80,24 +80,9 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
         private void ValidateObjects()
         {
-            if (_seatsNumber <= 0)
-            {
-                throw new InvalidOperationException(
-                    $"[WaitingPoint] Некорректное количество мест: " +
-                    $"{_seatsNumber}. Должно быть положительным числом.");
-            }
-
-            if (_storagePoint == null)
-            {
-                throw new MissingReferenceException(
-                    "[WaitingPoint] Не назначена точка хранения (_storagePoint).");
-            }
-
-            if (_cellRouter == null)
-            {
-                throw new MissingReferenceException(
-                    "[WaitingPoint] Не назначен маршрутизатор ячеек (_cellRouter).");
-            }
+            Guard.Positive(_seatsNumber, nameof(_seatsNumber));
+            Guard.NotNull(_storagePoint, nameof(_storagePoint));
+            Guard.NotNull(_cellRouter, nameof(_cellRouter));
         }
     }
 }

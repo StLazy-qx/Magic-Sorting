@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System.Linq;
-
+using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.Vessels
 {
     public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
     {
-        private const float TimeEndSession = 1.7f;
+        private const float TimeEndSession = 2f;
 
         [SerializeField] private Panel _finalMatchPanelDesctop;
         [SerializeField] private Panel _finalMatchPanelMobile;
@@ -42,8 +42,9 @@ namespace Assets.Source.Scripts.Vessels
         [Inject]
         public void Construct(Wallet wallet)
         {
-            _wallet = wallet ?? throw new ArgumentNullException(nameof(wallet),
-                "[VesselStateTracker] Wallet cannot be null");
+            Guard.NotNull(wallet, nameof(wallet));
+
+            _wallet = wallet;
         }
 
         public void Initialize()
@@ -70,9 +71,9 @@ namespace Assets.Source.Scripts.Vessels
 
         public void ApplyPanel(Panel panel)
         {
-            _currentPanel = panel ??
-                throw new ArgumentNullException(nameof(panel),
-                "[VesselStateTracker] Панель не может быть нуль");
+            Guard.NotNull(panel, nameof(panel));
+
+            _currentPanel = panel;
         }
 
         private void OnPerformEffectCoroutine(Vector3 position, int value, Color color)
@@ -108,85 +109,32 @@ namespace Assets.Source.Scripts.Vessels
 
         private void ValidateInitializeArguments()
         {
-            if (_wallet == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] Wallet reference is missing. " +
-                    "Did you forget Inject()?");
-            }
-
-            if (_effecter == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] Effecter reference is missing in inspector.");
-            }
-
-
-            if (_finalGame == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] FinalGameSession reference is missing.");
-            }
-
-            if (_finalMatchPanelDesctop == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] FinalMatchPanelDesktop is missing.");
-            }
-
-            if (_finalMatchPanelMobile == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] FinalMatchPanelMobile is missing.");
-            }
-
-            if (_vessels == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] Vessel list is not assigned. " +
-                    "Call SetVesselsList() first.");
-            }
-
-            if (_vessels.Count == 0)
-            {
-                throw new ArgumentException(
-                    "[VesselStateTracker] Vessel list is empty.");
-            }
-
-            if (_vessels.Any(vessel => vessel == null))
-            {
-                throw new ArgumentException(
-                    "[VesselStateTracker] Vessel list contains null entries.");
-            }
-
-            if (_currentPanel == null)
-            {
-                throw new NullReferenceException(
-                    "[VesselStateTracker] Panel is not assigned. Call ApplyPanel() first.");
-            }
+            Guard.IsTrue(_wallet != null, nameof(_wallet),
+                "[VesselStateTracker] Wallet reference is missing. Did you forget Inject()?");
+            Guard.IsTrue(_effecter != null, nameof(_effecter),
+                "[VesselStateTracker] Effecter reference is missing in inspector.");
+            Guard.IsTrue(_finalGame != null, nameof(_finalGame),
+                "[VesselStateTracker] FinalGameSession reference is missing.");
+            Guard.IsTrue(_finalMatchPanelDesctop != null, nameof(_finalMatchPanelDesctop),
+                "[VesselStateTracker] FinalMatchPanelDesktop is missing.");
+            Guard.IsTrue(_finalMatchPanelMobile != null, nameof(_finalMatchPanelMobile),
+                "[VesselStateTracker] FinalMatchPanelMobile is missing.");
+            Guard.IsTrue(_vessels != null, nameof(_vessels),
+                "[VesselStateTracker] Vessel list is not assigned. Call SetVesselsList() first.");
+            Guard.IsTrue(_vessels.Count > 0, nameof(_vessels),
+                "[VesselStateTracker] Vessel list is empty.");
+            Guard.IsTrue(_vessels.All(v => v != null), nameof(_vessels),
+                "[VesselStateTracker] Vessel list contains null entries.");
+            Guard.IsTrue(_currentPanel != null, nameof(_currentPanel),
+                "[VesselStateTracker] Panel is not assigned. Call ApplyPanel() first.");
         }
 
         private void ValidateVesselsList(IReadOnlyList<Vessel> vessels)
         {
-            if (vessels == null)
-            {
-                throw new ArgumentNullException(nameof(vessels),
-                    "[VesselStateTracker] Vessel list cannot be null");
-            }
-
-            if (vessels.Count == 0)
-            {
-                throw new ArgumentException(
-                    "[VesselStateTracker] Vessel list cannot be empty",
-                    nameof(vessels));
-            }
-
-            if (vessels.Any(vessel => vessel == null))
-            {
-                throw new ArgumentException(
-                    "[VesselStateTracker] Vessel list contains null entries",
-                    nameof(vessels));
-            }
+            Guard.NotNull(vessels, nameof(vessels));
+            Guard.NotNullOrEmpty(vessels, nameof(vessels));
+            Guard.IsTrue(vessels.All(v => v != null), nameof(vessels),
+                "[VesselStateTracker] Vessel list contains null entries");
         }
     }
 }
