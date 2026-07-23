@@ -2,7 +2,6 @@ using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.Vessels;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +13,7 @@ namespace Assets.Source.Scripts.MagicCells
         private const float DeliveryDelay = 1.2f;
 
         [SerializeField] private WaitingPoint _waitingPoint;
+        [SerializeField] private DelayDispatcher _delayDispatcher;
 
         private WaitForSeconds _deliveryWait;
         private IReadOnlyList<Vessel> _vessels;
@@ -24,6 +24,7 @@ namespace Assets.Source.Scripts.MagicCells
         private void Awake()
         {
             Guard.NotNull(_waitingPoint, nameof(_waitingPoint));
+            Guard.NotNull(_delayDispatcher, nameof(_delayDispatcher));
 
             _deliveryWait = new WaitForSeconds(DeliveryDelay);
         }
@@ -53,9 +54,10 @@ namespace Assets.Source.Scripts.MagicCells
             {
                 Deliver(cell, _waitingPoint.transform);
                 _waitingPoint.AcceptStorageCell(cell);
+                _waitingPoint.ShowWaitingCellWithDelay();
 
-                StartCoroutine(ExecuteAfterDelay(
-                    _waitingPoint.ShowWaitingCell));
+                //StartCoroutine(ExecuteAfterDelay(
+                //    _waitingPoint.ShowWaitingCell));
             }
         }
 
@@ -71,13 +73,6 @@ namespace Assets.Source.Scripts.MagicCells
                 cell.transform.position,
                 target.position,
                 cell.Color);
-        }
-
-        private IEnumerator ExecuteAfterDelay(Action action)
-        {
-            yield return _deliveryWait;
-
-            action?.Invoke();
         }
 
         private Vessel FindVesselByColor(Color color)

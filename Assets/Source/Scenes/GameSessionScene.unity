@@ -147179,6 +147179,7 @@ Transform:
   - {fileID: 1845276653}
   - {fileID: 457211861}
   - {fileID: 1139587300}
+  - {fileID: 845990819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &392530558
@@ -200524,6 +200525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waitingPoint: {fileID: 1861908055}
+  _delayDispatcher: {fileID: 845990818}
 --- !u!1 &657182783
 GameObject:
   m_ObjectHideFlags: 0
@@ -247843,6 +247845,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844443858}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &845990817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845990819}
+  - component: {fileID: 845990818}
+  m_Layer: 0
+  m_Name: DelayDispatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &845990818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845990817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112e03f874ad3e745bee16eb19890369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 1.2
+--- !u!4 &845990819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845990817}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 961.11646, y: 532.7256, z: 12.981462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392530555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848970914
 GameObject:
   m_ObjectHideFlags: 0
@@ -586902,6 +586949,7 @@ MonoBehaviour:
   _storagePoint: {fileID: 1861908054}
   _cellRouter: {fileID: 654057276}
   _clickImpactHandler: {fileID: 923747164}
+  _delayDispatcher: {fileID: 845990818}
 --- !u!1 &1862404075
 GameObject:
   m_ObjectHideFlags: 0

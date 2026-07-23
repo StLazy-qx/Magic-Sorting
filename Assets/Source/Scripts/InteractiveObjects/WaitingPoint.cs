@@ -14,6 +14,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private Transform _storagePoint;
         [SerializeField] private MagicCellRouter _cellRouter;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
+        [SerializeField] private DelayDispatcher _delayDispatcher;
 
         private MagicCell _waitingCell;
 
@@ -46,6 +47,14 @@ namespace Assets.Source.Scripts.InteractiveObjects
         public void ShowWaitingCell()
         {
             _waitingCell.gameObject.SetActive(true);
+        }
+
+        public void ShowWaitingCellWithDelay()
+        {
+            if (_delayDispatcher != null)
+                _delayDispatcher.ExecuteAfterDelay(ShowWaitingCell);
+            else
+                ShowWaitingCell();
         }
 
         public void Reset()
@@ -83,6 +92,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
             Guard.Positive(_seatsNumber, nameof(_seatsNumber));
             Guard.NotNull(_storagePoint, nameof(_storagePoint));
             Guard.NotNull(_cellRouter, nameof(_cellRouter));
+            Guard.NotNull(_delayDispatcher, nameof(_delayDispatcher));
         }
     }
 }
