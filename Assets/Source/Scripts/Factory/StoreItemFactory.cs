@@ -5,6 +5,7 @@ using Assets.Source.Scripts.UI.StoreView;
 using System.Collections.Generic;
 using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.Pool;
+using Assets.Source.Scripts.Enums;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
@@ -37,8 +38,11 @@ namespace Assets.Source.Scripts.Factory
         {
             ValidateBuildRequirements();
             ClearList();
+            _itemViewPool.Clear();
 
             IReadOnlyList<ItemSO> items = _store.GetItemsSO();
+
+            Debug.Log(items.Count);
 
             foreach (ItemSO itemData in items)
             {
@@ -58,6 +62,8 @@ namespace Assets.Source.Scripts.Factory
 
             NotifyObjectsChanged();
         }
+
+        protected override void OnDifficultyChanged(DifficultyLevel level) {}
 
         private void OnPushItemPresenter(NewItemView newItemView)
         {

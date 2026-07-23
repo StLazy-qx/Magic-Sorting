@@ -23,7 +23,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         private void Awake()
         {
             _button.onClick.AddListener(OnHandleClick);
-            HidePurchaseValidation();
+            _purchaseValidation.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
@@ -39,21 +39,9 @@ namespace Assets.Source.Scripts.UI.StoreView
             _mainTexture = itemData.Skin;
         }
 
-        public void SetSelected(bool selected)
-        {
-            _backgroundImage.color = selected ? _selectedColor : _normalColor;
-        }
-
         public void ShowPurchaseValidation()
         {
             _purchaseValidation.gameObject.SetActive(true);
-
-            Debug.Log("ShowPurchaseValidation in NewItemView" + _purchaseValidation.gameObject.activeSelf);
-        }
-
-        public void HidePurchaseValidation()
-        {
-            _purchaseValidation.gameObject.SetActive(false);
         }
 
         public void Selected()

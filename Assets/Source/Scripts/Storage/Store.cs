@@ -1,10 +1,9 @@
 using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Player;
 using System.Collections.Generic;
+using Assets.Source.Scripts.Extensions;
 using System.Linq;
 using UnityEngine;
-using Assets.Source.Scripts.UI.StoreView;
-using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.Storage
 {
@@ -40,12 +39,8 @@ namespace Assets.Source.Scripts.Storage
 
             if (_playerWallet.CanAfford(selectedItem.Price))
             {
-                NewItemView selectedItemView = selectedItem.
-                    gameObject.GetComponent<NewItemView>();
-
                 _playerWallet.SpendPoints(selectedItem.Price);
                 selectedItem.Buy();
-                selectedItemView.ShowPurchaseValidation();
                 _inventory.AddItem(selectedItem);
             }
         }
@@ -102,7 +97,7 @@ namespace Assets.Source.Scripts.Storage
         {
             Guard.NotNull(selectedItem, nameof(selectedItem));
             Guard.NotNull(inventory, nameof(inventory));
-            Guard.NotNegative(selectedItem.Price, 
+            Guard.NotNegative(selectedItem.Price,
                 $"{nameof(selectedItem)}.{nameof(selectedItem.Price)}");
         }
     }

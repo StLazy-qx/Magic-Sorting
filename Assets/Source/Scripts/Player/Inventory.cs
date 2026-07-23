@@ -20,6 +20,7 @@ namespace Assets.Source.Scripts.Player
         private List<Item> _items = new List<Item>();
 
         public event Action<NewItemView> ItemBuyed;
+        public event Action Initialized;
 
         public bool IsEmpty => _items.Count == 0;
 
@@ -36,6 +37,7 @@ namespace Assets.Source.Scripts.Player
                 EquipItem(_equippedItem);
 
             IsInitialized = true;
+            Initialized?.Invoke();
         }
 
         public bool HasItem(string itemID)
@@ -43,6 +45,12 @@ namespace Assets.Source.Scripts.Player
             Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
             return _items.Any(item => item.ID == itemID);
+        }
+
+        public bool IsEquipped(string itemID)
+        {
+            return _equippedItem != null 
+                && _equippedItem.ID == itemID;
         }
 
         public void AddItem(Item item)
@@ -73,24 +81,8 @@ namespace Assets.Source.Scripts.Player
             ValidateItem(item);
             item.Equip();
 
-            Debug.Log("Parameter item in EquipItem" + item != null);
-
             if (_equippedItem != null)
-            {
-                Debug.Log("Parameter item in EquipItem" + _equippedItem != null);
-
                 _equippedItem.UnEquip();
-
-                Debug.Log("Equiped _equippedItem in EquipItem");
-
-                NewItemView newItemView = item.GetComponent<NewItemView>();
-
-                Debug.Log("Open newItemView in EquipItem");
-
-                newItemView.ShowPurchaseValidation();
-
-                Debug.Log("newItemView method ShowPurchaseValidation in EquipItem");
-            }
 
             _equippedItem = item;
 
@@ -101,7 +93,6 @@ namespace Assets.Source.Scripts.Player
         private void Load()
         {
             IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
-
             _items = new List<Item>();
 
             foreach (string id in savedIDs)

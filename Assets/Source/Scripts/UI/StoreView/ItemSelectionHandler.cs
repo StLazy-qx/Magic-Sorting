@@ -2,10 +2,10 @@ using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Storage;
 using Assets.Source.Scripts.Extensions;
-using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Assets.Source.Scripts.Pool;
 
 namespace Assets.Source.Scripts.UI.StoreView
 {
@@ -13,11 +13,11 @@ namespace Assets.Source.Scripts.UI.StoreView
     {
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Store _store;
+        [SerializeField] private ItemViewPool _itemViewPool;
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _equipButton;
         [SerializeField] private Button _selectedButton;
         [SerializeField] private TMP_Text _priceText;
-        [SerializeField] private ItemViewPool _newItemViewPool;
 
         private Item _selectedItem;
         private NewItemView _currentItemView;
@@ -33,8 +33,14 @@ namespace Assets.Source.Scripts.UI.StoreView
 
         private void Start()
         {
-            _newItemViewPool.ActivateAll();
-            ValidateAllItemViews();
+            _itemViewPool.ActivateAll();
+
+            ShowPurchaseValidation();
+
+            if (_inventory.IsInitialized)
+                SelectEquippedItem();
+            else
+                _inventory.Initialized += SelectEquippedItem;
         }
 
         private void OnEnable()
@@ -72,6 +78,10 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             _store.BuyItem(_selectedItem);
+
+            //NewItemView currentItemView = 
+            //    _selectedItem.GetComponent<NewItemView>();
+            //currentItemView.ShowPurchaseValidation();
         }
 
         private void OnEquipButtonClicked()
@@ -86,29 +96,38 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             _store.EquipItem(_selectedItem);
-            _currentItemView.ShowPurchaseValidation();
             OnSelectShowedItem(_currentItemView);
             UpdateButtonsState();
         }
 
         private void OnShowEquipButton(NewItemView boughtItemView)
         {
-            if (_currentItemView != null && 
-                _currentItemView == boughtItemView)
-            {
+            boughtItemView.ShowPurchaseValidation();
+
+            if (_currentItemView == boughtItemView)
                 UpdateButtonsState();
-            }
+
+            //if (_currentItemView != null && 
+            //    _currentItemView == boughtItemView)
+            //{
+            //    UpdateButtonsState();
+            //}
         }
 
         private void UpdateButtonsState()
         {
+            if (_selectedItem == null)
+                return;
+
             if (_inventory.HasItem(_selectedItem.ID))
             {
                 _buyButton.gameObject.SetActive(false);
 
-                bool isSelected = _selectedItem == _inventory.EquippedItem;
+                bool isSelected = _selectedItem != null &&
+                                  _inventory.EquippedItem != null &&
+                                  _selectedItem.ID == _inventory.EquippedItem.ID;
 
-                _equipButton.gameObject.SetActive(!isSelected);
+                _equipButton.gameObject.SetActive(isSelected == false);
                 _selectedButton.gameObject.SetActive(isSelected);
 
                 _selectedButton.interactable = false;
@@ -123,17 +142,34 @@ namespace Assets.Source.Scripts.UI.StoreView
             }
         }
 
-        private void ValidateAllItemViews()
+        private void ShowPurchaseValidation()
         {
-            if (_newItemViewPool == null)
-                return;
-
-            foreach (NewItemView view in _newItemViewPool.Objects)
+            foreach (NewItemView view in _itemViewPool.Objects)
             {
                 Item item = view.GetComponent<Item>();
 
                 if (item != null && _inventory.HasItem(item.ID))
                     view.ShowPurchaseValidation();
+            }
+        }
+
+        private void SelectEquippedItem()
+        {
+            string equippedID = _inventory.EquippedItem?.ID;
+
+            if (string.IsNullOrEmpty(equippedID))
+                return;
+
+            foreach (NewItemView view in _itemViewPool.Objects)
+            {
+                Item item = view.GetComponent<Item>();
+
+                if (item != null && item.ID == equippedID)
+                {
+                    OnSelectShowedItem(view);
+
+                    break;
+                }
             }
         }
 

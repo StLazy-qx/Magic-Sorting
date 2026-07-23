@@ -106324,10 +106324,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 557822159}
-    - targetCorrespondingSourceObject: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1959964573}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c,
         type: 3}
@@ -162743,11 +162739,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 1959964574}
   _store: {fileID: 615017041}
+  _itemViewPool: {fileID: 239844991}
   _buyButton: {fileID: 1800872900}
   _equipButton: {fileID: 787127477}
-  _selectedButton: {fileID: 0}
+  _selectedButton: {fileID: 787127477}
   _priceText: {fileID: 1333337924}
-  _newItemViewPool: {fileID: 239844991}
 --- !u!1 &430706028
 GameObject:
   m_ObjectHideFlags: 0
@@ -352807,11 +352803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 1959964574}
   _store: {fileID: 615017041}
+  _itemViewPool: {fileID: 239844991}
   _buyButton: {fileID: 1596376041}
   _equipButton: {fileID: 34719220}
   _selectedButton: {fileID: 1350107562}
   _priceText: {fileID: 1518212080}
-  _newItemViewPool: {fileID: 239844991}
 --- !u!1 &1012916434
 GameObject:
   m_ObjectHideFlags: 0
@@ -380607,8 +380603,8 @@ MonoBehaviour:
   _servicesMono:
   - {fileID: 32273054}
   - {fileID: 1959964574}
-  - {fileID: 1827549520}
   - {fileID: 252190736}
+  - {fileID: 1827549520}
 --- !u!4 &1184745450
 Transform:
   m_ObjectHideFlags: 0
@@ -602050,12 +602046,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959964572}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 252190735}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1959964574
 MonoBehaviour:
@@ -736043,4 +736039,5 @@ SceneRoots:
   - {fileID: 615017043}
   - {fileID: 239844990}
   - {fileID: 252190733}
+  - {fileID: 1959964573}
   - {fileID: 1827549521}

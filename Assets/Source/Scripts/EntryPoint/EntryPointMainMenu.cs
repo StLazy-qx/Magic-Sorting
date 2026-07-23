@@ -4,7 +4,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YG;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -36,16 +35,14 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private IEnumerator InitializeServices()
         {
+            _storeItemFactory.Spawn();
+
             foreach (IObjectInitilizable currentObject in _servicesInitializable)
-            {
                 currentObject.Initialize();
-            }
 
             yield return new WaitUntil(()
                 => _servicesInitializable.TrueForAll
                 (currentObject => currentObject.IsInitialized));
-
-            _storeItemFactory.Spawn();
         }
 
         private void ValidateDependencies()

@@ -328,6 +328,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_info.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Source\Scripts\Storage\Store.cs" />
+    <Compile Include="Assets\Source\Scripts\InteractiveObjects\DelayDispatcher.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformToggles.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_interface.cs" />

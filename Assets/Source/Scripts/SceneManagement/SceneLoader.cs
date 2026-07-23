@@ -30,15 +30,9 @@ namespace Assets.Source.Scripts.SceneManagement
                 throw new ArgumentOutOfRangeException(nameof(sceneIndex));
             }
 
-            //LoadingWindow.Instance.Show();
-
             _currentOperation = SceneManager.LoadSceneAsync(sceneIndex);
-
-            _currentOperation.completed += _ =>
-            {
-                //if (LoadingWindow.Instance != null)
-                //    LoadingWindow.Instance.Hide();
-            };
+            _currentOperation.completed += _
+                => {};
         }
     }
 }

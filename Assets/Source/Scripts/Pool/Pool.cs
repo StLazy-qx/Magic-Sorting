@@ -14,6 +14,14 @@ namespace Assets.Source.Scripts.Pool
         public Transform Container => _container;
         public IReadOnlyList<T> Objects => _objects;
 
+        public void ToList()
+        {
+            foreach (var item in _objects)
+            {
+                Debug.Log(item.gameObject.activeSelf);
+            }
+        }
+
         public void SetContainer(Transform container)
         {
             Guard.NotNull(container, nameof(container));
@@ -37,11 +45,8 @@ namespace Assets.Source.Scripts.Pool
         {
             foreach (T obj in _objects)
             {
-                if (obj != null && !obj.gameObject.activeSelf)
-                {
+                if (obj.gameObject.activeSelf == false)
                     obj.gameObject.SetActive(true);
-                    OnActivated(obj);
-                }
             }
         }
 
@@ -86,6 +91,11 @@ namespace Assets.Source.Scripts.Pool
             }
 
             return activeObjects;
+        }
+
+        public virtual void Clear()
+        {
+            _objects.Clear();
         }
 
         protected virtual void OnActivated(T obj) { }

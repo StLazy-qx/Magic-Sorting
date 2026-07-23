@@ -5,11 +5,11 @@ using Assets.Source.Scripts.InteractiveObjects;
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.GameDifficulty;
 using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.Extensions;
 using System.Collections;
 using UnityEngine;
 using System;
 using Zenject;
-using Assets.Source.Scripts.Extensions;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -17,6 +17,7 @@ namespace Assets.Source.Scripts.GameBehaviour
     {
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
+
         [SerializeField] private EntryColorListsFactory _entryColorListsFactory;
         [SerializeField] private ColorRandomizer _colorRandomizer;
         [SerializeField] private WaitingPoint _waitingPoint;
@@ -50,9 +51,10 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             ChangeDifficultyBySequence();
 
-            _currentSettings = _difficultyDatabase.GetSettings(DifficultyState.CurrentDifficulty);
-            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
+            _currentSettings = _difficultyDatabase.
+                GetSettings(DifficultyState.CurrentDifficulty);
 
+            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
             StartRound();
         }
 

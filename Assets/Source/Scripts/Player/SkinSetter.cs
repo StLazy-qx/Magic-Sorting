@@ -16,7 +16,7 @@ namespace Assets.Source.Scripts.Player
         {
             if (_meshRenderer == null)
             {
-                throw new System.ArgumentNullException(nameof(_meshRenderer),
+                throw new ArgumentNullException(nameof(_meshRenderer),
                     "SkinnedMeshRenderer must be assigned");
             }
 
@@ -30,12 +30,11 @@ namespace Assets.Source.Scripts.Player
 
             if (_materialInstance == null)
             {
-                throw new System.InvalidOperationException(
+                throw new InvalidOperationException(
                     "Material instance is not initialized");
             }
 
             _materialInstance.SetTexture("_MainTex", item.Texture);
-            //ItemChanged.Invoke();
         }
 
         public void OnShowItemTexture(Texture texture)
@@ -45,7 +44,7 @@ namespace Assets.Source.Scripts.Player
 
             if (_materialInstance == null)
             {
-                throw new System.InvalidOperationException(
+                throw new InvalidOperationException(
                     "Material instance is not initialized");
             }
 
