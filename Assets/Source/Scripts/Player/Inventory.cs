@@ -33,9 +33,6 @@ namespace Assets.Source.Scripts.Player
             Guard.NotNull(_scinSetter, nameof(_scinSetter));
             Load();
 
-            if (_equippedItem != null)
-                EquipItem(_equippedItem);
-
             IsInitialized = true;
             Initialized?.Invoke();
         }
@@ -103,12 +100,14 @@ namespace Assets.Source.Scripts.Player
                     _items.Add(item);
             }
 
-            string equippedID = YG2.saves.GetEquippedItemID();
+            string equippedID = YG2.saves.EquippedItemID;
 
             if (string.IsNullOrEmpty(equippedID) == false)
             {
                 _equippedItem = _items.FirstOrDefault(
                     item => item.ID == equippedID);
+
+                EquipItem(_equippedItem);
             }
         }
 

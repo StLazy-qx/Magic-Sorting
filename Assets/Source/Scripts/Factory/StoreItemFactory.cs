@@ -42,8 +42,6 @@ namespace Assets.Source.Scripts.Factory
 
             IReadOnlyList<ItemSO> items = _store.GetItemsSO();
 
-            Debug.Log(items.Count);
-
             foreach (ItemSO itemData in items)
             {
                 Button button = Instantiate(Prefab, _contentTransform);

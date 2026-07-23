@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Assets.Source.Scripts.Extensions;
 using System.Linq;
 using UnityEngine;
+using YG;
 
 namespace Assets.Source.Scripts.Storage
 {
@@ -76,7 +77,10 @@ namespace Assets.Source.Scripts.Storage
             int indexFirstScin = 0;
             ItemSO firstItemData = _itemsData[indexFirstScin];
 
-            _inventory.AddItem(firstItemData.ID);
+            YG2.saves.AddItem(firstItemData.ID);
+
+            if(YG2.saves.EquippedItemID == null)
+                YG2.saves.SaveEquippedItem(firstItemData.ID);
         }
 
         private void ValidateInitializeArguments()

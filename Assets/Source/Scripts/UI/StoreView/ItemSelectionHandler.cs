@@ -2,10 +2,10 @@ using Assets.Source.Scripts.Items;
 using Assets.Source.Scripts.Player;
 using Assets.Source.Scripts.Storage;
 using Assets.Source.Scripts.Extensions;
+using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Assets.Source.Scripts.Pool;
 
 namespace Assets.Source.Scripts.UI.StoreView
 {
@@ -29,18 +29,14 @@ namespace Assets.Source.Scripts.UI.StoreView
             _buyButton.gameObject.SetActive(false);
             _selectedButton.gameObject.SetActive(false);
             _equipButton.gameObject.SetActive(true);
+
+            _selectedButton.interactable = false;
         }
 
         private void Start()
         {
             _itemViewPool.ActivateAll();
-
             ShowPurchaseValidation();
-
-            if (_inventory.IsInitialized)
-                SelectEquippedItem();
-            else
-                _inventory.Initialized += SelectEquippedItem;
         }
 
         private void OnEnable()
@@ -78,10 +74,6 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             _store.BuyItem(_selectedItem);
-
-            //NewItemView currentItemView = 
-            //    _selectedItem.GetComponent<NewItemView>();
-            //currentItemView.ShowPurchaseValidation();
         }
 
         private void OnEquipButtonClicked()
@@ -93,7 +85,9 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             if (_selectedItem == _inventory.EquippedItem)
+            {
                 return;
+            }
 
             _store.EquipItem(_selectedItem);
             OnSelectShowedItem(_currentItemView);
@@ -106,12 +100,6 @@ namespace Assets.Source.Scripts.UI.StoreView
 
             if (_currentItemView == boughtItemView)
                 UpdateButtonsState();
-
-            //if (_currentItemView != null && 
-            //    _currentItemView == boughtItemView)
-            //{
-            //    UpdateButtonsState();
-            //}
         }
 
         private void UpdateButtonsState()
@@ -127,10 +115,8 @@ namespace Assets.Source.Scripts.UI.StoreView
                                   _inventory.EquippedItem != null &&
                                   _selectedItem.ID == _inventory.EquippedItem.ID;
 
-                _equipButton.gameObject.SetActive(isSelected == false);
+                _equipButton.gameObject.SetActive(!isSelected);
                 _selectedButton.gameObject.SetActive(isSelected);
-
-                _selectedButton.interactable = false;
             }
             else
             {
@@ -150,26 +136,6 @@ namespace Assets.Source.Scripts.UI.StoreView
 
                 if (item != null && _inventory.HasItem(item.ID))
                     view.ShowPurchaseValidation();
-            }
-        }
-
-        private void SelectEquippedItem()
-        {
-            string equippedID = _inventory.EquippedItem?.ID;
-
-            if (string.IsNullOrEmpty(equippedID))
-                return;
-
-            foreach (NewItemView view in _itemViewPool.Objects)
-            {
-                Item item = view.GetComponent<Item>();
-
-                if (item != null && item.ID == equippedID)
-                {
-                    OnSelectShowedItem(view);
-
-                    break;
-                }
             }
         }
 

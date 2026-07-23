@@ -10,6 +10,7 @@ namespace YG
         private string _equippedItemID;
 
         public int Points => _points;
+        public string EquippedItemID => _equippedItemID;
 
         public void SavePoints(int value)
         {
@@ -46,9 +47,6 @@ namespace YG
 
             return _itemIDs.Contains(itemID);
         }
-
-        public string GetEquippedItemID() 
-            => _equippedItemID;
 
         public IReadOnlyList<string> GetPurchasedItems() 
             => _itemIDs.AsReadOnly();
