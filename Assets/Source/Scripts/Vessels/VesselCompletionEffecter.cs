@@ -13,6 +13,8 @@ namespace Assets.Source.Scripts.Vessels
 
         public void Initialize(int value)
         {
+            Debug.Log("Initialize VesselCompletionEffecter 1");
+
             if (_particlePool == null)
             {
                 throw new NullReferenceException(
@@ -25,7 +27,11 @@ namespace Assets.Source.Scripts.Vessels
                     "Particle count must be greater than zero.");
             }
 
+            Debug.Log("Initialize VesselCompletionEffecter 3");
+
             _particlePool.Initialize(value);
+
+            Debug.Log("Initialize VesselCompletionEffecter 3");
         }
 
         public IEnumerator PlayEffect(

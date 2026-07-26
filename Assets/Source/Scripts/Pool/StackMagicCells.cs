@@ -126,19 +126,6 @@ namespace Assets.Source.Scripts.Pool
             return null;
         }
 
-        private MagicCell GetSecondCell()
-        {
-            if (_cellsStack.Count < 2)
-                return null;
-
-            MagicCell topCell = _cellsStack.Pop();
-            MagicCell secondCell = _cellsStack.Peek();
-
-            _cellsStack.Push(topCell);
-
-            return secondCell;
-        }
-
         private void OnGamePause(bool isPaused)
         {
             _isPaused = isPaused;
@@ -154,40 +141,6 @@ namespace Assets.Source.Scripts.Pool
 
                 if (cell != null)
                     Destroy(cell.gameObject);
-            }
-        }
-
-        public void AcceptCell(MagicCell cell)
-        {
-            if (cell == null)
-                throw new ArgumentNullException(nameof(cell));
-
-            _cellsStack.Push(cell);
-        }
-
-        private void CreateCells(int countCells)
-        {
-            float currentY = 0f;
-
-            for (int i = 0; i < countCells; i++)
-            {
-                ColorEntry entry = _listColorPool.Get();
-
-                if (entry == null)
-                    return;
-
-                Color pickedColor = entry.ConsumeColor();
-
-                MagicCell cell = _factory.CreateCell(
-                    parent: _parent,
-                    localPosition: new Vector3(0, currentY, 0),
-                    color: pickedColor);
-
-                cell.Interacted += OnCellClicked;
-
-                _cellsStack.Push(cell);
-
-                currentY += _prefabHeight;
             }
         }
 

@@ -4,53 +4,53 @@ using Assets.Source.Scripts.GameBehaviour;
 using System;
 using Assets.Source.Scripts.UI.GamePanel;
 
-namespace Assets.Source.Scripts.UI.Buttons
-{
-    [RequireComponent(typeof(Button))]
-
-    public abstract class BaseButton : MonoBehaviour
+    namespace Assets.Source.Scripts.UI.Buttons
     {
-        [SerializeField] protected BaseGameHandler GameHandler;
-        [SerializeField] protected Panel TargetPanel;
+        [RequireComponent(typeof(Button))]
 
-        protected Panel CurrentPanel;
-        protected Button Button;
-
-        private void Awake()
+        public abstract class BaseButton : MonoBehaviour
         {
-            if (GameHandler == null)
+            [SerializeField] protected BaseGameHandler GameHandler;
+            [SerializeField] protected Panel TargetPanel;
+
+            protected Panel CurrentPanel;
+            protected Button Button;
+
+            private void Awake()
             {
-                throw new NullReferenceException(
-                    "GameHandler reference is missing in BaseMenuButton.");
+                if (GameHandler == null)
+                {
+                    throw new NullReferenceException(
+                        "GameHandler reference is missing in BaseMenuButton.");
+                }
+
+                CurrentPanel = GetComponentInParent<Panel>();
+
+                if (CurrentPanel == null)
+                {
+                    throw new MissingComponentException(
+                        "No Panel component found in parent objects.");
+                }
+
+                Button = GetComponent<Button>();
+
+                if (Button == null)
+                {
+                    throw new MissingComponentException(
+                        "Button component is missing on this GameObject.");
+                }
             }
 
-            CurrentPanel = GetComponentInParent<Panel>();
-
-            if (CurrentPanel == null)
+            private void OnEnable()
             {
-                throw new MissingComponentException(
-                    "No Panel component found in parent objects.");
+                Button.onClick.AddListener(OnButtonClick);
             }
 
-            Button = GetComponent<Button>();
-
-            if (Button == null)
+            private void OnDisable()
             {
-                throw new MissingComponentException(
-                    "Button component is missing on this GameObject.");
+                Button.onClick.RemoveListener(OnButtonClick);
             }
-        }
 
-        private void OnEnable()
-        {
-            Button.onClick.AddListener(OnButtonClick);
+            protected abstract void OnButtonClick();
         }
-
-        private void OnDisable()
-        {
-            Button.onClick.RemoveListener(OnButtonClick);
-        }
-
-        protected abstract void OnButtonClick();
     }
-}

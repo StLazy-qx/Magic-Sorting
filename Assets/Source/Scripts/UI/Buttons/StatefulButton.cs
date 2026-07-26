@@ -12,6 +12,7 @@ namespace Assets.Source.Scripts.UI.Buttons
 
         protected bool IsActive;
 
+        public Button UIButton => Button;
         public Button.ButtonClickedEvent OnClick => Button.onClick;
 
         protected virtual void Awake()

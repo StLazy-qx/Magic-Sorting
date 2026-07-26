@@ -13,6 +13,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
         private IconRewardedAdvertisement _rewardedIcon;
         private bool _isReverseUsed;
         private bool _reverseEventFired;
+        private bool _isShowingReward;
 
         public event Action<ClickImpactMode> ModeChanged;
         public event Action ReverseButtonActivating;
@@ -75,28 +76,37 @@ namespace Assets.Source.Scripts.ActionsHandlers
                     return;
                 }
 
-                YG2.RewardedAdvShow(RewardID, () =>
-                {
-                    ActivateReverceMode();
-                });
+                ShowReward();
+
+                //YG2.RewardedAdvShow(RewardID, () =>
+                //{
+                //    ActivateReverceMode();
+                //});
             }
             else
             {
                 ActivateReverceMode();
             }
+        }
 
-            //if (_isReverseUsed &&
-            //    CurrentMode == ClickImpactMode.ModeReverse)
-            //{
-            //    ActivateDistributionMode();
+        private void ShowReward()
+        {
+            if (_isShowingReward)
+                return;
 
-            //    return;
-            //}
+            _isShowingReward = true;
 
-            //if (CurrentMode == ClickImpactMode.ModeDistribution)
-            //    ActivateReverceMode();
-            //else
-            //    ActivateDistributionMode();
+            _reverceButton.UIButton.interactable = false;
+
+            YG2.RewardedAdvShow(RewardID, () =>
+            {
+                _isShowingReward = false;
+                _reverceButton.Enable();
+
+                ActivateReverceMode();
+
+                _reverceButton.UIButton.interactable = true;
+            });
         }
 
         private void UpdateButtonsState()

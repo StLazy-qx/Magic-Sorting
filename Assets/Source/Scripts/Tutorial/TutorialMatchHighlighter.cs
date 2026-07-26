@@ -48,13 +48,13 @@ namespace Assets.Source.Scripts.Tutorial
 
         private void OnEnable()
         {
-            _gameHandler.GameReseting += OnStartInitialSearch;
+            _gameHandler.GameLaunching += OnStartInitialSearch;
             _cellRouter.CellDeparturing += OnStartSearchLoop;
         }
 
         private void OnDisable()
         {
-            _gameHandler.GameReseting -= OnStartInitialSearch;
+            _gameHandler.GameLaunching -= OnStartInitialSearch;
             _cellRouter.CellDeparturing -= OnStartSearchLoop;
 
             if (_reverseButton != null)

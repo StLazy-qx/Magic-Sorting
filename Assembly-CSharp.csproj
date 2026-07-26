@@ -271,6 +271,7 @@
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YGInsides.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\FileYG.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\ServerTime\Scripts\ServerTime_info.cs" />
+    <Compile Include="Assets\Source\Scripts\InteractiveObjects\TransformCleaner.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\MenuHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\YGSendMessage.cs" />
     <Compile Include="Assets\Source\Scripts\UI\WalletView\WalletGameSessionUI.cs" />

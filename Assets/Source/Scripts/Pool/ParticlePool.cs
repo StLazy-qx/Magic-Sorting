@@ -1,3 +1,4 @@
+using Assets.Source.Scripts.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,52 +9,86 @@ namespace Assets.Source.Scripts.Pool
         [SerializeField] private ParticleSystem _particlePrefab;
         [SerializeField] private Transform _container;
 
-        private Queue<ParticleSystem> _particles = new();
+        private List<ParticleSystem> _particles = new();
+
+        private void Awake()
+        {
+            _container.SetParent(transform);
+        }
 
         public void Initialize(int count)
         {
+            Debug.Log("Initialize ParticlePool 1");
+
             ValidateArguments(count);
-            _particles.Clear();
-            _container.SetParent(transform);
 
-            for (int i = 0; i < count; i++)
-            {
-                ParticleSystem particle = Instantiate(_particlePrefab, _container);
+            Debug.Log("Initialize ParticlePool 2");
 
-                particle.gameObject.SetActive(false);
-                _particles.Enqueue(particle);
-            }
+            int difference = count - _particles.Count;
+
+            if (difference > 0)
+                CreateParticles(difference);
+            else if (difference < 0)
+                DestroyParticles(-difference);
+
+            Reset();
         }
 
         public ParticleSystem HandOver()
         {
-            if (_particles.TryDequeue(out ParticleSystem particle))
+            foreach (ParticleSystem particle in _particles)
             {
-                particle.gameObject.SetActive(true);
+                if (particle.gameObject.activeSelf == false)
+                {
+                    particle.gameObject.SetActive(true);
 
-                return particle;
+                    return particle;
+                }
             }
 
             return null;
         }
 
+        private void CreateParticles(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                ParticleSystem particle = 
+                    Instantiate(_particlePrefab, _container);
+
+                particle.gameObject.SetActive(false);
+                _particles.Add(particle);
+            }
+        }
+
+        private void DestroyParticles(int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                int lastIndex = _particles.Count - 1;
+                ParticleSystem particle = _particles[lastIndex];
+
+                _particles.RemoveAt(lastIndex);
+
+                if (particle != null)
+                    Destroy(particle.gameObject);
+            }
+        }
+
+        private void Reset()
+        {
+            foreach (ParticleSystem particle in _particles)
+            {
+                if (particle != null)
+                    particle.gameObject.SetActive(false);
+            }
+        }
+
         private void ValidateArguments(int count)
         {
-            if (_particlePrefab == null)
-            {
-                throw new System.ArgumentNullException(nameof(_particlePrefab));
-            }
-
-            if (_container == null)
-            {
-                throw new System.ArgumentNullException(nameof(_container));
-            }
-
-            if (count <= 0)
-            {
-                throw new System.ArgumentException(
-                    "Count must be greater than zero", nameof(count));
-            }
+            Guard.NotNull(_particlePrefab, nameof(_particlePrefab));
+            Guard.NotNull(_container, nameof(_container));
+            Guard.Positive(count, nameof(count));
         }
     }
 }

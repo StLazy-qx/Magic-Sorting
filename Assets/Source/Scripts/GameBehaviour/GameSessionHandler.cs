@@ -17,7 +17,6 @@ namespace Assets.Source.Scripts.GameBehaviour
     {
         [SerializeField] private ColumnsFactory _columnsFactory;
         [SerializeField] private VesselFactory _vesselFactory;
-
         [SerializeField] private EntryColorListsFactory _entryColorListsFactory;
         [SerializeField] private ColorRandomizer _colorRandomizer;
         [SerializeField] private WaitingPoint _waitingPoint;
@@ -29,7 +28,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         private DifficultyState _difficultyState;
         private DifficultySettings _currentSettings;
 
-        public event Action GameReseting;
+        public event Action GameLaunching;
 
         //зачем?
         public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
@@ -56,6 +55,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
             _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
             StartRound();
+            GameLaunching?.Invoke();
         }
 
         protected override void ExtendInitialize()
@@ -98,7 +98,6 @@ namespace Assets.Source.Scripts.GameBehaviour
             }
 
             _columnDistributor.Distribute();
-            GameReseting?.Invoke();
         }
 
         private void ResetEntity()
