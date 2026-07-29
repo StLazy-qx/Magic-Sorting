@@ -55,9 +55,6 @@ namespace Assets.Source.Scripts.MagicCells
                 Deliver(cell, _waitingPoint.transform);
                 _waitingPoint.AcceptStorageCell(cell);
                 _waitingPoint.ShowWaitingCellWithDelay();
-
-                //StartCoroutine(ExecuteAfterDelay(
-                //    _waitingPoint.ShowWaitingCell));
             }
         }
 
@@ -69,8 +66,14 @@ namespace Assets.Source.Scripts.MagicCells
 
         private void Deliver(MagicCell cell, Transform target)
         {
+            float differenceAxisY = 0.5f;
+            Vector3 departurePositionCell = new Vector3(
+                    cell.transform.position.x,
+                    cell.transform.position.y + differenceAxisY,
+                    cell.transform.position.z);
+
             CellDelivering?.Invoke(
-                cell.transform.position,
+                departurePositionCell,
                 target.position,
                 cell.Color);
         }

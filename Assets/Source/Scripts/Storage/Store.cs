@@ -54,6 +54,7 @@ namespace Assets.Source.Scripts.Storage
                 return;
 
             _inventory.EquipItem(selectedItem);
+            _inventory.ApplyScin(selectedItem);
         }
 
         public Item GetItemByID(string id)

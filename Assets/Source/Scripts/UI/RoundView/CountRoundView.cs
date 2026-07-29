@@ -19,18 +19,21 @@ namespace Assets.Source.Scripts.UI.RoundView
             Guard.NotNull(_sessionHandler, nameof(_sessionHandler));
         }
 
-        private void OnEnable()
+        private void Start()
         {
             OnShowRoundNumberWithFade();
+        }
 
-            _levelCounter.RoundChanged += OnCountTextChanged;
+        private void OnEnable()
+        {
             _sessionHandler.GameLaunching += OnShowRoundNumberWithFade;
+            _levelCounter.RoundChanged += OnCountTextChanged;
         }
 
         private void OnDisable()
         {
-            _levelCounter.RoundChanged -= OnCountTextChanged;
             _sessionHandler.GameLaunching -= OnShowRoundNumberWithFade;
+            _levelCounter.RoundChanged -= OnCountTextChanged;
         }
 
         public void OnShowRoundNumberWithFade()

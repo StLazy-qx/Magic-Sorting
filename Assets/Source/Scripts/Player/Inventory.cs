@@ -44,12 +44,6 @@ namespace Assets.Source.Scripts.Player
             return _items.Any(item => item.ID == itemID);
         }
 
-        public bool IsEquipped(string itemID)
-        {
-            return _equippedItem != null 
-                && _equippedItem.ID == itemID;
-        }
-
         public void AddItem(Item item)
         {
             ValidateItem(item);
@@ -66,13 +60,6 @@ namespace Assets.Source.Scripts.Player
                 ItemBuyed?.Invoke(newItemView);
         }
 
-        public void AddItem(string itemID)
-        {
-            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
-            Guard.NotNull(_store, nameof(_store));
-            YG2.saves.AddItem(itemID);
-        }
-
         public void EquipItem(Item item)
         {
             ValidateItem(item);
@@ -82,10 +69,12 @@ namespace Assets.Source.Scripts.Player
                 _equippedItem.UnEquip();
 
             _equippedItem = item;
-
-            _scinSetter.ApplyItem(item);
+            
             YG2.saves.SaveEquippedItem(item.ID);
         }
+
+        public void ApplyScin(Item item)
+            => _scinSetter.ApplyItem(item);
 
         private void Load()
         {

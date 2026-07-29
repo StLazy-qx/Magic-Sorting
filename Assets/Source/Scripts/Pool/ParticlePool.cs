@@ -18,11 +18,7 @@ namespace Assets.Source.Scripts.Pool
 
         public void Initialize(int count)
         {
-            Debug.Log("Initialize ParticlePool 1");
-
             ValidateArguments(count);
-
-            Debug.Log("Initialize ParticlePool 2");
 
             int difference = count - _particles.Count;
 

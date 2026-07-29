@@ -19,10 +19,11 @@ namespace Assets.Source.Scripts.Factory
         private int _spawnPointCount;
         private int _maxCellsPerColumn;
 
-        public void Initialize(IReadOnlyList<Vessel> vessels,int spawnPointCount, int maxCellsPerColumn)
+        public void Initialize(
+            IReadOnlyList<Vessel> vessels,
+            int spawnPointCount, 
+            int maxCellsPerColumn)
         {
-            Debug.Log("Initialize ColumnsFactory 1");
-
             if (spawnPointCount <= 0)
                 throw new ArgumentNullException(nameof(spawnPointCount));
 
@@ -41,15 +42,8 @@ namespace Assets.Source.Scripts.Factory
             _spawnPointCount = spawnPointCount;
             _maxCellsPerColumn = maxCellsPerColumn;
 
-            Debug.Log("Initialize ColumnsFactory 2");
-
             _colorDistributor.Initialize(vessels);
-
-            Debug.Log("Initialize ColumnsFactory 3");
-
             _distributerMagicCell.Initialize(vessels);
-
-            Debug.Log("Initialize ColumnsFactory 4");
         }
 
         protected override void BuildObjects()
@@ -74,10 +68,15 @@ namespace Assets.Source.Scripts.Factory
                 }
                 else
                 {
-                    column.transform.SetPositionAndRotation(point.position, point.rotation);
+                    column.transform.
+                        SetPositionAndRotation(point.position, point.rotation);
                 }
 
-                column.Initialize(_distributerMagicCell, _colorDistributor, _entryListColorPool, _maxCellsPerColumn);
+                column.Initialize(
+                    _distributerMagicCell, 
+                    _colorDistributor, 
+                    _entryListColorPool, 
+                    _maxCellsPerColumn);
             }
         }
     }

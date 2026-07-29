@@ -1,32 +1,30 @@
-using Assets.Source.Scripts.Pool;
 using Assets.Source.Scripts.Vessels;
 using System.Collections.Generic;
+using Assets.Source.Scripts.Pool;
 using Assets.Source.Scripts.Extensions;
 using System.Linq;
 using UnityEngine;
+using System;
 
 namespace Assets.Source.Scripts.Colorize
 {
-    public class ShuffledColorDistributor : MonoBehaviour
+    public class ShuffledColorDistributor : MonoBehaviour, IEffectPoolInitializable
     {
-        [SerializeField] private ParticlePool _particlePool;
-
         private IReadOnlyList<Vessel> _vessels;
         private List<Color> _colors = new List<Color>();
         private Queue<Color> _mixedColors = new Queue<Color>();
 
-        public int TotalColors => _colors.Count;
+        public event Action<int> PoolEffectSizeReading;
 
         public void Initialize(IReadOnlyList<Vessel> vessels)
         {
-            Debug.Log("Initialize ShuffledColorDistributor 1");
-
             ValidateVessels(vessels);
 
             _vessels = vessels;
 
             GenerateColorList();
             ShuffleColors();
+            PoolEffectSizeReading?.Invoke(_colors.Count);
         }
 
         public bool TryGetRandomColor(out Color color)
@@ -55,19 +53,12 @@ namespace Assets.Source.Scripts.Colorize
 
         private void ShuffleColors()
         {
-            Debug.Log("Initialize ShuffledColorDistributor 2");
-
             int startRandomRange = 0;
             int stepIndex = 1;
 
-            //здесь двойной вызов метода , не понятно в какой последовательности реализовано
-            _particlePool.Initialize(_colors.Count);
-
-            Debug.Log("Initialize ShuffledColorDistributor 3");
-
             for (int i = _colors.Count - 1; i > 0; i--)
             {
-                int randomNumber = Random.Range(startRandomRange, i + stepIndex);
+                int randomNumber = UnityEngine.Random.Range(startRandomRange, i + stepIndex);
 
                 Color tempColor = _colors[i];
                 _colors[i] = _colors[randomNumber];

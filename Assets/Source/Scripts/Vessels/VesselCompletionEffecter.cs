@@ -5,33 +5,23 @@ using System;
 
 namespace Assets.Source.Scripts.Vessels
 {
-    public class VesselCompletionEffecter : MonoBehaviour
+    public class VesselCompletionEffecter : MonoBehaviour, IEffectPoolInitializable
     {
         private readonly float _offsetY = 0.3f;
 
         [SerializeField] private ParticlePool _particlePool;
 
+        public event Action<int> PoolEffectSizeReading;
+
         public void Initialize(int value)
         {
-            Debug.Log("Initialize VesselCompletionEffecter 1");
-
-            if (_particlePool == null)
-            {
-                throw new NullReferenceException(
-                    "ParticlePool reference is missing in VesselCompletionEffecter.");
-            }
-
             if (value <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(value),
                     "Particle count must be greater than zero.");
             }
 
-            Debug.Log("Initialize VesselCompletionEffecter 3");
-
-            _particlePool.Initialize(value);
-
-            Debug.Log("Initialize VesselCompletionEffecter 3");
+            PoolEffectSizeReading?.Invoke(value);
         }
 
         public IEnumerator PlayEffect(
