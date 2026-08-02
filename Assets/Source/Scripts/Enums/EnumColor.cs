@@ -7,6 +7,10 @@ namespace Assets.Source.Scripts.Enums
         Blue,
         Yellow,
         Orange,
-        Purple
+        Purple,
+        Pink,
+        Cyan,
+        Lime,
+        Coral
     }
 }

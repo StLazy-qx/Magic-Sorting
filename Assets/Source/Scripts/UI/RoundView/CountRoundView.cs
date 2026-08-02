@@ -8,12 +8,14 @@ namespace Assets.Source.Scripts.UI.RoundView
 {
     public class CountRoundView : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _mainText;
         [SerializeField] private TMP_Text _countText;
         [SerializeField] private LevelCounter _levelCounter;
         [SerializeField] private GameSessionHandler _sessionHandler;
 
         private void Awake()
         {
+            Guard.NotNull(_mainText, nameof(_mainText));
             Guard.NotNull(_countText, nameof(_countText));
             Guard.NotNull(_levelCounter, nameof(_levelCounter));
             Guard.NotNull(_sessionHandler, nameof(_sessionHandler));
@@ -21,37 +23,43 @@ namespace Assets.Source.Scripts.UI.RoundView
 
         private void Start()
         {
-            OnShowRoundNumberWithFade();
+            OnTextFade();
         }
 
         private void OnEnable()
         {
-            _sessionHandler.GameLaunching += OnShowRoundNumberWithFade;
-            _levelCounter.RoundChanged += OnCountTextChanged;
+            _sessionHandler.GameLaunching += OnTextFade;
+            _levelCounter.RoundChanged += OnRoundNumberChanged;
         }
 
         private void OnDisable()
         {
-            _sessionHandler.GameLaunching -= OnShowRoundNumberWithFade;
-            _levelCounter.RoundChanged -= OnCountTextChanged;
+            _sessionHandler.GameLaunching -= OnTextFade;
+            _levelCounter.RoundChanged -= OnRoundNumberChanged;
         }
 
-        public void OnShowRoundNumberWithFade()
+        public void OnTextFade()
         {
-            float initialAlpha = 1f;
-            float targetAlpha = 0f;
-            float fadeDuration = 2.5f;
-            float fadeDelay = 0.5f;
+            FadeText(_mainText);
+            FadeText(_countText);
+        }
 
-            _countText.DOKill();
+        private void FadeText(TMP_Text text)
+        {
+            const float InitialAlpha = 1f;
+            const float TargetAlpha = 0f;
+            const float FadeDuration = 2.5f;
+            const float FadeDelay = 0.5f;
 
-            _countText.alpha = initialAlpha;
-            _countText.DOFade(targetAlpha, fadeDuration)
-                .SetDelay(fadeDelay)
+            text.DOKill();
+
+            text.alpha = InitialAlpha;
+            text.DOFade(TargetAlpha, FadeDuration)
+                .SetDelay(FadeDelay)
                 .SetEase(Ease.OutQuad);
         }
 
-        private void OnCountTextChanged(int roundNumber)
+        private void OnRoundNumberChanged(int roundNumber)
             => _countText.text = roundNumber.ToString();
     }
 }

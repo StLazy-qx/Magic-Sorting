@@ -22,6 +22,7 @@ namespace Assets.Source.Scripts.Pool
 
         private void OnInitPoolSize(int totalColors)
         {
+            Debug.Log($"Количество в  EffectPoolBinder {totalColors}");
             _particlePool.Initialize(totalColors);
         }
     }

@@ -10,6 +10,9 @@ namespace Assets.Source.Scripts.EntryPoint
         private int _currentIndex;
         private int _amountRounds = 40;
 
+        //как нибудь поправить счет
+        public event Action<int> RoundChanged;
+
         public SequenceDifficultyLevel()
         {
             _sequence = new List<DifficultyLevel>(_amountRounds);
@@ -17,17 +20,6 @@ namespace Assets.Source.Scripts.EntryPoint
             InitSequence();
 
             _currentIndex = 0;
-        }
-
-        public DifficultyLevel GetCurrent()
-        {
-            if (_currentIndex >= _sequence.Count)
-            {
-                throw new InvalidOperationException(
-                    "Последовательность исчерпана. Текущий элемент недоступен.");
-            }
-
-            return _sequence[_currentIndex];
         }
 
         public DifficultyLevel GetNext()
@@ -40,6 +32,8 @@ namespace Assets.Source.Scripts.EntryPoint
 
             DifficultyLevel level = _sequence[_currentIndex];
             _currentIndex++;
+
+            RoundChanged?.Invoke(_currentIndex + 1);
 
             return level;
         }

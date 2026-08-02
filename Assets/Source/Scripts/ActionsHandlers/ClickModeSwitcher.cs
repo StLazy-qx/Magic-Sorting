@@ -9,7 +9,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
     public class ClickModeSwitcher : MonoBehaviour
     {
         public string RewardID;
-        private ReverseButton _reverceButton;
+        private ReverseButton _reverseButton;
         private IconRewardedAdvertisement _rewardedIcon;
         private bool _isReverseUsed;
         private bool _reverseEventFired;
@@ -30,21 +30,21 @@ namespace Assets.Source.Scripts.ActionsHandlers
             _isReverseUsed = false;
             _reverseEventFired = false;
 
-            _reverceButton.ResetState();
+            _reverseButton.ResetState();
             _rewardedIcon.Disable();
             ActivateDistributionMode();
-            UpdateButtonsState();
+            UpdateButtonState();
         }
 
         public void SetButton(ReverseButton reverseButton, IconRewardedAdvertisement rewardedButton)
         {
-            _reverceButton = reverseButton
+            _reverseButton = reverseButton
                 ?? throw new ArgumentNullException(nameof(reverseButton));
 
             _rewardedIcon = rewardedButton
                 ?? throw new ArgumentNullException(nameof(rewardedButton));
 
-            _reverceButton.OnClick.AddListener(OnToggleMode);
+            _reverseButton.OnClick.AddListener(OnToggleMode);
         }
 
         public void Reverse()
@@ -54,8 +54,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
             _isReverseUsed = true;
 
-            _rewardedIcon.Enable();
-            UpdateButtonsState();
+            UpdateButtonState();
         }
 
         public void OnToggleMode()
@@ -77,11 +76,6 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 }
 
                 ShowReward();
-
-                //YG2.RewardedAdvShow(RewardID, () =>
-                //{
-                //    ActivateReverceMode();
-                //});
             }
             else
             {
@@ -95,33 +89,55 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 return;
 
             _isShowingReward = true;
+            _reverseButton.UIButton.interactable = false;
 
-            _reverceButton.UIButton.interactable = false;
+            YG2.onErrorRewardedAdv += OnRewardError;
 
             YG2.RewardedAdvShow(RewardID, () =>
             {
+                YG2.onErrorRewardedAdv -= OnRewardError;
+
                 _isShowingReward = false;
-                _reverceButton.Enable();
 
+                _reverseButton.Enable();
                 ActivateReverceMode();
+                _reverseButton.SetState(true);
 
-                _reverceButton.UIButton.interactable = true;
+                _reverseButton.UIButton.interactable = true;
             });
+
+            //YG2.RewardedAdvShow(RewardID, () =>
+            //{
+            //    _isShowingReward = false;
+            //    _reverseButton.Enable();
+
+            //    ActivateReverceMode();
+
+            //    _reverseButton.UIButton.interactable = true;
+            //});
         }
 
-        private void UpdateButtonsState()
+        private void UpdateButtonState()
         {
             if (_isReverseUsed)
             {
-                _reverceButton.Disable();
-                _reverceButton.SetState(false);
+                _reverseButton.Disable();
+                _reverseButton.SetState(false);
                 _rewardedIcon.Enable();
             }
             else
             {
-                _reverceButton.Enable();
+                _reverseButton.Enable();
                 _rewardedIcon.Disable();
             }
+        }
+
+        private void OnRewardError()
+        {
+            YG2.onErrorRewardedAdv -= OnRewardError;
+
+            _isShowingReward = false;
+            _reverseButton.UIButton.interactable = true;
         }
 
         private void ActivateDistributionMode()

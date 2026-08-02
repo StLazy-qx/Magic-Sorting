@@ -20,6 +20,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private EntryColorListsFactory _entryColorListsFactory;
         [SerializeField] private ColorRandomizer _colorRandomizer;
+        [SerializeField] private LevelCounter _levelCounter;
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickModeSwitcher _clickImpactHandler;
         [SerializeField] private ColorColumnDistributor _columnDistributor;
@@ -38,6 +39,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             _sequenceDifficultyLevel = new SequenceDifficultyLevel();
 
+            _levelCounter.Initialize(_sequenceDifficultyLevel);
             ValidateObjects();
         }
 
@@ -50,18 +52,28 @@ namespace Assets.Source.Scripts.GameBehaviour
         public void BeginNewRound()
         {
             ChangeDifficultyBySequence();
+            LaunchCurrentDifficulty();
+        }
 
-            _currentSettings = _difficultyDatabase.
-                GetSettings(DifficultyState.CurrentDifficulty);
-
-            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
-            StartRound();
-            GameLaunching?.Invoke();
+        public void ResetCurrentRound()
+        {
+            LaunchCurrentDifficulty();
         }
 
         protected override void ExtendInitialize()
         {
             _waitingPoint.Reset();
+        }
+
+        private void LaunchCurrentDifficulty()
+        {
+            _currentSettings = _difficultyDatabase
+                .GetSettings(DifficultyState.CurrentDifficulty);
+
+            _colorRandomizer.CrateArrayColors(_currentSettings.ColorsCount);
+
+            StartRound();
+            GameLaunching?.Invoke();
         }
 
         private void StartRound()

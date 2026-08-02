@@ -14,8 +14,6 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private Panel _currentPanel;
 
-        public event Action RoundEnded;
-
         public bool IsInitialized { get; private set; }
 
         public void Initialize()
@@ -38,8 +36,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             _gameHandler.PauseGame();
             _currentPanel.Open();
-
-            RoundEnded?.Invoke();
         }
 
         private void ValidateObjects()

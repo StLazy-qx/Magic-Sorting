@@ -24,6 +24,8 @@ namespace Assets.Source.Scripts.Colorize
 
             GenerateColorList();
             ShuffleColors();
+
+            Debug.Log(_colors.Count);
             PoolEffectSizeReading?.Invoke(_colors.Count);
         }
 

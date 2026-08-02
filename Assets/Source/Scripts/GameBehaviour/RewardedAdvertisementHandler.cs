@@ -16,14 +16,16 @@ namespace Assets.Source.Scripts.GameBehaviour
             Guard.NotNull(_levelCounter, nameof(_levelCounter));
             Guard.NotNull(_iconView, nameof(_iconView));
             _iconView.gameObject.SetActive(false);
+        }
 
+        private void OnEnable()
+        {
             _levelCounter.RoundChanged += OnShowIconReward;
         }
 
         private void OnDisable()
         {
-            if (_levelCounter != null)
-                _levelCounter.RoundChanged -= OnShowIconReward;
+            _levelCounter.RoundChanged -= OnShowIconReward;
         }
 
         private void OnShowIconReward(int value)

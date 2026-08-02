@@ -4,15 +4,11 @@
     {
         public void Disable()
         {
-            //Button.interactable = false;
-
             SetState(true);
         }
 
         public void Enable()
         {
-            //Button.interactable = true;
-
             ResetState();
         }
     }

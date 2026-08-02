@@ -381,6 +381,7 @@
     <Compile Include="Assets\Source\Scripts\Items\ItemSO.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Example\Scripts\ReceivingPurchaseExample.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonResetRound.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\FinalGameSession.cs" />
     <Compile Include="Assets\Source\Effects\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\Source\Scripts\Leaderboard\Leaderboard.cs" />

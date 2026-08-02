@@ -87,6 +87,18 @@ namespace Assets.Source.Scripts.Colorize
                 case EnumColor.Purple:
                     return new Color(0.5f, 0f, 0.5f);
 
+                case EnumColor.Pink:
+                    return new Color(1f, 0.4f, 0.6f);  
+
+                case EnumColor.Cyan:
+                    return new Color(0.2f, 1f, 1f);   
+
+                case EnumColor.Lime:
+                    return new Color(0.8f, 1f, 0f);   
+
+                case EnumColor.Coral:
+                    return new Color(1f, 0.5f, 0.31f);
+
                 default:
                     return new Color(1f, 1f, 1f);
             }

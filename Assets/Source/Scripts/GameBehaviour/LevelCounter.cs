@@ -1,4 +1,5 @@
-﻿using Assets.Source.Scripts.Extensions;
+﻿using Assets.Source.Scripts.EntryPoint;
+using Assets.Source.Scripts.Extensions;
 using System;
 using UnityEngine;
 
@@ -6,30 +7,33 @@ namespace Assets.Source.Scripts.GameBehaviour
 {
     public class LevelCounter : MonoBehaviour
     {
-        [SerializeField ]private FinalGameSession _finalGameSession;
-
+        private SequenceDifficultyLevel _currentLevel;
         private int _currentRound = 1;
 
         public event Action<int> RoundChanged;
 
-        private void Awake()
+        public int RoundNumber => _currentRound;
+
+        public void Initialize(SequenceDifficultyLevel level)
         {
-            Guard.NotNull(_finalGameSession, nameof(_finalGameSession));
+            Guard.NotNull(level, nameof(level));
+
+            _currentLevel = level;
         }
 
         private void OnEnable()
         {
-            _finalGameSession.RoundEnded += OnRoundChange;
+            _currentLevel.RoundChanged += OnRoundChange;
         }
 
         private void OnDisable()
         {
-            _finalGameSession.RoundEnded -= OnRoundChange;
+            _currentLevel.RoundChanged -= OnRoundChange;
         }
 
-        private void OnRoundChange()
+        private void OnRoundChange(int value)
         {
-            _currentRound++;
+            _currentRound = value;
 
             RoundChanged?.Invoke(_currentRound);
         }

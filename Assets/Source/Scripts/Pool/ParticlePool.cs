@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Assets.Source.Scripts.Pool
 {
+    // наследование от пула
+    //разделить на фабрику и пул
     public class ParticlePool : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _particlePrefab;
