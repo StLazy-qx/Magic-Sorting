@@ -26,11 +26,12 @@ namespace Assets.Source.Scripts.Colorize
                 colorsNumber = _allColors.Length;
 
             int[] shuffledIndices = ShuffleIndices(_allColors.Length);
-
             int beginCount = Mathf.Min(BeginCountColors, colorsNumber);
-
             _beginRoundColors = new Color[beginCount];
             _remainingColors = new Color[colorsNumber - beginCount];
+
+            Debug.Log(_beginRoundColors.Length);
+            Debug.Log(_remainingColors.Length);
 
             FillColorsArray(_beginRoundColors, shuffledIndices, 0);
             FillColorsArray(_remainingColors, shuffledIndices, beginCount);
@@ -87,17 +88,17 @@ namespace Assets.Source.Scripts.Colorize
                 case EnumColor.Purple:
                     return new Color(0.5f, 0f, 0.5f);
 
-                case EnumColor.Pink:
-                    return new Color(1f, 0.4f, 0.6f);  
-
-                case EnumColor.Cyan:
-                    return new Color(0.2f, 1f, 1f);   
+                case EnumColor.Pink: 
+                    return new Color(1f, 0.15f, 0.55f);
 
                 case EnumColor.Lime:
-                    return new Color(0.8f, 1f, 0f);   
+                    return new Color(0.9f, 1f, 0.1f);
 
-                case EnumColor.Coral:
-                    return new Color(1f, 0.5f, 0.31f);
+                case EnumColor.Cyan: 
+                    return new Color(0.2f, 1f, 1f);
+
+                case EnumColor.Lavender:
+                    return new Color(0.7f, 0.5f, 0.9f);
 
                 default:
                     return new Color(1f, 1f, 1f);

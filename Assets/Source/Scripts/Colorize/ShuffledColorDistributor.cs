@@ -10,6 +10,8 @@ namespace Assets.Source.Scripts.Colorize
 {
     public class ShuffledColorDistributor : MonoBehaviour, IEffectPoolInitializable
     {
+        private const int WaitingEffectsCount = 8;
+
         private IReadOnlyList<Vessel> _vessels;
         private List<Color> _colors = new List<Color>();
         private Queue<Color> _mixedColors = new Queue<Color>();
@@ -24,9 +26,6 @@ namespace Assets.Source.Scripts.Colorize
 
             GenerateColorList();
             ShuffleColors();
-
-            Debug.Log(_colors.Count);
-            PoolEffectSizeReading?.Invoke(_colors.Count);
         }
 
         public bool TryGetRandomColor(out Color color)
@@ -51,6 +50,8 @@ namespace Assets.Source.Scripts.Colorize
                     _colors.Add(vessel.Color);
                 }
             }
+
+            PoolEffectSizeReading?.Invoke(_colors.Count + WaitingEffectsCount);
         }
 
         private void ShuffleColors()
@@ -77,8 +78,7 @@ namespace Assets.Source.Scripts.Colorize
         {
             Guard.NotNullOrEmpty(vessels, nameof(vessels));
             Guard.IsTrue(vessels.All(v => v != null),
-                nameof(vessels),
-                "The vessel list contains a zero element");
+                nameof(vessels),"The vessel list contains a zero element");
         }
     }
 }
