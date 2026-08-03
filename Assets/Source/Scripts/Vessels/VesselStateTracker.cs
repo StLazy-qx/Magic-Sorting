@@ -76,24 +76,24 @@ namespace Assets.Source.Scripts.Vessels
             _currentPanel = panel;
         }
 
-        private void OnPerformEffectCoroutine(Vector3 position, int value, Color color)
+        private void OnPerformEffectCoroutine(Vector3 position, int points, Color color)
         {
-            StartCoroutine(PerformEffect(position, value, color));
+            _wallet.AddPoints(points);
+            StartCoroutine(PerformEffect(position, color));
         }
 
-        private IEnumerator PerformEffect(Vector3 position, int value, Color color)
+        private IEnumerator PerformEffect(Vector3 position, Color color)
         {
             RoundOvering.Invoke();
 
-            yield return _effecter.PlayEffect(position, color, TimeEndSession);
+            yield return _effecter.PlayEffect(
+                position, color, TimeEndSession);
 
-            OnFixateVessel(value);
+            OnFixateVessel();
         }
 
-        private void OnFixateVessel(int value)
+        private void OnFixateVessel()
         {
-            _wallet.AddPoints(value);
-
             _veselsCount++;
 
             if (_veselsCount == _vessels.Count)
