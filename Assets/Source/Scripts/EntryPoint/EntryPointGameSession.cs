@@ -1,11 +1,13 @@
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.GameDifficulty;
+using Assets.Source.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Zenject;
+
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -103,6 +105,9 @@ namespace Assets.Source.Scripts.EntryPoint
             foreach (IObjectInitilizable currentObject in _objectsInitilizable)
             {
                 currentObject.Initialize();
+
+                if (currentObject is Inventory inventory)
+                    inventory.SetScin();
             }
 
             yield return new WaitUntil(()

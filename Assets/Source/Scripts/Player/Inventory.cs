@@ -73,6 +73,9 @@ namespace Assets.Source.Scripts.Player
             YG2.saves.SaveEquippedItem(item.ID);
         }
 
+        public void SetScin()
+            => _scinSetter.ApplyItem(_equippedItem);
+
         public void ApplyScin(Item item)
             => _scinSetter.ApplyItem(item);
 
