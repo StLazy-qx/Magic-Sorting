@@ -17,6 +17,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         public event Action<ClickImpactMode> ModeChanged;
         public event Action ReverseButtonActivating;
+        public event Action RewardedEnded;
 
         public ClickImpactMode CurrentMode { get; private set; }
 
@@ -106,15 +107,7 @@ namespace Assets.Source.Scripts.ActionsHandlers
                 _reverseButton.UIButton.interactable = true;
             });
 
-            //YG2.RewardedAdvShow(RewardID, () =>
-            //{
-            //    _isShowingReward = false;
-            //    _reverseButton.Enable();
-
-            //    ActivateReverceMode();
-
-            //    _reverseButton.UIButton.interactable = true;
-            //});
+            RewardedEnded?.Invoke();
         }
 
         private void UpdateButtonState()

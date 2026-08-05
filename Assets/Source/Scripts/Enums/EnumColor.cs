@@ -9,7 +9,7 @@ namespace Assets.Source.Scripts.Enums
         Orange,
         Purple,
         Pink,
-        Lime,
+        Grey,
         Cyan,
         Lavender
     }

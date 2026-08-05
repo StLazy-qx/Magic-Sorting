@@ -5,21 +5,31 @@ namespace YG
 {
     public partial class SavesYG
     {
+        private int _totalPoints;
         private int _points;
         private List<string> _itemIDs = new();
         private string _equippedItemID;
 
+        public int TotalPoints => _totalPoints;
         public int Points => _points;
         public string EquippedItemID => _equippedItemID;
 
-        public void SavePoints(int value)
+        public void SaveScore(int points)
         {
-            Guard.NotNegative(value, nameof(value));
+            Guard.NotNegative(points, nameof(points));
 
-            _points = value;
+            _points = points;
+            _totalPoints += points;
 
             if (YG2.isSDKEnabled)
-                YG2.SetLeaderboard("GameLeaderboard", value);
+                YG2.SetLeaderboard("GameLeaderboard", _totalPoints);
+        }
+
+        public void DecreaseScore(int points)
+        {
+            Guard.NotNegative(points, nameof(points));
+
+            _points = points;
         }
 
         public void AddItem(string itemID)

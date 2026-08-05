@@ -40,7 +40,7 @@ namespace Assets.Source.Scripts.Player
         {
             _totalScore += _currentScore;
 
-            YG2.saves.SavePoints(_totalScore);
+            YG2.saves.SaveScore(_totalScore);
             TotalScoreChanged?.Invoke(_totalScore);
             YG2.SetLeaderboard(leaderboardName, YG2.saves.Points);
         }
@@ -58,7 +58,7 @@ namespace Assets.Source.Scripts.Player
 
             _totalScore -= price;
 
-            YG2.saves.SavePoints(_totalScore);
+            YG2.saves.DecreaseScore(_totalScore);
             TotalScoreChanged?.Invoke(_totalScore);
         }
 

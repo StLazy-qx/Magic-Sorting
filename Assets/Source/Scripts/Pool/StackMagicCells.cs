@@ -88,10 +88,7 @@ namespace Assets.Source.Scripts.Pool
             if (topCell == null)
                 return null;
 
-            if (topCell.Color == color)
-                return topCell;
-
-            return null;
+            return topCell.Color == color ? topCell : null;
         }
 
         public bool CheckLastCells(Color color)
@@ -100,9 +97,9 @@ namespace Assets.Source.Scripts.Pool
                 return false;
 
             MagicCell[] cells = _cellsStack.ToArray();
+            int cellNumber = cells.Length - 1;
 
-            return cells[cells.Length - 2].Color == color &&
-                   cells[cells.Length - 1].Color == color;
+            return cells[cellNumber].Color == color;
         }
 
         public MagicCell GetBottomCell()
@@ -120,10 +117,12 @@ namespace Assets.Source.Scripts.Pool
 
         public MagicCell GetUpperCell()
         {
-            if (_cellsStack.TryPeek(out MagicCell cell))
-                return cell;
+            //if (_cellsStack.TryPeek(out MagicCell cell))
+            //    return cell;
 
-            return null;
+            //return null;
+
+            return _cellsStack.TryPeek(out MagicCell cell) ? cell : null;
         }
 
         private void OnGamePause(bool isPaused)
@@ -136,7 +135,6 @@ namespace Assets.Source.Scripts.Pool
             while (_cellsStack.Count > 0)
             {
                 MagicCell cell = _cellsStack.Pop();
-
                 cell.Interacted -= OnCellClicked;
 
                 if (cell != null)
@@ -174,6 +172,32 @@ namespace Assets.Source.Scripts.Pool
                 _clickImpactHandler.Reverse();
                 _clickImpactHandler.OnToggleMode();
             }
+
+            //if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
+            //{
+            //    if (_cellsStack.Count == 0)
+            //        return;
+
+            //    if (_cellsStack.TryPop(out MagicCell cell) == false)
+            //        return;
+
+            //    if (_cellRouter.IsCheckCellColor(cell.Color) == false)
+            //    {
+            //        _cellsStack.Push(cell);
+
+            //        return;
+            //    }
+
+            //    _cellRouter.DeliverMagicCell(cell);
+            //    cell.Disable();
+            //}
+            //else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
+            //{
+            //    _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
+
+            //    _clickImpactHandler.Reverse();
+            //    _clickImpactHandler.OnToggleMode();
+            //}
         }
 
         private void ValidateArguments(

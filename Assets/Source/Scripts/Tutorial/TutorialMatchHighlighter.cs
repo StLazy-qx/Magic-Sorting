@@ -23,18 +23,19 @@ namespace Assets.Source.Scripts.Tutorial
         [SerializeField] private VesselFactory _vesselFactory;
         [SerializeField] private WaitingPoint _waitingPoint;
         [SerializeField] private ClickModeSwitcher _modeSwitcher;
-        [SerializeField] private DelayedActionTimer _timer;
         [SerializeField] private Transform[] _columns;
 
         private float _beginsearchInterval = 1.5f;
         private float _searchInterval = 8f;
         private IconRewardedAdvertisement _rewardedButton;
         private ReverseButton _reverseButton;
+        private AsyncTimer _timer;
         private List<MagicColumn> _currentColumns;
         private List<Vessel> _currentVessels;
 
         private void Awake()
         {
+            _timer = new AsyncTimer();
             _currentVessels = new List<Vessel>();
             _currentColumns = new List<MagicColumn>();
 
@@ -50,12 +51,14 @@ namespace Assets.Source.Scripts.Tutorial
         {
             _gameHandler.GameLaunching += OnStartInitialSearch;
             _cellRouter.CellDeparturing += OnStartSearchLoop;
+            _modeSwitcher.RewardedEnded += OnStartSearchLoopAfterRewarded;
         }
 
         private void OnDisable()
         {
             _gameHandler.GameLaunching -= OnStartInitialSearch;
             _cellRouter.CellDeparturing -= OnStartSearchLoop;
+            _modeSwitcher.RewardedEnded -= OnStartSearchLoopAfterRewarded;
 
             if (_reverseButton != null)
                 _modeSwitcher.ReverseButtonActivating -= OnReverseButtonActivated;
@@ -72,15 +75,13 @@ namespace Assets.Source.Scripts.Tutorial
 
             _rewardedButton = rewardedButton;
             _reverseButton = reverseButton;
-
             _modeSwitcher.ReverseButtonActivating += OnReverseButtonActivated;
         }
 
         public void LoadCurrentColumns()
         {
             _currentColumns.Clear();
-            _currentColumns.AddRange(
-                _magicColumnPool.GetActiveObjects());
+            _currentColumns.AddRange(_magicColumnPool.GetActiveObjects());
         }
 
         public void LoadCurrentVessels()
@@ -92,6 +93,12 @@ namespace Assets.Source.Scripts.Tutorial
                 if (vessel.IsActive)
                     _currentVessels.Add(vessel);
             }
+        }
+
+        private void OnStartSearchLoopAfterRewarded()
+        {
+            _animationParticle.Stop();
+            _timer.StartTimer(0, PerformAnalysis);
         }
 
         private void OnStartSearchLoop()
@@ -147,13 +154,56 @@ namespace Assets.Source.Scripts.Tutorial
             LoadCurrentColumns();
             LoadCurrentVessels();
             FindMatch();
+
+            _timer.StartTimer(_searchInterval, PerformAnalysis);
         }
 
         private void FindMatch()
         {
-            MagicCell firstWrongCell = null;
-            bool hasMatchInColumns = false;
+            if (TryFindTopMatch())
+                return;
 
+            MagicCell waitingPointCandidate = FindBottomMatchForAnyVessel();
+
+            ResolveNoMatchCases(waitingPointCandidate);
+
+
+            //MagicCell firstWrongCell = null;
+            //bool hasMatchInColumns = false;
+
+            //foreach (Vessel vessel in _currentVessels)
+            //{
+            //    Color color = vessel.Color;
+
+            //    foreach (MagicColumn column in _currentColumns)
+            //    {
+            //        StackMagicCells stack = column.GetComponent<StackMagicCells>();
+            //        MagicCell topCell = stack.TryGetCellByColor(color);
+
+            //        if (topCell != null)
+            //        {
+            //            hasMatchInColumns = true;
+
+            //            PlayAnimationCell(topCell);
+
+            //            return;
+            //        }
+
+            //        if (firstWrongCell == null)
+            //        {
+            //            MagicCell upperCell = stack.GetBottomCell();
+
+            //            if (upperCell != null)
+            //                firstWrongCell = upperCell;
+            //        }
+            //    }
+            //}
+
+            //ResolveNoMatchCases(firstWrongCell, hasMatchInColumns);
+        }
+
+        private bool TryFindTopMatch()
+        {
             foreach (Vessel vessel in _currentVessels)
             {
                 Color color = vessel.Color;
@@ -165,54 +215,82 @@ namespace Assets.Source.Scripts.Tutorial
 
                     if (topCell != null)
                     {
-                        hasMatchInColumns = true;
-
                         PlayAnimationCell(topCell);
 
-                        return;
-                    }
-
-                    if (firstWrongCell == null)
-                    {
-                        MagicCell upperCell = stack.GetBottomCell();
-
-                        if (upperCell != null)
-                            firstWrongCell = upperCell;
+                        return true;
                     }
                 }
             }
 
-            ResolveNoMatchCases(firstWrongCell, hasMatchInColumns);
+            return false;
         }
 
-        private void ResolveNoMatchCases(MagicCell firstWrongCell, bool hasMatchInColumns)
+        private MagicCell FindBottomMatchForAnyVessel()
         {
+            foreach (Vessel vessel in _currentVessels)
+            {
+                Color color = vessel.Color;
+
+                foreach (MagicColumn column in _currentColumns)
+                {
+                    StackMagicCells stack = column.GetComponent<StackMagicCells>();
+                    MagicCell bottomCell = stack.GetBottomCell();
+
+                    if (bottomCell != null && bottomCell.Color == color)
+                        return bottomCell;
+                }
+            }
+
+            return null;
+        }
+
+        private void ResolveNoMatchCases(MagicCell waitingPointCandidate)
+        {
+            if (_waitingPoint.IsFreePlace)
+            {
+                if (waitingPointCandidate != null)
+                    _animationParticle.Play(waitingPointCandidate.transform.position);
+
+                return;
+            }
+
+            if (_modeSwitcher.CurrentMode == _modeSwitcher.CurrentMode)
+                return;
+
+
             Button reverseButton = GetComponentButton(_reverseButton);
 
-            if (!hasMatchInColumns && _waitingPoint.IsFreePlace)
-            {
-                if (firstWrongCell != null)
-                    _animationParticle.Play(firstWrongCell.transform.position);
-
-                return;
-            }
-
-            if (hasMatchInColumns == false 
-                && _waitingPoint.IsFreePlace == false 
-                && IsInteractable(_reverseButton))
-            {
-                _animationParticle.Play(reverseButton);
-
-                return;
-            }
-
-            if (hasMatchInColumns == false 
-                && _waitingPoint.IsFreePlace == false 
-                && IsInteractable(_reverseButton) == false)
-            {
-                _animationParticle.Play(reverseButton);
-            }
+            _animationParticle.Play(reverseButton);
         }
+
+        //private void ResolveNoMatchCases(MagicCell firstWrongCell, bool hasMatchInColumns)
+        //{
+        //    Button reverseButton = GetComponentButton(_reverseButton);
+
+        //    if (!hasMatchInColumns && _waitingPoint.IsFreePlace)
+        //    {
+        //        if (firstWrongCell != null)
+        //            _animationParticle.Play(firstWrongCell.transform.position);
+
+        //        return;
+        //    }
+
+        //    if (hasMatchInColumns == false 
+        //        && _waitingPoint.IsFreePlace == false 
+        //        && IsInteractable(_reverseButton))
+        //    {
+        //        _animationParticle.Play(reverseButton);
+
+        //        return;
+        //    }
+
+        //    if (hasMatchInColumns == false 
+        //        && _waitingPoint.IsFreePlace == false 
+        //        && IsInteractable(_reverseButton) == false)
+        //    {
+        //        _animationParticle.Play(reverseButton);
+        //    }
+        //}
 
         private void PlayAnimationCell(MagicCell magicCell)
         {
@@ -245,7 +323,6 @@ namespace Assets.Source.Scripts.Tutorial
             Guard.NotNull(_magicColumnPool, nameof(_magicColumnPool));
             Guard.NotNull(_vesselPool, nameof(_vesselPool));
             Guard.NotNull(_waitingPoint, nameof(_waitingPoint));
-            Guard.NotNull(_timer, nameof(_timer));
         }
     }
 }
