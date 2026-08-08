@@ -29,7 +29,8 @@ namespace Assets.Source.Scripts.Audio
             int randomIndex = UnityEngine.Random.Range(beginIndex, _interactClips.Length);
             AudioClip clip = _interactClips[randomIndex];
 
-            StartCoroutine(PlaySoundRoutine(clip));
+            //StartCoroutine(PlaySoundRoutine(clip));
+            _audioSource.PlayOneShot(clip);
         }
 
         private IEnumerator PlaySoundRoutine(AudioClip clip)

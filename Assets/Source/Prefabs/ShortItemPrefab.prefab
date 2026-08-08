@@ -305,4 +305,5 @@ MonoBehaviour:
   _imageScin: {fileID: 3039976745726165645}
   _purchaseValidation: {fileID: 9038112603458332467}
   _selectedColor: {r: 0.624093, g: 0, b: 0.8113208, a: 1}
+  _equippedColor: {r: 0.18039216, g: 0.28627452, b: 0.9019608, a: 1}
   _normalColor: {r: 0.9019608, g: 0.654902, b: 0.1764706, a: 1}

@@ -8,11 +8,10 @@ namespace Assets.Source.Scripts.GameBehaviour
     public class LevelCounter : MonoBehaviour
     {
         private SequenceDifficultyLevel _currentLevel;
-        private int _currentRound = 1;
 
         public event Action<int> RoundChanged;
 
-        public int RoundNumber => _currentRound;
+        public int RoundNumber => _currentLevel.RoundNumber;
 
         public void Initialize(SequenceDifficultyLevel level)
         {
@@ -31,11 +30,10 @@ namespace Assets.Source.Scripts.GameBehaviour
             _currentLevel.RoundChanged -= OnRoundChange;
         }
 
-        private void OnRoundChange(int value)
+        private void OnRoundChange(int roundNumber)
         {
-            _currentRound = value;
-
-            RoundChanged?.Invoke(_currentRound);
+            Guard.NotNull(roundNumber, nameof(roundNumber));
+            RoundChanged?.Invoke(roundNumber);
         }
     }
 }

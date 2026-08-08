@@ -13,6 +13,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         [SerializeField] private Image _imageScin;
         [SerializeField] private Image _purchaseValidation;
         [SerializeField] private Color _selectedColor;
+        [SerializeField] private Color _equippedColor;
         [SerializeField] private Color _normalColor;
 
         private Texture _mainTexture;
@@ -39,20 +40,45 @@ namespace Assets.Source.Scripts.UI.StoreView
             _mainTexture = itemData.Skin;
         }
 
-        public void ShowPurchaseValidation()
+        public void UpdateVisualState(bool isOwned, bool isEquipped)
         {
-            _purchaseValidation.gameObject.SetActive(true);
+            if (isEquipped)
+            {
+                _backgroundImage.color = _equippedColor;
+                _purchaseValidation.gameObject.SetActive(true);
+            }
+            else if (isOwned)
+            {
+                _backgroundImage.color = _normalColor;
+                _purchaseValidation.gameObject.SetActive(true);
+            }
+            else
+            {
+                _backgroundImage.color = _normalColor;
+                _purchaseValidation.gameObject.SetActive(false);
+            }
         }
+
+        //public void ShowPurchaseValidation()
+        //{
+        //    _purchaseValidation.gameObject.SetActive(true);
+        //}
+
+        ////изменить название
+        //public void ShowEquipped()
+        //{
+        //    _backgroundImage.color = _equippedColor;
+        //}
 
         public void Selected()
         {
             _backgroundImage.color = _selectedColor;
         }
 
-        public void SetDefaultColor()
-        {
-            _backgroundImage.color = _normalColor;
-        }
+        //public void SetDefaultColor()
+        //{
+        //    _backgroundImage.color = _normalColor;
+        //}
 
         private void OnHandleClick()
         {

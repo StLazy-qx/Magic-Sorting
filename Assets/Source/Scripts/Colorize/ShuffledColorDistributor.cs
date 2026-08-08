@@ -51,7 +51,8 @@ namespace Assets.Source.Scripts.Colorize
                 }
             }
 
-            PoolEffectSizeReading?.Invoke(_colors.Count + WaitingEffectsCount);
+            PoolEffectSizeReading?.Invoke(
+                _colors.Count + WaitingEffectsCount);
         }
 
         private void ShuffleColors()
@@ -61,7 +62,8 @@ namespace Assets.Source.Scripts.Colorize
 
             for (int i = _colors.Count - 1; i > 0; i--)
             {
-                int randomNumber = UnityEngine.Random.Range(startRandomRange, i + stepIndex);
+                int randomNumber = UnityEngine.Random.
+                    Range(startRandomRange, i + stepIndex);
 
                 Color tempColor = _colors[i];
                 _colors[i] = _colors[randomNumber];

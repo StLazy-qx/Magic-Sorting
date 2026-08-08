@@ -5,12 +5,14 @@ namespace YG
 {
     public partial class SavesYG
     {
+        private const int FirstRoundNumber = 1;
+
         private int _totalPoints;
         private int _points;
+        private int _actualRoundNumber;
         private List<string> _itemIDs = new();
         private string _equippedItemID;
 
-        public int TotalPoints => _totalPoints;
         public int Points => _points;
         public string EquippedItemID => _equippedItemID;
 
@@ -42,6 +44,16 @@ namespace YG
             _itemIDs.Add(itemID);
         }
 
+        public void SaveRoundNumber(int number)
+        {
+            Guard.NotNegative(number, nameof(number));
+
+            if (_actualRoundNumber == number)
+                return;
+
+            _actualRoundNumber = number;
+        }
+
         public void SaveEquippedItem(string itemID)
         {
             Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
@@ -56,6 +68,14 @@ namespace YG
             Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
             return _itemIDs.Contains(itemID);
+        }
+
+        public int GetRoundNumber()
+        {
+            if (_actualRoundNumber <= 0)
+                _actualRoundNumber = FirstRoundNumber;
+
+            return _actualRoundNumber;
         }
 
         public IReadOnlyList<string> GetPurchasedItems() 

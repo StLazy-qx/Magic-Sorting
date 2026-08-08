@@ -82,6 +82,9 @@ namespace Assets.Source.Scripts.Player
         private void Load()
         {
             IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
+
+            Debug.Log("Количество предметов - " + savedIDs.Count);
+
             _items = new List<Item>();
 
             foreach (string id in savedIDs)

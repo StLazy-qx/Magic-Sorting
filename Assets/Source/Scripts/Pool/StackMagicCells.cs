@@ -117,12 +117,8 @@ namespace Assets.Source.Scripts.Pool
 
         public MagicCell GetUpperCell()
         {
-            //if (_cellsStack.TryPeek(out MagicCell cell))
-            //    return cell;
-
-            //return null;
-
-            return _cellsStack.TryPeek(out MagicCell cell) ? cell : null;
+            return _cellsStack.TryPeek(out MagicCell cell) ? 
+                cell : null;
         }
 
         private void OnGamePause(bool isPaused)

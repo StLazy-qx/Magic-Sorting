@@ -43,6 +43,7 @@ namespace Assets.Source.Scripts.Storage
                 _playerWallet.SpendPoints(selectedItem.Price);
                 selectedItem.Buy();
                 _inventory.AddItem(selectedItem);
+                EquipItem(selectedItem);
             }
         }
 

@@ -1,25 +1,28 @@
 ﻿using Assets.Source.Scripts.Enums;
 using System.Collections.Generic;
 using System;
+using YG;
+using UnityEngine;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
     public class SequenceDifficultyLevel
     {
-        private List<DifficultyLevel> _sequence;
+        private readonly List<DifficultyLevel> _sequence;
+
         private int _currentIndex;
         private int _amountRounds = 40;
 
-        //как нибудь поправить счет
         public event Action<int> RoundChanged;
+
+        public int RoundNumber => _currentIndex + 1;
 
         public SequenceDifficultyLevel()
         {
             _sequence = new List<DifficultyLevel>(_amountRounds);
 
             InitSequence();
-
-            _currentIndex = 0;
+            LoadRound();
         }
 
         public DifficultyLevel GetNext()
@@ -33,9 +36,28 @@ namespace Assets.Source.Scripts.EntryPoint
             DifficultyLevel level = _sequence[_currentIndex];
             _currentIndex++;
 
-            RoundChanged?.Invoke(_currentIndex + 1);
+            SaveRound();
 
             return level;
+        }
+
+        private void LoadRound()
+        {
+            int roundNumber = YG2.saves.GetRoundNumber();
+
+            Debug.Log("Загруженный уровень - " + roundNumber);
+
+            _currentIndex = roundNumber - 1;
+
+            RoundChanged?.Invoke(roundNumber);
+        }
+
+        private void SaveRound()
+        {
+            int roundNumber = _currentIndex + 1;
+
+            RoundChanged?.Invoke(roundNumber);
+            YG2.saves.SaveRoundNumber(roundNumber);
         }
 
         private void InitSequence()

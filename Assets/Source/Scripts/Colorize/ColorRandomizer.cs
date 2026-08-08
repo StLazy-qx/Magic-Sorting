@@ -30,9 +30,6 @@ namespace Assets.Source.Scripts.Colorize
             _beginRoundColors = new Color[beginCount];
             _remainingColors = new Color[colorsNumber - beginCount];
 
-            Debug.Log(_beginRoundColors.Length);
-            Debug.Log(_remainingColors.Length);
-
             FillColorsArray(_beginRoundColors, shuffledIndices, 0);
             FillColorsArray(_remainingColors, shuffledIndices, beginCount);
         }
