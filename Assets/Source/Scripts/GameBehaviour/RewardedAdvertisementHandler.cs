@@ -30,6 +30,8 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private void OnShowIconReward(int value)
         {
+            Guard.NotNull(value, nameof(value));
+
             if (value > FirstRoundNumber)
                 _iconView.gameObject.SetActive(true);
         }

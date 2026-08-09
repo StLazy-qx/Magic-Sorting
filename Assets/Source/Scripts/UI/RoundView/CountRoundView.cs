@@ -23,12 +23,15 @@ namespace Assets.Source.Scripts.UI.RoundView
             _countText.text = _levelCounter.RoundNumber.ToString();
         }
 
+        private void Start()
+        {
+            OnTextFade();
+        }
+
         private void OnEnable()
         {
             _levelCounter.RoundChanged += OnRoundNumberChanged;
             _sessionHandler.GameLaunching += OnTextFade;
-
-            OnTextFade();
         }
 
         private void OnDisable()

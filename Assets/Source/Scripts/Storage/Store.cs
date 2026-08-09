@@ -22,10 +22,7 @@ namespace Assets.Source.Scripts.Storage
         {
             ValidateInitializeArguments();
 
-            //_inventory.Initialize();
-
-            //if (_inventory.IsEmpty)
-            //    ConfirmFirstItem();
+            _inventory.Initialize();
 
             LoadPurchasedItems();
 
@@ -65,7 +62,7 @@ namespace Assets.Source.Scripts.Storage
             _inventory.ApplyScin(selectedItem);
         }
 
-        public Item GetItemByID(string id)
+        private Item GetItemByID(string id)
         {
             Guard.NotNullOrWhiteSpace(id, nameof(id));
 
@@ -85,17 +82,17 @@ namespace Assets.Source.Scripts.Storage
         {
             IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
 
-            foreach (string id in savedIDs)
+            foreach (string itemID in savedIDs)
             {
-                Item item = GetItemByID(id);
+                Item item = GetItemByID(itemID);
 
                 if (item != null)
-                    _inventory.AddItemLoad(item);
+                    _inventory.LoadItem(item);
             }
 
             string equippedID = YG2.saves.EquippedItemID;
 
-            if (!string.IsNullOrEmpty(equippedID))
+            if (string.IsNullOrEmpty(equippedID) == false)
             {
                 Item equippedItem = GetItemByID(equippedID);
 
@@ -114,20 +111,9 @@ namespace Assets.Source.Scripts.Storage
 
             Item firstItem = GetItemByID(firstItemData.ID);
 
-            _inventory.AddItemLoad(firstItem);
+            _inventory.LoadItem(firstItem);
             _inventory.SetEquippedItemLoad(firstItem);
         }
-
-        //private void ConfirmFirstItem()
-        //{
-        //    int indexFirstScin = 0;
-        //    ItemSO firstItemData = _itemsData[indexFirstScin];
-
-        //    YG2.saves.AddItem(firstItemData.ID);
-
-        //    if(YG2.saves.EquippedItemID == null)
-        //        YG2.saves.SaveEquippedItem(firstItemData.ID);
-        //}
 
         private void ValidateInitializeArguments()
         {

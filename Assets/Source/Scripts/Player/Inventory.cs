@@ -30,9 +30,9 @@ namespace Assets.Source.Scripts.Player
         {
             Guard.NotNull(_store, nameof(_store));
             Guard.NotNull(_scinSetter, nameof(_scinSetter));
-            //Load();
 
             IsInitialized = true;
+
             Initialized?.Invoke();
         }
 
@@ -59,7 +59,7 @@ namespace Assets.Source.Scripts.Player
                 ItemBuyed?.Invoke(newItemView);
         }
 
-        public void AddItemLoad(Item item)
+        public void LoadItem(Item item)
         {
             ValidateItem(item);
 
@@ -97,33 +97,6 @@ namespace Assets.Source.Scripts.Player
 
         public void ApplyScin(Item item)
             => _scinSetter.ApplyItem(item);
-
-        //private void Load()
-        //{
-        //    IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
-
-        //    Debug.Log("Количество предметов - " + savedIDs.Count);
-
-        //    _items = new List<Item>();
-
-        //    foreach (string id in savedIDs)
-        //    {
-        //        Item item = _store.GetItemByID(id);
-
-        //        if (item != null)
-        //            _items.Add(item);
-        //    }
-
-        //    string equippedID = YG2.saves.EquippedItemID;
-
-        //    if (string.IsNullOrEmpty(equippedID) == false)
-        //    {
-        //        _equippedItem = _items.FirstOrDefault(
-        //            item => item.ID == equippedID);
-
-        //        EquipItem(_equippedItem);
-        //    }
-        //}
 
         private void ValidateItem(Item item)
             => Guard.NotNull(item, nameof(item));

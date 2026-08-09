@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a2a0561166c4e42bdfebceb5e72b8f, type: 3}
   m_Name: ItemScin 1
   m_EditorClassIdentifier: 
-  _id: b804349a-336c-41ef-9b8a-37f7a5101f64
+  _id: 22222
   _prefabView: {fileID: 5726828821464473346, guid: 21393050d5cf17441a7fc20158e8fae5,
     type: 3}
   _item: {fileID: 2346628275988406105, guid: 21393050d5cf17441a7fc20158e8fae5, type: 3}
