@@ -22,8 +22,15 @@ namespace Assets.Source.Scripts.Storage
         {
             ValidateInitializeArguments();
 
+            //_inventory.Initialize();
+
+            //if (_inventory.IsEmpty)
+            //    ConfirmFirstItem();
+
+            LoadPurchasedItems();
+
             if (_inventory.IsEmpty)
-                ConfirmFirstItem();
+                GrantFirstItem();
 
             IsInitialized = true;
         }
@@ -74,16 +81,53 @@ namespace Assets.Source.Scripts.Storage
             return item;
         }
 
-        private void ConfirmFirstItem()
+        private void LoadPurchasedItems()
         {
-            int indexFirstScin = 0;
-            ItemSO firstItemData = _itemsData[indexFirstScin];
+            IReadOnlyList<string> savedIDs = YG2.saves.GetPurchasedItems();
+
+            foreach (string id in savedIDs)
+            {
+                Item item = GetItemByID(id);
+
+                if (item != null)
+                    _inventory.AddItemLoad(item);
+            }
+
+            string equippedID = YG2.saves.EquippedItemID;
+
+            if (!string.IsNullOrEmpty(equippedID))
+            {
+                Item equippedItem = GetItemByID(equippedID);
+
+                if (equippedItem != null)
+                    _inventory.SetEquippedItemLoad(equippedItem);
+            }
+        }
+
+        private void GrantFirstItem()
+        {
+            int indexFirstSkin = 0;
+            ItemSO firstItemData = _itemsData[indexFirstSkin];
 
             YG2.saves.AddItem(firstItemData.ID);
+            YG2.saves.SaveEquippedItem(firstItemData.ID);
 
-            if(YG2.saves.EquippedItemID == null)
-                YG2.saves.SaveEquippedItem(firstItemData.ID);
+            Item firstItem = GetItemByID(firstItemData.ID);
+
+            _inventory.AddItemLoad(firstItem);
+            _inventory.SetEquippedItemLoad(firstItem);
         }
+
+        //private void ConfirmFirstItem()
+        //{
+        //    int indexFirstScin = 0;
+        //    ItemSO firstItemData = _itemsData[indexFirstScin];
+
+        //    YG2.saves.AddItem(firstItemData.ID);
+
+        //    if(YG2.saves.EquippedItemID == null)
+        //        YG2.saves.SaveEquippedItem(firstItemData.ID);
+        //}
 
         private void ValidateInitializeArguments()
         {
