@@ -4,6 +4,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//не используется
 namespace Assets.Source.Scripts.Storage
 {
     class StoreItemPresenter : MonoBehaviour
