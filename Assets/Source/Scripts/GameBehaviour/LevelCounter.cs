@@ -2,6 +2,7 @@
 using Assets.Source.Scripts.Extensions;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -11,13 +12,18 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public event Action<int> RoundChanged;
 
-        public int RoundNumber => _currentLevel.RoundNumber;
+        public int RoundNumber { get; private set; }
 
+        [Inject]
         public void Initialize(SequenceDifficultyLevel level)
         {
             Guard.NotNull(level, nameof(level));
 
+            Debug.Log("Последовательность засетилась " + level != null);
+
             _currentLevel = level;
+            RoundNumber = _currentLevel.RoundNumber;
+            _currentLevel.RoundChanged += OnRoundChange;
         }
 
         private void OnEnable()
@@ -33,6 +39,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         private void OnRoundChange(int roundNumber)
         {
             Guard.NotNull(roundNumber, nameof(roundNumber));
+            RoundNumber = roundNumber;
             RoundChanged?.Invoke(roundNumber);
         }
     }

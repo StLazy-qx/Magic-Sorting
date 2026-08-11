@@ -2,37 +2,32 @@
 using System.Collections.Generic;
 using System;
 using YG;
-using UnityEngine;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
-    public class SequenceDifficultyLevel
+    public class SequenceDifficultyLevel : IObjectInitilizable
     {
-        private readonly List<DifficultyLevel> _sequence;
-
         private int _currentIndex;
-        private int _amountRounds = 40;
+        private int _amountRounds = 55;
+        private List<DifficultyLevel> _sequence = new();
 
         public event Action<int> RoundChanged;
 
         public int RoundNumber => _currentIndex + 1;
+        public bool IsInitialized { get; private set; }
 
-        public SequenceDifficultyLevel()
+        public void Initialize()
         {
             _sequence = new List<DifficultyLevel>(_amountRounds);
 
             InitSequence();
             LoadRound();
+
+            IsInitialized = true;
         }
 
         public DifficultyLevel GetNext()
         {
-            if (_currentIndex >= _sequence.Count)
-            {
-                throw new InvalidOperationException(
-                    "Нет доступных элементов для GetNext.");
-            }
-
             DifficultyLevel level = _sequence[_currentIndex];
             _currentIndex++;
 
@@ -44,9 +39,6 @@ namespace Assets.Source.Scripts.EntryPoint
         private void LoadRound()
         {
             int roundNumber = YG2.saves.GetRoundNumber();
-
-            Debug.Log("Загруженный уровень - " + roundNumber);
-
             _currentIndex = roundNumber - 1;
 
             RoundChanged?.Invoke(roundNumber);
@@ -56,8 +48,8 @@ namespace Assets.Source.Scripts.EntryPoint
         {
             int roundNumber = _currentIndex + 1;
 
-            RoundChanged?.Invoke(roundNumber);
             YG2.saves.SaveRoundNumber(roundNumber);
+            RoundChanged?.Invoke(roundNumber);
         }
 
         private void InitSequence()
@@ -88,6 +80,22 @@ namespace Assets.Source.Scripts.EntryPoint
                 DifficultyLevel.MediumEasy,
                 DifficultyLevel.Medium,
                 DifficultyLevel.MediumHard,
+                DifficultyLevel.Hard,
+                DifficultyLevel.MediumHard,
+                DifficultyLevel.Medium,
+                DifficultyLevel.MediumEasy,
+                DifficultyLevel.Easy,
+                DifficultyLevel.MediumEasy,
+                DifficultyLevel.Medium,
+                DifficultyLevel.MediumHard,
+                DifficultyLevel.Hard,
+                DifficultyLevel.MediumHard,
+                DifficultyLevel.Medium,
+                DifficultyLevel.Hard,
+                DifficultyLevel.Medium,
+                DifficultyLevel.MediumEasy,
+                DifficultyLevel.MediumHard,
+                DifficultyLevel.Hard,
                 DifficultyLevel.Hard,
                 DifficultyLevel.MediumHard,
                 DifficultyLevel.Medium,

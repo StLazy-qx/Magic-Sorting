@@ -1,17 +1,25 @@
 {
-    "stringKeys": [],
-    "stringValues": [],
-    "floatKeys": [],
-    "floatValues": [],
-    "intKeys": [],
-    "intValues": [],
-    "intExample": 5,
-    "strExample": "Hello!",
-    "boolExample": [
-        false,
-        false,
-        false,
-        false
-    ],
-    "idSave": 12
+  "stringKeys": [],
+  "stringValues": [],
+  "floatKeys": [],
+  "floatValues": [],
+  "intKeys": [],
+  "intValues": [],
+  "intExample": 5,
+  "strExample": "Hello!",
+  "boolExample": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "idSave": 22,
+  "MainPoints": 500,
+  "ActualRoundNumber": 3,
+  "EquippedItem": "22222",
+  "ItemIDs": [
+    "22222"
+  ],
+  "Points": 500,
+  "EquippedItemID": "22222"
 }

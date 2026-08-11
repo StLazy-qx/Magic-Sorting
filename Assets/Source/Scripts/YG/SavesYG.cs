@@ -1,6 +1,5 @@
 using Assets.Source.Scripts.Extensions;
 using System.Collections.Generic;
-using YG.Insides;
 
 namespace YG
 {
@@ -8,11 +7,11 @@ namespace YG
     {
         private const int FirstRoundNumber = 1;
 
-        private int TotalPoints;
-        private int MainPoints;
-        private int ActualRoundNumber;
-        private string EquippedItem;
-        private List<string> ItemIDs = new();
+        //private int TotalPoints;
+        public int MainPoints;
+        public int ActualRoundNumber;
+        public string EquippedItem;
+        public List<string> ItemIDs = new();
 
         public int Points => MainPoints;
         public string EquippedItemID => EquippedItem;
@@ -22,10 +21,12 @@ namespace YG
             Guard.NotNegative(points, nameof(points));
 
             MainPoints = points;
-            TotalPoints += points;
+            //TotalPoints += points;
 
             if (YG2.isSDKEnabled)
-                YG2.SetLeaderboard("GameLeaderboard", TotalPoints);
+                YG2.SetLeaderboard("GameLeaderboard", MainPoints);
+
+            YG2.SaveProgress();
         }
 
         public void DecreaseScore(int points)
@@ -33,6 +34,8 @@ namespace YG
             Guard.NotNegative(points, nameof(points));
 
             MainPoints = points;
+
+            YG2.SaveProgress();
         }
 
         public void AddItem(string itemID)
@@ -54,6 +57,8 @@ namespace YG
                 return;
 
             ActualRoundNumber = number;
+
+            YG2.SaveProgress();
         }
 
         public void SaveEquippedItem(string itemID)
@@ -69,16 +74,13 @@ namespace YG
 
         public int GetRoundNumber()
         {
-            if (ActualRoundNumber <= 0)
-                ActualRoundNumber = FirstRoundNumber;
-
-            return ActualRoundNumber;
+            return ActualRoundNumber > 0 ? 
+                ActualRoundNumber : 
+                FirstRoundNumber;
         }
 
         public IReadOnlyList<string> GetPurchasedItems()
         {
-            YGInsides.LoadProgress();
-
             return ItemIDs.AsReadOnly();
         }
     }

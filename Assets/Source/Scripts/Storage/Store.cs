@@ -106,8 +106,8 @@ namespace Assets.Source.Scripts.Storage
             int indexFirstSkin = 0;
             ItemSO firstItemData = _itemsData[indexFirstSkin];
 
-            YG2.saves.AddItem(firstItemData.ID);
-            YG2.saves.SaveEquippedItem(firstItemData.ID);
+            //YG2.saves.AddItem(firstItemData.ID);
+            //YG2.saves.SaveEquippedItem(firstItemData.ID);
 
             Item firstItem = GetItemByID(firstItemData.ID);
 

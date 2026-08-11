@@ -37,16 +37,22 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private void Awake()
         {
-            _sequenceDifficultyLevel = new SequenceDifficultyLevel();
+            //_sequenceDifficultyLevel = new SequenceDifficultyLevel();
 
-            _levelCounter.Initialize(_sequenceDifficultyLevel);
+            //_levelCounter.Initialize(_sequenceDifficultyLevel);
             ValidateObjects();
         }
 
         [Inject]
-        private void Construct(DifficultyState difficultyState)
+        private void Construct(
+            DifficultyState difficultyState, 
+            SequenceDifficultyLevel level)
         {
+            Guard.NotNull(difficultyState, nameof(difficultyState));
+            Guard.NotNull(level, nameof(level));
+
             _difficultyState = difficultyState;
+            _sequenceDifficultyLevel = level;
         }
 
         public void BeginNewRound()

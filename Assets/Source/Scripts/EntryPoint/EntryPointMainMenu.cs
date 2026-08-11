@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Source.Scripts.EntryPoint
 {
@@ -15,6 +16,9 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private LanguageSetter _languageSetter;
         private List<IObjectInitilizable> _servicesInitializable = new();
+
+        [Inject] 
+        private SequenceDifficultyLevel _sequenceDifficultyLevel;
 
         private void Awake()
         {
@@ -29,6 +33,9 @@ namespace Assets.Source.Scripts.EntryPoint
                 if (mono is IObjectInitilizable initObj)
                     _servicesInitializable.Add(initObj);
             }
+
+            if (_sequenceDifficultyLevel is IObjectInitilizable sequence)
+                _servicesInitializable.Add(sequence);
 
             StartCoroutine(InitializeServices());
         }

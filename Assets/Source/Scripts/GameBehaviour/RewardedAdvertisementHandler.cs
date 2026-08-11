@@ -15,7 +15,11 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             Guard.NotNull(_levelCounter, nameof(_levelCounter));
             Guard.NotNull(_iconView, nameof(_iconView));
-            _iconView.gameObject.SetActive(false);
+
+            if (_levelCounter.RoundNumber == FirstRoundNumber)
+                _iconView.gameObject.SetActive(false);
+
+            Debug.Log("Текущий уровень - " + _levelCounter.RoundNumber);
         }
 
         private void OnEnable()
@@ -31,9 +35,10 @@ namespace Assets.Source.Scripts.GameBehaviour
         private void OnShowIconReward(int value)
         {
             Guard.NotNull(value, nameof(value));
+            _iconView.gameObject.SetActive(true);
 
-            if (value > FirstRoundNumber)
-                _iconView.gameObject.SetActive(true);
+            //if (value > FirstRoundNumber)
+            //    _iconView.gameObject.SetActive(true);
         }
     }
 }
