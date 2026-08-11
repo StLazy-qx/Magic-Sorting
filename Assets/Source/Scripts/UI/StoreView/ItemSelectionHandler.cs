@@ -37,7 +37,6 @@ namespace Assets.Source.Scripts.UI.StoreView
         {
             _itemViewPool.ActivateAll();
             RefreshAllItemViews();
-            //ShowPurchaseValidation();
         }
 
         private void OnEnable()
@@ -45,6 +44,8 @@ namespace Assets.Source.Scripts.UI.StoreView
             _buyButton.onClick.AddListener(OnBuyButtonClicked);
             _equipButton.onClick.AddListener(OnEquipButtonClicked);
             _inventory.ItemBuyed += OnShowEquipButton;
+
+            RefreshAllItemViews();
         }
 
         private void OnDisable()
@@ -70,18 +71,6 @@ namespace Assets.Source.Scripts.UI.StoreView
 
             UpdateButtonsState();
             _currentItemView.Selected();
-
-            //if (_currentItemView != null && 
-            //    _currentItemView != newItemView)
-            //{
-            //    _currentItemView.SetDefaultColor();
-            //}
-
-            //_currentItemView = newItemView;
-            //_selectedItem = _currentItemView.GetComponent<Item>();
-
-            //UpdateButtonsState();
-            //_currentItemView.Selected();
         }
 
         private void OnBuyButtonClicked()
@@ -108,12 +97,10 @@ namespace Assets.Source.Scripts.UI.StoreView
             _store.EquipItem(_selectedItem);
             RefreshAllItemViews();
             OnSelectShowedItem(_currentItemView);
-            //UpdateButtonsState();
         }
 
         private void OnShowEquipButton(NewItemView boughtItemView)
         {
-            //boughtItemView.ShowPurchaseValidation();
             RefreshAllItemViews();
 
             if (_currentItemView == boughtItemView)
@@ -145,21 +132,7 @@ namespace Assets.Source.Scripts.UI.StoreView
                 _priceText.text = _selectedItem.Price.ToString();
             }
         }
-
-        //private void ShowPurchaseValidation()
-        //{
-        //    foreach (NewItemView view in _itemViewPool.Objects)
-        //    {
-        //        Item item = view.GetComponent<Item>();
-
-        //        if (item != null && _inventory.EquippedItem.ID == item.ID)
-        //            view.ShowEquipped();
-
-        //        if (item != null && _inventory.HasItem(item.ID))
-        //            view.ShowPurchaseValidation();
-        //    }
-        //}
-
+       
         private void RefreshAllItemViews()
         {
             foreach (NewItemView view in _itemViewPool.Objects)

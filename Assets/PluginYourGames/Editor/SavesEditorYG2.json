@@ -13,13 +13,14 @@
     false,
     false
   ],
-  "idSave": 22,
+  "idSave": 26,
   "MainPoints": 500,
   "ActualRoundNumber": 3,
-  "EquippedItem": "22222",
+  "EquippedItem": "11111",
   "ItemIDs": [
-    "22222"
+    "22222",
+    "11111"
   ],
   "Points": 500,
-  "EquippedItemID": "22222"
+  "EquippedItemID": "11111"
 }
