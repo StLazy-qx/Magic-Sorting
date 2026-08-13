@@ -19,16 +19,11 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             Guard.NotNull(level, nameof(level));
 
-            Debug.Log("Последовательность засетилась " + level != null);
-
             _currentLevel = level;
             RoundNumber = _currentLevel.RoundNumber;
             _currentLevel.RoundChanged += OnRoundChange;
-        }
 
-        private void OnEnable()
-        {
-            _currentLevel.RoundChanged += OnRoundChange;
+            OnRoundChange(RoundNumber);
         }
 
         private void OnDisable()
@@ -40,7 +35,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             Guard.NotNull(roundNumber, nameof(roundNumber));
             RoundNumber = roundNumber;
-            RoundChanged?.Invoke(roundNumber);
+            RoundChanged?.Invoke(RoundNumber);
         }
     }
 }

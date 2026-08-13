@@ -93,10 +93,12 @@ namespace Assets.Source.Scripts.ActionsHandlers
             _reverseButton.UIButton.interactable = false;
 
             YG2.onErrorRewardedAdv += OnRewardError;
+            YG2.onCloseRewardedAdv += OnRewardClose;
 
             YG2.RewardedAdvShow(RewardID, () =>
             {
                 YG2.onErrorRewardedAdv -= OnRewardError;
+                YG2.onCloseRewardedAdv -= OnRewardClose;
 
                 _isShowingReward = false;
 
@@ -128,6 +130,15 @@ namespace Assets.Source.Scripts.ActionsHandlers
         private void OnRewardError()
         {
             YG2.onErrorRewardedAdv -= OnRewardError;
+
+            _isShowingReward = false;
+            _reverseButton.UIButton.interactable = true;
+        }
+
+        private void OnRewardClose()
+        {
+            YG2.onErrorRewardedAdv -= OnRewardError;
+            YG2.onCloseRewardedAdv -= OnRewardClose;
 
             _isShowingReward = false;
             _reverseButton.UIButton.interactable = true;
