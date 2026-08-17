@@ -15,19 +15,20 @@ namespace Assets.Source.Scripts.EntryPoint
         private const float MediumHardProbability = 10f;
 
         private int _currentIndex;
+        private int _roundNumber;
         private List<DifficultyLevel> _sequence = new();
 
         public event Action<int> RoundChanged;
 
-        public int RoundNumber => _currentIndex + 1;
+        public int RoundNumber => _roundNumber;
         public bool IsInitialized { get; private set; }
 
         public void Initialize()
         {
+            _currentIndex = 0;
             _sequence = new List<DifficultyLevel>(InitialSequenceLength);
 
-            ExtendSequence(InitialSequenceLength);
-            //InitSequence();
+            ExtendSequence(InitialSequenceLength, _currentIndex);
             LoadRound();
 
             IsInitialized = true;
@@ -35,13 +36,14 @@ namespace Assets.Source.Scripts.EntryPoint
 
         public DifficultyLevel GetNext()
         {
-            while (_currentIndex >= _sequence.Count)
+            if (_currentIndex >= _sequence.Count)
             {
-                ExtendSequence(ExtendBatchSize);
+                ExtendSequence(ExtendBatchSize, _currentIndex);
             }
 
             DifficultyLevel level = _sequence[_currentIndex];
             _currentIndex++;
+            _roundNumber++;
 
             SaveRound();
 
@@ -50,23 +52,19 @@ namespace Assets.Source.Scripts.EntryPoint
 
         private void LoadRound()
         {
-            int roundNumber = YG2.saves.GetRoundNumber();
-            _currentIndex = roundNumber - 1;
-
-            RoundChanged?.Invoke(roundNumber);
+            _roundNumber = YG2.saves.GetRoundNumber();
+            RoundChanged?.Invoke(_roundNumber);
         }
 
         private void SaveRound()
         {
-            int roundNumber = _currentIndex + 1;
-
-            YG2.saves.SaveRoundNumber(roundNumber);
-            RoundChanged?.Invoke(roundNumber);
+            YG2.saves.SaveRoundNumber(_roundNumber);
+            RoundChanged?.Invoke(_roundNumber);
         }
 
-        private void ExtendSequence(int count)
+        private void ExtendSequence(int count, int beginNumber)
         {
-            for (int i = 0; i < count; i++)
+            for (int i = beginNumber; i < beginNumber + count; i++)
             {
                 _sequence.Add(GetRandomDifficulty());
             }

@@ -1,52 +1,50 @@
-using System;
-using UnityEngine;
+using Assets.Source.Scripts.Extensions;
+using YG;
 
 namespace Assets.Source.Scripts.Audio
 {
     public class AudioSettingsData
     {
+        private const float MinVolume = 0f;
         private const float MaxVolume = 1f;
-
-        public AudioSettingsData()
-        {
-            IsMuted = false;
-            Master = MaxVolume;
-            Ambient = MaxVolume;
-            Effect = MaxVolume;
-        }
 
         public float Master { get; private set; }
         public float Ambient { get; private set; }
         public float Effect { get; private set; }
-        public bool IsMuted { get; private set; }
+
+        public void Load()
+        {
+            Master = ValidateVolumeValue(YG2.saves.MasterVolume, nameof(Master));
+            Ambient = ValidateVolumeValue(YG2.saves.AmbientVolume, nameof(Ambient));
+            Effect = ValidateVolumeValue(YG2.saves.EffectVolume, nameof(Effect));
+        }
 
         public void SetMasterVolume(float value)
         {
-            Master = ValidateVolumeValue(value);
+            Master = ValidateVolumeValue(value, nameof(Master));
+
+            YG2.saves.SaveMasterVolume(value);
         }
 
         public void SetAmbientVolume(float value)
         {
-            Ambient = ValidateVolumeValue(value);
+            Ambient = ValidateVolumeValue(value, nameof(Ambient));
+
+            YG2.saves.SaveAmbientVolume(value);
         }
 
         public void SetEffectVolume(float value)
         {
-            Effect = ValidateVolumeValue(value);
+            Effect = ValidateVolumeValue(value, nameof(Effect));
+
+            YG2.saves.SaveEffectVolume(value);
         }
 
-        public void ChangeMuteState()
-            => IsMuted = !IsMuted;
-
-        private float ValidateVolumeValue(float value)
+        private float ValidateVolumeValue(float value, string parameterName)
         {
-            if (value < 0)
-            {
-                throw new ArgumentOutOfRangeException(
-                    nameof(value), "Volume value cannot be negative");
-            }
+            Guard.InRange(value, MinVolume, MaxVolume, parameterName);
 
-            return Mathf.Clamp01(value);
+            return value;
         }
     }
 }

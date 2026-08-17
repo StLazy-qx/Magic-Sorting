@@ -163,37 +163,19 @@ namespace Assets.Source.Scripts.Pool
             }
             else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
             {
+                if (CanReverseColumn() == false)
+                    return;
+
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 
                 _clickImpactHandler.Reverse();
                 _clickImpactHandler.OnToggleMode();
             }
+        }
 
-            //if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
-            //{
-            //    if (_cellsStack.Count == 0)
-            //        return;
-
-            //    if (_cellsStack.TryPop(out MagicCell cell) == false)
-            //        return;
-
-            //    if (_cellRouter.IsCheckCellColor(cell.Color) == false)
-            //    {
-            //        _cellsStack.Push(cell);
-
-            //        return;
-            //    }
-
-            //    _cellRouter.DeliverMagicCell(cell);
-            //    cell.Disable();
-            //}
-            //else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
-            //{
-            //    _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
-
-            //    _clickImpactHandler.Reverse();
-            //    _clickImpactHandler.OnToggleMode();
-            //}
+        private bool CanReverseColumn()
+        {
+            return _cellsStack.Count > 1;
         }
 
         private void ValidateArguments(

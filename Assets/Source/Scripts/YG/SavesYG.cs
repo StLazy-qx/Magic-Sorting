@@ -1,15 +1,19 @@
 using Assets.Source.Scripts.Extensions;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace YG
 {
     public partial class SavesYG
     {
         private const int FirstRoundNumber = 1;
+        private const float BeginVolume = 0.5f;
 
-        //private int TotalPoints;
         public int MainPoints;
         public int ActualRoundNumber;
+        public float MasterVolume = BeginVolume;
+        public float AmbientVolume = BeginVolume;
+        public float EffectVolume = BeginVolume;
         public string EquippedItem;
         public List<string> ItemIDs = new();
 
@@ -21,7 +25,6 @@ namespace YG
             Guard.NotNegative(points, nameof(points));
 
             MainPoints = points;
-            //TotalPoints += points;
 
             if (YG2.isSDKEnabled)
                 YG2.SetLeaderboard("GameLeaderboard", MainPoints);
@@ -57,6 +60,42 @@ namespace YG
                 return;
 
             ActualRoundNumber = number;
+
+            YG2.SaveProgress();
+        }
+
+        public void SaveMasterVolume(float value)
+        {
+            float clamped = Mathf.Clamp01(value);
+
+            if (MasterVolume == clamped)
+                return;
+
+            MasterVolume = clamped;
+
+            YG2.SaveProgress();
+        }
+
+        public void SaveAmbientVolume(float value)
+        {
+            float clamped = Mathf.Clamp01(value);
+
+            if (AmbientVolume == clamped)
+                return;
+
+            AmbientVolume = clamped;
+
+            YG2.SaveProgress();
+        }
+
+        public void SaveEffectVolume(float value)
+        {
+            float clamped = Mathf.Clamp01(value);
+
+            if (EffectVolume == clamped)
+                return;
+
+            EffectVolume = clamped;
 
             YG2.SaveProgress();
         }

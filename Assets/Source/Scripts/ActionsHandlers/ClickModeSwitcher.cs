@@ -104,7 +104,6 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
                 _reverseButton.Enable();
                 ActivateReverceMode();
-                _reverseButton.SetState(true);
 
                 _reverseButton.UIButton.interactable = true;
             });
@@ -133,6 +132,8 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
             _isShowingReward = false;
             _reverseButton.UIButton.interactable = true;
+
+            _reverseButton.SetState(false);
         }
 
         private void OnRewardClose()
@@ -142,6 +143,8 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
             _isShowingReward = false;
             _reverseButton.UIButton.interactable = true;
+
+            _reverseButton.SetState(true);
         }
 
         private void ActivateDistributionMode()

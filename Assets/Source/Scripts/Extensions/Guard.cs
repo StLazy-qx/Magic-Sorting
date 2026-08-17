@@ -12,6 +12,12 @@ namespace Assets.Source.Scripts.Extensions
                 throw new ArgumentNullException(argumentName);
         }
 
+        public static void NotNull(UnityEngine.Object argument, string argumentName)
+        {
+            if (argument == null)
+                throw new ArgumentNullException(argumentName);
+        }
+
         public static void NotNullOrWhiteSpace(string argument, string argumentName)
         {
             NotNull(argument, argumentName);
@@ -58,6 +64,13 @@ namespace Assets.Source.Scripts.Extensions
                 throw new ArgumentOutOfRangeException(argumentName, argument,
                     $"Значение должно быть между {min} и {max} включительно.");
             }
+        }
+
+        public static void InRange(float argument, float min, float max, string argumentName)
+        {
+            if (argument < min || argument > max)
+                throw new ArgumentOutOfRangeException(argumentName, argument, 
+                    $"Значение должно быть между {min} и {max} включительно.");
         }
 
         public static void IsTrue(bool condition, string argumentName, string message)
