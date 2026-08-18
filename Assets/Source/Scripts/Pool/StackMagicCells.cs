@@ -44,7 +44,6 @@ namespace Assets.Source.Scripts.Pool
         {
             ValidateArguments(factory, cellRouter, colorSource, clickHandler, parent);
             ValidateValues(maxVolumeCells, prefabHeight);
-
             ClearStack();
 
             _factory = factory;
@@ -121,6 +120,11 @@ namespace Assets.Source.Scripts.Pool
                 cell : null;
         }
 
+        private bool CanReverseColumn()
+        {
+            return HasMoreOneCell() && AreDifferentColor();
+        }
+
         private void OnGamePause(bool isPaused)
         {
             _isPaused = isPaused;
@@ -161,11 +165,8 @@ namespace Assets.Source.Scripts.Pool
                 _cellRouter.DeliverMagicCell(cell);
                 cell.Disable();
             }
-            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
+            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse && CanReverseColumn())
             {
-                if (CanReverseColumn() == false)
-                    return;
-
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 
                 _clickImpactHandler.Reverse();
@@ -173,9 +174,25 @@ namespace Assets.Source.Scripts.Pool
             }
         }
 
-        private bool CanReverseColumn()
+        private bool HasMoreOneCell()
         {
             return _cellsStack.Count > 1;
+        }
+
+        private bool AreDifferentColor()
+        {
+            if (_cellsStack.Count == 0)
+                return false;
+
+            Color topColor = _cellsStack.Peek().Color;
+
+            foreach (MagicCell cell in _cellsStack)
+            {
+                if (cell.Color != topColor)
+                    return true;
+            }
+
+            return false;
         }
 
         private void ValidateArguments(

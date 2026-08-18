@@ -27,7 +27,6 @@ namespace Assets.Source.Scripts.Tutorial
 
         private float _beginsearchInterval = 1.5f;
         private float _searchInterval = 8f;
-        private IconRewardedAdvertisement _rewardedButton;
         private ReverseButton _reverseButton;
         private AsyncTimer _timer;
         private List<MagicColumn> _currentColumns;
@@ -73,7 +72,6 @@ namespace Assets.Source.Scripts.Tutorial
             Guard.NotNull(rewardedButton, nameof(rewardedButton));
             Guard.NotNull(reverseButton, nameof(reverseButton));
 
-            _rewardedButton = rewardedButton;
             _reverseButton = reverseButton;
             _modeSwitcher.ReverseButtonActivating += OnReverseButtonActivated;
         }
@@ -98,17 +96,22 @@ namespace Assets.Source.Scripts.Tutorial
         private void OnStartSearchLoopAfterRewarded()
         {
             _animationParticle.Stop();
+            UpdateReverseButtonAvailability();
             _timer.StartTimer(0, PerformAnalysis);
         }
 
         private void OnStartSearchLoop()
         {
             _animationParticle.Stop();
+            UpdateReverseButtonAvailability();
             _timer.StartTimer(_searchInterval, PerformAnalysis);
         }
 
         private void OnStartInitialSearch()
         {
+            _reverseButton.UIButton.interactable = true;
+            Debug.Log("Начало нового раунда");
+
             _animationParticle.Stop();
             _timer.StartTimer(_beginsearchInterval, PerformAnalysis);
         }
@@ -166,40 +169,6 @@ namespace Assets.Source.Scripts.Tutorial
             MagicCell waitingPointCandidate = FindBottomMatchForAnyVessel();
 
             ResolveNoMatchCases(waitingPointCandidate);
-
-
-            //MagicCell firstWrongCell = null;
-            //bool hasMatchInColumns = false;
-
-            //foreach (Vessel vessel in _currentVessels)
-            //{
-            //    Color color = vessel.Color;
-
-            //    foreach (MagicColumn column in _currentColumns)
-            //    {
-            //        StackMagicCells stack = column.GetComponent<StackMagicCells>();
-            //        MagicCell topCell = stack.TryGetCellByColor(color);
-
-            //        if (topCell != null)
-            //        {
-            //            hasMatchInColumns = true;
-
-            //            PlayAnimationCell(topCell);
-
-            //            return;
-            //        }
-
-            //        if (firstWrongCell == null)
-            //        {
-            //            MagicCell upperCell = stack.GetBottomCell();
-
-            //            if (upperCell != null)
-            //                firstWrongCell = upperCell;
-            //        }
-            //    }
-            //}
-
-            //ResolveNoMatchCases(firstWrongCell, hasMatchInColumns);
         }
 
         private bool TryFindTopMatch()
@@ -263,46 +232,45 @@ namespace Assets.Source.Scripts.Tutorial
             _animationParticle.Play(reverseButton);
         }
 
-        //private void ResolveNoMatchCases(MagicCell firstWrongCell, bool hasMatchInColumns)
-        //{
-        //    Button reverseButton = GetComponentButton(_reverseButton);
+        private void UpdateReverseButtonAvailability()
+        {
+            if (_reverseButton == null)
+                return;
 
-        //    if (!hasMatchInColumns && _waitingPoint.IsFreePlace)
-        //    {
-        //        if (firstWrongCell != null)
-        //            _animationParticle.Play(firstWrongCell.transform.position);
+            Button button = GetComponentButton(_reverseButton);
 
-        //        return;
-        //    }
+            if (AreAllColumnsEmpty())
+            {
+                button.interactable = false;
 
-        //    if (hasMatchInColumns == false 
-        //        && _waitingPoint.IsFreePlace == false 
-        //        && IsInteractable(_reverseButton))
-        //    {
-        //        _animationParticle.Play(reverseButton);
+                return;
+            }
 
-        //        return;
-        //    }
+            button.interactable = true;
+        }
 
-        //    if (hasMatchInColumns == false 
-        //        && _waitingPoint.IsFreePlace == false 
-        //        && IsInteractable(_reverseButton) == false)
-        //    {
-        //        _animationParticle.Play(reverseButton);
-        //    }
-        //}
+        private bool AreAllColumnsEmpty()
+        {
+            LoadCurrentColumns();
+
+            if (_currentColumns.Count == 0)
+                return true;
+
+            foreach (MagicColumn column in _currentColumns)
+            {
+                StackMagicCells stack = column.GetComponent<StackMagicCells>();
+
+                if (stack.GetUpperCell() != null)
+                    return false;
+            }
+
+            return true;
+        }
 
         private void PlayAnimationCell(MagicCell magicCell)
         {
             Guard.NotNull(magicCell, nameof(magicCell));
             _animationParticle.Play(magicCell.transform.position);
-        }
-
-        private bool IsInteractable(Component button)
-        {
-            Button checkingButton = button?.GetComponent<Button>();
-
-            return checkingButton != null && checkingButton.interactable;
         }
 
         private Button GetComponentButton(Component component)
