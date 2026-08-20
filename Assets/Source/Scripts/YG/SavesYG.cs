@@ -1,12 +1,13 @@
-using Assets.Source.Scripts.Extensions;
+//using Assets.Source.Scripts.Extensions;
+using Assets.Source.Scripts.YG;
 using System.Collections.Generic;
-using UnityEngine;
+//using UnityEngine;
 
 namespace YG
 {
     public partial class SavesYG
     {
-        private const int FirstRoundNumber = 1;
+        //private const int FirstRoundNumber = 1;
         private const float BeginVolume = 0.5f;
 
         public int MainPoints;
@@ -17,110 +18,153 @@ namespace YG
         public string EquippedItem;
         public List<string> ItemIDs = new();
 
-        public int Points => MainPoints;
-        public string EquippedItemID => EquippedItem;
+        private ScoreSection _score;
+        private RoundSection _round;
+        private AudioSettingsSection _audio;
+        private InventorySection _inventory;
 
-        public void SaveScore(int points)
-        {
-            Guard.NotNegative(points, nameof(points));
+        public ScoreSection Score => _score ??= new ScoreSection(this);
+        public RoundSection Round => _round ??= new RoundSection(this);
+        public AudioSettingsSection Audio => _audio ??= new AudioSettingsSection(this);
+        public InventorySection Inventory => _inventory ??= new InventorySection(this);
 
-            MainPoints = points;
+        public int Points => Score.Points;
+        public string EquippedItemID => Inventory.EquippedItemID;
 
-            if (YG2.isSDKEnabled)
-                YG2.SetLeaderboard("GameLeaderboard", MainPoints);
+        public void SaveScore(int points) 
+            => Score.SaveScore(points);
 
-            YG2.SaveProgress();
-        }
+        public void DecreaseScore(int points) 
+            => Score.DecreaseScore(points);
 
-        public void DecreaseScore(int points)
-        {
-            Guard.NotNegative(points, nameof(points));
+        public void AddItem(string itemID) 
+            => Inventory.AddItem(itemID);
 
-            MainPoints = points;
+        public void SaveEquippedItem(string itemID) 
+            => Inventory.SaveEquippedItem(itemID);
 
-            YG2.SaveProgress();
-        }
+        public IReadOnlyList<string> GetPurchasedItems() 
+            => Inventory.GetPurchasedItems();
 
-        public void AddItem(string itemID)
-        {
-            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
+        public void SaveRoundNumber(int number) 
+            => Round.SaveRoundNumber(number);
 
-            if (ItemIDs.Contains(itemID))
-                return;
+        public int GetRoundNumber() 
+            => Round.GetRoundNumber();
 
-            ItemIDs.Add(itemID);
-            YG2.SaveProgress();
-        }
+        public void SaveMasterVolume(float value) 
+            => Audio.SaveMasterVolume(value);
 
-        public void SaveRoundNumber(int number)
-        {
-            Guard.NotNegative(number, nameof(number));
+        public void SaveAmbientVolume(float value) 
+            => Audio.SaveAmbientVolume(value);
 
-            if (ActualRoundNumber == number)
-                return;
+        public void SaveEffectVolume(float value) 
+            => Audio.SaveEffectVolume(value);
 
-            ActualRoundNumber = number;
+        //public int Points => MainPoints;
+        //public string EquippedItemID => EquippedItem;
 
-            YG2.SaveProgress();
-        }
+        //public void SaveScore(int points)
+        //{
+        //    Guard.NotNegative(points, nameof(points));
 
-        public void SaveMasterVolume(float value)
-        {
-            float clamped = Mathf.Clamp01(value);
+        //    MainPoints = points;
 
-            if (MasterVolume == clamped)
-                return;
+        //    if (YG2.isSDKEnabled)
+        //        YG2.SetLeaderboard("GameLeaderboard", MainPoints);
 
-            MasterVolume = clamped;
+        //    YG2.SaveProgress();
+        //}
 
-            YG2.SaveProgress();
-        }
+        //public void DecreaseScore(int points)
+        //{
+        //    Guard.NotNegative(points, nameof(points));
 
-        public void SaveAmbientVolume(float value)
-        {
-            float clamped = Mathf.Clamp01(value);
+        //    MainPoints = points;
 
-            if (AmbientVolume == clamped)
-                return;
+        //    YG2.SaveProgress();
+        //}
 
-            AmbientVolume = clamped;
+        //public void AddItem(string itemID)
+        //{
+        //    Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
 
-            YG2.SaveProgress();
-        }
+        //    if (ItemIDs.Contains(itemID))
+        //        return;
 
-        public void SaveEffectVolume(float value)
-        {
-            float clamped = Mathf.Clamp01(value);
+        //    ItemIDs.Add(itemID);
+        //    YG2.SaveProgress();
+        //}
 
-            if (EffectVolume == clamped)
-                return;
+        //public void SaveRoundNumber(int number)
+        //{
+        //    Guard.NotNegative(number, nameof(number));
 
-            EffectVolume = clamped;
+        //    if (ActualRoundNumber == number)
+        //        return;
 
-            YG2.SaveProgress();
-        }
+        //    ActualRoundNumber = number;
 
-        public void SaveEquippedItem(string itemID)
-        {
-            Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
+        //    YG2.SaveProgress();
+        //}
 
-            EquippedItem = string.IsNullOrWhiteSpace(itemID)
-                ? string.Empty
-                : itemID;
+        //public void SaveMasterVolume(float value)
+        //{
+        //    float clamped = Mathf.Clamp01(value);
 
-            YG2.SaveProgress();
-        }
+        //    if (MasterVolume == clamped)
+        //        return;
 
-        public int GetRoundNumber()
-        {
-            return ActualRoundNumber > 0 ? 
-                ActualRoundNumber : 
-                FirstRoundNumber;
-        }
+        //    MasterVolume = clamped;
 
-        public IReadOnlyList<string> GetPurchasedItems()
-        {
-            return ItemIDs.AsReadOnly();
-        }
+        //    YG2.SaveProgress();
+        //}
+
+        //public void SaveAmbientVolume(float value)
+        //{
+        //    float clamped = Mathf.Clamp01(value);
+
+        //    if (AmbientVolume == clamped)
+        //        return;
+
+        //    AmbientVolume = clamped;
+
+        //    YG2.SaveProgress();
+        //}
+
+        //public void SaveEffectVolume(float value)
+        //{
+        //    float clamped = Mathf.Clamp01(value);
+
+        //    if (EffectVolume == clamped)
+        //        return;
+
+        //    EffectVolume = clamped;
+
+        //    YG2.SaveProgress();
+        //}
+
+        //public void SaveEquippedItem(string itemID)
+        //{
+        //    Guard.NotNullOrWhiteSpace(itemID, nameof(itemID));
+
+        //    EquippedItem = string.IsNullOrWhiteSpace(itemID)
+        //        ? string.Empty
+        //        : itemID;
+
+        //    YG2.SaveProgress();
+        //}
+
+        //public int GetRoundNumber()
+        //{
+        //    return ActualRoundNumber > 0 ? 
+        //        ActualRoundNumber : 
+        //        FirstRoundNumber;
+        //}
+
+        //public IReadOnlyList<string> GetPurchasedItems()
+        //{
+        //    return ItemIDs.AsReadOnly();
+        //}
     }
 }

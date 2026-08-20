@@ -13,18 +13,32 @@
     false,
     false
   ],
-  "idSave": 125,
+  "idSave": 126,
   "MainPoints": 4900,
   "ActualRoundNumber": 8,
   "MasterVolume": 0.389934868,
   "AmbientVolume": 1.0,
   "EffectVolume": 1.0,
-  "EquippedItem": "33333",
+  "EquippedItem": "11111",
   "ItemIDs": [
     "22222",
     "11111",
     "33333"
   ],
+  "Score": {
+    "Points": 4900
+  },
+  "Round": {
+    "ActualRoundNumber": 8
+  },
+  "Audio": {
+    "MasterVolume": 0.389934868,
+    "AmbientVolume": 1.0,
+    "EffectVolume": 1.0
+  },
+  "Inventory": {
+    "EquippedItemID": "11111"
+  },
   "Points": 4900,
-  "EquippedItemID": "33333"
+  "EquippedItemID": "11111"
 }
