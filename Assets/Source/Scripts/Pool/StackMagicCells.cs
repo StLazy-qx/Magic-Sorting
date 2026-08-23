@@ -120,7 +120,7 @@ namespace Assets.Source.Scripts.Pool
                 cell : null;
         }
 
-        private bool CanReverseColumn()
+        public bool CanReverseColumn()
         {
             return HasMoreOneCell() && AreDifferentColor();
         }
@@ -165,7 +165,10 @@ namespace Assets.Source.Scripts.Pool
                 _cellRouter.DeliverMagicCell(cell);
                 cell.Disable();
             }
-            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse && CanReverseColumn())
+            else if (
+                _clickImpactHandler.CurrentMode == 
+                ClickImpactMode.ModeReverse && 
+                CanReverseColumn())
             {
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 

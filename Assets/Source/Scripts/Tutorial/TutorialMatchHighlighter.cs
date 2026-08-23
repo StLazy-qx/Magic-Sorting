@@ -110,7 +110,6 @@ namespace Assets.Source.Scripts.Tutorial
         private void OnStartInitialSearch()
         {
             _reverseButton.UIButton.interactable = true;
-            Debug.Log("Начало нового раунда");
 
             _animationParticle.Stop();
             _timer.StartTimer(_beginsearchInterval, PerformAnalysis);
@@ -118,16 +117,37 @@ namespace Assets.Source.Scripts.Tutorial
 
         private void OnReverseButtonActivated()
         {
+            bool anyCanReverse = false;
+
             LoadCurrentColumns();
             LoadCurrentVessels();
+
+            foreach (MagicColumn column in _currentColumns)
+            {
+                StackMagicCells stack = column.GetComponent<StackMagicCells>();
+
+                if (stack.CanReverseColumn())
+                {
+                    anyCanReverse = true;
+                    break;
+                }
+            }
+
+            if (anyCanReverse == false)
+            {
+                Button reverseButton = GetComponentButton(_reverseButton);
+                if (reverseButton != null)
+                    _animationParticle.Play(reverseButton);
+                return;
+            }
 
             MagicColumn targetColumn = FindReverseColumn();
 
             if (targetColumn == null)
                 return;
 
-            StackMagicCells stack = targetColumn.GetComponent<StackMagicCells>();
-            MagicCell cell = stack.GetUpperCell();
+            StackMagicCells stackForTarget = targetColumn.GetComponent<StackMagicCells>();
+            MagicCell cell = stackForTarget.GetUpperCell();
 
             if (cell != null)
                 _animationParticle.Play(cell.transform.position);

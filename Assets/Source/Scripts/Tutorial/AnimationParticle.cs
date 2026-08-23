@@ -19,11 +19,16 @@ namespace Assets.Source.Scripts.Tutorial
         }
 
         public void Play(Vector3 position)
-        {
+        {        
+            float offsetEffectPositionY = 0.27f;
+
             if (_particle == null)
                 return;
 
-            transform.position = position;
+            transform.position = new Vector3(
+                position.x,
+                position.y + offsetEffectPositionY,
+                position.z);
 
             gameObject.SetActive(true);
 
