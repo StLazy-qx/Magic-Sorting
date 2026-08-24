@@ -15,7 +15,7 @@ F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50990
+51885
 Successfully changed project path to: F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,15 +49,17 @@ F:/ST/Unity project/Pyitochnaya/Magic-Sorting
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [1328]  Target information:
+Player connection [21560]  Target information:
 
-Player connection [1328]  * "[IP] 192.168.31.36 [Port] 0 [Flags] 2 [Guid] 4072486802 [EditorId] 4072486802 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [21560]  * "[IP] 10.8.0.14 [Port] 0 [Flags] 2 [Guid] 4131361892 [EditorId] 4131361892 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [1328] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [1328] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [21560]  * "[IP] 192.168.31.36 [Port] 0 [Flags] 2 [Guid] 4131361892 [EditorId] 4131361892 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [21560] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [21560] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-Refreshing native plugins compatible for Editor in 33.40 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 34.64 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.62f2 (7670c08855a9)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Resources/UnitySubsystems
@@ -73,50 +75,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56768
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56376
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.018682 seconds.
-- Loaded All Assemblies, in  0.523 seconds
+Registered in 0.019654 seconds.
+- Loaded All Assemblies, in  0.527 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 314 ms
+Android Extension - Scanning For ADB Devices 327 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.719 seconds
-Domain Reload Profiling: 1239ms
-	BeginReloadAssembly (158ms)
+- Finished resetting the current domain, in  0.750 seconds
+Domain Reload Profiling: 1275ms
+	BeginReloadAssembly (154ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (53ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (94ms)
-	LoadAllAssembliesAndSetupDomain (197ms)
-		LoadAssemblies (158ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (215ms)
+		LoadAssemblies (153ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (192ms)
-			TypeCache.Refresh (191ms)
-				TypeCache.ScanAssembly (172ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (719ms)
+		AnalyzeDomain (210ms)
+			TypeCache.Refresh (208ms)
+				TypeCache.ScanAssembly (190ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (751ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (659ms)
+		SetupLoadedEditorAssemblies (684ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (418ms)
+			InitializePlatformSupportModulesInManaged (441ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (169ms)
+			ProcessInitializeOnLoadAttributes (171ms)
 			ProcessInitializeOnLoadMethodAttributes (63ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
@@ -127,12 +129,12 @@ Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  1.423 seconds
+- Loaded All Assemblies, in  1.369 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=1d04ee80628a19540a8d18b729cf38db): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f7d03dc666fd3c64bb588f7ecabb719e): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
@@ -143,40 +145,40 @@ Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  1.571 seconds
-Domain Reload Profiling: 2991ms
-	BeginReloadAssembly (210ms)
+- Finished resetting the current domain, in  1.324 seconds
+Domain Reload Profiling: 2690ms
+	BeginReloadAssembly (216ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
+		CreateAndSetChildDomain (30ms)
 	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (68ms)
-	LoadAllAssembliesAndSetupDomain (1077ms)
-		LoadAssemblies (596ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (1018ms)
+		LoadAssemblies (608ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (606ms)
-			TypeCache.Refresh (512ms)
-				TypeCache.ScanAssembly (478ms)
-			ScanForSourceGeneratedMonoScriptInfo (54ms)
-			ResolveRequiredComponents (38ms)
-	FinalizeReload (1571ms)
+		AnalyzeDomain (535ms)
+			TypeCache.Refresh (441ms)
+				TypeCache.ScanAssembly (405ms)
+			ScanForSourceGeneratedMonoScriptInfo (61ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (1325ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1203ms)
+		SetupLoadedEditorAssemblies (1028ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (66ms)
-			SetLoadedEditorAssemblies (11ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (222ms)
-			ProcessInitializeOnLoadAttributes (753ms)
-			ProcessInitializeOnLoadMethodAttributes (139ms)
-			AfterProcessingInitializeOnLoad (12ms)
+			BeforeProcessingInitializeOnLoad (149ms)
+			ProcessInitializeOnLoadAttributes (721ms)
+			ProcessInitializeOnLoadMethodAttributes (112ms)
+			AfterProcessingInitializeOnLoad (10ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
 WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
@@ -189,13 +191,13 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 13.98 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 14.64 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7328 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 65 unused Assets / (0.7 MB). Loaded Objects now: 7777.
-Memory consumption went from 264.0 MB to 263.3 MB.
-Total: 7.716100 ms (FindLiveObjects: 0.762800 ms CreateObjectMapping: 0.602800 ms MarkObjects: 5.849400 ms  DeleteObjects: 0.500100 ms)
+Memory consumption went from 264.3 MB to 263.6 MB.
+Total: 7.418700 ms (FindLiveObjects: 0.776200 ms CreateObjectMapping: 0.476200 ms MarkObjects: 5.723800 ms  DeleteObjects: 0.441500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -212,171 +214,56 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 5007.050770 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panel Green.png
-  artifactKey: Guid(61dd4b4ded1fec74480695550f54d148) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panel Green.png using Guid(61dd4b4ded1fec74480695550f54d148) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 19561.832917 seconds.
+  path: Assets/Source/UI Resources/Backgtounds/20260201_2040_Image Generation_remix_01kgd4kp69eq8v89xhd52ca701.png
+  artifactKey: Guid(e3e58a9dd47464542989ae34f3b3c5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/20260201_2040_Image Generation_remix_01kgd4kp69eq8v89xhd52ca701.png using Guid(e3e58a9dd47464542989ae34f3b3c5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'ffb73274473815f57196bb3af967c479') in 0.164068 seconds
+ -> (artifact id: 'c8e096671b835935cf013f1397c25fd1') in 0.174899 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000026 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panel Pink.png
-  artifactKey: Guid(f580749602672a34fac8ab0643c2a0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panel Pink.png using Guid(f580749602672a34fac8ab0643c2a0db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  path: Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_2.jpg
+  artifactKey: Guid(bf7b25fe983d4b54dadfeb5b95695f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_2.jpg using Guid(bf7b25fe983d4b54dadfeb5b95695f49) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '6a71b64a38fb82f5857776e601ecc7ca') in 0.038704 seconds
+ -> (artifact id: 'c7ce08eb1da1b9a29d865fc994c87270') in 0.078427 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panels Style 2 Orange.png
-  artifactKey: Guid(5af159fe7617e0d49bac227578248a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panels Style 2 Orange.png using Guid(5af159fe7617e0d49bac227578248a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Source/UI Resources/Backgtounds/New0260201_2040_Image Generation_remix_01kgd4kp6afs1b2wn4kvxggqbv.png
+  artifactKey: Guid(a8bbdbe968ad7604f946989dc98d9b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/New0260201_2040_Image Generation_remix_01kgd4kp6afs1b2wn4kvxggqbv.png using Guid(a8bbdbe968ad7604f946989dc98d9b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '737c4da5220d07eea4bffcd5d11baf58') in 0.028885 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panels Style 2 Green.png
-  artifactKey: Guid(b40d433859d7ac84bbaef8c466cbe4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panels Style 2 Green.png using Guid(b40d433859d7ac84bbaef8c466cbe4f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'e7f05b2324f7df1898b0b6f662646d61') in 0.034090 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panels Style 2 Purple.png
-  artifactKey: Guid(67ae0b8315a808542a646c540231aa88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panels Style 2 Purple.png using Guid(67ae0b8315a808542a646c540231aa88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'db6d678a65063c0d66b3f4e1c105a9fb') in 0.041559 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panels Style 2 Violet.png
-  artifactKey: Guid(2423bc8beede9344d98c41e18af1a299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panels Style 2 Violet.png using Guid(2423bc8beede9344d98c41e18af1a299) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '0e49e187ec84e6210850037f789909a6') in 0.037771 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panels Style 2 Yellow.png
-  artifactKey: Guid(d05bc581a65fcb14094c810312ac3c3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panels Style 2 Yellow.png using Guid(d05bc581a65fcb14094c810312ac3c3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '5d8122107f8c9c83b50ef75b834e60c5') in 0.027706 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Source/UI Resources/Panels/White Panel Pink.png
-  artifactKey: Guid(d8265e6a959e1064c97197868736a524) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/White Panel Pink.png using Guid(d8265e6a959e1064c97197868736a524) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '77474365a99bcdc59e3560b138e7fc8c') in 0.025702 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Source/UI Resources/Panels/White Panel Red.png
-  artifactKey: Guid(a9af6f756a1fd544cb3e5fa671ffc232) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/White Panel Red.png using Guid(a9af6f756a1fd544cb3e5fa671ffc232) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'c6ac3243b2634a86aec1f6ab6f844648') in 0.059692 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Source/UI Resources/Panels/Dark Panel Orange.png
-  artifactKey: Guid(d3775896da0a0d842bb96a97235b216f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/Dark Panel Orange.png using Guid(d3775896da0a0d842bb96a97235b216f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'baf8b67289014ba692799927cd1e4eb8') in 0.084243 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Source/UI Resources/Panels/White Panel Blue.png
-  artifactKey: Guid(1a0826b925ea56842b7027ed1df8df4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/White Panel Blue.png using Guid(1a0826b925ea56842b7027ed1df8df4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a88a0671fd8cb85c1bcfc8820f3e74f3') in 0.028452 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 6.412566 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 1 ORANGE'.png
-  artifactKey: Guid(b42f785a045610b43a95dfda85beb851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 1 ORANGE'.png using Guid(b42f785a045610b43a95dfda85beb851) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '05e736e19f54f1629ed3f51bb2f61e52') in 0.025952 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.047050 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 1 YELLOW.png
-  artifactKey: Guid(5670db3fcde148d43a3bb725c8f51ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 1 YELLOW.png using Guid(5670db3fcde148d43a3bb725c8f51ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'b5916f1e9b9acb732a5fed0274584ccf') in 0.028550 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 BLUE 1.png
-  artifactKey: Guid(dbd5c10d149cfb34ea01eef9ea7db287) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 BLUE 1.png using Guid(dbd5c10d149cfb34ea01eef9ea7db287) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '7e3af5287cc6a1e05516335c9fe642c0') in 0.018871 seconds
+ -> (artifact id: '803987d2236bbe36be1572afc1707fb3') in 0.085296 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000019 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 GREEN.png
-  artifactKey: Guid(e63c7abf5b32c634b968cc8f48f9ecc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 GREEN.png using Guid(e63c7abf5b32c634b968cc8f48f9ecc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  path: Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_3.jpg
+  artifactKey: Guid(fb4b23168f2fa6f4090ba41be7b6dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_3.jpg using Guid(fb4b23168f2fa6f4090ba41be7b6dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '79b9318f4ed9bd363e673b642e7294e9') in 0.019180 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 CYAN.png
-  artifactKey: Guid(8aa1cfc1771272c47a62cdbfe5fe7f01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 CYAN.png using Guid(8aa1cfc1771272c47a62cdbfe5fe7f01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a1b6d283e5b4d85fd4ccc2418780f5a2') in 0.023478 seconds
+ -> (artifact id: '59c95ab3b0cd99c275c2d6fa793a08c2') in 0.056262 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
-  path: Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 PINK.png
-  artifactKey: Guid(01189a4d50540ed4483f3d2a8920bdb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/UI Resources/Panels/NEW Panels/Panel 2 PINK.png using Guid(01189a4d50540ed4483f3d2a8920bdb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  path: Assets/Source/UI Resources/Backgtounds/20260201_2047_Image Generation_remix_01kgd4zwv7ez2bba96b955dpv0.png
+  artifactKey: Guid(bcef4f9936133f044a41bc4de4c85991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/20260201_2047_Image Generation_remix_01kgd4zwv7ez2bba96b955dpv0.png using Guid(bcef4f9936133f044a41bc4de4c85991) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'f20bcab8e1027b7394bade8fea05c9f7') in 0.022933 seconds
+ -> (artifact id: 'eecc48b8fbd4271f2d8f305d978fde3b') in 0.030617 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: ќпераци€ ввода/вывода была прервана из-за завершени€ потока команд или по запросу приложени€.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
