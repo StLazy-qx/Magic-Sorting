@@ -143,6 +143,7 @@
     <Compile Include="Assets\Source\Scripts\UI\StoreView\NewItemView.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ColorEntry.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\SoundView\SliderHandleReleaseListener.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\ColumnsFactory.cs" />
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointMainMenu.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_callingSimulation.cs" />

@@ -54,9 +54,9 @@ namespace Assets.Source.Scripts.YG
             _saveScheduler.RequestSave();
         }
 
-        public void Flush()
+        public void ForceSaver()
         {
-            _saveScheduler.Flush();
+            _saveScheduler.ForceSaver();
         }
 
         public void Dispose()

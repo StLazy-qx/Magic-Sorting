@@ -66,12 +66,15 @@ namespace YG
         public void SaveAmbientVolume(float value) 
             => Audio.SaveAmbientVolume(value);
 
-        public void SaveEffectVolume(float value) 
+        public void SaveEffectVolume(float value)
             => Audio.SaveEffectVolume(value);
+
+        public void ForceSaveAudio()
+           => Audio.ForceSaver();
 
         private void OnApplicationQuit()
         {
-            Audio.Flush();
+            Audio.ForceSaver();
             YG2.SaveProgress();
         }
     }

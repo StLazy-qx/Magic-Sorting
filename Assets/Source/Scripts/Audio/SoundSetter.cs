@@ -3,6 +3,7 @@ using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.UI.SoundView;
 using UnityEngine;
 using UnityEngine.Audio;
+using YG;
 using Zenject;
 
 namespace Assets.Source.Scripts.Audio
@@ -44,6 +45,10 @@ namespace Assets.Source.Scripts.Audio
             _volumeSliderView.OnEffectChanged += 
                 volume => SetVolume(Effect, volume);
 
+            _volumeSliderView.OnMasterReleased += ForceSaveAudio;
+            _volumeSliderView.OnAmbientReleased += ForceSaveAudio;
+            _volumeSliderView.OnEffectReleased += ForceSaveAudio;
+
             ValidateSettingsValues();
             _volumeSliderView.SetInitialValues(
                 _settings.Master,
@@ -73,17 +78,22 @@ namespace Assets.Source.Scripts.Audio
             switch (parameter)
             {
                 case Master: 
-                    _settings.SetMasterVolume(value); 
+                    _settings.SetMasterVolume(value);
                     break;
 
                 case Ambient: 
-                    _settings.SetAmbientVolume(value); 
+                    _settings.SetAmbientVolume(value);
                     break;
 
                 case Effect: 
-                    _settings.SetEffectVolume(value); 
+                    _settings.SetEffectVolume(value);
                     break;
             }
+        }
+
+        private void ForceSaveAudio()
+        {
+            YG2.saves.ForceSaveAudio();
         }
 
         private void RestoreVolumes()

@@ -7,7 +7,7 @@ namespace Assets.Source.Scripts.YG
 {
     public class AudioSaveScheduler : IDisposable
     {
-        private const int SaveIntervalMilliseconds = 500;
+        private const int SaveIntervalMilliseconds = 250;
 
         private CancellationTokenSource _cancellationTokenSource;
         private bool _saveRequested;
@@ -25,7 +25,7 @@ namespace Assets.Source.Scripts.YG
             _saveRequested = true;
         }
 
-        public void Flush()
+        public void ForceSaver()
         {
             if (_saveRequested == false)
                 return;
@@ -37,33 +37,35 @@ namespace Assets.Source.Scripts.YG
 
         private async UniTaskVoid RunSaveLoop(CancellationToken cancellationToken)
         {
-            while (cancellationToken.IsCancellationRequested == false)
+            try
             {
-                await UniTask.Delay(
-                    SaveIntervalMilliseconds,
-                    cancellationToken: cancellationToken);
-
-                if (_saveRequested == false || _isSaving)
-                    continue;
-
-                _isSaving = true;
-
-                try
+                while (true)
                 {
-                    YG2.SaveProgress();
+                    await UniTask.Delay(
+                        SaveIntervalMilliseconds,
+                        cancellationToken: cancellationToken);
 
-                    _saveRequested = false;
-                }
-                finally
-                {
-                    _isSaving = false;
+                    if (_saveRequested == false || _isSaving)
+                        continue;
+
+                    _isSaving = true;
+                    try
+                    {
+                        YG2.SaveProgress();
+                        _saveRequested = false;
+                    }
+                    finally
+                    {
+                        _isSaving = false;
+                    }
                 }
             }
+            catch (OperationCanceledException) {}
         }
 
         public void Dispose()
         {
-            Flush();
+            ForceSaver();
             _cancellationTokenSource.Cancel();
             _cancellationTokenSource.Dispose();
 
