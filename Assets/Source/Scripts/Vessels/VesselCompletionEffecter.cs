@@ -10,6 +10,7 @@ namespace Assets.Source.Scripts.Vessels
         private readonly float _offsetY = 0.3f;
 
         [SerializeField] private ParticlePool _particlePool;
+        [SerializeField] private VesselStateTracker _vesselStateTracker;
 
         public event Action<int> PoolEffectSizeReading;
 
@@ -26,14 +27,10 @@ namespace Assets.Source.Scripts.Vessels
 
         public IEnumerator PlayEffect(
             Vector3 position,
-            Color color,
-            float duration)
+            Color color)
         {
-            if (duration <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(duration),
-                    "Effect duration must be greater than zero.");
-            }
+            float timeEndSession = 2f;
+            float halfDuration = timeEndSession / 1.3f;
 
             ParticleSystem particle = _particlePool.HandOver();
 
@@ -50,7 +47,7 @@ namespace Assets.Source.Scripts.Vessels
 
             particle.Play();
 
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(timeEndSession);
         }
     }
 }

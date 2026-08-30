@@ -10,7 +10,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 using Zenject;
-
+using YG;
 
 namespace Assets.Source.Scripts.GameBehaviour
 {
@@ -29,18 +29,29 @@ namespace Assets.Source.Scripts.GameBehaviour
         private SequenceDifficultyLevel _sequenceDifficultyLevel;
         private DifficultyState _difficultyState;
         private DifficultySettings _currentSettings;
+        private bool _isInterstitialPending;
+        private bool _isAdShowing = false;
 
         public event Action GameLaunching;
-
-        //зачем?
-        public ClickModeSwitcher ClickImpactHandler => _clickImpactHandler;
+        private Action _pendingRoundAction = null;
 
         private void Awake()
         {
-            //_sequenceDifficultyLevel = new SequenceDifficultyLevel();
-
-            //_levelCounter.Initialize(_sequenceDifficultyLevel);
             ValidateObjects();
+        }
+
+        private void OnEnable()
+        {
+            YG2.onCloseInterAdv += OnCloseInterAdv;
+            YG2.onCloseInterAdvWasShow += OnCloseInterAdvWasShow;
+            YG2.onErrorInterAdv += OnErrorInterAdv;
+        }
+
+        private void OnDisable()
+        {
+            YG2.onCloseInterAdv -= OnCloseInterAdv;
+            YG2.onCloseInterAdvWasShow -= OnCloseInterAdvWasShow;
+            YG2.onErrorInterAdv -= OnErrorInterAdv;
         }
 
         [Inject]
@@ -55,6 +66,16 @@ namespace Assets.Source.Scripts.GameBehaviour
             _sequenceDifficultyLevel = level;
         }
 
+        public void ShowInterstitialAd()
+        {
+            if (_isAdShowing)
+                return;
+
+            _isAdShowing = true;
+
+            YG2.InterstitialAdvShow();
+        }
+
         public void BeginNewRound()
         {
             ChangeDifficultyBySequence();
@@ -64,6 +85,26 @@ namespace Assets.Source.Scripts.GameBehaviour
         public void ResetCurrentRound()
         {
             LaunchCurrentDifficulty();
+        }
+
+        public void ShowInterstitial()
+        {
+            if (_isInterstitialPending)
+                return;
+
+            _isInterstitialPending = true;
+
+            YG2.InterstitialAdvShow();
+        }
+
+        private void TryCompleteInterstitial()
+        {
+            if (_isInterstitialPending == false)
+                return;
+
+            _isInterstitialPending = false;
+
+            BeginNewRound();
         }
 
         protected override void ExtendInitialize()
@@ -87,6 +128,33 @@ namespace Assets.Source.Scripts.GameBehaviour
             ContinueGame();
             ResetEntity();
             StartCoroutine(BeginRoundRoutine());
+        }
+
+        private void OnCloseInterAdv()
+        {
+            HandleAdClosed();
+        }
+
+        private void OnCloseInterAdvWasShow(bool wasShown)
+        {
+            HandleAdClosed();
+        }
+
+        private void OnErrorInterAdv()
+        {
+            HandleAdClosed();
+        }
+
+        private void HandleAdClosed()
+        {
+            _isAdShowing = false;
+
+            if (_pendingRoundAction != null)
+            {
+                var action = _pendingRoundAction;
+                _pendingRoundAction = null;
+                action?.Invoke();
+            }
         }
 
         private void ChangeDifficultyBySequence()

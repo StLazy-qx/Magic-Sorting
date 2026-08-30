@@ -6,10 +6,12 @@ namespace Assets.Source.Scripts.YG
     public class AudioSettingsSection
     {
         private readonly SavesYG _saves;
+        private readonly AudioSaveScheduler _saveScheduler;
 
         public AudioSettingsSection(SavesYG saves)
         {
             _saves = saves;
+            _saveScheduler = new AudioSaveScheduler();
         }
 
         public float MasterVolume => _saves.MasterVolume;
@@ -19,33 +21,47 @@ namespace Assets.Source.Scripts.YG
         public void SaveMasterVolume(float value)
         {
             float clamped = Mathf.Clamp01(value);
-            if (_saves.MasterVolume == clamped) return;
+
+            if (_saves.MasterVolume == clamped) 
+                return;
 
             _saves.MasterVolume = clamped;
-            SaveProgress();
+
+            _saveScheduler.RequestSave();
         }
 
         public void SaveAmbientVolume(float value)
         {
             float clamped = Mathf.Clamp01(value);
-            if (_saves.AmbientVolume == clamped) return;
+
+            if (_saves.AmbientVolume == clamped) 
+                return;
 
             _saves.AmbientVolume = clamped;
-            SaveProgress();
+
+            _saveScheduler.RequestSave();
         }
 
         public void SaveEffectVolume(float value)
         {
             float clamped = Mathf.Clamp01(value);
-            if (_saves.EffectVolume == clamped) return;
+
+            if (_saves.EffectVolume == clamped) 
+                return;
 
             _saves.EffectVolume = clamped;
-            SaveProgress();
+
+            _saveScheduler.RequestSave();
         }
 
-        public void SaveProgress()
+        public void Flush()
         {
-            YG2.SaveProgress();
+            _saveScheduler.Flush();
+        }
+
+        public void Dispose()
+        {
+            _saveScheduler.Dispose();
         }
     }
 }

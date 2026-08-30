@@ -11,7 +11,6 @@ namespace Assets.Source.Scripts.UI.Buttons
 
             CurrentPanel?.Close();
             TargetPanel?.Open();
-            //sessionHandler.IncreaseDifficultyLevel();
         }
     }
 }

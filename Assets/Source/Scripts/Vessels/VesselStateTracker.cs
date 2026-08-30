@@ -14,8 +14,6 @@ namespace Assets.Source.Scripts.Vessels
 {
     public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
     {
-        private const float TimeEndSession = 2f;
-
         [SerializeField] private Panel _finalMatchPanelDesctop;
         [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private FinalGameSession _finalGame;
@@ -27,6 +25,8 @@ namespace Assets.Source.Scripts.Vessels
         private IReadOnlyList<Vessel> _vessels;
 
         public event Action RoundOvering;
+        public event Action VictoryAudioClipEnabled;
+
 
         public bool IsInitialized { get; private set; }
 
@@ -57,6 +57,11 @@ namespace Assets.Source.Scripts.Vessels
             IsInitialized = true;
         }
 
+        public bool IsAllVesselsComplete()
+        {
+            return _veselsCount == _vessels.Count;
+        }
+
         public void SetVesselsList(IReadOnlyList<Vessel> vessels)
         {
             ValidateVesselsList(vessels);
@@ -78,6 +83,11 @@ namespace Assets.Source.Scripts.Vessels
 
         private void OnPerformEffectCoroutine(Vector3 position, int points, Color color)
         {
+            _veselsCount++;
+
+            if (IsAllVesselsComplete())
+                VictoryAudioClipEnabled?.Invoke();
+
             _wallet.AddPoints(points);
             StartCoroutine(PerformEffect(position, color));
         }
@@ -85,18 +95,15 @@ namespace Assets.Source.Scripts.Vessels
         private IEnumerator PerformEffect(Vector3 position, Color color)
         {
             RoundOvering.Invoke();
-
-            yield return _effecter.PlayEffect(
-                position, color, TimeEndSession);
-
+            
+            yield return _effecter.PlayEffect(position, color);
+            
             OnFixateVessel();
         }
 
         private void OnFixateVessel()
         {
-            _veselsCount++;
-
-            if (_veselsCount == _vessels.Count)
+            if (IsAllVesselsComplete())
             {
                 _wallet.ConfirmPoints();
                 _wallet.Reset();

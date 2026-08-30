@@ -174,12 +174,12 @@
     <Compile Include="Assets\Source\Scripts\Player\PlayerEntity.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdv_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Platform\PlatformSettings_langs.cs" />
-    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ClickHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\PaymentsCatalogYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\PanelSwitchButton.cs" />
     <Compile Include="Assets\PluginYourGames\Example\Scripts\BasicData.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\ConsumePurchasesYG.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Tutorial\TutorialMenu.cs" />
+    <Compile Include="Assets\Source\Scripts\Audio\VictoryAudioPlayer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\BannerAdv\Scripts\Banner_interface.cs" />
     <Compile Include="Assets\Source\Scripts\Vessels\Liquid.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\ISpawnable.cs" />
@@ -237,6 +237,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Translates\Langs.cs" />
+    <Compile Include="Assets\Source\Scripts\YG\AudioSaveScheduler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_info.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\QuitGameEvent\Scripts\QuitGameEvent_info.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\AutoLang_info.cs" />
