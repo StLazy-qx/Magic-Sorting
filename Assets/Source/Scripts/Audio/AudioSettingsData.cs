@@ -19,6 +19,21 @@ namespace Assets.Source.Scripts.Audio
             Effect = ValidateVolumeValue(YG2.saves.EffectVolume, nameof(Effect));
         }
 
+        public void UpdateMasterVolume(float value)
+        {
+            Master = ValidateVolumeValue(value, nameof(Master));
+        }
+
+        public void UpdateAmbientVolume(float value)
+        {
+            Ambient = ValidateVolumeValue(value, nameof(Ambient));
+        }
+
+        public void UpdateEffectVolume(float value)
+        {
+            Effect = ValidateVolumeValue(value, nameof(Effect));
+        }
+
         public void SetMasterVolume(float value)
         {
             Master = ValidateVolumeValue(value, nameof(Master));

@@ -7,7 +7,7 @@ namespace Assets.Source.Scripts.YG
 {
     public class AudioSaveScheduler : IDisposable
     {
-        private const int SaveIntervalMilliseconds = 250;
+        private const int SaveIntervalMilliseconds = 500;
 
         private CancellationTokenSource _cancellationTokenSource;
         private bool _saveRequested;

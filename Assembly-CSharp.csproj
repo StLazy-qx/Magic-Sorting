@@ -139,6 +139,7 @@
     <Compile Include="Assets\Source\Scripts\Vessels\Vessel.cs" />
     <Compile Include="Assets\Source\Scripts\Pool\Pool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Source\Scripts\UI\GameModeView\ReverseButtonView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Source\Scripts\UI\StoreView\NewItemView.cs" />
     <Compile Include="Assets\Source\Scripts\Colorize\ColorEntry.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\InterstitialAdv\Scripts\InterstitialAdv_callingSimulation.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\AutoTranslateLangs\Scripts\LanguageYG.cs" />
     <Compile Include="Assets\Source\Scripts\GameBehaviour\GameHandler.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ClickModeTracker.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Scripts\RewardedAdvLockTimer.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_projectSettings.cs" />
     <Compile Include="Assets\Source\Scripts\Factory\StoreItemFactory.cs" />
@@ -292,6 +294,7 @@
     <Compile Include="Assets\PluginYourGames\Modules\Payments\Scripts\Payments_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\Metrica_interface.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\OpenURL\Scripts\URL_yandexPlatform.cs" />
+    <Compile Include="Assets\Source\Scripts\YG\RewardedadvertisingGateway.cs" />
     <Compile Include="Assets\Source\Scripts\Player\SkinSetter.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\StickyAdv\Scripts\StickyAdv_yg.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonNewRoundBeginner.cs" />
