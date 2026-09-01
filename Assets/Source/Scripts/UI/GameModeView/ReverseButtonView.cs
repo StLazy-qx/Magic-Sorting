@@ -14,6 +14,16 @@ namespace Assets.Source.Scripts.UI.GameModeView
         public bool IsRewardedIconActive =>
             _rewardedIcon != null && _rewardedIcon.gameObject.activeSelf;
 
+        private void OnEnable()
+        {
+            _reverseButton.OnClick.AddListener(RaiseButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            _reverseButton.OnClick.RemoveListener(RaiseButtonClicked);
+        }
+
         public void SetReverseUsedState(bool isUsed)
         {
             if (isUsed)
@@ -29,6 +39,9 @@ namespace Assets.Source.Scripts.UI.GameModeView
             }
         }
 
+        public void SetButtonLockedVisual(bool locked)
+           => _reverseButton.SetState(locked);
+
         public void EnableButton()
         {
             if (_reverseButton != null)
@@ -40,5 +53,8 @@ namespace Assets.Source.Scripts.UI.GameModeView
 
         public void ResetState()
             => SetReverseUsedState(false);
+
+        private void RaiseButtonClicked()
+            => ButtonClicked?.Invoke();
     }
 }

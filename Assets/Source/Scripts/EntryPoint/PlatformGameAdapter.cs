@@ -41,7 +41,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _mobileObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
-            _clickModeSwitcher.SetButton(_reverseButtonMobile, _rewardedIconMobile);
+            _clickModeSwitcher.SetButton(_reverseButtonViewMobile);
             _seeker.SetButtonRewarded(_rewardedIconMobile, _reverseButtonMobile);
         }
 
@@ -50,7 +50,7 @@ namespace Assets.Source.Scripts.EntryPoint
             _desktopObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
-            _clickModeSwitcher.SetButton(_reverseButtonDesktop, _rewardedIconDesktop);
+            _clickModeSwitcher.SetButton(_reverseButtonViewDesktop);
             _seeker.SetButtonRewarded(_rewardedIconDesktop, _reverseButtonDesktop);
         }
 

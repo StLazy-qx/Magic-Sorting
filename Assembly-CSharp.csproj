@@ -187,6 +187,7 @@
     <Compile Include="Assets\Source\Scripts\Factory\ISpawnable.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Basic\WindowGame.cs" />
     <Compile Include="Assets\PluginYourGames\Platforms\YandexGames\Scripts\OwnHost\OwnHost.cs" />
+    <Compile Include="Assets\Source\Scripts\ActionsHandlers\ReverseRewardFlow.cs" />
     <Compile Include="Assets\Source\Scripts\Extensions\ShuffleExtensions.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Metrica\Scripts\JsonUtils.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Example\Scripts\SaverTest.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Assets\Source\Scripts\Factory\MagicCellsFactory.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Localization\Scripts\Lang_projectSettings.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_interface.cs" />
+    <Compile Include="Assets\Source\Scripts\Audio\VolumeSaveCoordinator.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\EditorScr\Translates\Langs.cs" />
     <Compile Include="Assets\Source\Scripts\YG\AudioSaveScheduler.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Leaderboards\Scripts\LB_info.cs" />

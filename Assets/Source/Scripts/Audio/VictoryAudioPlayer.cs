@@ -7,6 +7,8 @@ namespace Assets.Source.Scripts.Audio
 {
     class VictoryAudioPlayer : MonoBehaviour
     {
+        private const float ValueUntilAudioTurnsOn = 0.4f;
+
         [SerializeField] private VesselStateTracker _vesselStateTracker;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _interactClip;
@@ -46,7 +48,7 @@ namespace Assets.Source.Scripts.Audio
 
         private IEnumerator InvokeVictoryDuration()
         {
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(ValueUntilAudioTurnsOn);
 
             _audioSource.PlayOneShot(_interactClip);
         }

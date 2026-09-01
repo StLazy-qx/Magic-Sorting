@@ -23,7 +23,6 @@ namespace Assets.Source.Scripts.YG
             _currentOnError = () => CompleteReward(onError);
             _currentOnClose = () => CompleteReward(onClose);
 
-            //как работает?
             void HandleSuccess() => CompleteReward(onSuccess);
 
             Subscribe(_currentOnError, _currentOnClose);
