@@ -16,6 +16,7 @@ namespace Assets.Source.Scripts.UI.LanguageView
         [SerializeField] private Button _turkishButton;
         [SerializeField] private Color _selectedColor;
 
+        // сделать посредник между логикой _languageSetter и UI языка
         private Color _defaultColorButton;
         private LanguageSetter _languageSetter;
 

@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-F:/ST/Unity project/Pyitochnaya/Magic-Sorting old
+F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49407
-Successfully changed project path to: F:/ST/Unity project/Pyitochnaya/Magic-Sorting old
-F:/ST/Unity project/Pyitochnaya/Magic-Sorting old
+62103
+Successfully changed project path to: F:/ST/Unity project/Pyitochnaya/Magic-Sorting
+F:/ST/Unity project/Pyitochnaya/Magic-Sorting
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,21 +49,19 @@ F:/ST/Unity project/Pyitochnaya/Magic-Sorting old
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [12008]  Target information:
+Player connection [7932]  Target information:
 
-Player connection [12008]  * "[IP] 10.8.0.34 [Port] 0 [Flags] 2 [Guid] 2732427758 [EditorId] 2732427758 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [7932]  * "[IP] 192.168.31.36 [Port] 0 [Flags] 2 [Guid] 3292777006 [EditorId] 3292777006 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [12008]  * "[IP] 192.168.31.36 [Port] 0 [Flags] 2 [Guid] 2732427758 [EditorId] 2732427758 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-MRAJI7N) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
-
-Player connection [12008] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [12008] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [7932] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [7932] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-Refreshing native plugins compatible for Editor in 31.21 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 30.50 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.62f2 (7670c08855a9)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path F:/ST/Unity project/Pyitochnaya/Magic-Sorting old/Assets
+[Subsystems] Discovering subsystems at path F:/ST/Unity project/Pyitochnaya/Magic-Sorting/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -75,50 +73,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56000
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56276
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.020234 seconds.
-- Loaded All Assemblies, in  0.541 seconds
+Registered in 0.018800 seconds.
+- Loaded All Assemblies, in  0.535 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 346 ms
+Android Extension - Scanning For ADB Devices 335 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.780 seconds
-Domain Reload Profiling: 1319ms
+- Finished resetting the current domain, in  0.766 seconds
+Domain Reload Profiling: 1300ms
 	BeginReloadAssembly (155ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (48ms)
+	RebuildCommonClasses (47ms)
 	RebuildNativeTypeToScriptingClass (16ms)
 	initialDomainReloadingComplete (94ms)
-	LoadAllAssembliesAndSetupDomain (225ms)
+	LoadAllAssembliesAndSetupDomain (220ms)
 		LoadAssemblies (154ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (220ms)
-			TypeCache.Refresh (218ms)
-				TypeCache.ScanAssembly (198ms)
+		AnalyzeDomain (216ms)
+			TypeCache.Refresh (214ms)
+				TypeCache.ScanAssembly (195ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (781ms)
+	FinalizeReload (767ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (712ms)
+		SetupLoadedEditorAssemblies (700ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (463ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (451ms)
+			SetLoadedEditorAssemblies (13ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (175ms)
+			ProcessInitializeOnLoadAttributes (169ms)
 			ProcessInitializeOnLoadMethodAttributes (64ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
@@ -129,12 +127,13 @@ Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  1.357 seconds
+- Loaded All Assemblies, in  1.386 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=bf969491d5f68b342b541fdad2396fe6): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Asset Pipeline Refresh (id=f18668125e40aa54eb0d302b64256573): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
@@ -145,37 +144,37 @@ Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  1.300 seconds
-Domain Reload Profiling: 2654ms
-	BeginReloadAssembly (217ms)
+- Finished resetting the current domain, in  1.413 seconds
+Domain Reload Profiling: 2796ms
+	BeginReloadAssembly (218ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
-	RebuildCommonClasses (50ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (49ms)
 	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (69ms)
-	LoadAllAssembliesAndSetupDomain (1000ms)
-		LoadAssemblies (590ms)
+	initialDomainReloadingComplete (66ms)
+	LoadAllAssembliesAndSetupDomain (1034ms)
+		LoadAssemblies (608ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (542ms)
-			TypeCache.Refresh (455ms)
-				TypeCache.ScanAssembly (419ms)
+		AnalyzeDomain (554ms)
+			TypeCache.Refresh (466ms)
+				TypeCache.ScanAssembly (427ms)
 			ScanForSourceGeneratedMonoScriptInfo (57ms)
-			ResolveRequiredComponents (28ms)
-	FinalizeReload (1301ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (1414ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1000ms)
+		SetupLoadedEditorAssemblies (1113ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (30ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (34ms)
+			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (141ms)
-			ProcessInitializeOnLoadAttributes (694ms)
-			ProcessInitializeOnLoadMethodAttributes (117ms)
-			AfterProcessingInitializeOnLoad (13ms)
+			BeforeProcessingInitializeOnLoad (146ms)
+			ProcessInitializeOnLoadAttributes (790ms)
+			ProcessInitializeOnLoadMethodAttributes (121ms)
+			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (9ms)
@@ -191,231 +190,136 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 14.61 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 14.78 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7336 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 65 unused Assets / (3.2 MB). Loaded Objects now: 7784.
-Memory consumption went from 341.0 MB to 337.8 MB.
-Total: 6.347800 ms (FindLiveObjects: 0.756300 ms CreateObjectMapping: 0.458800 ms MarkObjects: 4.212700 ms  DeleteObjects: 0.919000 ms)
+Unloading 65 unused Assets / (3.3 MB). Loaded Objects now: 7778.
+Memory consumption went from 267.7 MB to 264.4 MB.
+Total: 8.072400 ms (FindLiveObjects: 0.670400 ms CreateObjectMapping: 0.461700 ms MarkObjects: 5.977700 ms  DeleteObjects: 0.961100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 93794.295793 seconds.
-  path: Assets/Source/Materials/Sheder
-  artifactKey: Guid(3ddd2bfd9baa2a947b93a67075b3cd86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Sheder using Guid(3ddd2bfd9baa2a947b93a67075b3cd86) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '7dd921d2de9743ed8b0956bf9bcc2c88') in 0.005933 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 6.378861 seconds.
-  path: Assets/Source/Materials/Shader
-  artifactKey: Guid(3ddd2bfd9baa2a947b93a67075b3cd86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Shader using Guid(3ddd2bfd9baa2a947b93a67075b3cd86) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '27cf1a6ffba794160ebe9590574a53a5') in 0.000676 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 3830.028257 seconds.
-  path: Assets/Source/Materials/Shader/Particle Shader.shader
-  artifactKey: Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Shader/Particle Shader.shader using Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '64c7c8a48f66d602a852c0ee16d2bc54') in 0.162582 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 64.163669 seconds.
-  path: Assets/Source/Materials/Shader/Particle Shader.shader
-  artifactKey: Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Shader/Particle Shader.shader using Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '13e9b0a80c8f400ba96c4f32f793981c') in 0.004192 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 70.001037 seconds.
-  path: Assets/VisualX_Studio/Sci-Fi_Loading_Screen_Effects_FREE/VFX/Material/ad_emty.mat
-  artifactKey: Guid(35352a620eb077f44a0d12d7284c2ec3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/VisualX_Studio/Sci-Fi_Loading_Screen_Effects_FREE/VFX/Material/ad_emty.mat using Guid(35352a620eb077f44a0d12d7284c2ec3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 115188.987401 seconds.
+  path: Assets/Source/Effects/VesselExplosion.prefab
+  artifactKey: Guid(a59c2681ef553684f873a45adb7aac2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/VesselExplosion.prefab using Guid(a59c2681ef553684f873a45adb7aac2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '700962efcd4fb48fd5fd2413f04c1805') in 0.385283 seconds
+ -> (artifact id: 'c116bf82526d403c32dd2e6938e556b9') in 0.173735 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 25
 ========================================================================
 Received Import Request.
-  Time since last request: 157.581334 seconds.
-  path: Assets/Source/Scenes
-  artifactKey: Guid(c48efd134073e35448ed23fa247fd85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Scenes using Guid(c48efd134073e35448ed23fa247fd85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '465c2fce6b83b7710b259acf20d03131') in 0.014778 seconds
+  Time since last request: 0.000032 seconds.
+  path: Assets/Source/Effects/PowerOrbStormElemental.prefab
+  artifactKey: Guid(bfe1795a0cc54f0478bb5df1034c32da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/PowerOrbStormElemental.prefab using Guid(bfe1795a0cc54f0478bb5df1034c32da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'f1fa2c33f52d7a78bf425337a418fb9c') in 0.155060 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 667.023976 seconds.
-  path: Assets/Source/Materials/Shader/Particle Shader.shader
-  artifactKey: Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Shader/Particle Shader.shader using Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '9f51d741a6193f1a4fa214a646d914a5') in 0.002883 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 27.644664 seconds.
-  path: Assets/Source/Materials/Shader/Particle Shader.shader
-  artifactKey: Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Materials/Shader/Particle Shader.shader using Guid(67b923a10ddd5e14ca9e567b0f00ef9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '10510bbc6736efe56f2055a62453cfdd') in 0.001731 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 35
 ========================================================================
 Received Prepare
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  5.291 seconds
+- Loaded All Assemblies, in  1.134 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=17fd235db7b1966408e2761aa967e7bc): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Asset Pipeline Refresh (id=342392f02ea50024395c735a9284f85b): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in 60.339 seconds
-Domain Reload Profiling: 65626ms
-	BeginReloadAssembly (570ms)
+- Finished resetting the current domain, in  2.142 seconds
+Domain Reload Profiling: 3272ms
+	BeginReloadAssembly (231ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (11ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (286ms)
-	RebuildCommonClasses (173ms)
+		CreateAndSetChildDomain (66ms)
+	RebuildCommonClasses (48ms)
 	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (57ms)
-	LoadAllAssembliesAndSetupDomain (4470ms)
-		LoadAssemblies (4614ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (784ms)
+		LoadAssemblies (557ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (56ms)
-			TypeCache.Refresh (14ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (39ms)
-	FinalizeReload (60340ms)
+		AnalyzeDomain (346ms)
+			TypeCache.Refresh (267ms)
+				TypeCache.ScanAssembly (245ms)
+			ScanForSourceGeneratedMonoScriptInfo (48ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (2143ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (903ms)
+		SetupLoadedEditorAssemblies (880ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (34ms)
-			SetLoadedEditorAssemblies (8ms)
+			InitializePlatformSupportModulesInManaged (32ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (146ms)
-			ProcessInitializeOnLoadAttributes (588ms)
-			ProcessInitializeOnLoadMethodAttributes (117ms)
-			AfterProcessingInitializeOnLoad (11ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
-WARNING: Shader Did you use #pragma only_renderers and omit this platform?
-WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Refreshing native plugins compatible for Editor in 16.79 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7185 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7841.
-Memory consumption went from 311.3 MB to 308.1 MB.
-Total: 9.144600 ms (FindLiveObjects: 0.772300 ms CreateObjectMapping: 0.460000 ms MarkObjects: 6.980000 ms  DeleteObjects: 0.931300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Prepare
-Caller must complete domain reload
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.876 seconds
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-Asset Pipeline Refresh (id=d2cfb829ed5370947baf02c11a531333): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
-Mono: successfully reloaded assembly
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  2.240 seconds
-Domain Reload Profiling: 3113ms
-	BeginReloadAssembly (230ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (54ms)
-	RebuildCommonClasses (50ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (522ms)
-		LoadAssemblies (606ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (46ms)
-			TypeCache.Refresh (11ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (33ms)
-	FinalizeReload (2241ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (872ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (31ms)
-			SetLoadedEditorAssemblies (7ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (139ms)
-			ProcessInitializeOnLoadAttributes (570ms)
-			ProcessInitializeOnLoadMethodAttributes (113ms)
+			BeforeProcessingInitializeOnLoad (145ms)
+			ProcessInitializeOnLoadAttributes (579ms)
+			ProcessInitializeOnLoadMethodAttributes (106ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -432,74 +336,295 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Refreshing native plugins compatible for Editor in 15.60 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 14.34 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7856.
-Memory consumption went from 311.1 MB to 307.9 MB.
-Total: 8.250700 ms (FindLiveObjects: 0.758300 ms CreateObjectMapping: 0.457000 ms MarkObjects: 6.131200 ms  DeleteObjects: 0.903300 ms)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7803.
+Memory consumption went from 237.8 MB to 234.6 MB.
+Total: 7.877000 ms (FindLiveObjects: 0.768500 ms CreateObjectMapping: 0.481500 ms MarkObjects: 5.756300 ms  DeleteObjects: 0.869500 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 190.971271 seconds.
+  path: Assets/Source/Scenes
+  artifactKey: Guid(c48efd134073e35448ed23fa247fd85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scenes using Guid(c48efd134073e35448ed23fa247fd85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '465c2fce6b83b7710b259acf20d03131') in 0.002393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.756194 seconds.
+  path: Assets/Source/Scenes/GameSessionScene.unity
+  artifactKey: Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scenes/GameSessionScene.unity using Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '330ecaa12c0bcc2753e5402b0f225b37') in 0.000779 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 128.919529 seconds.
+  path: Assets/Source/Effects
+  artifactKey: Guid(608990c46cadbf04ab1601cec17c811d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects using Guid(608990c46cadbf04ab1601cec17c811d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '733d19345a591c1eb01dd4921ad8c2d4') in 0.000693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.111518 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr ww smoke glow ab.mat
+  artifactKey: Guid(a73ea21367565fe478f25a8a2e33ade3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr ww smoke glow ab.mat using Guid(a73ea21367565fe478f25a8a2e33ade3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '375a6def2071246c3db862c1fde139d0') in 0.087026 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 32.823436 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch inv spike fade add.mat
+  artifactKey: Guid(50350a9c0e5b6454d873d1984e97cde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch inv spike fade add.mat using Guid(50350a9c0e5b6454d873d1984e97cde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '7e2278761e84ad23758869116d52cf24') in 0.016205 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 10.902813 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch inv spike fade.png
+  artifactKey: Guid(0f396005b9d2a904aaaccab1ad4b77a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch inv spike fade.png using Guid(0f396005b9d2a904aaaccab1ad4b77a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'ba440a176f1a98596549755dd6444724') in 0.035807 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 1.574385 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star.png
+  artifactKey: Guid(2e87876b19af3de43947a0cb28d5a578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star.png using Guid(2e87876b19af3de43947a0cb28d5a578) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '2af4b6fa14fe32c1f3280444c4d13bfb') in 0.014156 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.002253 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star blurred add.mat
+  artifactKey: Guid(a4b2919529f88e345804ef0e7e13b9bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star blurred add.mat using Guid(a4b2919529f88e345804ef0e7e13b9bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '44eacf1e3a609c78933e7490aceba8f8') in 0.257091 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch ray blur.png
+  artifactKey: Guid(ea08f0da7f459e147ba80e6dd6e38bb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch ray blur.png using Guid(ea08f0da7f459e147ba80e6dd6e38bb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'aa066d1b16cf3a7fa8614bfe36ce0b8e') in 0.015832 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rain blur ab nosp.mat
+  artifactKey: Guid(1907056c31c502d498df765288c92228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rain blur ab nosp.mat using Guid(1907056c31c502d498df765288c92228) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '02167bedf55a5d74b5ba5287cc7ef918') in 0.091339 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch flamme crisp.png
+  artifactKey: Guid(221462f4c3da8604c9dcc63641989a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch flamme crisp.png using Guid(221462f4c3da8604c9dcc63641989a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '862d399f6be4f068e6f7ea6d4cfdf03e') in 0.013794 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star mesh.asset
+  artifactKey: Guid(5cd3984e3d521b949b5dbeff045f62b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr star mesh.asset using Guid(5cd3984e3d521b949b5dbeff045f62b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '8551b3678fa313d1c1fd663c2a4cd7ce') in 0.197382 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rain blur ab.mat
+  artifactKey: Guid(f2beba2f11be47c4b93abe40da54b177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rain blur ab.mat using Guid(f2beba2f11be47c4b93abe40da54b177) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'c3fe42173d5c0f875883da54b90c82a8') in 0.034185 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rectangle ray hdr ab.mat
+  artifactKey: Guid(a1efb59804352a2458135e8203cbcc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rectangle ray hdr ab.mat using Guid(a1efb59804352a2458135e8203cbcc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '1d2a062c2dd4dca79171945a694c3a5b') in 0.033316 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rectangle ray blur hdr ab.mat
+  artifactKey: Guid(fb2beee5db2731d46b9243941fc0c31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch rectangle ray blur hdr ab.mat using Guid(fb2beee5db2731d46b9243941fc0c31e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'bc962bed28e5d4d3415944ca7c03b5a7') in 0.014810 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch fire crisp fade hdr ab.mat
+  artifactKey: Guid(2e32f93f5ce765e47b0cabd37ce2b73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch fire crisp fade hdr ab.mat using Guid(2e32f93f5ce765e47b0cabd37ce2b73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '4b6fab9b8065d74f4b94e1cb0822b782') in 0.155006 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr steam blur dissolve hdr add.mat
+  artifactKey: Guid(a8e9ac83c7b8f874dbd012d38148c845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr steam blur dissolve hdr add.mat using Guid(a8e9ac83c7b8f874dbd012d38148c845) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '0741c87b2cc37c3da184a6f117c1185e') in 0.083157 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 6.664852 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch spikes smooth x2 hdr ab.mat
+  artifactKey: Guid(e78955b2cfcfa73479b0cfe8e7ba17f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch spikes smooth x2 hdr ab.mat using Guid(e78955b2cfcfa73479b0cfe8e7ba17f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '83064bf66ea8925b6d9d5db81d3f7605') in 0.015414 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Prepare
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.839 seconds
+- Loaded All Assemblies, in  0.841 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=24636f96873a62146b92c0d69ecd5319): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Asset Pipeline Refresh (id=26e122b8724b4844dae720b27f2749fc): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  2.234 seconds
-Domain Reload Profiling: 3069ms
-	BeginReloadAssembly (221ms)
+- Finished resetting the current domain, in  2.248 seconds
+Domain Reload Profiling: 3085ms
+	BeginReloadAssembly (223ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (55ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (50ms)
-	LoadAllAssembliesAndSetupDomain (498ms)
-		LoadAssemblies (572ms)
+		CreateAndSetChildDomain (60ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (53ms)
+	LoadAllAssembliesAndSetupDomain (494ms)
+		LoadAssemblies (565ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (44ms)
+		AnalyzeDomain (46ms)
 			TypeCache.Refresh (11ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (31ms)
-	FinalizeReload (2235ms)
+			ResolveRequiredComponents (33ms)
+	FinalizeReload (2248ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (854ms)
+		SetupLoadedEditorAssemblies (890ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (32ms)
+			InitializePlatformSupportModulesInManaged (31ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (143ms)
-			ProcessInitializeOnLoadAttributes (544ms)
-			ProcessInitializeOnLoadMethodAttributes (115ms)
+			BeforeProcessingInitializeOnLoad (145ms)
+			ProcessInitializeOnLoadAttributes (579ms)
+			ProcessInitializeOnLoadMethodAttributes (114ms)
 			AfterProcessingInitializeOnLoad (12ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -516,74 +641,402 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Refreshing native plugins compatible for Editor in 14.63 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 16.30 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7871.
-Memory consumption went from 311.1 MB to 307.9 MB.
-Total: 8.535400 ms (FindLiveObjects: 0.775900 ms CreateObjectMapping: 0.462600 ms MarkObjects: 6.331100 ms  DeleteObjects: 0.964800 ms)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7858.
+Memory consumption went from 238.2 MB to 235.0 MB.
+Total: 7.971200 ms (FindLiveObjects: 0.715100 ms CreateObjectMapping: 0.445200 ms MarkObjects: 5.833100 ms  DeleteObjects: 0.976700 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
 ========================================================================
 Received Prepare
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.835 seconds
+- Loaded All Assemblies, in  0.831 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=5f4f0fc53bd2eeb45821320c67daac72): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Asset Pipeline Refresh (id=a18b2523fde25d24cbd9841eaf165371): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  2.278 seconds
-Domain Reload Profiling: 3109ms
-	BeginReloadAssembly (224ms)
+- Finished resetting the current domain, in  2.287 seconds
+Domain Reload Profiling: 3115ms
+	BeginReloadAssembly (218ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (53ms)
-	RebuildCommonClasses (52ms)
-	RebuildNativeTypeToScriptingClass (18ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (484ms)
-		LoadAssemblies (565ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (490ms)
+		LoadAssemblies (564ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (46ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (32ms)
+	FinalizeReload (2288ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (915ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (137ms)
+			ProcessInitializeOnLoadAttributes (616ms)
+			ProcessInitializeOnLoadMethodAttributes (113ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 21.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.3 MB). Loaded Objects now: 7873.
+Memory consumption went from 238.3 MB to 235.0 MB.
+Total: 8.937100 ms (FindLiveObjects: 0.708200 ms CreateObjectMapping: 0.461300 ms MarkObjects: 6.461400 ms  DeleteObjects: 1.304300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 109.600564 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr ww smoke glow ab.mat
+  artifactKey: Guid(a73ea21367565fe478f25a8a2e33ade3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr ww smoke glow ab.mat using Guid(a73ea21367565fe478f25a8a2e33ade3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3c282685ec2302268c692263b8fb2e5f') in 0.128306 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 6.523275 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr bubble 2 ab.mat
+  artifactKey: Guid(21417cf5ab018164f9d28d2e35ad8cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr bubble 2 ab.mat using Guid(21417cf5ab018164f9d28d2e35ad8cb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '33e77d76583ac82c0042e66749948a10') in 0.018645 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.823 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=724e02b87c7cb4149bb8c37e86d87c37): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.288 seconds
+Domain Reload Profiling: 3107ms
+	BeginReloadAssembly (222ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (57ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (479ms)
+		LoadAssemblies (553ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (46ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (32ms)
+	FinalizeReload (2289ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (912ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (33ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (152ms)
+			ProcessInitializeOnLoadAttributes (586ms)
+			ProcessInitializeOnLoadMethodAttributes (121ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 23.26 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7888.
+Memory consumption went from 238.2 MB to 235.0 MB.
+Total: 7.896700 ms (FindLiveObjects: 0.705700 ms CreateObjectMapping: 0.594900 ms MarkObjects: 5.691800 ms  DeleteObjects: 0.903400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 106.544969 seconds.
+  path: Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch spikes smooth x2 hdr ab.mat
+  artifactKey: Guid(e78955b2cfcfa73479b0cfe8e7ba17f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/JMO Assets/CFXR Assets/Graphics/cfxr stretch spikes smooth x2 hdr ab.mat using Guid(e78955b2cfcfa73479b0cfe8e7ba17f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '74ec832772f4ea34399ba0f7ba084e58') in 0.217474 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.833 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=dea4c88be09af8f4e83dbeaa6ba9364d): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.220 seconds
+Domain Reload Profiling: 3050ms
+	BeginReloadAssembly (219ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (55ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (493ms)
+		LoadAssemblies (566ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
 		AnalyzeDomain (45ms)
 			TypeCache.Refresh (11ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (32ms)
-	FinalizeReload (2279ms)
+	FinalizeReload (2221ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (875ms)
+		SetupLoadedEditorAssemblies (844ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (30ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (139ms)
-			ProcessInitializeOnLoadAttributes (562ms)
-			ProcessInitializeOnLoadMethodAttributes (125ms)
+			BeforeProcessingInitializeOnLoad (142ms)
+			ProcessInitializeOnLoadAttributes (530ms)
+			ProcessInitializeOnLoadMethodAttributes (123ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -600,74 +1053,636 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Refreshing native plugins compatible for Editor in 15.68 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 22.56 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7886.
-Memory consumption went from 311.1 MB to 307.9 MB.
-Total: 7.559800 ms (FindLiveObjects: 0.764100 ms CreateObjectMapping: 0.457800 ms MarkObjects: 5.425200 ms  DeleteObjects: 0.911800 ms)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7903.
+Memory consumption went from 238.3 MB to 235.0 MB.
+Total: 8.983200 ms (FindLiveObjects: 0.966700 ms CreateObjectMapping: 0.565400 ms MarkObjects: 6.059100 ms  DeleteObjects: 1.390700 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 220.310754 seconds.
+  path: Assets/Source/Effects/Epic Toon FX/Models/ETFX_Shield.FBX
+  artifactKey: Guid(ceb86a32224dc234d8c721b83a2c6821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Effects/Epic Toon FX/Models/ETFX_Shield.FBX using Guid(ceb86a32224dc234d8c721b83a2c6821) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '8efaeea6d5aceaa5ad5651859c2834bf') in 0.113322 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
 ========================================================================
 Received Prepare
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.893 seconds
+- Loaded All Assemblies, in  0.880 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Asset Pipeline Refresh (id=407c0427f97b03140a0d6e85dcec4f9a): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2aeb010dc49e3234292f9d4848d79834): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 [ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
 Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  2.213 seconds
-Domain Reload Profiling: 3103ms
-	BeginReloadAssembly (217ms)
+- Finished resetting the current domain, in  2.216 seconds
+Domain Reload Profiling: 3092ms
+	BeginReloadAssembly (220ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (55ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (540ms)
+		LoadAssemblies (552ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (107ms)
+			TypeCache.Refresh (23ms)
+				TypeCache.ScanAssembly (7ms)
+			ScanForSourceGeneratedMonoScriptInfo (51ms)
+			ResolveRequiredComponents (31ms)
+	FinalizeReload (2216ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (875ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (138ms)
+			ProcessInitializeOnLoadAttributes (576ms)
+			ProcessInitializeOnLoadMethodAttributes (111ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 15.27 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7918.
+Memory consumption went from 238.3 MB to 235.1 MB.
+Total: 8.340500 ms (FindLiveObjects: 0.690600 ms CreateObjectMapping: 0.452300 ms MarkObjects: 6.270800 ms  DeleteObjects: 0.925700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.817 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=3e951a0825ae699488d073fd5544aab2): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.275 seconds
+Domain Reload Profiling: 3088ms
+	BeginReloadAssembly (224ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (473ms)
+		LoadAssemblies (552ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (44ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (31ms)
+	FinalizeReload (2276ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (897ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (143ms)
+			ProcessInitializeOnLoadAttributes (578ms)
+			ProcessInitializeOnLoadMethodAttributes (124ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 21.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7933.
+Memory consumption went from 238.3 MB to 235.1 MB.
+Total: 7.963800 ms (FindLiveObjects: 0.669800 ms CreateObjectMapping: 0.448300 ms MarkObjects: 5.915400 ms  DeleteObjects: 0.929300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.898 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=28e35bc941d141b40b0f4f8d0b34dc76): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.219 seconds
+Domain Reload Profiling: 3114ms
+	BeginReloadAssembly (222ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (52ms)
 	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (49ms)
-	LoadAllAssembliesAndSetupDomain (557ms)
-		LoadAssemblies (560ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (556ms)
+		LoadAssemblies (566ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (116ms)
-			TypeCache.Refresh (27ms)
+		AnalyzeDomain (112ms)
+			TypeCache.Refresh (25ms)
 				TypeCache.ScanAssembly (6ms)
-			ScanForSourceGeneratedMonoScriptInfo (57ms)
-			ResolveRequiredComponents (30ms)
-	FinalizeReload (2214ms)
+			ScanForSourceGeneratedMonoScriptInfo (53ms)
+			ResolveRequiredComponents (32ms)
+	FinalizeReload (2220ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (839ms)
+		SetupLoadedEditorAssemblies (860ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (29ms)
-			SetLoadedEditorAssemblies (9ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (144ms)
-			ProcessInitializeOnLoadAttributes (538ms)
-			ProcessInitializeOnLoadMethodAttributes (108ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (561ms)
+			ProcessInitializeOnLoadMethodAttributes (114ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 22.25 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.3 MB). Loaded Objects now: 7948.
+Memory consumption went from 238.4 MB to 235.1 MB.
+Total: 7.813000 ms (FindLiveObjects: 0.678200 ms CreateObjectMapping: 0.442400 ms MarkObjects: 5.750000 ms  DeleteObjects: 0.941300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.822 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=21a7bdb235db23f4aa0dd33c2ab63205): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.243 seconds
+Domain Reload Profiling: 3061ms
+	BeginReloadAssembly (220ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (481ms)
+		LoadAssemblies (555ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (45ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (32ms)
+	FinalizeReload (2244ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (887ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (155ms)
+			ProcessInitializeOnLoadAttributes (557ms)
+			ProcessInitializeOnLoadMethodAttributes (123ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 21.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.3 MB). Loaded Objects now: 7963.
+Memory consumption went from 238.4 MB to 235.1 MB.
+Total: 8.445400 ms (FindLiveObjects: 0.698200 ms CreateObjectMapping: 0.447600 ms MarkObjects: 6.090900 ms  DeleteObjects: 1.207800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.863 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=dd7cca53bfdd09440a35d727c562e701): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.169 seconds
+Domain Reload Profiling: 3028ms
+	BeginReloadAssembly (213ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (54ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (533ms)
+		LoadAssemblies (544ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (104ms)
+			TypeCache.Refresh (22ms)
+				TypeCache.ScanAssembly (6ms)
+			ScanForSourceGeneratedMonoScriptInfo (50ms)
+			ResolveRequiredComponents (31ms)
+	FinalizeReload (2170ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (847ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (135ms)
+			ProcessInitializeOnLoadAttributes (554ms)
+			ProcessInitializeOnLoadMethodAttributes (111ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -684,166 +1699,283 @@ WARNING: Shader If subshaders removal was intentional, you may have forgotten tu
 WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
 WARNING: Shader Did you use #pragma only_renderers and omit this platform?
 WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
-Refreshing native plugins compatible for Editor in 15.32 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 22.93 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7901.
-Memory consumption went from 311.1 MB to 307.9 MB.
-Total: 7.570900 ms (FindLiveObjects: 0.678600 ms CreateObjectMapping: 0.466100 ms MarkObjects: 5.483600 ms  DeleteObjects: 0.941600 ms)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7978.
+Memory consumption went from 238.4 MB to 235.1 MB.
+Total: 7.345100 ms (FindLiveObjects: 0.705900 ms CreateObjectMapping: 0.442400 ms MarkObjects: 5.284700 ms  DeleteObjects: 0.911100 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.863 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=74b2918891afb064dadd79117ff1aef7): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  2.123 seconds
+Domain Reload Profiling: 2982ms
+	BeginReloadAssembly (214ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (52ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (532ms)
+		LoadAssemblies (543ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (104ms)
+			TypeCache.Refresh (22ms)
+				TypeCache.ScanAssembly (6ms)
+			ScanForSourceGeneratedMonoScriptInfo (50ms)
+			ResolveRequiredComponents (30ms)
+	FinalizeReload (2123ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (811ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (515ms)
+			ProcessInitializeOnLoadMethodAttributes (112ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/Terrain/Lit (Base Pass)' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Terrain/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Refreshing native plugins compatible for Editor in 17.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 7184 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (3.2 MB). Loaded Objects now: 7993.
+Memory consumption went from 238.4 MB to 235.2 MB.
+Total: 8.189700 ms (FindLiveObjects: 0.758700 ms CreateObjectMapping: 0.494900 ms MarkObjects: 5.947800 ms  DeleteObjects: 0.987300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/Payments_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Storage_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/InterAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/StickyAdv_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/OpenURL_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Flags_yndexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/GameLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/BackgroundFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Clipboard_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/EnvirData_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GradientBackground_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Auth_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/LB_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/GameLabel_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Auth_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/EnvirData_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/SyncInitSDK.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Review_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/ServerTime_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Storage_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/StickyAdv_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/OwnHostEditor.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp-Editor: bbecdd94637c65ed5552510fb15b3640 -> 75dc76da0011b8bd61524b2920e594f9
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: ce1ffceda9e81b947347618410954e01 -> 5a4806557021aeb1491a36d596c25c4b
+  custom:scripting/monoscript/fileName/Flags_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/AspectRatio_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/ProgressBar_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/PixelRatioMobile.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:CustomObjectIndexerAttribute: 3ead1caaecf1c488f20bcfeb224b6af5 -> 
+  custom:scripting/monoscript/fileName/TestLabel_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/LB_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:scripting/monoscript/fileName/PlayerStats_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Fullscreen_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/Review_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/URL_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/Payments_yandexPlatform.cs: d5f0bc4982f6331efd3bdc5ae787d8d1 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/InterAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/QuitGameEvent_build.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/Lang_yandexPlatform.cs: 1385ee2ec2d2b52d8d4d712ad8ae0b6d -> 
+  custom:scripting/monoscript/fileName/LogoFormat.cs: f736887ffe20da6261346a3c69102d4a -> 
+  custom:scripting/monoscript/fileName/RewardedAdv_yandexPlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
+  custom:scripting/monoscript/fileName/YandexGamePlatform.cs: f24044aced27dadaa5f6f6a76e01f239 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1451.471286 seconds.
-  path: Assets/Source/Scenes/GameSessionScene.unity
-  artifactKey: Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Source/Scenes/GameSessionScene.unity using Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '200974d23d3ed88d1be83fdfaa946022') in 0.002613 seconds
+  Time since last request: 1656.556895 seconds.
+  path: Assets/Source/Scripts/Vessels/Vessel.cs
+  artifactKey: Guid(8318533ce1e0f37468d9f021c917abe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scripts/Vessels/Vessel.cs using Guid(8318533ce1e0f37468d9f021c917abe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: 'b8b778f041df3bec7ccdc72d0ff5c58f') in 0.002463 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 306.935115 seconds.
-  path: Assets/HintsStarsLite/Approved 1.wav
-  artifactKey: Guid(d296adf47dd0a514fbd36b5ff7df9f9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Approved 1.wav using Guid(d296adf47dd0a514fbd36b5ff7df9f9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '05283f60f6b8ca459fb45663b661cdf4') in 0.119883 seconds
+  Time since last request: 5.066879 seconds.
+  path: Assets/Source/Scripts/Vessels/VolumeAggregator.cs
+  artifactKey: Guid(02918b6c9f833ef4dbf9b78d9362bcfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scripts/Vessels/VolumeAggregator.cs using Guid(02918b6c9f833ef4dbf9b78d9362bcfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '528e5e17a01762e619896a442ee4c976') in 0.000808 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/HintsStarsLite/Cosmic Reveal.wav
-  artifactKey: Guid(6996c6a6c942c7d4d9f2fb5ab5163fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Cosmic Reveal.wav using Guid(6996c6a6c942c7d4d9f2fb5ab5163fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'f431c2e018a38976260da34fb06ba900') in 0.014148 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+  Time since last request: 457.685392 seconds.
+  path: Assets/Source/Scripts/Vessels/Liquid.cs
+  artifactKey: Guid(fc319af635e9117489dba6f7da03399a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scripts/Vessels/Liquid.cs using Guid(fc319af635e9117489dba6f7da03399a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '3fb706ea69e9d6216ac25691c1e17143') in 0.001054 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/HintsStarsLite/Brightest Star 3.wav
-  artifactKey: Guid(973cbfce50fc9634b8c2729624d4cc4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Brightest Star 3.wav using Guid(973cbfce50fc9634b8c2729624d4cc4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '1f132d1e86d0b38d6a6b7cb9cc9063b3') in 0.013487 seconds
+  Time since last request: 518.094178 seconds.
+  path: Assets/Source/Scenes/GameSessionScene.unity
+  artifactKey: Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/Scenes/GameSessionScene.unity using Guid(c850ee8c3b14cc8459e7e186857cf567) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+ -> (artifact id: '70463a33590a8ce3a95aff748abbec47') in 0.001068 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/HintsStarsLite/Harp Money 1.wav
-  artifactKey: Guid(c58a6e6d4ceb56e4882a7d60561a7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Harp Money 1.wav using Guid(c58a6e6d4ceb56e4882a7d60561a7afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 209.363612 seconds.
+  path: Assets/Source/UI Resources/Backgtounds/20260201_2040_Image Generation_remix_01kgd4kp6afs1b2wn4kvxggqbv.png
+  artifactKey: Guid(bfe807f9ff1417d428ea5119a73d1ef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/20260201_2040_Image Generation_remix_01kgd4kp6afs1b2wn4kvxggqbv.png using Guid(bfe807f9ff1417d428ea5119a73d1ef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '4099136abd2e497718109395dcdcfbbe') in 0.021641 seconds
+ -> (artifact id: 'a5c76e12f4fe66c58fc0dd17cb61f23c') in 0.097112 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/HintsStarsLite/Mellow Hint 2.wav
-  artifactKey: Guid(2999a8c2c936b614989c3aa5265eac71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Mellow Hint 2.wav using Guid(2999a8c2c936b614989c3aa5265eac71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_1.jpg
+  artifactKey: Guid(07f430e841ed4e14b9893bcdf81cedde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_1.jpg using Guid(07f430e841ed4e14b9893bcdf81cedde) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '647e1f48cb5732e7c3f9c3e044ce1d7b') in 0.015602 seconds
+ -> (artifact id: 'fa218d8dd392f668169a777783824c30') in 0.023216 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000047 seconds.
-  path: Assets/HintsStarsLite/Harp 4.wav
-  artifactKey: Guid(a1c48dd39207ece46a29b8796640661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Harp 4.wav using Guid(a1c48dd39207ece46a29b8796640661e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Source/UI Resources/Backgtounds/LigImJPGtask_01ka62xxg1ey3adpa7ktt0f3mp_1763288596_img_0.jpg
+  artifactKey: Guid(40e59a4603fc7b6468ca2644a56eb863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/LigImJPGtask_01ka62xxg1ey3adpa7ktt0f3mp_1763288596_img_0.jpg using Guid(40e59a4603fc7b6468ca2644a56eb863) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'f7bf53a72e8d64774087380d878fe85d') in 0.023573 seconds
+ -> (artifact id: '19a579d49ff945162f00750d5ce444df') in 0.022280 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
-  path: Assets/HintsStarsLite/Unlocked Secret.wav
-  artifactKey: Guid(a65e44e8c694a3a4891eef0db109e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Unlocked Secret.wav using Guid(a65e44e8c694a3a4891eef0db109e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  path: Assets/Source/UI Resources/Backgtounds/backgroundImage.png
+  artifactKey: Guid(49213405aceb5e1419ebd93bda02915b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/backgroundImage.png using Guid(49213405aceb5e1419ebd93bda02915b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '5cfed177da88b233a6aca69cee5c0a1e') in 0.022437 seconds
+ -> (artifact id: 'b7146b19afa48f635e84c0062ea9ed2f') in 0.026025 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/HintsStarsLite/Retro Star Descending 3.wav
-  artifactKey: Guid(16d0788660e724f44ae05e641af1b222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Retro Star Descending 3.wav using Guid(16d0788660e724f44ae05e641af1b222) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'abe2f6cbab54caf82d86c8797fb87167') in 0.035508 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/HintsStarsLite/Checkpoint 2.wav
-  artifactKey: Guid(f64ab1f9953f79344995a101decf9830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Checkpoint 2.wav using Guid(f64ab1f9953f79344995a101decf9830) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '75d12a90ef9a9821639f15540e0f8143') in 0.014354 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/HintsStarsLite/Notified 2.wav
-  artifactKey: Guid(568470e29bef88c4aaa027db357be957) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Notified 2.wav using Guid(568470e29bef88c4aaa027db357be957) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'acd57f5db021d74e676d63d9562d4297') in 0.016533 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/HintsStarsLite/Magic Score 5.wav
-  artifactKey: Guid(668620113e9d6dc4483ba3d8dbae9fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Magic Score 5.wav using Guid(668620113e9d6dc4483ba3d8dbae9fcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'a1c19eb141343df9da1bb00f773ee393') in 0.027396 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
   Time since last request: 0.000022 seconds.
-  path: Assets/HintsStarsLite/Shimmery Reward 5.wav
-  artifactKey: Guid(6e7f23ef945c235438595e89d6332d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Shimmery Reward 5.wav using Guid(6e7f23ef945c235438595e89d6332d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
+  path: Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_3.jpg
+  artifactKey: Guid(fb4b23168f2fa6f4090ba41be7b6dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/UI Resources/Backgtounds/LigImjpgtask_01ka63tqb5fzfsjbfhzxhya54m_1763289539_img_3.jpg using Guid(fb4b23168f2fa6f4090ba41be7b6dc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: 'dbb8a6808b821ce93fbdbed4e4a811b0') in 0.013417 seconds
+ -> (artifact id: '3fed7b2ba1b1489925d537b6c8e901d5') in 0.030809 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/HintsStarsLite/Positive Vibes Coin.wav
-  artifactKey: Guid(b3b1ca576c2899b40befb38abb0775fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/HintsStarsLite/Positive Vibes Coin.wav using Guid(b3b1ca576c2899b40befb38abb0775fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 28 workers.
- -> (artifact id: '997de00cdbf4b862c706c80107d65157') in 0.023071 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: ќпераци€ ввода/вывода была прервана из-за завершени€ потока команд или по запросу приложени€.
 AssetImportWorker is now disconnected from the server

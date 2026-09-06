@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Scripts.Enums;
+using Assets.Source.Scripts.Extensions;
 using System;
 
 namespace Assets.Source.Scripts.ActionsHandlers
@@ -35,6 +36,10 @@ namespace Assets.Source.Scripts.ActionsHandlers
 
         public void MarkReverseUsed()
         {
+            Guard.IsTrue(CurrentMode == ClickImpactMode.ModeReverse,
+                nameof(CurrentMode), 
+                "Cannot mark reverse used when not in Reverse mode");
+
             IsReverseUsed = true;
         }
 
