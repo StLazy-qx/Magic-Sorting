@@ -7,7 +7,7 @@ namespace Assets.Source.Scripts.Audio
 {
     class VictoryAudioPlayer : MonoBehaviour
     {
-        private const float ValueUntilAudioTurnsOn = 0.4f;
+        private const float ValueUntilAudioTurnsOn = 0.25f;
 
         [SerializeField] private VesselStateTracker _vesselStateTracker;
         [SerializeField] private AudioSource _audioSource;

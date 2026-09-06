@@ -30,7 +30,6 @@ namespace Assets.Source.Scripts.Vessels
             Color color)
         {
             float timeEndSession = 2f;
-            float halfDuration = timeEndSession / 1.3f;
 
             ParticleSystem particle = _particlePool.HandOver();
 
