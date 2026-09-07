@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Source.Scripts.Extensions;
+using System;
 using YG;
 
 namespace Assets.Source.Scripts.YG
@@ -16,18 +17,17 @@ namespace Assets.Source.Scripts.YG
             Action onError, 
             Action onClose)
         {
+            Guard.NotNullOrWhiteSpace(rewardId, nameof(rewardId));
+            Guard.NotNull(onSuccess, nameof(onSuccess));
+
             if (IsShowing)
                 return;
 
             IsShowing = true;
-            _currentOnError = () => CompleteReward(onError);
-            _currentOnClose = () => CompleteReward(onClose);
 
-            void HandleSuccess() => CompleteReward(onSuccess);
-
+            SetupCallbacks(onError, onClose);
             Subscribe(_currentOnError, _currentOnClose);
-
-            YG2.RewardedAdvShow(rewardId, HandleSuccess);
+            YG2.RewardedAdvShow(rewardId, () => CompleteReward(onSuccess));
         }
 
         private void CompleteReward(Action callback)
@@ -37,6 +37,12 @@ namespace Assets.Source.Scripts.YG
             IsShowing = false;
 
             callback?.Invoke();
+        }
+
+        private void SetupCallbacks(Action onError, Action onClose)
+        {
+            _currentOnError = () => CompleteReward(onError);
+            _currentOnClose = () => CompleteReward(onClose);
         }
 
         private void Subscribe(Action onError, Action onClose)
