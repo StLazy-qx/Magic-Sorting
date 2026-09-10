@@ -1,4 +1,5 @@
 using Assets.Source.Scripts.Colorize;
+using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.MagicCells;
 using System;
 using System.Collections;
@@ -18,7 +19,8 @@ namespace Assets.Source.Scripts.Vessels
 
         private Color _mainColor;
         private VolumeAggregator _aggregator;
-        private WaitForSeconds _deliveryWait;
+        private MagicCellDelayHandler _deliveryHandler;
+        //private WaitForSeconds _deliveryWait;
 
         public event Action<Vector3> Filled;
         public event Action<Vector3, int, Color> RewardIssued;
@@ -34,17 +36,25 @@ namespace Assets.Source.Scripts.Vessels
             ValidateInitializeArguments();
 
             _aggregator = GetComponent<VolumeAggregator>();
-            _deliveryWait = new WaitForSeconds(DeliveryDelay);
 
-            if (_aggregator == null)
-            {
-                throw new NullReferenceException(
-                    "VolumeAggregator component is missing on Vessel.");
-            }
+            Guard.NotNull(_aggregator, nameof(_aggregator));
+
+            _deliveryHandler = new MagicCellDelayHandler(DeliveryDelay);
+            //_deliveryWait = new WaitForSeconds(DeliveryDelay);
 
             _aggregator.InitParameters(_maxSize, _liquid);
 
             IsFilled = false;
+        }
+
+        private void OnDisable()
+        {
+            _deliveryHandler?.Cancel();
+        }
+
+        private void OnDestroy()
+        {
+            _deliveryHandler?.Dispose();
         }
 
         public void TakeMagic(MagicCell cell)
@@ -52,47 +62,50 @@ namespace Assets.Source.Scripts.Vessels
             if (cell == null)
                 return;
 
-            StartCoroutine(ExecuteAfterDelay());
+            _deliveryHandler.TakeMagic(cell, HandleMagicDelivered);
+
+            //StartCoroutine(ExecuteAfterDelay());
         }
 
         public void SetColor(Color color)
             => _mainColor = color;
 
-        private IEnumerator ExecuteAfterDelay()
+        private void HandleMagicDelivered()
         {
-            yield return _deliveryWait;
-
             _aggregator.GrowUpVolume();
 
             if (_aggregator.IsFull)
             {
                 IsFilled = true;
 
-                RewardIssued?.Invoke(transform.position, _points, _mainColor);
+                RewardIssued?.Invoke(transform.position, 
+                    _points, _mainColor);
                 Filled?.Invoke(transform.position);
                 gameObject.SetActive(false);
             }
         }
 
+        //private IEnumerator ExecuteAfterDelay()
+        //{
+        //    yield return _deliveryWait;
+
+        //    _aggregator.GrowUpVolume();
+
+        //    if (_aggregator.IsFull)
+        //    {
+        //        IsFilled = true;
+
+        //        RewardIssued?.Invoke(transform.position, _points, _mainColor);
+        //        Filled?.Invoke(transform.position);
+        //        gameObject.SetActive(false);
+        //    }
+        //}
+
         private void ValidateInitializeArguments()
         {
-            if (_liquid == null)
-            {
-                throw new NullReferenceException(
-                    "Liquid reference is missing in Vessel.");
-            }
-
-            if (_maxSize <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_maxSize),
-                    "Max size must be greater than zero.");
-            }
-
-            if (_points < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_points),
-                    "Points cannot be negative.");
-            }
+            Guard.NotNull(_liquid, nameof(_liquid));
+            Guard.Positive(_maxSize, nameof(_maxSize));
+            Guard.NotNegative(_points, nameof(_points));
         }
     }
 }

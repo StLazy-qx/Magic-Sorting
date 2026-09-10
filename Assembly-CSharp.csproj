@@ -257,6 +257,7 @@
     <Compile Include="Assets\Source\Scripts\EntryPoint\EntryPointGameSession.cs" />
     <Compile Include="Assets\Source\Scripts\UI\Buttons\ButtonAdvertisingActivater.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\RewardedAdv\Example\Scripts\ExampleRewardedAd.cs" />
+    <Compile Include="Assets\Source\Scripts\Vessels\MagicCellDelayHandler.cs" />
     <Compile Include="Assets\PluginYourGames\Scripts\Server\ServerInfo.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\Storage\Scripts\Storage_yandexPlatform.cs" />
     <Compile Include="Assets\PluginYourGames\Modules\GameLabel\Scripts\GameLabel_interface.cs" />

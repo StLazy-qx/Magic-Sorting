@@ -1,4 +1,3 @@
-using Assets.Source.Scripts.UI.Buttons;
 using Assets.Source.Scripts.Extensions;
 using UnityEngine.UI;
 using UnityEngine;
@@ -14,7 +13,6 @@ namespace Assets.Source.Scripts.UI.SoundView
         [SerializeField] private SliderHandleReleaseListener _masterHandleRelease;
         [SerializeField] private SliderHandleReleaseListener _ambientHandleRelease;
         [SerializeField] private SliderHandleReleaseListener _effectHandleRelease;
-        [SerializeField] private StatefulButton _muteButton;
 
         public event Action<float> OnMasterChanged;
         public event Action<float> OnAmbientChanged;
@@ -52,7 +50,6 @@ namespace Assets.Source.Scripts.UI.SoundView
             Guard.NotNull(_sliderMasterVolume, nameof(_sliderMasterVolume));
             Guard.NotNull(_sliderAmbientVolume, nameof(_sliderAmbientVolume));
             Guard.NotNull(_sliderEffectVolume, nameof(_sliderEffectVolume));
-            Guard.NotNull(_muteButton, nameof(_muteButton));
             Guard.NotNull(_masterHandleRelease, nameof(_masterHandleRelease));
             Guard.NotNull(_ambientHandleRelease, nameof(_ambientHandleRelease));
             Guard.NotNull(_effectHandleRelease, nameof(_effectHandleRelease));
