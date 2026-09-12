@@ -8,8 +8,6 @@ namespace Assets.Source.Scripts.GameBehaviour
 {
     public class FinalGameSession : MonoBehaviour, IObjectInitilizable
     {
-        [SerializeField] private Panel _finalMatchPanelDesctop;
-        [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private GameSessionHandler _gameHandler;
 
         private Panel _currentPanel;
@@ -18,7 +16,7 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         public void Initialize()
         {
-            ValidateObjects();
+            Guard.NotNull(_gameHandler, nameof(_gameHandler));
             _currentPanel.Close();
 
             IsInitialized = true;
@@ -36,13 +34,6 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             _gameHandler.PauseGame();
             _currentPanel.Open();
-        }
-
-        private void ValidateObjects()
-        {
-            Guard.NotNull(_gameHandler, nameof(_gameHandler));
-            Guard.NotNull(_finalMatchPanelDesctop, nameof(_finalMatchPanelDesctop));
-            Guard.NotNull(_finalMatchPanelMobile, nameof(_finalMatchPanelMobile));
         }
     }
 }

@@ -14,8 +14,6 @@ namespace Assets.Source.Scripts.Vessels
 {
     public class VesselStateTracker : MonoBehaviour, IObjectInitilizable
     {
-        [SerializeField] private Panel _finalMatchPanelDesctop;
-        [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private FinalGameSession _finalGame;
         [SerializeField] private VesselCompletionEffecter _effecter;
 
@@ -26,7 +24,6 @@ namespace Assets.Source.Scripts.Vessels
 
         public event Action RoundOvering;
         public event Action VictoryAudioClipEnabled;
-
 
         public bool IsInitialized { get; private set; }
 
@@ -122,10 +119,6 @@ namespace Assets.Source.Scripts.Vessels
                 "[VesselStateTracker] Effecter reference is missing in inspector.");
             Guard.IsTrue(_finalGame != null, nameof(_finalGame),
                 "[VesselStateTracker] FinalGameSession reference is missing.");
-            Guard.IsTrue(_finalMatchPanelDesctop != null, nameof(_finalMatchPanelDesctop),
-                "[VesselStateTracker] FinalMatchPanelDesktop is missing.");
-            Guard.IsTrue(_finalMatchPanelMobile != null, nameof(_finalMatchPanelMobile),
-                "[VesselStateTracker] FinalMatchPanelMobile is missing.");
             Guard.IsTrue(_vessels != null, nameof(_vessels),
                 "[VesselStateTracker] Vessel list is not assigned. Call SetVesselsList() first.");
             Guard.IsTrue(_vessels.Count > 0, nameof(_vessels),

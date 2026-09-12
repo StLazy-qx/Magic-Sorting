@@ -10648,6 +10648,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 856324667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39147150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4478534048386657195, guid: 4eeaf34ff5fddaa4ba7404e4b0953003,
+    type: 3}
+  m_PrefabInstance: {fileID: 8698096537187082411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20f534895687254a8a99c6c9c05b60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &43498387
 GameObject:
   m_ObjectHideFlags: 0
@@ -177887,8 +177899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c420200234d4b4a919767acc4239bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finalMatchPanelDesctop: {fileID: 1917943191}
-  _finalMatchPanelMobile: {fileID: 1413507605}
   _finalGame: {fileID: 1845276654}
   _effecter: {fileID: 43498391}
 --- !u!1001 &569252880
@@ -311788,7 +311798,7 @@ MonoBehaviour:
   _playerPosition: {x: 1.52, y: 0.05, z: -1.54}
   _playerRotation: {x: 5, y: 195, z: 0}
   _chairPosition: {x: 3.11, y: 0.82, z: -6.796}
-  _columnsPointsPosition: {x: 0.33, y: 0.519, z: -7.55}
+  _columnsPointsPosition: {x: 0, y: 0.519, z: -7.15}
 --- !u!114 &1009920592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311843,6 +311853,9 @@ MonoBehaviour:
   _rewardedIconMobile: {fileID: 1552301325}
   _reverseButtonViewDesktop: {fileID: 1828248178}
   _reverseButtonViewMobile: {fileID: 503799564}
+  _magicCellDesktop: {fileID: 39147150}
+  _magicCellMobile: {fileID: 512643703}
+  _magicCellsFactory: {fileID: 8416172468163468308}
   _vesselsFulling: {fileID: 569123143}
   _finalGameSession: {fileID: 1845276654}
   _clickModeSwitcher: {fileID: 923747164}
@@ -569173,8 +569186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4abd393f3182e41ad9b10ff38985f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finalMatchPanelDesctop: {fileID: 1917943191}
-  _finalMatchPanelMobile: {fileID: 1413507605}
   _gameHandler: {fileID: 392530558}
 --- !u!1 &1860704089
 GameObject:
@@ -603973,7 +603984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c5d3b97a631b0448b33815532b5651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 0}
+  _container: {fileID: 643765210}
 --- !u!4 &1914726933
 Transform:
   m_ObjectHideFlags: 0
@@ -734281,6 +734292,16 @@ PrefabInstance:
       propertyPath: _gameHandler
       value: 
       objectReference: {fileID: 392530558}
+    - target: {fileID: 4432526039738413149, guid: 4eeaf34ff5fddaa4ba7404e4b0953003,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432526039738413149, guid: 4eeaf34ff5fddaa4ba7404e4b0953003,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 4432526039738413149, guid: 4eeaf34ff5fddaa4ba7404e4b0953003,
         type: 3}
       propertyPath: m_LocalPosition.x

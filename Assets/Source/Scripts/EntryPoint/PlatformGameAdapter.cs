@@ -4,6 +4,8 @@ using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.Vessels;
 using Assets.Source.Scripts.UI.GameModeView;
 using Assets.Source.Scripts.UI.Buttons;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Tutorial;
 using UnityEngine;
 using System;
@@ -24,6 +26,10 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private IconRewardedAdvertisement _rewardedIconMobile;
         [SerializeField] private ReverseButtonView _reverseButtonViewDesktop;
         [SerializeField] private ReverseButtonView _reverseButtonViewMobile;
+        [Header("Game Objects")]
+        [SerializeField] private MagicCell _magicCellDesktop;
+        [SerializeField] private MagicCell _magicCellMobile;
+        [SerializeField] private MagicCellsFactory _magicCellsFactory;
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
@@ -38,6 +44,7 @@ namespace Assets.Source.Scripts.EntryPoint
 
         protected override void OnMobileSelected()
         {
+            _magicCellsFactory.SetCellPrefab(_magicCellMobile);
             _mobileObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
@@ -47,6 +54,7 @@ namespace Assets.Source.Scripts.EntryPoint
 
         protected override void OnDesktopSelected()
         {
+            _magicCellsFactory.SetCellPrefab(_magicCellDesktop);
             _desktopObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);

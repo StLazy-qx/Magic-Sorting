@@ -13,13 +13,13 @@
     false,
     false
   ],
-  "idSave": 891,
+  "idSave": 892,
   "MainPoints": 6750,
   "ActualRoundNumber": 1,
   "MasterVolume": 1.0,
   "AmbientVolume": 0.1903506,
   "EffectVolume": 1.0,
-  "EquippedItem": "44444",
+  "EquippedItem": "11111",
   "ItemIDs": [
     "22222",
     "11111",
@@ -38,8 +38,8 @@
     "EffectVolume": 1.0
   },
   "Inventory": {
-    "EquippedItemID": "44444"
+    "EquippedItemID": "11111"
   },
   "Points": 6750,
-  "EquippedItemID": "44444"
+  "EquippedItemID": "11111"
 }

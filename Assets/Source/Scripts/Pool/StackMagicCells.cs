@@ -1,6 +1,7 @@
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Enums;
+using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.InteractiveObjects;
