@@ -19,7 +19,7 @@ namespace Assets.Source.Scripts.Tutorial
         }
 
         public void Play(Vector3 position)
-        {
+        {        
             if (_particle == null)
                 return;
 

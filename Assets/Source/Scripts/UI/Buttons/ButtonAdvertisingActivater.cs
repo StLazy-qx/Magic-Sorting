@@ -1,4 +1,4 @@
-using YG;
+using Assets.Source.Scripts.GameBehaviour;
 
 namespace Assets.Source.Scripts.UI.Buttons
 {
@@ -6,7 +6,10 @@ namespace Assets.Source.Scripts.UI.Buttons
     {
         protected override void OnButtonClick()
         {
-            YG2.InterstitialAdvShow();
+            if (GameHandler is not GameSessionHandler sessionHandler)
+                return;
+
+            sessionHandler.ShowInterstitialAd();
         }
     }
 }

@@ -19,6 +19,8 @@ namespace Assets.Source.Scripts.UI.RoundView
             Guard.NotNull(_countText, nameof(_countText));
             Guard.NotNull(_levelCounter, nameof(_levelCounter));
             Guard.NotNull(_sessionHandler, nameof(_sessionHandler));
+
+            _countText.text = _levelCounter.RoundNumber.ToString();
         }
 
         private void Start()
@@ -28,14 +30,14 @@ namespace Assets.Source.Scripts.UI.RoundView
 
         private void OnEnable()
         {
-            _sessionHandler.GameLaunching += OnTextFade;
             _levelCounter.RoundChanged += OnRoundNumberChanged;
+            _sessionHandler.GameLaunching += OnTextFade;
         }
 
         private void OnDisable()
         {
-            _sessionHandler.GameLaunching -= OnTextFade;
             _levelCounter.RoundChanged -= OnRoundNumberChanged;
+            _sessionHandler.GameLaunching -= OnTextFade;
         }
 
         public void OnTextFade()
@@ -60,6 +62,10 @@ namespace Assets.Source.Scripts.UI.RoundView
         }
 
         private void OnRoundNumberChanged(int roundNumber)
-            => _countText.text = roundNumber.ToString();
+        {
+            Debug.Log("Номер раунда - " + roundNumber);
+
+            _countText.text = roundNumber.ToString();
+        }
     }
 }

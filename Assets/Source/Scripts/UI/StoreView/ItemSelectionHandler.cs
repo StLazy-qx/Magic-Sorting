@@ -6,6 +6,8 @@ using Assets.Source.Scripts.Pool;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using YG;
 
 namespace Assets.Source.Scripts.UI.StoreView
 {
@@ -36,7 +38,7 @@ namespace Assets.Source.Scripts.UI.StoreView
         private void Start()
         {
             _itemViewPool.ActivateAll();
-            ShowPurchaseValidation();
+            RefreshAllItemViews();
         }
 
         private void OnEnable()
@@ -44,6 +46,11 @@ namespace Assets.Source.Scripts.UI.StoreView
             _buyButton.onClick.AddListener(OnBuyButtonClicked);
             _equipButton.onClick.AddListener(OnEquipButtonClicked);
             _inventory.ItemBuyed += OnShowEquipButton;
+
+            _currentItemView = null;
+            _selectedItem = null;
+
+            RefreshAllItemViews();
         }
 
         private void OnDisable()
@@ -55,10 +62,13 @@ namespace Assets.Source.Scripts.UI.StoreView
 
         public void OnSelectShowedItem(NewItemView newItemView)
         {
-            if (_currentItemView != null && 
-                _currentItemView != newItemView)
+            if (_currentItemView != null && _currentItemView != newItemView)
             {
-                _currentItemView.SetDefaultColor();
+                Item previousItem = _currentItemView.GetComponent<Item>();
+                bool wasOwned = previousItem != null && _inventory.HasItem(previousItem.ID);
+                bool wasEquipped = previousItem != null && _inventory.EquippedItem != null
+                                   && previousItem.ID == _inventory.EquippedItem.ID;
+                _currentItemView.UpdateVisualState(wasOwned, wasEquipped);
             }
 
             _currentItemView = newItemView;
@@ -74,6 +84,8 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             _store.BuyItem(_selectedItem);
+            RefreshAllItemViews();
+            UpdateButtonsState();
         }
 
         private void OnEquipButtonClicked()
@@ -85,18 +97,16 @@ namespace Assets.Source.Scripts.UI.StoreView
                 return;
 
             if (_selectedItem == _inventory.EquippedItem)
-            {
                 return;
-            }
 
             _store.EquipItem(_selectedItem);
+            RefreshAllItemViews();
             OnSelectShowedItem(_currentItemView);
-            UpdateButtonsState();
         }
 
         private void OnShowEquipButton(NewItemView boughtItemView)
         {
-            boughtItemView.ShowPurchaseValidation();
+            RefreshAllItemViews();
 
             if (_currentItemView == boughtItemView)
                 UpdateButtonsState();
@@ -115,7 +125,7 @@ namespace Assets.Source.Scripts.UI.StoreView
                                   _inventory.EquippedItem != null &&
                                   _selectedItem.ID == _inventory.EquippedItem.ID;
 
-                _equipButton.gameObject.SetActive(!isSelected);
+                _equipButton.gameObject.SetActive(isSelected == false);
                 _selectedButton.gameObject.SetActive(isSelected);
             }
             else
@@ -127,16 +137,55 @@ namespace Assets.Source.Scripts.UI.StoreView
                 _priceText.text = _selectedItem.Price.ToString();
             }
         }
-
-        private void ShowPurchaseValidation()
+       
+        private void RefreshAllItemViews()
         {
+            string equippedItemID = YG2.saves.EquippedItemID;
+
             foreach (NewItemView view in _itemViewPool.Objects)
             {
                 Item item = view.GetComponent<Item>();
+                if (item == null) continue;
 
-                if (item != null && _inventory.HasItem(item.ID))
-                    view.ShowPurchaseValidation();
+                bool isOwned = _inventory.HasItem(item.ID);
+                bool isEquipped = !string.IsNullOrEmpty(equippedItemID) && item.ID == equippedItemID;
+                view.UpdateVisualState(isOwned, isEquipped);
             }
+
+            // Если текущий выбранный элемент не установлен и есть экипированный предмет,
+            // находим соответствующий view и выделяем его
+            if (_currentItemView == null && !string.IsNullOrEmpty(equippedItemID))
+            {
+                NewItemView equippedView = _itemViewPool.Objects.FirstOrDefault(view =>
+                {
+                    Item item = view.GetComponent<Item>();
+                    return item != null && item.ID == equippedItemID;
+                });
+
+                if (equippedView != null)
+                {
+                    OnSelectShowedItem(equippedView);
+                }
+            }
+            else if (_currentItemView != null)
+            {
+                _currentItemView.Selected();
+            }
+
+            //foreach (NewItemView view in _itemViewPool.Objects)
+            //{
+            //    Item item = view.GetComponent<Item>();
+            //    if (item == null) continue;
+
+            //    bool isOwned = _inventory.HasItem(item.ID);
+            //    bool isEquipped = _inventory.EquippedItem != null && item.ID == _inventory.EquippedItem.ID;
+            //    view.UpdateVisualState(isOwned, isEquipped);
+            //}
+
+            //if (_currentItemView != null)
+            //{
+            //    _currentItemView.Selected();
+            //}
         }
 
         private void ValidateInitializeArguments()

@@ -21,8 +21,6 @@ namespace Assets.Source.Scripts.InteractiveObjects
         private MagicCellRouter _cellRouter;
         private MagicCellsFactory _factory;
 
-        public StackMagicCells StackHandler => _stackHandler;
-
         private void Awake()
         {
             _factory = GetComponent<MagicCellsFactory>();

@@ -1,157 +1,109 @@
 ﻿using Assets.Source.Scripts.Enums;
-using Assets.Source.Scripts.UI.Buttons;
+using Assets.Source.Scripts.Extensions;
+using Assets.Source.Scripts.UI.GameModeView;
+using Assets.Source.Scripts.YG;
 using System;
 using UnityEngine;
-using YG;
 
 namespace Assets.Source.Scripts.ActionsHandlers
 {
     public class ClickModeSwitcher : MonoBehaviour
     {
         public string RewardID;
-        private ReverseButton _reverseButton;
-        private IconRewardedAdvertisement _rewardedIcon;
-        private bool _isReverseUsed;
-        private bool _reverseEventFired;
-        private bool _isShowingReward;
 
-        public event Action<ClickImpactMode> ModeChanged;
-        public event Action ReverseButtonActivating;
+        private readonly ClickModeTracker _modeTracker = new ClickModeTracker();
+        private ReverseButtonView _reverseButtonView;
+        private ReverseRewardFlow _rewardFlow;
+
+        public event Action<ClickImpactMode> ModeChanged
+        {
+            add => _modeTracker.ModeChanged += value;
+            remove => _modeTracker.ModeChanged -= value;
+        }
+
+        public event Action ReverseButtonActivating
+        {
+            add => _modeTracker.ReverseButtonActivated += value;
+            remove => _modeTracker.ReverseButtonActivated -= value;
+        }
+
         public event Action RewardedEnded;
 
-        public ClickImpactMode CurrentMode { get; private set; }
+        public ClickImpactMode CurrentMode => _modeTracker.CurrentMode;
 
         private void Awake()
         {
-            ActivateDistributionMode();
+            _modeTracker.ActivateDistributionMode();
         }
 
         public void Reset()
         {
-            _isReverseUsed = false;
-            _reverseEventFired = false;
-
-            _reverseButton.ResetState();
-            _rewardedIcon.Disable();
-            ActivateDistributionMode();
+            Guard.NotNull(_reverseButtonView, nameof(_reverseButtonView));
+            _modeTracker.Reset();
+            _reverseButtonView.ResetState();
             UpdateButtonState();
         }
 
-        public void SetButton(ReverseButton reverseButton, IconRewardedAdvertisement rewardedButton)
+        public void SetButton(ReverseButtonView reverseButtonView)
         {
-            _reverseButton = reverseButton
-                ?? throw new ArgumentNullException(nameof(reverseButton));
+            Guard.NotNull(reverseButtonView, nameof(reverseButtonView));
+            Guard.NotNullOrWhiteSpace(RewardID, nameof(RewardID));
 
-            _rewardedIcon = rewardedButton
-                ?? throw new ArgumentNullException(nameof(rewardedButton));
+            _reverseButtonView = reverseButtonView;
+            _rewardFlow = new ReverseRewardFlow(
+                _modeTracker,
+                new RewardedadvertisingGateway(),
+                _reverseButtonView,
+                RewardID);
 
-            _reverseButton.OnClick.AddListener(OnToggleMode);
+            _rewardFlow.Ended += () => RewardedEnded?.Invoke();
+            _reverseButtonView.ButtonClicked += OnToggleMode;
         }
 
         public void Reverse()
         {
+            Guard.NotNull(_reverseButtonView, nameof(_reverseButtonView));
+
             if (CurrentMode != ClickImpactMode.ModeReverse)
                 return;
 
-            _isReverseUsed = true;
-
+            _modeTracker.MarkReverseUsed();
             UpdateButtonState();
         }
 
         public void OnToggleMode()
         {
+            Guard.NotNull(_reverseButtonView, nameof(_reverseButtonView));
+
             if (CurrentMode == ClickImpactMode.ModeReverse)
             {
-                ActivateDistributionMode();
+                _modeTracker.ActivateDistributionMode();
 
                 return;
             }
 
-            if (_isReverseUsed)
+            if (_modeTracker.IsReverseUsed)
             {
-                if (_rewardedIcon.gameObject.activeSelf == false)
+                if (_reverseButtonView.IsRewardedIconActive == false)
                 {
-                    ActivateReverceMode();
+                    _modeTracker.ActivateReverseMode();
 
                     return;
                 }
 
-                ShowReward();
+                Guard.NotNull(_rewardFlow, nameof(_rewardFlow));
+                _rewardFlow.Show();
             }
             else
             {
-                ActivateReverceMode();
+                _modeTracker.ActivateReverseMode();
             }
-        }
-
-        private void ShowReward()
-        {
-            if (_isShowingReward)
-                return;
-
-            _isShowingReward = true;
-            _reverseButton.UIButton.interactable = false;
-
-            YG2.onErrorRewardedAdv += OnRewardError;
-
-            YG2.RewardedAdvShow(RewardID, () =>
-            {
-                YG2.onErrorRewardedAdv -= OnRewardError;
-
-                _isShowingReward = false;
-
-                _reverseButton.Enable();
-                ActivateReverceMode();
-                _reverseButton.SetState(true);
-
-                _reverseButton.UIButton.interactable = true;
-            });
-
-            RewardedEnded?.Invoke();
         }
 
         private void UpdateButtonState()
         {
-            if (_isReverseUsed)
-            {
-                _reverseButton.Disable();
-                _reverseButton.SetState(false);
-                _rewardedIcon.Enable();
-            }
-            else
-            {
-                _reverseButton.Enable();
-                _rewardedIcon.Disable();
-            }
-        }
-
-        private void OnRewardError()
-        {
-            YG2.onErrorRewardedAdv -= OnRewardError;
-
-            _isShowingReward = false;
-            _reverseButton.UIButton.interactable = true;
-        }
-
-        private void ActivateDistributionMode()
-        {
-            CurrentMode = ClickImpactMode.ModeDistribution;
-
-            ModeChanged?.Invoke(CurrentMode);
-        }
-
-        private void ActivateReverceMode()
-        {
-            CurrentMode = ClickImpactMode.ModeReverse;
-
-            ModeChanged?.Invoke(CurrentMode);
-
-            if (_reverseEventFired == false)
-            {
-                ReverseButtonActivating?.Invoke();
-
-                _reverseEventFired = true;
-            }
+            Guard.NotNull(_reverseButtonView, nameof(_reverseButtonView));
+            _reverseButtonView.SetReverseUsedState(_modeTracker.IsReverseUsed);
         }
     }
 }

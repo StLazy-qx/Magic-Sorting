@@ -2,7 +2,10 @@ using Assets.Source.Scripts.UI.GamePanel;
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.Vessels;
+using Assets.Source.Scripts.UI.GameModeView;
 using Assets.Source.Scripts.UI.Buttons;
+using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.Tutorial;
 using UnityEngine;
 using System;
@@ -19,36 +22,44 @@ namespace Assets.Source.Scripts.EntryPoint
         [SerializeField] private Panel _finalMatchPanelMobile;
         [SerializeField] private ReverseButton _reverseButtonDesktop;
         [SerializeField] private ReverseButton _reverseButtonMobile;
-        [SerializeField] private IconRewardedAdvertisement _rewardedButtonDesktop;
-        [SerializeField] private IconRewardedAdvertisement _rewardedButtonMobile;
+        [SerializeField] private IconRewardedAdvertisement _rewardedIconDesktop;
+        [SerializeField] private IconRewardedAdvertisement _rewardedIconMobile;
+        [SerializeField] private ReverseButtonView _reverseButtonViewDesktop;
+        [SerializeField] private ReverseButtonView _reverseButtonViewMobile;
+        [Header("Game Objects")]
+        [SerializeField] private MagicCell _magicCellDesktop;
+        [SerializeField] private MagicCell _magicCellMobile;
+        [SerializeField] private MagicCellsFactory _magicCellsFactory;
         [Header("Links")]
         [SerializeField] private VesselStateTracker _vesselsFulling;
         [SerializeField] private FinalGameSession _finalGameSession;
-        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickModeSwitcher;
         [SerializeField] private TutorialMatchHighlighter _seeker;
 
-        public void Initialize(/*LoadingWindow loadingWindow*/)
+        public void Initialize()
         {
             ValidateRequiredDependencies();
-            InitializeBase(/*loadingWindow*/);
+            InitializeBase();
         }
 
         protected override void OnMobileSelected()
         {
+            _magicCellsFactory.SetCellPrefab(_magicCellMobile);
             _mobileObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelMobile);
             _finalGameSession.ApplyPanel(_finalMatchPanelMobile);
-            _clickImpactHandler.SetButton(_reverseButtonMobile, _rewardedButtonMobile);
-            _seeker.SetButtonRewarded(_rewardedButtonMobile, _reverseButtonMobile);
+            _clickModeSwitcher.SetButton(_reverseButtonViewMobile);
+            _seeker.SetButtonRewarded(_rewardedIconMobile, _reverseButtonMobile);
         }
 
         protected override void OnDesktopSelected()
         {
+            _magicCellsFactory.SetCellPrefab(_magicCellDesktop);
             _desktopObjectsPosition.Initialize();
             _vesselsFulling.ApplyPanel(_finalMatchPanelDesktop);
             _finalGameSession.ApplyPanel(_finalMatchPanelDesktop);
-            _clickImpactHandler.SetButton(_reverseButtonDesktop, _rewardedButtonDesktop);
-            _seeker.SetButtonRewarded(_rewardedButtonDesktop, _reverseButtonDesktop);
+            _clickModeSwitcher.SetButton(_reverseButtonViewDesktop);
+            _seeker.SetButtonRewarded(_rewardedIconDesktop, _reverseButtonDesktop);
         }
 
         private void ValidateRequiredDependencies()

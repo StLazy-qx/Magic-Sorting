@@ -1,22 +1,37 @@
+using Assets.Source.Scripts.Extensions;
 using System;
 using YG;
 
 namespace Assets.Source.Scripts.Language
 {
-    public class LanguageSetter
+    public class LanguageSetter : IDisposable
     {
-        public event Action<string> OnLanguageChanged;
-
-        public string CurrentLanguage { get; private set; }
+        private bool _disposed;
 
         public LanguageSetter()
         {
             CurrentLanguage = YG2.lang;
+            YG2.onCorrectLang += OnHandleLang;
+        }
+
+        public event Action<string> OnLanguageChanged;
+
+        public string CurrentLanguage { get; private set; }
+
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+
+            YG2.onCorrectLang -= OnHandleLang;
+            _disposed = true;
+
+            GC.SuppressFinalize(this);
         }
 
         public void SetLanguage(string language)
         {
-            ValidateString(language);
+            Guard.NotNullOrWhiteSpace(language, nameof(language));
 
             if (CurrentLanguage == language)
                 return;
@@ -27,13 +42,11 @@ namespace Assets.Source.Scripts.Language
             OnLanguageChanged?.Invoke(language);
         }
 
-        private void ValidateString(string language)
+        private void OnHandleLang(string language)
         {
-            if (string.IsNullOrWhiteSpace(language))
-            {
-                throw new ArgumentException(
-                    "Language cannot be null, empty or whitespace.", nameof(language));
-            }
+            CurrentLanguage = language;
+
+            OnLanguageChanged?.Invoke(language);
         }
     }
 }

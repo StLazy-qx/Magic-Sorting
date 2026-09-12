@@ -15,6 +15,7 @@ namespace Assets.Source.Scripts.GameBehaviour
         {
             Guard.NotNull(_levelCounter, nameof(_levelCounter));
             Guard.NotNull(_iconView, nameof(_iconView));
+
             _iconView.gameObject.SetActive(false);
         }
 
@@ -30,8 +31,12 @@ namespace Assets.Source.Scripts.GameBehaviour
 
         private void OnShowIconReward(int value)
         {
-            if (value > FirstRoundNumber)
+            Guard.NotNull(value, nameof(value));
+
+            if (_levelCounter.RoundNumber > FirstRoundNumber)
+            {
                 _iconView.gameObject.SetActive(true);
+            }
         }
     }
 }

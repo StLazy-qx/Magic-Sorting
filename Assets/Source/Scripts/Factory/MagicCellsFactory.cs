@@ -1,5 +1,6 @@
-using UnityEngine;
 using Assets.Source.Scripts.MagicCells;
+using Assets.Source.Scripts.Extensions;
+using UnityEngine;
 
 namespace Assets.Source.Scripts.Factory
 {
@@ -17,6 +18,13 @@ namespace Assets.Source.Scripts.Factory
             NotifyObjectsChanged();
 
             return cell;
+        }
+
+        public void SetCellPrefab(MagicCell cellPrefab)
+        {
+            Guard.NotNull(cellPrefab, nameof(cellPrefab));
+
+            Prefab = cellPrefab;
         }
 
         public float GetCellHeight()

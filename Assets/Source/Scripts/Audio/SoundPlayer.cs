@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Source.Scripts.Audio
@@ -13,34 +12,32 @@ namespace Assets.Source.Scripts.Audio
 
         public void PlayInteractSound()
         {
+            int beginIndex = 0;
+
             if (_audioSource == null)
             {
                 throw new ArgumentNullException
                     (nameof(_audioSource), "AudioSource cannot be null");
             }
 
-            if (_interactClips.Length == 0 || _interactClips == null)
+            if (_interactClips == null || _interactClips.Length == 0)
                 return;
 
             if (_isPlaying)
                 return;
 
-            int beginIndex = 0;
             int randomIndex = UnityEngine.Random.Range(beginIndex, _interactClips.Length);
             AudioClip clip = _interactClips[randomIndex];
 
-            StartCoroutine(PlaySoundRoutine(clip));
-        }
-
-        private IEnumerator PlaySoundRoutine(AudioClip clip)
-        {
-            _isPlaying = true;
-
+            SetRandomPitch();
             _audioSource.PlayOneShot(clip);
 
-            yield return new WaitForSeconds(clip.length);
+            _audioSource.pitch = 1f;
+        }
 
-            _isPlaying = false;
+        private void SetRandomPitch()
+        {
+            _audioSource.pitch = UnityEngine.Random.Range(0.4f, 0.7f);
         }
     }
 }

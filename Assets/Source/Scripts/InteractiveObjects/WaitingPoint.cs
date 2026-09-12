@@ -13,7 +13,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
         [SerializeField] private int _seatsNumber;
         [SerializeField] private Transform _storagePoint;
         [SerializeField] private MagicCellRouter _cellRouter;
-        [SerializeField] private ClickModeSwitcher _clickImpactHandler;
+        [SerializeField] private ClickModeSwitcher _clickModeSwitcher;
         [SerializeField] private DelayDispatcher _delayDispatcher;
 
         private MagicCell _waitingCell;
@@ -71,7 +71,7 @@ namespace Assets.Source.Scripts.InteractiveObjects
 
         private void OnCellClicked()
         {
-            if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
+            if (_clickModeSwitcher.CurrentMode == ClickImpactMode.ModeDistribution)
             {
                 MagicCell waitCell = _waitingCell;
 

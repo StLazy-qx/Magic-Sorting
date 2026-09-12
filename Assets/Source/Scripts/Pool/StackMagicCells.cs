@@ -1,6 +1,7 @@
 using Assets.Source.Scripts.ActionsHandlers;
 using Assets.Source.Scripts.Colorize;
 using Assets.Source.Scripts.Enums;
+using Assets.Source.Scripts.Extensions;
 using Assets.Source.Scripts.Factory;
 using Assets.Source.Scripts.GameBehaviour;
 using Assets.Source.Scripts.InteractiveObjects;
@@ -44,7 +45,6 @@ namespace Assets.Source.Scripts.Pool
         {
             ValidateArguments(factory, cellRouter, colorSource, clickHandler, parent);
             ValidateValues(maxVolumeCells, prefabHeight);
-
             ClearStack();
 
             _factory = factory;
@@ -117,12 +117,13 @@ namespace Assets.Source.Scripts.Pool
 
         public MagicCell GetUpperCell()
         {
-            //if (_cellsStack.TryPeek(out MagicCell cell))
-            //    return cell;
+            return _cellsStack.TryPeek(out MagicCell cell) ? 
+                cell : null;
+        }
 
-            //return null;
-
-            return _cellsStack.TryPeek(out MagicCell cell) ? cell : null;
+        public bool CanReverseColumn()
+        {
+            return HasMoreOneCell() && AreDifferentColor();
         }
 
         private void OnGamePause(bool isPaused)
@@ -165,39 +166,37 @@ namespace Assets.Source.Scripts.Pool
                 _cellRouter.DeliverMagicCell(cell);
                 cell.Disable();
             }
-            else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
+            else if (
+                _clickImpactHandler.CurrentMode == 
+                ClickImpactMode.ModeReverse && 
+                CanReverseColumn())
             {
                 _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
 
                 _clickImpactHandler.Reverse();
                 _clickImpactHandler.OnToggleMode();
             }
+        }
 
-            //if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeDistribution)
-            //{
-            //    if (_cellsStack.Count == 0)
-            //        return;
+        private bool HasMoreOneCell()
+        {
+            return _cellsStack.Count > 1;
+        }
 
-            //    if (_cellsStack.TryPop(out MagicCell cell) == false)
-            //        return;
+        private bool AreDifferentColor()
+        {
+            if (_cellsStack.Count == 0)
+                return false;
 
-            //    if (_cellRouter.IsCheckCellColor(cell.Color) == false)
-            //    {
-            //        _cellsStack.Push(cell);
+            Color topColor = _cellsStack.Peek().Color;
 
-            //        return;
-            //    }
+            foreach (MagicCell cell in _cellsStack)
+            {
+                if (cell.Color != topColor)
+                    return true;
+            }
 
-            //    _cellRouter.DeliverMagicCell(cell);
-            //    cell.Disable();
-            //}
-            //else if (_clickImpactHandler.CurrentMode == ClickImpactMode.ModeReverse)
-            //{
-            //    _cellsStack = _columnRevercer.ReverseStack(_cellsStack.ToArray());
-
-            //    _clickImpactHandler.Reverse();
-            //    _clickImpactHandler.OnToggleMode();
-            //}
+            return false;
         }
 
         private void ValidateArguments(
